@@ -13,9 +13,34 @@ color:
   secondary-dark: 000
 
 # Team names, titles and social links
+
+people:
+- name: Github Octocat
+  pic: 1
+  position: Lead Designer
+  social:
+    - title: twitter
+      url: #
+    - title: facebook
+      url: #
+    - title: stack-overflow
+      url: #
+      
+people:
+- name: Github Octocat
+  pic: 1
+  position: Lead Designer
+  social:
+    - title: twitter
+      url: #
+    - title: facebook
+      url: #
+    - title: stack-overflow
+      url: #
+
 people:
 - name: Kay Garland
-  pic: 1
+  pic: octocat
   position: Lead Designer
   social:
     - title: twitter
