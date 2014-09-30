@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: default2
 title: Blog1
 category: blog4
 ---
@@ -14,3 +14,12 @@ category: blog4
 	</div>
   {% endif %}
 {% endfor %}
+
+
+<ul class="something">
+{% for post in site.posts %} 
+  <li class="something">
+    <a rel="something" class="something" href="img/{{ image }}" />
+  </li>
+{% endfor %}
+</ul>
