@@ -22,6 +22,8 @@ const Grid = styled.section`
   align-items: center;
   min-height: 100vh;
   padding: ${theme.space.xl};
+  max-width: 960px;
+  margin: 0 auto;
 `
 
 const GridSec = styled(Grid)`
@@ -38,26 +40,30 @@ const CenterImage = styled.div`
   justify-content: center;
 `
 
+const Segment = styled.div``
+
 const IndexPage = () => (
   <Layout>
     <SEO title="Home" />
-    <Grid>
-      <GridItem>
-        <h1>
-          <strong>Hi,</strong> my name is Ott
-        </h1>
-        <p>I'm a developer/student</p>
-        <p>
-          This is something to collate all my thoughts and gather the
-          documentation I have lingering around
-        </p>
-      </GridItem>
-      <GridItem>
-        <CenterImage>
-          <StyledImage />
-        </CenterImage>
-      </GridItem>
-    </Grid>
+    <Segment>
+      <Grid>
+        <GridItem>
+          <h1>
+            <strong>Hi,</strong> my name is Ott
+          </h1>
+          <p>I'm a developer/student</p>
+          <p>
+            This is something to collate all my thoughts and gather the
+            documentation I have lingering around
+          </p>
+        </GridItem>
+        <GridItem>
+          <CenterImage>
+            <StyledImage />
+          </CenterImage>
+        </GridItem>
+      </Grid>
+    </Segment>
   </Layout>
 )
 
