@@ -10,6 +10,7 @@ import Illustration from "../components/Illustration"
 // @ts-ignore
 import GithubIcon from "../assets/github.svg"
 import { GitHub, Linkedin, Twitter } from "react-feather"
+import Gallery from "../components/Gallery/Gallery"
 
 const StyledImage = styled(Image)`
   border-radius: 8px;
@@ -107,14 +108,7 @@ const IndexPage = () => (
     </Segment>
 
     <Segment>
-      <AltGrid>
-        <GridItem>
-          <GitHub />
-        </GridItem>
-        <GridItem>
-          <Linkedin />
-        </GridItem>
-      </AltGrid>
+      <Gallery />
     </Segment>
   </Layout>
 )
