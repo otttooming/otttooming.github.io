@@ -9,6 +9,7 @@ import { GridItem, theme, Heading } from "@coterminous/ui"
 import Illustration from "../components/Illustration"
 // @ts-ignore
 import GithubIcon from "../assets/github.svg"
+import { GitHub, Linkedin, Twitter } from "react-feather"
 
 const StyledImage = styled(Image)`
   border-radius: 8px;
@@ -22,6 +23,16 @@ const Grid = styled.section`
   grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
   align-items: center;
   min-height: 100vh;
+  padding: ${theme.space.xl};
+  max-width: 960px;
+  margin: 0 auto;
+`
+
+const AltGrid = styled.section`
+  display: grid;
+  grid-gap: var(--space-l);
+  grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+  align-items: center;
   padding: ${theme.space.xl};
   max-width: 960px;
   margin: 0 auto;
@@ -55,6 +66,11 @@ const StyledSubHeading = styled.h2`
 
 const Segment = styled.div``
 
+const SocialLink = styled.a`
+  display: block;
+  margin-bottom: 4px;
+`
+
 const IndexPage = () => (
   <Layout>
     <SEO title="Home" />
@@ -71,6 +87,16 @@ const IndexPage = () => (
             This is something to collate all my thoughts and gather the
             documentation I have lingering around
           </p>
+
+          <SocialLink>
+            <GitHub /> github.com/otttooming
+          </SocialLink>
+          <SocialLink>
+            <Linkedin /> linkedin.com/in/otttooming
+          </SocialLink>
+          <SocialLink>
+            <Twitter /> twitter.com/otttooming
+          </SocialLink>
         </GridItem>
         <GridItem>
           <CenterImage>
@@ -78,6 +104,17 @@ const IndexPage = () => (
           </CenterImage>
         </GridItem>
       </Grid>
+    </Segment>
+
+    <Segment>
+      <AltGrid>
+        <GridItem>
+          <GitHub />
+        </GridItem>
+        <GridItem>
+          <Linkedin />
+        </GridItem>
+      </AltGrid>
     </Segment>
   </Layout>
 )
