@@ -5,8 +5,9 @@ import Layout from "../components/layout"
 import Image from "../components/image"
 import SEO from "../components/seo"
 import styled from "styled-components"
-import { GridItem, theme } from "@coterminous/ui"
+import { GridItem, theme, Heading } from "@coterminous/ui"
 import Illustration from "../components/Illustration"
+// @ts-ignore
 import GithubIcon from "../assets/github.svg"
 
 const StyledImage = styled(Image)`
@@ -40,6 +41,18 @@ const CenterImage = styled.div`
   justify-content: center;
 `
 
+const StyledHeading = styled(props => {
+  console.log(props)
+  return <Heading {...props} />
+})`
+  font-weight: ${theme.fontWeight.normal};
+`
+
+const StyledSubHeading = styled.h2`
+  font-weight: ${theme.fontWeight.normal};
+  margin: 0;
+`
+
 const Segment = styled.div``
 
 const IndexPage = () => (
@@ -48,10 +61,12 @@ const IndexPage = () => (
     <Segment>
       <Grid>
         <GridItem>
-          <h1>
-            <strong>Hi,</strong> my name is Ott
-          </h1>
-          <p>I'm a developer/student</p>
+          <StyledHeading>
+            Hi, I am <strong>Ott</strong>
+          </StyledHeading>
+          <StyledSubHeading>
+            Front-end developer/<strong>student</strong>
+          </StyledSubHeading>
           <p>
             This is something to collate all my thoughts and gather the
             documentation I have lingering around
