@@ -1,0 +1,11 @@
+<svg width="296" height="384" viewBox="0 0 296 384" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <clipPath
+    id="statscard"
+    x="0"
+    y="0"
+    clipPathUnits="objectBoundingBox"
+    transform="scale(0.003378378378, 0.002604166667)"
+  >
+    <path fill="#fff" d="M103.581 0c8.608 0 16.557 4.61015 20.831 12.0819l168.42 294.3801c2.076 3.629 3.168 7.737 3.168 11.918V360c0 13.255-10.745 24-24 24H24c-13.2548 0-24-10.745-24-24V24C0 10.7452 10.7452 0 24 0h79.581z"/>
+  </clipPath>
+</svg>
