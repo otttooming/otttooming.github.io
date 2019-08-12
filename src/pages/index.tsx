@@ -36,7 +36,7 @@ const AltGrid = styled.section`
   grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
   align-items: center;
   padding: ${theme.space.xl};
-  max-width: 960px;
+  max-width: 1280px;
   margin: 0 auto;
 `
 
@@ -71,6 +71,13 @@ const Segment = styled.div``
 const SocialLink = styled.a`
   display: block;
   margin-bottom: 4px;
+`
+
+const SmallType = styled.p`
+  margin: 0 0 8px;
+  text-transform: uppercase;
+  color: #243343;
+  font-size: 14px;
 `
 
 const IndexPage = () => (
@@ -112,7 +119,17 @@ const IndexPage = () => (
       <Gallery />
     </Segment>
     <Segment>
-      <HexGrid />
+      <AltGrid>
+        <GridItem>
+          <HexGrid />
+        </GridItem>
+        <GridItem>
+          <SmallType>Experience</SmallType>
+          <StyledSubHeading>
+            <strong>Tech stack</strong> that I currently use
+          </StyledSubHeading>
+        </GridItem>
+      </AltGrid>
     </Segment>
   </Layout>
 )
