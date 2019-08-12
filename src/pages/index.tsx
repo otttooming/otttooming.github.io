@@ -11,6 +11,7 @@ import Illustration from "../components/Illustration"
 import GithubIcon from "../assets/github.svg"
 import { GitHub, Linkedin, Twitter } from "react-feather"
 import Gallery from "../components/Gallery/Gallery"
+import HexGrid from "../components/HexGrid/HexGrid"
 
 const StyledImage = styled(Image)`
   border-radius: 8px;
@@ -109,6 +110,9 @@ const IndexPage = () => (
 
     <Segment>
       <Gallery />
+    </Segment>
+    <Segment>
+      <HexGrid />
     </Segment>
   </Layout>
 )
