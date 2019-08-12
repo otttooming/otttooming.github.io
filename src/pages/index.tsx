@@ -128,6 +128,10 @@ const IndexPage = () => (
           <StyledSubHeading>
             <strong>Tech stack</strong> that I currently use
           </StyledSubHeading>
+          <p>
+            Passionate about TypeScript, React, NodeJS, GraphQL and statically
+            typed languages in general.
+          </p>
         </GridItem>
       </AltGrid>
     </Segment>
