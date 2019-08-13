@@ -33,6 +33,7 @@
     "@types/react-helmet": "^5.0.9",
     "@types/styled-components": "^4.1.18",
     "@types/styled-system": "^5.0.1",
+    "gh-pages": "^2.1.1",
     "prettier": "^1.18.2"
   },
   "keywords": [
@@ -42,6 +43,7 @@
   "scripts": {
     "build": "gatsby build",
     "develop": "gatsby develop",
+    "deploy": "npm run build && gh-pages -d public",
     "format": "prettier --write \"**/*.{js,jsx,json,md}\"",
     "start": "npm run develop",
     "serve": "gatsby serve",
