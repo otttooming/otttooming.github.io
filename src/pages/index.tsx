@@ -12,6 +12,7 @@ import GithubIcon from "../assets/github.svg"
 import { GitHub, Linkedin, Twitter } from "react-feather"
 import Gallery from "../components/Gallery/Gallery"
 import HexGrid from "../components/HexGrid/HexGrid"
+import Coop from "../components/Coop/Coop"
 
 const StyledImage = styled(Image)`
   border-radius: 8px;
@@ -38,6 +39,11 @@ const AltGrid = styled.section`
   padding: ${theme.space.xl};
   max-width: 1280px;
   margin: 0 auto;
+`
+
+const PlainGrid = styled.section`
+  max-width: 960px;
+  margin: var(--space-xl) auto;
 `
 
 const GridSec = styled(Grid)`
@@ -78,6 +84,10 @@ const SmallType = styled.p`
   text-transform: uppercase;
   color: #243343;
   font-size: 14px;
+`
+
+const Center = styled.div`
+  text-align: center;
 `
 
 const IndexPage = () => (
@@ -134,6 +144,19 @@ const IndexPage = () => (
           </p>
         </GridItem>
       </AltGrid>
+    </Segment>
+
+    <Segment>
+      <PlainGrid>
+        <Center>
+          <SmallType>Industry</SmallType>
+          <StyledSubHeading>
+            Some <strong>amazing companies </strong> I've worked with
+          </StyledSubHeading>
+        </Center>
+
+        <Coop />
+      </PlainGrid>
     </Segment>
   </Layout>
 )
