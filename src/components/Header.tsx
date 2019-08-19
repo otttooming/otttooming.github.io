@@ -12,9 +12,11 @@ const Wrapper = styled.header`
   margin: 0 auto;
   padding: ${theme.space.l};
 `
-const Home = styled.div`
+const Home = styled(GatsbyLink)`
   display: flex;
   align-self: center;
+  color: inherit;
+  text-decoration: none;
 `
 
 const Heading = styled.h1`
@@ -39,7 +41,7 @@ const Link = styled(GatsbyLink)`
 
 const Header = ({ siteTitle }) => (
   <Wrapper>
-    <Home>
+    <Home to="/">
       <Wind />
       <Heading>OTTO</Heading>
     </Home>
