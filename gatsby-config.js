@@ -22,7 +22,24 @@ module.exports = {
         name: `projects`,
       },
     },
-    `gatsby-plugin-mdx`,
+    {
+      resolve: "gatsby-plugin-mdx",
+      options: {
+        root: __dirname,
+        gatsbyRemarkPlugins: [
+          // set up config for embedded images in mdx files
+          {
+            resolve: "gatsby-remark-images",
+            options: {
+              maxWidth: 500,
+              quality: 100,
+              linkImagesToOriginal: false,
+              withWebp: true,
+            },
+          },
+        ],
+      },
+    },
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
     {
