@@ -4,6 +4,7 @@ import Layout from "../components/layout"
 import { Card } from "@coterminous/ui"
 import styled from "styled-components"
 import Img from "gatsby-image"
+import Logo from "../components/Logo/Logo"
 
 const Wrapper = styled.ul`
   margin: 80px auto;
@@ -34,6 +35,8 @@ const Projects = ({ data }) => {
                 <Card content={<Img fluid={featuredImgFluid} />}></Card>
               </div>
               <div>
+                <Logo name={post.frontmatter.company} />
+
                 <Link to={post.fields.slug}>
                   <h2>{post.frontmatter.title}</h2>
                 </Link>
@@ -55,6 +58,9 @@ export const pageQuery = graphql`
           excerpt
           frontmatter {
             title
+            company
+            git
+            link
             featuredImage {
               childImageSharp {
                 fluid(maxWidth: 800) {
