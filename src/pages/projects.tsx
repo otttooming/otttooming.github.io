@@ -2,8 +2,8 @@ import * as React from "react"
 import { Link, graphql } from "gatsby"
 import Layout from "../components/layout"
 import { Card } from "@coterminous/ui"
-import GalleryImage from "../components/Gallery/GalleryImage"
 import styled from "styled-components"
+import Img from "gatsby-image"
 
 const Wrapper = styled.ul`
   display: grid;
@@ -19,19 +19,25 @@ const Item = styled.li`
 
 const Projects = ({ data }) => {
   const { edges: posts } = data.allMdx
+
   return (
     <Layout>
       <Wrapper>
-        {posts.map(({ node: post }) => (
-          <Item key={post.id}>
-            <Card content={<GalleryImage />}>
-              <Link to={post.fields.slug}>
-                <h2>{post.frontmatter.title}</h2>
-              </Link>
-              <p>{post.excerpt}</p>
-            </Card>
-          </Item>
-        ))}
+        {posts.map(({ node: post }) => {
+          const featuredImgFluid =
+            post.frontmatter.featuredImage.childImageSharp.fluid
+
+          return (
+            <Item key={post.id}>
+              <Card content={<Img fluid={featuredImgFluid} />}>
+                <Link to={post.fields.slug}>
+                  <h2>{post.frontmatter.title}</h2>
+                </Link>
+                <p>{post.excerpt}</p>
+              </Card>
+            </Item>
+          )
+        })}
       </Wrapper>
     </Layout>
   )
@@ -45,6 +51,13 @@ export const pageQuery = graphql`
           excerpt
           frontmatter {
             title
+            featuredImage {
+              childImageSharp {
+                fluid(maxWidth: 800) {
+                  ...GatsbyImageSharpFluid
+                }
+              }
+            }
           }
           fields {
             slug
