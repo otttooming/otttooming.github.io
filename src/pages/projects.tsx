@@ -6,14 +6,15 @@ import styled from "styled-components"
 import Img from "gatsby-image"
 
 const Wrapper = styled.ul`
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(256px, 1fr));
   margin: 80px auto;
   padding: 0;
   max-width: 960px;
 `
 
 const Item = styled.li`
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(256px, 1fr));
+  grid-gap: 32px;
   list-style: none;
 `
 
@@ -29,12 +30,15 @@ const Projects = ({ data }) => {
 
           return (
             <Item key={post.id}>
-              <Card content={<Img fluid={featuredImgFluid} />}>
+              <div>
+                <Card content={<Img fluid={featuredImgFluid} />}></Card>
+              </div>
+              <div>
                 <Link to={post.fields.slug}>
                   <h2>{post.frontmatter.title}</h2>
                 </Link>
                 <p>{post.excerpt}</p>
-              </Card>
+              </div>
             </Item>
           )
         })}
