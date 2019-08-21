@@ -27,7 +27,7 @@ const Item = styled.div`
     transition: transform 500ms;
     position: relative;
     z-index: 1;
-
+    color: #fff;
 
 
     ${({ type }) => (type === "iglu" ? "background: #1797d4;" : "")}
