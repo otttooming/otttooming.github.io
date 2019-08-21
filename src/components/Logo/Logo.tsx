@@ -11,9 +11,21 @@ export interface LogoProps {
 
 const Wrapper = styled.div``
 
+const Link = styled.a`
+  display: block;
+  text-decoration: none;
+  color: currentColor;
+  height: 16px;
+
+  > svg {
+    height: 100%;
+    max-width: 100%;
+  }
+`
+
 const Container = ({ children, link }) => (
   <Wrapper>
-    <a href={link}>{children}</a>
+    <Link href={link}>{children}</Link>
   </Wrapper>
 )
 
