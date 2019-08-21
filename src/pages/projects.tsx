@@ -1,7 +1,7 @@
 import * as React from "react"
 import { Link, graphql } from "gatsby"
 import Layout from "../components/layout"
-import { Card } from "@coterminous/ui"
+import { Card, Heading, theme } from "@coterminous/ui"
 import styled from "styled-components"
 import Img from "gatsby-image"
 import Logo from "../components/Logo/Logo"
@@ -17,6 +17,15 @@ const Item = styled.li`
   grid-template-columns: repeat(auto-fit, minmax(256px, 1fr));
   grid-gap: 32px;
   list-style: none;
+`
+
+const StyledHeading = styled(Heading)`
+  font-weight: ${theme.fontWeight.normal};
+`
+
+const StyledLink = styled(Link)`
+  text-decoration: none;
+  color: inherit;
 `
 
 const Projects = ({ data }) => {
@@ -37,9 +46,12 @@ const Projects = ({ data }) => {
               <div>
                 <Logo name={post.frontmatter.company} />
 
-                <Link to={post.fields.slug}>
-                  <h2>{post.frontmatter.title}</h2>
-                </Link>
+                <StyledHeading>
+                  <StyledLink to={post.fields.slug}>
+                    {post.frontmatter.title}
+                  </StyledLink>
+                </StyledHeading>
+
                 <p>{post.excerpt}</p>
               </div>
             </Item>
