@@ -46,9 +46,10 @@ const Projects = ({ data }) => {
               <div>
                 <Logo name={post.frontmatter.company} />
 
-                <StyledHeading>
+                <StyledHeading mt={theme.space.s}>
                   <StyledLink to={post.fields.slug}>
-                    {post.frontmatter.title}
+                    <strong>{post.frontmatter.title}</strong>{" "}
+                    {post.frontmatter.kind}
                   </StyledLink>
                 </StyledHeading>
 
