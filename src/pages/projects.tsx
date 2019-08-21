@@ -17,6 +17,7 @@ const Item = styled.li`
   grid-template-columns: repeat(auto-fit, minmax(256px, 1fr));
   grid-gap: 32px;
   list-style: none;
+  margin-bottom: ${theme.space.xl};
 `
 
 const StyledHeading = styled(Heading)`
@@ -26,6 +27,10 @@ const StyledHeading = styled(Heading)`
 const StyledLink = styled(Link)`
   text-decoration: none;
   color: inherit;
+`
+
+const StyledCard = styled(Card)`
+  max-height: 320px;
 `
 
 const Projects = ({ data }) => {
@@ -40,9 +45,9 @@ const Projects = ({ data }) => {
 
           return (
             <Item key={post.id}>
-              <div>
+              <StyledCard>
                 <Card content={<Img fluid={featuredImgFluid} />}></Card>
-              </div>
+              </StyledCard>
               <div>
                 <Logo name={post.frontmatter.company} />
 
@@ -74,6 +79,7 @@ export const pageQuery = graphql`
             company
             git
             link
+            kind
             featuredImage {
               childImageSharp {
                 fluid(maxWidth: 800) {
