@@ -17,23 +17,39 @@ const Link = styled.a`
   color: currentColor;
   height: 16px;
 
+  ${({ type }) => (type === "iglu" ? "height: 32px;" : "")}
+
   > svg {
     height: 100%;
     max-width: 100%;
   }
 `
 
-const Container = ({ children, link }) => (
+const Container: React.FC<{ link: string; type: string }> = ({
+  children,
+  link,
+  type,
+}) => (
   <Wrapper>
-    <Link href={link}>{children}</Link>
+    <Link type={type} href={link}>
+      {children}
+    </Link>
   </Wrapper>
 )
 
 const Logo: React.FC<LogoProps> = ({ name }) => {
   if (name === "voog") {
     return (
-      <Container link="https://www.voog.com">
+      <Container link="https://www.voog.com" type={name}>
         <Voog />
+      </Container>
+    )
+  }
+
+  if (name === "iglu") {
+    return (
+      <Container link="https://iglu.ee" type={name}>
+        <Iglu />
       </Container>
     )
   }
