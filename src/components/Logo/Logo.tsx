@@ -54,6 +54,14 @@ const Logo: React.FC<LogoProps> = ({ name }) => {
     )
   }
 
+  if (name === "gtap") {
+    return (
+      <Container link="https://play.ee" type={name}>
+        <Gtap />
+      </Container>
+    )
+  }
+
   return <div>Logo</div>
 }
 
