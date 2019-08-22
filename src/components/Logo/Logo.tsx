@@ -62,6 +62,14 @@ const Logo: React.FC<LogoProps> = ({ name }) => {
     )
   }
 
+  if (name === "pipedrive") {
+    return (
+      <Container link="https://www.pipedrive.com/" type={name}>
+        <Pipedrive />
+      </Container>
+    )
+  }
+
   return <div>Logo</div>
 }
 
