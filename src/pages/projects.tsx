@@ -17,7 +17,12 @@ const Item = styled.li`
   grid-template-columns: repeat(auto-fit, minmax(256px, 1fr));
   grid-gap: 32px;
   list-style: none;
-  margin-bottom: ${theme.space.xl};
+  margin-bottom: 256px;
+  align-items: center;
+
+  &:nth-child(even) {
+    direction: rtl;
+  }
 `
 
 const StyledHeading = styled(Heading)`
