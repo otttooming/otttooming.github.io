@@ -34,9 +34,7 @@ const StyledLink = styled(Link)`
   color: inherit;
 `
 
-const StyledCard = styled(Card)`
-  max-height: 320px;
-`
+const StyledCard = styled(Card)``
 
 const Projects = ({ data }) => {
   const { edges: posts } = data.allMdx
