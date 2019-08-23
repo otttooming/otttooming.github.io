@@ -3,6 +3,7 @@ import Pipedrive from "../../assets/logo-pipedrive.svg"
 import Iglu from "../../assets/logo-iglu.svg"
 import Voog from "../../assets/logo-voog.svg"
 import Gtap from "../../assets/logo-gtap.svg"
+import Pethealth from "../../assets/logo-pethealth.svg"
 import styled from "styled-components"
 
 export interface LogoProps {
@@ -18,6 +19,7 @@ const Link = styled.a`
   height: 16px;
 
   ${({ type }) => (type === "iglu" ? "height: 32px;" : "")}
+  ${({ type }) => (type === "pethealth" ? "height: 32px;" : "")}
 
   > svg {
     height: 100%;
@@ -66,6 +68,14 @@ const Logo: React.FC<LogoProps> = ({ name }) => {
     return (
       <Container link="https://www.pipedrive.com/" type={name}>
         <Pipedrive />
+      </Container>
+    )
+  }
+
+  if (name === "pethealth") {
+    return (
+      <Container link="https://www.pipedrive.com/" type={name}>
+        <Pethealth />
       </Container>
     )
   }
