@@ -1,7 +1,7 @@
 import * as React from "react"
 import { Link, graphql } from "gatsby"
 import Layout from "../components/layout"
-import { Card, Heading, theme } from "@coterminous/ui"
+import { Heading, theme } from "@coterminous/ui"
 import styled from "styled-components"
 import Img from "gatsby-image"
 import Logo from "../components/Logo/Logo"
@@ -34,8 +34,6 @@ const StyledLink = styled(Link)`
   color: inherit;
 `
 
-const StyledCard = styled(Card)``
-
 const Projects = ({ data }) => {
   const { edges: posts } = data.allMdx
 
@@ -48,9 +46,7 @@ const Projects = ({ data }) => {
 
           return (
             <Item key={post.id}>
-              <StyledCard>
-                <Card content={<Img fluid={featuredImgFluid} />}></Card>
-              </StyledCard>
+              <Img fluid={featuredImgFluid} />
               <div>
                 <Logo name={post.frontmatter.company} />
 
