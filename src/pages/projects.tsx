@@ -3,7 +3,7 @@ import { Link, graphql } from "gatsby"
 import Layout from "../components/layout"
 import { Heading, theme } from "@coterminous/ui"
 import styled from "styled-components"
-import Img from "gatsby-image"
+import GatsbyImage from "gatsby-image"
 import Logo from "../components/Logo/Logo"
 
 const Wrapper = styled.ul`
@@ -32,6 +32,10 @@ const StyledHeading = styled(Heading)`
 const StyledLink = styled(Link)`
   text-decoration: none;
   color: inherit;
+`
+
+const Img = styled(GatsbyImage)`
+  border-radius: ${theme.borderRadius.m};
 `
 
 const Projects = ({ data }) => {
