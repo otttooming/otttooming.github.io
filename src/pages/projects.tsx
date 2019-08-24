@@ -72,7 +72,7 @@ const Projects = ({ data }) => {
 }
 export const pageQuery = graphql`
   query projectIndex {
-    allMdx {
+    allMdx(sort: { fields: [frontmatter___date], order: DESC }) {
       edges {
         node {
           id
