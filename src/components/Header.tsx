@@ -1,8 +1,8 @@
 import * as React from "react"
 import styled from "styled-components"
-import { Wind } from "react-feather"
-import { theme } from "@coterminous/ui"
-import { Link as GatsbyLink } from "gatsby"
+import { Wind, BookOpen } from "react-feather"
+import { theme, Button } from "@coterminous/ui"
+import { Link as GatsbyLink, navigate } from "gatsby"
 
 const Wrapper = styled.header`
   display: flex;
@@ -31,12 +31,13 @@ const List = styled.ul`
 `
 
 const Item = styled.li`
+  display: flex;
+  align-self: center;
   list-style: none;
 `
 
-const Link = styled(GatsbyLink)`
-  color: inherit;
-  text-decoration: none;
+const StyledButton = styled(Button)`
+  background: transparent;
 `
 
 const Header = ({ siteTitle }) => (
@@ -48,7 +49,13 @@ const Header = ({ siteTitle }) => (
 
     <List>
       <Item>
-        <Link to="/projects">Projects</Link>
+        <StyledButton
+          icon={<BookOpen />}
+          variant="link"
+          onClick={() => navigate("/projects")}
+        >
+          Projects
+        </StyledButton>
       </Item>
     </List>
   </Wrapper>
