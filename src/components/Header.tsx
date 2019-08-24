@@ -2,7 +2,7 @@ import * as React from "react"
 import styled from "styled-components"
 import { Wind, BookOpen } from "react-feather"
 import { theme, Button } from "@coterminous/ui"
-import { Link as GatsbyLink, navigate } from "gatsby"
+import { navigate } from "gatsby"
 
 const Wrapper = styled.header`
   display: flex;
@@ -12,17 +12,9 @@ const Wrapper = styled.header`
   margin: 0 auto;
   padding: ${theme.space.l};
 `
-const Home = styled(GatsbyLink)`
-  display: flex;
-  align-self: center;
-  color: inherit;
-  text-decoration: none;
-`
-
-const Heading = styled.h1`
-  margin: 0;
+const Home = styled(Button)`
   font-size: 18px;
-  margin-left: 8px;
+  background: transparent;
 `
 
 const List = styled.ul`
@@ -42,9 +34,8 @@ const StyledButton = styled(Button)`
 
 const Header = ({ siteTitle }) => (
   <Wrapper>
-    <Home to="/">
-      <Wind />
-      <Heading>OTTO</Heading>
+    <Home icon={<Wind />} variant="link" onClick={() => navigate("/")}>
+      OTTO
     </Home>
 
     <List>
