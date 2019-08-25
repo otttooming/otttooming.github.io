@@ -1,14 +1,9 @@
 import * as React from "react"
-import { Link } from "gatsby"
-
 import Layout from "../components/layout"
 import Image from "../components/image"
 import SEO from "../components/seo"
 import styled from "styled-components"
 import { GridItem, theme, Heading, Button } from "@coterminous/ui"
-import Illustration from "../components/Illustration"
-// @ts-ignore
-import GithubIcon from "../assets/github.svg"
 import { GitHub, Linkedin, Twitter } from "react-feather"
 import Gallery from "../components/Gallery/Gallery"
 import HexGrid from "../components/HexGrid/HexGrid"
@@ -44,14 +39,6 @@ const AltGrid = styled.section`
 const PlainGrid = styled.section`
   max-width: 960px;
   margin: var(--space-xl) auto;
-`
-
-const GridSec = styled(Grid)`
-  min-height: 100%;
-`
-
-const IconWrapper = styled.div`
-  padding: 32px;
 `
 
 const CenterImage = styled.div`
