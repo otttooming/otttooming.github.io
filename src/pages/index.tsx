@@ -3,7 +3,7 @@ import Layout from "../components/layout"
 import Image from "../components/image"
 import SEO from "../components/seo"
 import styled from "styled-components"
-import { GridItem, theme, Heading, Button } from "@coterminous/ui"
+import { GridItem, theme, Heading, Button, Link } from "@coterminous/ui"
 import { GitHub, Linkedin, Twitter } from "react-feather"
 import Gallery from "../components/Gallery/Gallery"
 import HexGrid from "../components/HexGrid/HexGrid"
@@ -89,15 +89,27 @@ const IndexPage = () => (
             documentation I have lingering around
           </p>
 
-          <Button variant="link" icon={<GitHub />} mt={theme.space.s}>
+          <Link
+            href="https://github.com/otttooming"
+            icon={<GitHub />}
+            mt={theme.space.s}
+          >
             github.com/otttooming
-          </Button>
-          <Button variant="link" icon={<Linkedin />} mt={theme.space.s}>
+          </Link>
+          <Link
+            href="https://www.linkedin.com/in/otttooming/"
+            icon={<Linkedin />}
+            mt={theme.space.s}
+          >
             linkedin.com/in/otttooming
-          </Button>
-          <Button variant="link" icon={<Twitter />} mt={theme.space.s}>
+          </Link>
+          <Link
+            href="https://twitter.com/otttooming"
+            icon={<Twitter />}
+            mt={theme.space.s}
+          >
             twitter.com/otttooming
-          </Button>
+          </Link>
         </GridItem>
         <GridItem>
           <CenterImage>
