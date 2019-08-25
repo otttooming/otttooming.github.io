@@ -4,6 +4,8 @@ import { MDXProvider } from "@mdx-js/react"
 import { MDXRenderer } from "gatsby-plugin-mdx"
 import Layout from "../components/layout"
 import styled from "styled-components"
+import GatsbyImage from "gatsby-image"
+import { theme, Heading } from "@coterminous/ui"
 
 export interface PostProps {
   data: any
@@ -22,13 +24,31 @@ const Wrapper = styled.div`
   }
 `
 
+const Img = styled(GatsbyImage)`
+  max-width: 1024px;
+  margin: 0 auto;
+  border-radius: ${theme.borderRadius.m};
+`
+
+const StyledHeading = styled(Heading)`
+  font-weight: ${theme.fontWeight.normal};
+`
+
 const components = {}
 
 const Project: React.FC<PostProps> = ({ data: { mdx } }) => {
+  const featuredImgFluid = mdx.frontmatter.featuredImage.childImageSharp.fluid
+
   return (
     <Layout>
       <Wrapper>
-        <h1>{mdx.frontmatter.title}</h1>
+        <StyledHeading>
+          <strong>{mdx.frontmatter.title}</strong> {mdx.frontmatter.kind}
+        </StyledHeading>
+      </Wrapper>
+      <Img fluid={featuredImgFluid} />
+
+      <Wrapper>
         <MDXProvider components={components}>
           <MDXRenderer>{mdx.body}</MDXRenderer>
         </MDXProvider>
@@ -46,6 +66,17 @@ export const pageQuery = graphql`
       body
       frontmatter {
         title
+        company
+        git
+        link
+        kind
+        featuredImage {
+          childImageSharp {
+            fluid(maxWidth: 800) {
+              ...GatsbyImageSharpFluid
+            }
+          }
+        }
       }
     }
   }
