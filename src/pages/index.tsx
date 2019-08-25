@@ -5,7 +5,7 @@ import Layout from "../components/layout"
 import Image from "../components/image"
 import SEO from "../components/seo"
 import styled from "styled-components"
-import { GridItem, theme, Heading } from "@coterminous/ui"
+import { GridItem, theme, Heading, Button } from "@coterminous/ui"
 import Illustration from "../components/Illustration"
 // @ts-ignore
 import GithubIcon from "../assets/github.svg"
@@ -74,11 +74,6 @@ const StyledSubHeading = styled.h2`
 
 const Segment = styled.div``
 
-const SocialLink = styled.a`
-  display: block;
-  margin-bottom: 4px;
-`
-
 const SmallType = styled.p`
   margin: 0 0 8px;
   text-transform: uppercase;
@@ -107,15 +102,15 @@ const IndexPage = () => (
             documentation I have lingering around
           </p>
 
-          <SocialLink>
-            <GitHub /> github.com/otttooming
-          </SocialLink>
-          <SocialLink>
-            <Linkedin /> linkedin.com/in/otttooming
-          </SocialLink>
-          <SocialLink>
-            <Twitter /> twitter.com/otttooming
-          </SocialLink>
+          <Button variant="link" icon={<GitHub />} mt={theme.space.s}>
+            github.com/otttooming
+          </Button>
+          <Button variant="link" icon={<Linkedin />} mt={theme.space.s}>
+            linkedin.com/in/otttooming
+          </Button>
+          <Button variant="link" icon={<Twitter />} mt={theme.space.s}>
+            twitter.com/otttooming
+          </Button>
         </GridItem>
         <GridItem>
           <CenterImage>
