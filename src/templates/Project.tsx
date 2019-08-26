@@ -6,6 +6,7 @@ import Layout from "../components/layout"
 import styled from "styled-components"
 import GatsbyImage from "gatsby-image"
 import { theme, Heading } from "@coterminous/ui"
+import TechStack from "../components/TechStack/TechStack"
 
 export interface PostProps {
   data: any
@@ -45,6 +46,7 @@ const Project: React.FC<PostProps> = ({ data: { mdx } }) => {
         <StyledHeading>
           <strong>{mdx.frontmatter.title}</strong> {mdx.frontmatter.kind}
         </StyledHeading>
+        <TechStack items={mdx.frontmatter.tech} />
       </Wrapper>
       <Img fluid={featuredImgFluid} />
 
@@ -70,6 +72,7 @@ export const pageQuery = graphql`
         git
         link
         kind
+        tech
         featuredImage {
           childImageSharp {
             fluid(maxWidth: 800) {
