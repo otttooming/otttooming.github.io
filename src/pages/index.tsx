@@ -21,7 +21,6 @@ const Grid = styled.section`
   grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
   align-items: center;
   min-height: 100vh;
-  padding: ${theme.space.xl};
   max-width: 960px;
   margin: 0 auto;
 `
