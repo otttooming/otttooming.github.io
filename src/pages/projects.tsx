@@ -38,6 +38,14 @@ const Img = styled(GatsbyImage)`
   border-radius: ${theme.borderRadius.m};
 `
 
+const Description = styled.div`
+  margin-top: ${theme.space.l};
+`
+
+const Text = styled.p`
+  margin: 0;
+`
+
 /**
  * Only return posts when Gatsby has run static site query
  */
@@ -55,6 +63,22 @@ const Projects = ({ data }) => {
 
   return (
     <Layout>
+      <Wrapper as="div">
+        <StyledHeading mt={theme.space.s}>
+          <strong>Some projects</strong> I have been involved in
+        </StyledHeading>
+
+        <Description>
+          <Text>
+            All of the projects have been a team collaboration and effort.
+          </Text>
+          <Text>
+            I have been thoroughly fortunate to have been given the opportunity
+            to work with some amazing people.
+          </Text>
+        </Description>
+      </Wrapper>
+
       <Wrapper>
         {posts.map(({ node: post }) => {
           const featuredImgFluid =
