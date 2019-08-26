@@ -1,9 +1,9 @@
 {
-  "name": "gatsby-starter-default",
+  "name": "otttooming.github.io",
   "private": true,
-  "description": "A simple starter to get up and developing quickly with Gatsby",
+  "description": "Personal portfolio",
   "version": "0.1.0",
-  "author": "Kyle Mathews <mathews.kyle@gmail.com>",
+  "author": "Ott Tooming <otttooming@gmail.com>",
   "dependencies": {
     "@coterminous/ui": "github:otttooming/coterminous-ui#e71874e",
     "@mdx-js/mdx": "^1.4.0",
@@ -43,7 +43,9 @@
     "prettier": "^1.18.2"
   },
   "keywords": [
-    "gatsby"
+    "gatsby",
+    "react",
+    "typescript"
   ],
   "license": "MIT",
   "scripts": {
