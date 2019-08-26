@@ -38,8 +38,20 @@ const Img = styled(GatsbyImage)`
   border-radius: ${theme.borderRadius.m};
 `
 
-const Projects = ({ data }) => {
+/**
+ * Only return posts when Gatsby has run static site query
+ */
+const getPosts = data => {
+  if (!data.allMdx) {
+    return []
+  }
   const { edges: posts } = data.allMdx
+
+  return posts
+}
+
+const Projects = ({ data }) => {
+  const posts = getPosts(data)
 
   return (
     <Layout>
