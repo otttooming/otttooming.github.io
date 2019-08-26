@@ -120,6 +120,13 @@ const IndexPage = () => (
     </Segment>
 
     <Segment>
+      <PlainGrid>
+        <SmallType>Passions</SmallType>
+        <StyledSubHeading>
+          <strong>Animal welfare</strong> and my 4 cats specifically
+        </StyledSubHeading>
+      </PlainGrid>
+
       <Gallery />
     </Segment>
     <Segment>
