@@ -48,7 +48,7 @@
   "license": "MIT",
   "scripts": {
     "build": "npm run clean && gatsby build",
-    "clean": "rm -rf public",
+    "clean": "gatsby clean",
     "develop": "gatsby develop",
     "deploy": "npm run build && gh-pages -d public -b master",
     "format": "prettier --write \"**/*.{js,jsx,json,md}\"",
