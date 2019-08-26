@@ -72,6 +72,10 @@ const Center = styled.div`
   text-align: center;
 `
 
+const Text = styled.p`
+  margin: 0;
+`
+
 const IndexPage = () => (
   <Layout>
     <SEO title="Home" />
@@ -89,27 +93,33 @@ const IndexPage = () => (
             documentation I have lingering around
           </p>
 
-          <Link
-            href="https://github.com/otttooming"
-            icon={<GitHub />}
-            mt={theme.space.s}
-          >
-            github.com/otttooming
-          </Link>
-          <Link
-            href="https://www.linkedin.com/in/otttooming/"
-            icon={<Linkedin />}
-            mt={theme.space.s}
-          >
-            linkedin.com/in/otttooming
-          </Link>
-          <Link
-            href="https://twitter.com/otttooming"
-            icon={<Twitter />}
-            mt={theme.space.s}
-          >
-            twitter.com/otttooming
-          </Link>
+          <Text>
+            <Link
+              href="https://github.com/otttooming"
+              icon={<GitHub />}
+              mt={theme.space.s}
+            >
+              github.com/otttooming
+            </Link>
+          </Text>
+          <Text>
+            <Link
+              href="https://www.linkedin.com/in/otttooming/"
+              icon={<Linkedin />}
+              mt={theme.space.s}
+            >
+              linkedin.com/in/otttooming
+            </Link>
+          </Text>
+          <Text>
+            <Link
+              href="https://twitter.com/otttooming"
+              icon={<Twitter />}
+              mt={theme.space.s}
+            >
+              twitter.com/otttooming
+            </Link>
+          </Text>
         </GridItem>
         <GridItem>
           <CenterImage>
