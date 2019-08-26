@@ -12,7 +12,6 @@ import Coop from "../components/Coop/Coop"
 const StyledImage = styled(Image)`
   border-radius: 8px;
   width: 100%;
-  max-width: 300px;
 `
 
 const Grid = styled.section`
