@@ -14,6 +14,8 @@ exports.onCreateNode = ({ node, actions, getNode }) => {
   // `File` node here
   if (node.internal.type === "Mdx") {
     const value = createFilePath({ node, getNode })
+    const directory = node.fileAbsolutePath.split("/").reverse()[2]
+
     createNodeField({
       // Name of the field you are adding
       name: "slug",
@@ -22,7 +24,7 @@ exports.onCreateNode = ({ node, actions, getNode }) => {
       // Generated value based on filepath with "blog" prefix. We
       // don't need a separating "/" before the value because
       // createFilePath returns a path with the leading "/".
-      value: `/project${value}`,
+      value: `/${directory}${value}`,
     })
   }
 }
