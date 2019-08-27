@@ -23,6 +23,13 @@ module.exports = {
       },
     },
     {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        path: `${__dirname}/content/persons`,
+        name: `persons`,
+      },
+    },
+    {
       resolve: "gatsby-plugin-mdx",
       options: {
         root: __dirname,
