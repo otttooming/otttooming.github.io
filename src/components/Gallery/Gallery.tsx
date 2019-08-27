@@ -2,6 +2,7 @@ import * as React from "react"
 import styled from "styled-components"
 import GalleryImage from "./GalleryImage"
 import { theme } from "@coterminous/ui"
+import { useStaticQuery, graphql } from "gatsby"
 
 export interface GalleryProps {}
 
@@ -108,38 +109,40 @@ const ItemContainer = styled.div`
 `
 
 const Gallery: React.SFC<GalleryProps> = () => {
+  const data = useStaticQuery(graphql`
+    query {
+      images: allMdx(
+        filter: { fileAbsolutePath: { regex: "/persons/" } }
+        limit: 6
+      ) {
+        edges {
+          node {
+            frontmatter {
+              featuredImage {
+                childImageSharp {
+                  fluid(maxWidth: 300) {
+                    ...GatsbyImageSharpFluid
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  `)
+
   return (
     <Wrapper>
-      <Item>
-        <ItemContainer>
-          <GalleryImage />
-        </ItemContainer>
-      </Item>
-      <Item>
-        <ItemContainer>
-          <GalleryImage />
-        </ItemContainer>
-      </Item>
-      <Item>
-        <ItemContainer>
-          <GalleryImage />
-        </ItemContainer>
-      </Item>
-      <Item>
-        <ItemContainer>
-          <GalleryImage />
-        </ItemContainer>
-      </Item>
-      <Item>
-        <ItemContainer>
-          <GalleryImage />
-        </ItemContainer>
-      </Item>
-      <Item>
-        <ItemContainer>
-          <GalleryImage />
-        </ItemContainer>
-      </Item>
+      {data.images.edges.map(({ node: { frontmatter: { featuredImage } } }) => {
+        return (
+          <Item>
+            <ItemContainer>
+              <GalleryImage image={featuredImage} />
+            </ItemContainer>
+          </Item>
+        )
+      })}
     </Wrapper>
   )
 }
