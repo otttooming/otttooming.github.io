@@ -3,7 +3,7 @@ const path = require("path")
 module.exports = async function createProjects(graphql, reporter, createPage) {
   const result = await graphql(`
     query {
-      allMdx {
+      allMdx(filter: { fileAbsolutePath: { regex: "/projects/" } }) {
         edges {
           node {
             id
