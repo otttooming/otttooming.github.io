@@ -125,6 +125,13 @@ const Gallery: React.SFC<GalleryProps> = () => {
                   }
                 }
               }
+              gallery {
+                childImageSharp {
+                  fluid(maxWidth: 300) {
+                    ...GatsbyImageSharpFluid
+                  }
+                }
+              }
             }
           }
         }
@@ -132,13 +139,27 @@ const Gallery: React.SFC<GalleryProps> = () => {
     }
   `)
 
+  const gallery = data.images.edges.flatMap(
+    ({
+      node: {
+        frontmatter: { featuredImage, gallery },
+      },
+    }) => {
+      if (!Array.isArray(gallery)) {
+        return [featuredImage]
+      }
+
+      return [featuredImage, ...gallery]
+    }
+  )
+
   return (
     <Wrapper>
-      {data.images.edges.map(({ node: { frontmatter: { featuredImage } } }) => {
+      {gallery.map(image => {
         return (
           <Item>
             <ItemContainer>
-              <GalleryImage image={featuredImage} />
+              <GalleryImage image={image} />
             </ItemContainer>
           </Item>
         )
