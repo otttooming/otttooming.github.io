@@ -1,12 +1,18 @@
 const path = require("path")
 
+const templates = {
+  persons: path.resolve(`./src/templates/Project.tsx`),
+  projects: path.resolve(`./src/templates/Project.tsx`),
+}
+
 module.exports = async function createProjects(graphql, reporter, createPage) {
   const result = await graphql(`
     query {
-      allMdx(filter: { fileAbsolutePath: { regex: "/projects/" } }) {
+      allMdx {
         edges {
           node {
             id
+            fileAbsolutePath
             fields {
               slug
             }
@@ -22,12 +28,14 @@ module.exports = async function createProjects(graphql, reporter, createPage) {
   const posts = result.data.allMdx.edges
   // We'll call `createPage` for each result
   posts.forEach(({ node }, index) => {
+    const directory = node.fileAbsolutePath.split("/").reverse()[2]
+
     createPage({
       // This is the slug we created before
       // (or `node.frontmatter.slug`)
       path: node.fields.slug,
       // This component will wrap our MDX content
-      component: path.resolve(`./src/templates/Project.tsx`),
+      component: templates[directory],
       // We can use the values in this context in
       // our page layout component
       context: { id: node.id },
