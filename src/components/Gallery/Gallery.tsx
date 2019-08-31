@@ -153,6 +153,25 @@ const Gallery: React.SFC<GalleryProps> = () => {
     }
   )
 
+  const orientation = {
+    landscape: [],
+    portrait: [],
+  }
+
+  const orientGallery = gallery.reduce((acc, cur) => {
+    const {
+      childImageSharp: {
+        fluid: { aspectRatio },
+      },
+    } = cur
+
+    if (aspectRatio < 1) {
+      return { ...acc, portrait: [...acc.portrait, cur] }
+    }
+
+    return { ...acc, landscape: [...acc.landscape, cur] }
+  }, orientation)
+
   return (
     <Wrapper>
       {gallery.map(image => {
