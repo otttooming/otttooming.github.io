@@ -131,7 +131,7 @@ const IndexPage = () => (
       <PlainGrid>
         <SmallType>Passions</SmallType>
         <StyledSubHeading>
-          <strong>Animal welfare</strong> and my 4 cats specifically
+          <strong>Animal welfare</strong> and my cats and dogs specifically
         </StyledSubHeading>
       </PlainGrid>
 
