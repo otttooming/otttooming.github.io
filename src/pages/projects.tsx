@@ -5,6 +5,7 @@ import { Heading, theme } from "@coterminous/ui"
 import styled from "styled-components"
 import GatsbyImage from "gatsby-image"
 import Logo from "../components/Logo/Logo"
+import { textMap } from "../utils/textMap"
 
 const Wrapper = styled.ul`
   margin: 80px auto;
@@ -97,7 +98,7 @@ const Projects = ({ data }) => {
                 <StyledHeading mt={theme.space.s}>
                   <StyledLink to={post.fields.slug}>
                     <strong>{post.frontmatter.title}</strong>{" "}
-                    {post.frontmatter.kind}
+                    {textMap(post.frontmatter.kind)}
                   </StyledLink>
                 </StyledHeading>
 
