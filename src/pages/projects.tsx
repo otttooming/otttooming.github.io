@@ -25,6 +25,10 @@ const Item = styled.li`
   }
 `
 
+const Content = styled.div`
+  direction: ltr;
+`
+
 const StyledHeading = styled(Heading)`
   font-weight: ${theme.fontWeight.normal};
 `
@@ -87,7 +91,7 @@ const Projects = ({ data }) => {
           return (
             <Item key={post.id}>
               <Img fluid={featuredImgFluid} />
-              <div>
+              <Content>
                 <Logo name={post.frontmatter.company} />
 
                 <StyledHeading mt={theme.space.s}>
@@ -98,7 +102,7 @@ const Projects = ({ data }) => {
                 </StyledHeading>
 
                 <p>{post.excerpt}</p>
-              </div>
+              </Content>
             </Item>
           )
         })}
