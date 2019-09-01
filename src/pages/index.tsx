@@ -19,7 +19,7 @@ const Grid = styled.section`
   grid-gap: var(--space-l);
   grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
   align-items: center;
-  min-height: 100vh;
+  min-height: calc(100vh - 72px);
   max-width: 960px;
   margin: 0 auto;
 `
