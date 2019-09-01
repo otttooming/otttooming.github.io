@@ -13,6 +13,12 @@ const Wrapper = styled.ul`
   max-width: 960px;
 `
 
+const Container = styled.ul`
+  margin: 80px auto;
+  padding: 0;
+  max-width: 1080px;
+`
+
 const Item = styled.li`
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(256px, 1fr));
@@ -84,7 +90,7 @@ const Projects = ({ data }) => {
         </Description>
       </Wrapper>
 
-      <Wrapper>
+      <Container>
         {posts.map(({ node: post }) => {
           const featuredImgFluid =
             post.frontmatter.featuredImage.childImageSharp.fluid
@@ -107,7 +113,7 @@ const Projects = ({ data }) => {
             </Item>
           )
         })}
-      </Wrapper>
+      </Container>
     </Layout>
   )
 }
