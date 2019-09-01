@@ -120,7 +120,7 @@ export const pageQuery = graphql`
       edges {
         node {
           id
-          excerpt
+          excerpt(pruneLength: 72)
           frontmatter {
             title
             company
