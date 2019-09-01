@@ -139,46 +139,13 @@ const Gallery: React.SFC<GalleryProps> = () => {
     }
   `)
 
-  const gallery = data.images.edges.flatMap(
-    ({
-      node: {
-        frontmatter: { featuredImage, gallery },
-      },
-    }) => {
-      if (!Array.isArray(gallery)) {
-        return [featuredImage]
-      }
-
-      return [featuredImage, ...gallery]
-    }
-  )
-
-  const orientation = {
-    landscape: [],
-    portrait: [],
-  }
-
-  const orientGallery = gallery.reduce((acc, cur) => {
-    const {
-      childImageSharp: {
-        fluid: { aspectRatio },
-      },
-    } = cur
-
-    if (aspectRatio < 1) {
-      return { ...acc, portrait: [...acc.portrait, cur] }
-    }
-
-    return { ...acc, landscape: [...acc.landscape, cur] }
-  }, orientation)
-
   return (
     <Wrapper>
-      {gallery.map(image => {
+      {data.images.edges.map(({ node: { frontmatter: { featuredImage } } }) => {
         return (
           <Item>
             <ItemContainer>
-              <GalleryImage image={image} />
+              <GalleryImage image={featuredImage} />
             </ItemContainer>
           </Item>
         )
