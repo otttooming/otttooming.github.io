@@ -118,14 +118,8 @@ const Gallery: React.SFC<GalleryProps> = () => {
         edges {
           node {
             frontmatter {
+              slug
               featuredImage {
-                childImageSharp {
-                  fluid(maxWidth: 300) {
-                    ...GatsbyImageSharpFluid
-                  }
-                }
-              }
-              gallery {
                 childImageSharp {
                   fluid(maxWidth: 300) {
                     ...GatsbyImageSharpFluid
@@ -139,13 +133,55 @@ const Gallery: React.SFC<GalleryProps> = () => {
     }
   `)
 
+  const gridMap = {
+    bella: {
+      type: "landscape",
+      gallery: [],
+    },
+    ossu: {
+      type: "portrait",
+      gallery: [],
+    },
+    gustav: {
+      type: "landscape",
+      gallery: [],
+    },
+    bobby: {
+      type: "portrait",
+      gallery: [],
+    },
+    max: {
+      type: "landscape",
+      gallery: [],
+    },
+    tondu: {
+      type: "landscape",
+      gallery: [],
+    },
+  }
+
+  const mapImagesToGrid = (
+    acc,
+    {
+      node: {
+        frontmatter: { slug, featuredImage },
+      },
+    }
+  ) => {
+    acc[slug].gallery = [featuredImage]
+
+    return acc
+  }
+
+  const grid = data.images.edges.reduce(mapImagesToGrid, gridMap)
+
   return (
     <Wrapper>
-      {data.images.edges.map(({ node: { frontmatter: { featuredImage } } }) => {
+      {Object.values(grid).map(({ gallery }) => {
         return (
           <Item>
             <ItemContainer>
-              <GalleryImage image={featuredImage} />
+              <GalleryImage image={gallery[0]} />
             </ItemContainer>
           </Item>
         )
