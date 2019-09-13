@@ -8,6 +8,7 @@ import GatsbyImage from "gatsby-image"
 import { theme, Heading } from "@coterminous/ui"
 import TechStack from "../components/TechStack/TechStack"
 import { textMap } from "../utils/textMap"
+import Logo from "../components/Logo/Logo"
 
 export interface PostProps {
   data: any
@@ -44,6 +45,8 @@ const Project: React.FC<PostProps> = ({ data: { mdx } }) => {
   return (
     <Layout>
       <Wrapper>
+        <Logo name={mdx.frontmatter.company} />
+
         <StyledHeading>
           <strong>{mdx.frontmatter.title}</strong>{" "}
           {textMap(mdx.frontmatter.kind)}
