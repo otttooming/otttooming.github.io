@@ -45,7 +45,7 @@ const Project: React.FC<PostProps> = ({ data: { mdx } }) => {
   return (
     <Layout>
       <Wrapper>
-        <Logo name={mdx.frontmatter.company} />
+        <Logo name={mdx.frontmatter.company} link={mdx.frontmatter.link} />
 
         <StyledHeading>
           <strong>{mdx.frontmatter.title}</strong>{" "}

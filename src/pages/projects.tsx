@@ -99,7 +99,10 @@ const Projects = ({ data }) => {
             <Item key={post.id}>
               <Img fluid={featuredImgFluid} />
               <Content>
-                <Logo name={post.frontmatter.company} />
+                <Logo
+                  name={post.frontmatter.company}
+                  link={post.frontmatter.link}
+                />
 
                 <StyledHeading mt={theme.space.s}>
                   <StyledLink to={post.fields.slug}>

@@ -8,6 +8,7 @@ import styled from "styled-components"
 
 export interface LogoProps {
   name: string
+  link: string
 }
 
 const Wrapper = styled.div``
@@ -39,10 +40,10 @@ const Container: React.FC<{ link: string; type: string }> = ({
   </Wrapper>
 )
 
-const Logo: React.FC<LogoProps> = ({ name }) => {
+const Logo: React.FC<LogoProps> = ({ name, link }) => {
   if (name === "voog") {
     return (
-      <Container link="https://www.voog.com" type={name}>
+      <Container link={link} type={name}>
         <Voog />
       </Container>
     )
@@ -50,7 +51,7 @@ const Logo: React.FC<LogoProps> = ({ name }) => {
 
   if (name === "iglu") {
     return (
-      <Container link="https://iglu.ee" type={name}>
+      <Container link={link} type={name}>
         <Iglu />
       </Container>
     )
@@ -58,7 +59,7 @@ const Logo: React.FC<LogoProps> = ({ name }) => {
 
   if (name === "gtap") {
     return (
-      <Container link="https://play.ee" type={name}>
+      <Container link={link} type={name}>
         <Gtap />
       </Container>
     )
@@ -66,7 +67,7 @@ const Logo: React.FC<LogoProps> = ({ name }) => {
 
   if (name === "pipedrive") {
     return (
-      <Container link="https://www.pipedrive.com/" type={name}>
+      <Container link={link} type={name}>
         <Pipedrive />
       </Container>
     )
@@ -74,7 +75,7 @@ const Logo: React.FC<LogoProps> = ({ name }) => {
 
   if (name === "pethealth") {
     return (
-      <Container link="https://www.pipedrive.com/" type={name}>
+      <Container link={link} type={name}>
         <Pethealth />
       </Container>
     )
