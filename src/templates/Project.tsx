@@ -7,6 +7,7 @@ import styled from "styled-components"
 import GatsbyImage from "gatsby-image"
 import { theme, Heading } from "@coterminous/ui"
 import TechStack from "../components/TechStack/TechStack"
+import { textMap } from "../utils/textMap"
 
 export interface PostProps {
   data: any
@@ -44,7 +45,8 @@ const Project: React.FC<PostProps> = ({ data: { mdx } }) => {
     <Layout>
       <Wrapper>
         <StyledHeading>
-          <strong>{mdx.frontmatter.title}</strong> {mdx.frontmatter.kind}
+          <strong>{mdx.frontmatter.title}</strong>{" "}
+          {textMap(mdx.frontmatter.kind)}
         </StyledHeading>
         <TechStack items={mdx.frontmatter.tech} />
       </Wrapper>
