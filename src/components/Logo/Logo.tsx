@@ -4,6 +4,7 @@ import Iglu from "../../assets/logo-iglu.svg"
 import Voog from "../../assets/logo-voog.svg"
 import Gtap from "../../assets/logo-gtap.svg"
 import Pethealth from "../../assets/logo-pethealth.svg"
+import Khk from "../../assets/logo-khk.svg"
 import styled from "styled-components"
 
 export interface LogoProps {
@@ -21,6 +22,7 @@ const Link = styled.a`
 
   ${({ type }) => (type === "iglu" ? "height: 32px;" : "")}
   ${({ type }) => (type === "pethealth" ? "height: 32px;" : "")}
+  ${({ type }) => (type === "khk" ? "height: 24px;" : "")}
 
   > svg {
     height: 100%;
@@ -77,6 +79,14 @@ const Logo: React.FC<LogoProps> = ({ name, link }) => {
     return (
       <Container link={link} type={name}>
         <Pethealth />
+      </Container>
+    )
+  }
+
+  if (name === "khk") {
+    return (
+      <Container link={link} type={name}>
+        <Khk />
       </Container>
     )
   }
