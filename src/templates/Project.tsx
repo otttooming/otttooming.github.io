@@ -19,6 +19,10 @@ const Wrapper = styled.div`
   max-width: 960px;
   margin: 80px auto;
 
+  .gatsby-resp-image-wrapper {
+    width: 100%;
+  }
+
   .gatsby-resp-image-wrapper > picture {
     position: absolute;
     top: 0;
