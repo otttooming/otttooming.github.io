@@ -9,6 +9,7 @@ import { theme, Heading } from "@coterminous/ui"
 import TechStack from "../components/TechStack/TechStack"
 import { textMap } from "../utils/textMap"
 import Logo from "../components/Logo/Logo"
+import MasonryGallery from "../components/MasonryGallery/MasonryGallery"
 
 export interface PostProps {
   data: any
@@ -37,7 +38,7 @@ const StyledHeading = styled(Heading)`
   font-weight: ${theme.fontWeight.normal};
 `
 
-const components = {}
+const components = { MasonryGallery }
 
 const Project: React.FC<PostProps> = ({ data: { mdx } }) => {
   const featuredImgFluid = mdx.frontmatter.featuredImage.childImageSharp.fluid
