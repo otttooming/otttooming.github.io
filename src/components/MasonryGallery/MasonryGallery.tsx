@@ -1,5 +1,6 @@
 import styled from "styled-components"
 import * as React from "react"
+import { theme } from "@coterminous/ui"
 
 export interface MasonryGalleryProps {}
 
@@ -9,10 +10,15 @@ const Wrapper = styled.div`
   grid-gap: 16px;
 `
 
-const Item = styled.div`
+const Column = styled.div`
   display: grid;
   grid-gap: 16px;
   grid-auto-rows: max-content;
+`
+
+const Item = styled.div`
+  overflow: hidden;
+  border-radius: ${theme.borderRadius.s};
 `
 
 const MasonryGallery: React.FC<MasonryGalleryProps> = ({ children }) => {
@@ -28,7 +34,7 @@ const MasonryGallery: React.FC<MasonryGalleryProps> = ({ children }) => {
     for (let i = 0; i < numCols; i++) cols[i] = []
 
     React.Children.forEach(children, (child, i) =>
-      cols[i % numCols].push(child)
+      cols[i % numCols].push(<Item>{child}</Item>)
     )
   }
 
@@ -44,7 +50,7 @@ const MasonryGallery: React.FC<MasonryGalleryProps> = ({ children }) => {
       {Array(numCols)
         .fill(null)
         .map((el, i) => (
-          <Item key={i}>{cols[i]}</Item>
+          <Column key={i}>{cols[i]}</Column>
         ))}
     </Wrapper>
   )
