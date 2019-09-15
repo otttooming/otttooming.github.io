@@ -26,6 +26,10 @@ const Wrapper = styled.div`
     right: 0;
     bottom: 0;
   }
+
+  .gatsby-resp-image-wrapper > picture img {
+    width: 100%;
+  }
 `
 
 const Img = styled(GatsbyImage)`
