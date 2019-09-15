@@ -8,6 +8,7 @@ const Wrapper = styled.div`
   display: grid;
   grid-auto-flow: column;
   grid-gap: 16px;
+  margin-top: 80px;
 `
 
 const Column = styled.div`
