@@ -1,6 +1,7 @@
 const path = require("path")
 
 const templates = {
+  about: path.resolve(`./src/templates/About.tsx`),
   persons: path.resolve(`./src/templates/Project.tsx`),
   projects: path.resolve(`./src/templates/Project.tsx`),
 }
