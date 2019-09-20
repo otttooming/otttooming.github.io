@@ -5,7 +5,7 @@
   "version": "0.1.0",
   "author": "Ott Tooming <otttooming@gmail.com>",
   "dependencies": {
-    "@coterminous/ui": "github:otttooming/coterminous-ui#16808c1",
+    "@coterminous/ui": "github:otttooming/coterminous-ui#5994115",
     "@mdx-js/mdx": "^1.4.5",
     "@mdx-js/react": "^1.4.5",
     "babel-plugin-styled-components": "^1.10.6",
