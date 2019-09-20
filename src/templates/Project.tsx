@@ -16,8 +16,14 @@ export interface PostProps {
 }
 
 const Wrapper = styled.div`
-  max-width: 960px;
-  margin: 80px auto;
+  margin-top: 80px;
+  margin-bottom: 80px;
+
+  > * {
+    max-width: 960px;
+    margin-left: auto;
+    margin-right: auto;
+  }
 
   .gatsby-resp-image-wrapper {
     width: 100%;
