@@ -10,6 +10,7 @@ import TechStack from "../components/TechStack/TechStack"
 import { textMap } from "../utils/textMap"
 import Logo from "../components/Logo/Logo"
 import MasonryGallery from "../components/MasonryGallery/MasonryGallery"
+import ImageZoom from "../components/Image/Image.Zoom"
 
 export interface PostProps {
   data: any
@@ -52,7 +53,7 @@ const StyledHeading = styled(Heading)`
   font-weight: ${theme.fontWeight.normal};
 `
 
-const components = { MasonryGallery }
+const components = { MasonryGallery, img: ImageZoom }
 
 const Project: React.FC<PostProps> = ({ data: { mdx } }) => {
   const featuredImgFluid = mdx.frontmatter.featuredImage.childImageSharp.fluid

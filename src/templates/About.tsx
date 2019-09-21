@@ -6,6 +6,7 @@ import Layout from "../components/layout"
 import styled from "styled-components"
 import { theme, Heading } from "@coterminous/ui"
 import MasonryGallery from "../components/MasonryGallery/MasonryGallery"
+import { ImageZoom } from "../components/Image"
 
 export interface PostProps {
   data: any
@@ -36,7 +37,7 @@ const StyledHeading = styled(Heading)`
   font-weight: ${theme.fontWeight.normal};
 `
 
-const components = { MasonryGallery }
+const components = { MasonryGallery, img: ImageZoom }
 
 const About: React.FC<PostProps> = ({ data: { mdx } }) => {
   return (
