@@ -27,7 +27,7 @@ const Grid = styled.section`
 const AltGrid = styled.section`
   display: grid;
   grid-gap: var(--space-l);
-  grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(64px, auto));
   align-items: center;
   padding: ${theme.space.xl};
   max-width: 1280px;

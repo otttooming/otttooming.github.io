@@ -9,14 +9,17 @@ import ReactIcon from "../../assets/tech-react.svg"
 export interface HexGridProps {}
 
 const Wrapper = styled.div`
-  display: grid;
   /* grid-template-columns: repeat(auto-fit, minmax(60px, 1fr)); */
   /* height: 400px;
   max-width: 500px; */
-  max-width: 480px;
   margin: 128px auto;
+  display: flex;
+  flex-direction: column-reverse;
 
-  grid-template-areas: ". a1 a1 a2 a2 ." ". a1 a1 a2 a2 ." "b1 b1 b2 b2 b3 b3" "b1 b1 b2 b2 b3 b3" ". c1 c1 c2 c2 ." ". c1 c1 c2 c2 .";
+  @media (min-width: 960px) {
+    display: grid;
+    grid-template-areas: ". a1 a1 a2 a2 ." ". a1 a1 a2 a2 ." "b1 b1 b2 b2 b3 b3" "b1 b1 b2 b2 b3 b3" ". c1 c1 c2 c2 ." ". c1 c1 c2 c2 .";
+  }
 `
 
 const Item = styled.div`
@@ -50,8 +53,17 @@ const Hex = styled.div`
   position: relative;
   /* border-radius: 1em/0.5em; */
   /* background: red; */
-  width: 10em;
-  height: 10em;
+  width: 16vw;
+  height: 16vw;
+  max-width: 8rem;
+  max-height: 8rem;
+
+  margin-top: 8px;
+
+  @media (min-width: 960px) {
+    margin-top: 0;
+
+  }
 
   ${({ type }) =>
     type === "gatsby"
