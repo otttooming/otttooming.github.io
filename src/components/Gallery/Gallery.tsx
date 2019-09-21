@@ -103,7 +103,10 @@ const ItemContainer = styled.div`
 
   > * {
     border-radius: ${theme.borderRadius.m};
-
+    position: relative;
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
     flex: 1;
   }
 `
