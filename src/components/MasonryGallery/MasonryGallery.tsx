@@ -9,6 +9,7 @@ const Wrapper = styled.div`
   grid-auto-flow: column;
   grid-gap: 16px;
   margin-top: 80px;
+  margin-bottom: 80px;
   max-width: 1280px !important;
 `
 
