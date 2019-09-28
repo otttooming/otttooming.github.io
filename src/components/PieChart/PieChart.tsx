@@ -78,9 +78,16 @@ const PieWrapper = styled.div`
   margin-top: 24px;
 `
 
+const List = styled.ul`
+  text-align: center;
+  padding: 0;
+  margin: 0;
+`
+
 const ListItem = styled.li<{ index: number }>`
   display: inline-flex;
   margin-left: 16px;
+  margin-top: 16px;
   padding-left: 24px;
   position: relative;
 
@@ -112,13 +119,13 @@ export default class Example extends React.PureComponent<Props> {
 
     return (
       <Wrapper>
-        <ul>
+        <List>
           {data.map((item, index) => (
             <ListItem key={index} index={index}>
               {item.name}
             </ListItem>
           ))}
-        </ul>
+        </List>
         <PieWrapper>
           <PieChart width={260} height={220}>
             <Pie
