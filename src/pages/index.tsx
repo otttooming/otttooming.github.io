@@ -46,7 +46,6 @@ const CenterImage = styled.div`
 `
 
 const StyledHeading = styled(props => {
-  console.log(props)
   return <Heading {...props} />
 })`
   font-weight: ${theme.fontWeight.normal};

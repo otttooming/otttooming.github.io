@@ -6,8 +6,6 @@ function handleImageZoomBackground(background: string) {
   const images = Array.from(document.getElementsByClassName("Image__Zoom"))
 
   return images.map(img => {
-    console.log(img, img.previousElementSibling, "a")
-
     if (
       !!img.previousElementSibling &&
       img.previousElementSibling.tagName === "DIV"
@@ -18,8 +16,6 @@ function handleImageZoomBackground(background: string) {
 }
 
 function ImageZoom(props) {
-  console.dir(props)
-
   const image = {
     ...props,
     className: "Image__Zoom",
