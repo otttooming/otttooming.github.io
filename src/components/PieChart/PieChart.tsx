@@ -70,6 +70,10 @@ const Wrapper = styled.div`
   align-items: center;
   margin-bottom: 64px;
   margin-top: 64px;
+  background: #fff;
+  border-radius: 8px;
+  padding: 32px;
+  max-width: 1024px !important;
 `
 
 const PieWrapper = styled.div`
@@ -86,7 +90,7 @@ const List = styled.ul`
 
 const ListItem = styled.li<{ index: number }>`
   display: inline-flex;
-  margin-left: 16px;
+  margin-left: 24px;
   margin-top: 16px;
   padding-left: 24px;
   position: relative;
