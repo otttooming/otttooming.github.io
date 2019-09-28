@@ -1,6 +1,17 @@
 import * as React from "react"
 import { PieChart, Pie, Sector, Cell } from "recharts"
 import styled from "styled-components"
+import { theme } from "@coterminous/ui"
+
+interface DataProps {
+  name: string
+  value: number
+}
+
+interface Props {
+  data: DataProps[]
+  info?: React.ReactNode
+}
 
 // const data = [
 //   { name: "Group A", value: 400 },
@@ -57,6 +68,8 @@ const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
+  margin-bottom: 64px;
+  margin-top: 64px;
 `
 
 const PieWrapper = styled.div`
@@ -87,9 +100,15 @@ const ListItem = styled.li<{ index: number }>`
   }
 `
 
-export default class Example extends React.PureComponent {
+const InfoWrapper = styled.div`
+  font-size: ${theme.fontSize.xs};
+  margin-top: 24px;
+  color: #808080;
+`
+
+export default class Example extends React.PureComponent<Props> {
   render() {
-    const { data } = this.props
+    const { data, info } = this.props
 
     return (
       <Wrapper>
@@ -125,6 +144,8 @@ export default class Example extends React.PureComponent {
             </Pie>
           </PieChart>
         </PieWrapper>
+
+        {info && <InfoWrapper>{info}</InfoWrapper>}
       </Wrapper>
     )
   }
