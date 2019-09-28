@@ -11,6 +11,7 @@ import { textMap } from "../utils/textMap"
 import Logo from "../components/Logo/Logo"
 import MasonryGallery from "../components/MasonryGallery/MasonryGallery"
 import ImageZoom from "../components/Image/Image.Zoom"
+import PieChart from "../components/PieChart"
 
 export interface PostProps {
   data: any
@@ -53,7 +54,7 @@ const StyledHeading = styled(Heading)`
   font-weight: ${theme.fontWeight.normal};
 `
 
-const components = { MasonryGallery, img: ImageZoom }
+const components = { MasonryGallery, img: ImageZoom, PieChart }
 
 const Project: React.FC<PostProps> = ({ data: { mdx } }) => {
   const featuredImgFluid = mdx.frontmatter.featuredImage.childImageSharp.fluid
