@@ -6,7 +6,7 @@ import Layout from "../components/layout"
 import styled from "styled-components"
 import { theme, Heading } from "@coterminous/ui"
 import MasonryGallery from "../components/MasonryGallery/MasonryGallery"
-import { ImageZoom } from "../components/Image"
+import ImageZoom from "../components/Image/Image.Zoom"
 
 export interface PostProps {
   data: any
