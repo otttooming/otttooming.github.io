@@ -5,9 +5,13 @@ export interface IllustrationProps {}
 
 const Wrapper = styled.div`
   margin-top: 160px;
-  margin-bottom: 32px;
+  margin-bottom: 64px;
   display: flex;
   justify-content: center;
+  background-color: #fff;
+  border-radius: 8px;
+  padding: 128px;
+  max-width: 1280px !important;
 `
 
 const Container = styled.div`
