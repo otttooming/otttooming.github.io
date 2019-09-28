@@ -37,7 +37,7 @@ const MasonryGallery: React.FC<MasonryGalleryProps> = ({ children }) => {
     for (let i = 0; i < numCols; i++) cols[i] = []
 
     React.Children.forEach(children, (child, i) =>
-      cols[i % numCols].push(<Item>{child}</Item>)
+      cols[i % numCols].push(<Item key={i}>{child}</Item>)
     )
   }
 
