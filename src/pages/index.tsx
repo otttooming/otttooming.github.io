@@ -1,7 +1,7 @@
 import * as React from "react"
 import Layout from "../components/layout"
 import Image from "../components/image"
-import SEO from "../components/seo"
+import SEO from "../components/SEO"
 import styled from "styled-components"
 import { GridItem, theme, Heading, Button, Link } from "@coterminous/ui"
 import { GitHub, Linkedin, Twitter } from "react-feather"
@@ -75,7 +75,7 @@ const Text = styled.p`
 
 const IndexPage = () => (
   <Layout>
-    <SEO title="Home" />
+    <SEO title="Home" description="" />
     <Segment>
       <Grid>
         <GridItem>
