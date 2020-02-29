@@ -6,6 +6,7 @@ import styled from "styled-components"
 import GatsbyImage from "gatsby-image"
 import Logo from "../components/Logo/Logo"
 import { textMap } from "../utils/textMap"
+import SEO from "../components/SEO"
 
 const Wrapper = styled.ul`
   margin: 80px auto;
@@ -74,6 +75,8 @@ const Projects = ({ data }) => {
 
   return (
     <Layout>
+      <SEO title="Projects" description="" />
+
       <Wrapper as="div">
         <StyledHeading mt={theme.space.s}>
           <strong>Some projects</strong> I have been involved in

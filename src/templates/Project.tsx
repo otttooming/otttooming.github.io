@@ -13,6 +13,7 @@ import MasonryGallery from "../components/MasonryGallery/MasonryGallery"
 import ImageZoom from "../components/Image/Image.Zoom"
 import PieChart from "../components/PieChart"
 import Illustration from "../components/Illustration/"
+import SEO from "../components/SEO"
 
 export interface PostProps {
   data: any
@@ -70,6 +71,8 @@ const Project: React.FC<PostProps> = ({ data: { mdx } }) => {
 
   return (
     <Layout>
+      <SEO title={mdx.frontmatter.title} description="" />
+
       <Wrapper>
         <Logo name={mdx.frontmatter.company} link={mdx.frontmatter.link} />
 

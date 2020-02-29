@@ -7,6 +7,7 @@ import styled from "styled-components"
 import { theme, Heading } from "@coterminous/ui"
 import MasonryGallery from "../components/MasonryGallery/MasonryGallery"
 import ImageZoom from "../components/Image/Image.Zoom"
+import SEO from "../components/SEO"
 
 export interface PostProps {
   data: any
@@ -42,6 +43,8 @@ const components = { MasonryGallery, img: ImageZoom }
 const About: React.FC<PostProps> = ({ data: { mdx } }) => {
   return (
     <Layout>
+      <SEO title={mdx.frontmatter.title} description="" />
+
       <Wrapper>
         <StyledHeading>
           <strong>{mdx.frontmatter.title}</strong>{" "}
