@@ -1,19 +1,7 @@
 import * as React from "react"
 import ImageWithZoom from "react-medium-image-zoom"
 import { theme } from "@coterminous/ui"
-
-function handleImageZoomBackground(background: string) {
-  const images = Array.from(document.getElementsByClassName("Image__Zoom"))
-
-  return images.map(img => {
-    if (
-      !!img.previousElementSibling &&
-      img.previousElementSibling.tagName === "DIV"
-    ) {
-      img.previousElementSibling.style.background = background
-    }
-  })
-}
+import "react-medium-image-zoom/dist/styles.css"
 
 function ImageZoom(props) {
   const image = {
@@ -23,20 +11,14 @@ function ImageZoom(props) {
       display: "block",
       margin: "0 auto",
       width: "100%",
+      borderRadius: "5px",
     },
   }
 
   return (
-    <ImageWithZoom
-      image={image}
-      zoomImage={image}
-      onZoom={() => handleImageZoomBackground(theme.backgroundColor.primary)}
-      defaultStyles={{
-        zoomImage: {
-          borderRadius: "5px",
-        },
-      }}
-    />
+    <ImageWithZoom>
+      <img {...image} />
+    </ImageWithZoom>
   )
 }
 
