@@ -1,6 +1,6 @@
 {
   "name": "otttooming.github.io",
-  "private": true,
+  "private": false,
   "description": "Personal portfolio",
   "version": "0.1.0",
   "author": "Ott Tooming <otttooming@gmail.com>",
@@ -68,10 +68,10 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/gatsbyjs/gatsby-starter-default"
+    "url": "https://github.com/otttooming/otttooming.github.io"
   },
   "bugs": {
-    "url": "https://github.com/gatsbyjs/gatsby/issues"
+    "url": "https://github.com/otttooming/otttooming.github.io/issues"
   },
   "husky": {
     "hooks": {
