@@ -54,7 +54,7 @@ const Description = styled.div`
 /**
  * Only return posts when Gatsby has run static site query
  */
-const getPosts = data => {
+const getPosts = (data) => {
   if (!data.allMdx) {
     return []
   }

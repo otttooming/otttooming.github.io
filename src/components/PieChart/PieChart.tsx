@@ -107,7 +107,7 @@ const ListItem = styled.li<{ index: number }>`
     left: 0;
     width: 16px;
     height: 16px;
-    background-color: ${props => COLORS[props.index % COLORS.length]};
+    background-color: ${(props) => COLORS[props.index % COLORS.length]};
   }
 `
 

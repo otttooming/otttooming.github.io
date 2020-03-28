@@ -24,7 +24,7 @@ const TechStack: React.FC<TechStackProps> = ({ items }) => {
 
   return (
     <Wrapper>
-      {items.map(item => (
+      {items.map((item) => (
         <Item key={item}>
           <Button mr={theme.space.s} size="xs">
             {item}

@@ -37,9 +37,9 @@ const Wrapper = styled.div`
 const components = {
   MasonryGallery,
   img: ImageZoom,
-  h2: props => <Heading {...props} size="l" />,
-  ul: props => <List {...props} styleType="disc" />,
-  li: props => <ListItem {...props} paddingLeft="32px" />,
+  h2: (props) => <Heading {...props} size="l" />,
+  ul: (props) => <List {...props} styleType="disc" />,
+  li: (props) => <ListItem {...props} paddingLeft="32px" />,
 }
 
 const About: React.FC<PostProps> = ({ data: { mdx } }) => {
