@@ -29,7 +29,7 @@ const Item = styled.li`
   margin-bottom: 196px;
   align-items: center;
 
-  &:nth-child(even) {
+  &:nth-of-type(even) {
     direction: rtl;
   }
 `
