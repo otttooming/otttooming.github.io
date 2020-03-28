@@ -38,11 +38,6 @@ const Content = styled.div`
   direction: ltr;
 `
 
-const StyledLink = styled(Link)`
-  text-decoration: none;
-  color: inherit;
-`
-
 const Img = styled(GatsbyImage)`
   border-radius: ${theme.borderRadius.m};
 `
@@ -100,11 +95,11 @@ const Projects = ({ data }) => {
                   link={post.frontmatter.link}
                 />
 
-                <Heading mt={theme.space.s} fontWeight={500}>
-                  <StyledLink to={post.fields.slug}>
+                <Heading mt={theme.space.s} fontWeight={400}>
+                  <Link to={post.fields.slug}>
                     <strong>{post.frontmatter.title}</strong>{" "}
                     {textMap(post.frontmatter.kind)}
-                  </StyledLink>
+                  </Link>
                 </Heading>
 
                 <Text mt={theme.space.s}>{post.excerpt}</Text>
