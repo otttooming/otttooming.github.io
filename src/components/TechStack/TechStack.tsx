@@ -8,7 +8,7 @@ export interface TechStackProps {
 }
 
 const Wrapper = styled.ul`
-  margin: ${theme.space.m} 0;
+  margin: ${theme.space.m} auto;
   padding: 0;
 `
 
