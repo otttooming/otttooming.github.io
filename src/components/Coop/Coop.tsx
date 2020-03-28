@@ -13,13 +13,12 @@ const Wrapper = styled.div`
   flex-direction: row-reverse;
 `
 
-const Item = styled.div`
+const Item = styled.div<{ type?: string }>`
   background: #25292c;
   height: 200px;
   width: 300px;
   margin-right: 8px;
   transform: rotateX(65deg) rotateZ(-45deg) translate3d(0, 0, 0);
-  /* transform: matrix(0.65, -0.47, 1.43, 0.48, 0, 0); */
   border-radius: 16px;
   display: flex;
   align-items: center;
