@@ -52,8 +52,13 @@ const Layout = ({ children }) => {
             background-color: ${theme.backgroundColor.primary};
           }
 
+          h1,
+          h2,
+          h3,
+          h4,
+          h5,
           p {
-            margin-bottom: 16px;
+            font-family: ${theme.fontFamily.primary} !important;
           }
         `}
       />
