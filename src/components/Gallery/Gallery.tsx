@@ -186,9 +186,9 @@ const Gallery: React.SFC<GalleryProps> = () => {
 
   return (
     <Wrapper>
-      {Object.values(grid).map(({ gallery }) => {
+      {Object.values(grid).map(({ gallery }, index) => {
         return (
-          <Item>
+          <Item key={index}>
             <ItemContainer>
               <GalleryImage image={gallery[0]} />
             </ItemContainer>
