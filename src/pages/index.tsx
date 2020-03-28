@@ -2,12 +2,13 @@ import * as React from "react"
 import Layout from "../components/layout"
 import Image from "../components/image"
 import SEO from "../components/SEO"
-import styled from "styled-components"
-import { GridItem, theme, Heading, Button, Link } from "@coterminous/ui"
+import styled from "@emotion/styled"
 import { GitHub, Linkedin, Twitter } from "react-feather"
 import Gallery from "../components/Gallery/Gallery"
 import HexGrid from "../components/HexGrid/HexGrid"
 import Coop from "../components/Coop/Coop"
+import { theme } from "../utils/theme"
+import { Button, Link, Heading, Box } from "@chakra-ui/core"
 
 const StyledImage = styled(Image)`
   border-radius: 8px;
@@ -45,12 +46,6 @@ const CenterImage = styled.div`
   justify-content: center;
 `
 
-const StyledHeading = styled(props => {
-  return <Heading {...props} />
-})`
-  font-weight: ${theme.fontWeight.normal};
-`
-
 const StyledSubHeading = styled.h2`
   font-weight: ${theme.fontWeight.normal};
   margin: 0;
@@ -73,15 +68,20 @@ const Text = styled.p`
   margin: 0;
 `
 
+const OutLink = ({ ...restProps }) => (
+  <Link mt={theme.space.s} display="flex" {...restProps} />
+)
+
 const IndexPage = () => (
   <Layout>
     <SEO title="Home" description="" />
     <Segment>
       <Grid>
-        <GridItem>
-          <StyledHeading>
+        <Box>
+          <Heading fontWeight={500}>
             Hi, I am <strong>Ott</strong>
-          </StyledHeading>
+          </Heading>
+
           <StyledSubHeading>
             Front-end developer/<strong>student</strong>
           </StyledSubHeading>
@@ -91,38 +91,27 @@ const IndexPage = () => (
           </p>
 
           <Text>
-            <Link
-              href="https://github.com/otttooming"
-              icon={<GitHub />}
-              mt={theme.space.s}
-            >
-              github.com/otttooming
-            </Link>
+            <OutLink href="https://github.com/otttooming">
+              <GitHub /> github.com/otttooming
+            </OutLink>
           </Text>
           <Text>
-            <Link
-              href="https://www.linkedin.com/in/otttooming/"
-              icon={<Linkedin />}
-              mt={theme.space.s}
-            >
-              linkedin.com/in/otttooming
-            </Link>
+            <OutLink href="https://www.linkedin.com/in/otttooming/">
+              <Linkedin /> linkedin.com/in/otttooming
+            </OutLink>
           </Text>
           <Text>
-            <Link
-              href="https://twitter.com/otttooming"
-              icon={<Twitter />}
-              mt={theme.space.s}
-            >
-              twitter.com/otttooming
-            </Link>
+            <OutLink href="https://twitter.com/otttooming">
+              <Twitter /> twitter.com/otttooming
+            </OutLink>
           </Text>
-        </GridItem>
-        <GridItem>
+        </Box>
+
+        <Box>
           <CenterImage>
             <StyledImage />
           </CenterImage>
-        </GridItem>
+        </Box>
       </Grid>
     </Segment>
 
@@ -138,10 +127,11 @@ const IndexPage = () => (
     </Segment>
     <Segment>
       <AltGrid>
-        <GridItem>
+        <Box>
           <HexGrid />
-        </GridItem>
-        <GridItem>
+        </Box>
+
+        <Box>
           <SmallType>Experience</SmallType>
           <StyledSubHeading>
             <strong>Tech stack</strong> that I currently use
@@ -150,7 +140,7 @@ const IndexPage = () => (
             Passionate about TypeScript, React, NodeJS, GraphQL and statically
             typed languages in general.
           </p>
-        </GridItem>
+        </Box>
       </AltGrid>
     </Segment>
 

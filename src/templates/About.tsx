@@ -3,11 +3,11 @@ import { graphql } from "gatsby"
 import { MDXProvider } from "@mdx-js/react"
 import { MDXRenderer } from "gatsby-plugin-mdx"
 import Layout from "../components/layout"
-import styled from "styled-components"
-import { theme, Heading } from "@coterminous/ui"
+import styled from "@emotion/styled"
 import MasonryGallery from "../components/MasonryGallery/MasonryGallery"
 import ImageZoom from "../components/Image/Image.Zoom"
 import SEO from "../components/SEO"
+import { List, ListItem, Heading } from "@chakra-ui/core"
 
 export interface PostProps {
   data: any
@@ -34,11 +34,13 @@ const Wrapper = styled.div`
   }
 `
 
-const StyledHeading = styled(Heading)`
-  font-weight: ${theme.fontWeight.normal};
-`
-
-const components = { MasonryGallery, img: ImageZoom }
+const components = {
+  MasonryGallery,
+  img: ImageZoom,
+  h2: props => <Heading {...props} size="l" />,
+  ul: props => <List {...props} styleType="disc" />,
+  li: props => <ListItem {...props} paddingLeft="32px" />,
+}
 
 const About: React.FC<PostProps> = ({ data: { mdx } }) => {
   return (
@@ -46,9 +48,7 @@ const About: React.FC<PostProps> = ({ data: { mdx } }) => {
       <SEO title={mdx.frontmatter.title} description="" />
 
       <Wrapper>
-        <StyledHeading>
-          <strong>{mdx.frontmatter.title}</strong>{" "}
-        </StyledHeading>
+        <Heading>{mdx.frontmatter.title}</Heading>
       </Wrapper>
 
       <Wrapper>

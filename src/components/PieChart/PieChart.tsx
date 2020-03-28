@@ -1,7 +1,7 @@
 import * as React from "react"
 import { PieChart, Pie, Sector, Cell } from "recharts"
-import styled from "styled-components"
-import { theme } from "@coterminous/ui"
+import styled from "@emotion/styled"
+import { theme } from "../../utils/theme"
 
 interface DataProps {
   name: string
@@ -95,7 +95,7 @@ const ListItem = styled.li<{ index: number }>`
   padding-left: 24px;
   position: relative;
 
-  &:first-child {
+  &:first-of-type {
     margin-left: 0;
   }
 

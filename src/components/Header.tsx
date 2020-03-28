@@ -1,8 +1,9 @@
 import * as React from "react"
-import styled from "styled-components"
+import styled from "@emotion/styled"
 import { Wind, BookOpen, User } from "react-feather"
-import { theme, Button } from "@coterminous/ui"
 import { navigate } from "gatsby"
+import { Button } from "@chakra-ui/core"
+import { theme } from "../utils/theme"
 
 const Wrapper = styled.header`
   display: flex;
@@ -40,15 +41,15 @@ const StyledButton = styled(Button)`
 
 const Header = ({ siteTitle }) => (
   <Wrapper>
-    <Home icon={<Wind />} variant="link" onClick={() => navigate("/")}>
+    <Home leftIcon={Wind} variant="link" onClick={() => navigate("/")}>
       OTTO
     </Home>
 
     <List>
       <Item>
         <StyledButton
-          icon={<User />}
-          variant="link"
+          leftIcon={User}
+          variant="ghost"
           onClick={() => navigate("/about/me")}
         >
           About
@@ -56,8 +57,8 @@ const Header = ({ siteTitle }) => (
       </Item>
       <Item>
         <StyledButton
-          icon={<BookOpen />}
-          variant="link"
+          leftIcon={BookOpen}
+          variant="ghost"
           onClick={() => navigate("/projects")}
         >
           Projects

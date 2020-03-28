@@ -1,14 +1,15 @@
 import * as React from "react"
 import { Link, graphql } from "gatsby"
 import Layout from "../components/layout"
-import { Heading, theme } from "@coterminous/ui"
-import styled from "styled-components"
+import { theme } from "../utils/theme"
+import styled from "@emotion/styled"
 import GatsbyImage from "gatsby-image"
 import Logo from "../components/Logo/Logo"
 import { textMap } from "../utils/textMap"
 import SEO from "../components/SEO"
+import { Heading, Text } from "@chakra-ui/core"
 
-const Wrapper = styled.ul`
+const Wrapper = styled.div`
   margin: 80px auto;
   padding: 0;
   max-width: 960px;
@@ -37,10 +38,6 @@ const Content = styled.div`
   direction: ltr;
 `
 
-const StyledHeading = styled(Heading)`
-  font-weight: ${theme.fontWeight.normal};
-`
-
 const StyledLink = styled(Link)`
   text-decoration: none;
   color: inherit;
@@ -52,10 +49,6 @@ const Img = styled(GatsbyImage)`
 
 const Description = styled.div`
   margin-top: ${theme.space.l};
-`
-
-const Text = styled.p`
-  margin: 0;
 `
 
 /**
@@ -77,10 +70,10 @@ const Projects = ({ data }) => {
     <Layout>
       <SEO title="Projects" description="" />
 
-      <Wrapper as="div">
-        <StyledHeading mt={theme.space.s}>
+      <Wrapper>
+        <Heading mt={theme.space.s} fontWeight={500}>
           <strong>Some projects</strong> I have been involved in
-        </StyledHeading>
+        </Heading>
 
         <Description>
           <Text>
@@ -107,14 +100,14 @@ const Projects = ({ data }) => {
                   link={post.frontmatter.link}
                 />
 
-                <StyledHeading mt={theme.space.s}>
+                <Heading mt={theme.space.s} fontWeight={500}>
                   <StyledLink to={post.fields.slug}>
                     <strong>{post.frontmatter.title}</strong>{" "}
                     {textMap(post.frontmatter.kind)}
                   </StyledLink>
-                </StyledHeading>
+                </Heading>
 
-                <p>{post.excerpt}</p>
+                <Text mt={theme.space.s}>{post.excerpt}</Text>
               </Content>
             </Item>
           )

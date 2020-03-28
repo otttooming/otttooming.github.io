@@ -1,6 +1,6 @@
-import styled from "styled-components"
+import styled from "@emotion/styled"
 import * as React from "react"
-import { theme } from "@coterminous/ui"
+import { theme } from "../../utils/theme"
 
 export interface MasonryGalleryProps {}
 

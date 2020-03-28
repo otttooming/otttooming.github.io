@@ -7,8 +7,11 @@
 
 import * as React from "react"
 import { useStaticQuery, graphql } from "gatsby"
-import { Button, GlobalStyle } from "@coterminous/ui"
 import Header from "./Header"
+import { ThemeProvider, CSSReset } from "@chakra-ui/core"
+import { Global, css } from "@emotion/core"
+import { customProperties } from "../utils/customProperties"
+import { theme } from "../utils/theme"
 
 const Layout = ({ children }) => {
   const data = useStaticQuery(graphql`
@@ -22,21 +25,44 @@ const Layout = ({ children }) => {
   `)
 
   return (
-    <>
+    <ThemeProvider>
+      <CSSReset />
+
       <Header siteTitle={data.site.siteMetadata.title} />
-      <GlobalStyle />
-      <div
-        style={{
-          // margin: `0 auto`,
-          // maxWidth: 960,
-          // padding: `0px 1.0875rem 1.45rem`,
-          paddingTop: 0,
-        }}
-      >
+
+      <Global
+        styles={css`
+          ${customProperties}
+
+          * {
+            box-sizing: border-box;
+          }
+          html {
+            font-size: 18px;
+            -webkit-text-size-adjust: none;
+            -webkit-text-size-adjust: 100%;
+            -ms-text-size-adjust: 100%;
+          }
+          body {
+            overflow-x: hidden;
+            margin: 0;
+            line-height: ${theme.lineHeight.s};
+            font-family: ${theme.fontFamily.primary};
+            color: ${theme.textColor.primary};
+            background-color: ${theme.backgroundColor.primary};
+          }
+
+          p {
+            margin-bottom: 16px;
+          }
+        `}
+      />
+
+      <>
         <main>{children}</main>
         <footer></footer>
-      </div>
-    </>
+      </>
+    </ThemeProvider>
   )
 }
 

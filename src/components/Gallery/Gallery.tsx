@@ -1,7 +1,7 @@
 import * as React from "react"
-import styled from "styled-components"
+import styled from "@emotion/styled"
 import GalleryImage from "./GalleryImage"
-import { theme } from "@coterminous/ui"
+import { theme } from "../../utils/theme"
 import { useStaticQuery, graphql } from "gatsby"
 
 export interface GalleryProps {}

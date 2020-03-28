@@ -3,9 +3,8 @@ import { graphql } from "gatsby"
 import { MDXProvider } from "@mdx-js/react"
 import { MDXRenderer } from "gatsby-plugin-mdx"
 import Layout from "../components/layout"
-import styled from "styled-components"
+import styled from "@emotion/styled"
 import GatsbyImage from "gatsby-image"
-import { theme, Heading } from "@coterminous/ui"
 import TechStack from "../components/TechStack/TechStack"
 import { textMap } from "../utils/textMap"
 import Logo from "../components/Logo/Logo"
@@ -14,6 +13,8 @@ import ImageZoom from "../components/Image/Image.Zoom"
 import PieChart from "../components/PieChart"
 import Illustration from "../components/Illustration/"
 import SEO from "../components/SEO"
+import { theme } from "../utils/theme"
+import { Heading } from "@chakra-ui/core"
 
 export interface PostProps {
   data: any
@@ -60,10 +61,6 @@ const Img = styled(GatsbyImage)`
   border-radius: ${theme.borderRadius.m};
 `
 
-const StyledHeading = styled(Heading)`
-  font-weight: ${theme.fontWeight.normal};
-`
-
 const components = { MasonryGallery, img: ImageZoom, PieChart, Illustration }
 
 const Project: React.FC<PostProps> = ({ data: { mdx } }) => {
@@ -76,10 +73,10 @@ const Project: React.FC<PostProps> = ({ data: { mdx } }) => {
       <Wrapper>
         <Logo name={mdx.frontmatter.company} link={mdx.frontmatter.link} />
 
-        <StyledHeading>
+        <Heading fontWeight={500}>
           <strong>{mdx.frontmatter.title}</strong>{" "}
           {textMap(mdx.frontmatter.kind)}
-        </StyledHeading>
+        </Heading>
         <TechStack items={mdx.frontmatter.tech} />
       </Wrapper>
       <Img fluid={featuredImgFluid} />

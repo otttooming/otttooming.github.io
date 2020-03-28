@@ -1,6 +1,7 @@
 import * as React from "react"
-import { Link, theme } from "@coterminous/ui"
-import styled from "styled-components"
+import styled from "@emotion/styled"
+import { theme } from "../../utils/theme"
+import { Link, Button } from "@chakra-ui/core"
 
 export interface TechStackProps {
   items?: string[]
@@ -25,7 +26,9 @@ const TechStack: React.FC<TechStackProps> = ({ items }) => {
     <Wrapper>
       {items.map(item => (
         <Item key={item}>
-          <Link mr={theme.space.s}>{item}</Link>
+          <Button mr={theme.space.s} size="xs">
+            {item}
+          </Button>
         </Item>
       ))}
     </Wrapper>

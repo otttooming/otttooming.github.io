@@ -5,7 +5,7 @@ import Voog from "../../assets/logo-voog.svg"
 import Gtap from "../../assets/logo-gtap.svg"
 import Pethealth from "../../assets/logo-pethealth.svg"
 import Khk from "../../assets/logo-khk.svg"
-import styled from "styled-components"
+import styled from "@emotion/styled"
 
 export interface LogoProps {
   name: string

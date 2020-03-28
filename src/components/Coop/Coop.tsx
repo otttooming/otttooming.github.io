@@ -1,9 +1,10 @@
 import * as React from "react"
-import styled, { css } from "styled-components"
 import Pipedrive from "../../assets/logo-pipedrive.svg"
 import Iglu from "../../assets/logo-iglu.svg"
 import Voog from "../../assets/logo-voog.svg"
 import Gtap from "../../assets/logo-gtap.svg"
+import styled from "@emotion/styled"
+import { css } from "@emotion/core"
 
 export interface CoopProps {}
 

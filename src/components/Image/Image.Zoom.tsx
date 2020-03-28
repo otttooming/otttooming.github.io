@@ -1,6 +1,5 @@
 import * as React from "react"
 import ImageWithZoom from "react-medium-image-zoom"
-import { theme } from "@coterminous/ui"
 import "react-medium-image-zoom/dist/styles.css"
 
 function ImageZoom(props) {

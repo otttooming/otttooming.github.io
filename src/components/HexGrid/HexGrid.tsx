@@ -1,5 +1,5 @@
 import * as React from "react"
-import styled from "styled-components"
+import styled from "@emotion/styled"
 import TSIcon from "../../assets/tech-typescript.svg"
 import ReduxIcon from "../../assets/tech-redux.svg"
 import GatsbyIcon from "../../assets/tech-gatsby.svg"

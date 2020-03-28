@@ -5,8 +5,9 @@ module.exports = {
     author: `@OttTooming`,
   },
   plugins: [
+    `gatsby-plugin-chakra-ui`,
+    `gatsby-plugin-emotion`,
     `gatsby-plugin-typescript`,
-    `gatsby-plugin-styled-components`,
     `gatsby-plugin-react-helmet`,
     {
       resolve: `gatsby-source-filesystem`,
