@@ -4,6 +4,7 @@ import { Wind, BookOpen, User } from "react-feather"
 import { navigate } from "gatsby"
 import { Button } from "@chakra-ui/core"
 import { theme } from "../utils/theme"
+import DarkMode from "../assets/DarkMode/DarkMode"
 
 const Wrapper = styled.header`
   display: flex;
@@ -63,6 +64,9 @@ const Header = ({ siteTitle }) => (
         >
           Projects
         </StyledButton>
+      </Item>
+      <Item>
+        <DarkMode />
       </Item>
     </List>
   </Wrapper>

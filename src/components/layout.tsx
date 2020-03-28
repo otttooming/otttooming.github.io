@@ -48,7 +48,7 @@ const Layout = ({ children }) => {
             margin: 0;
             line-height: ${theme.lineHeight.s};
             font-family: ${theme.fontFamily.primary};
-            color: ${theme.textColor.primary};
+            /* color: ${theme.textColor.primary}; */
             background-color: ${theme.backgroundColor.primary};
           }
 
