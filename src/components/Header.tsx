@@ -4,7 +4,7 @@ import { Wind, BookOpen, User } from "react-feather"
 import { navigate } from "gatsby"
 import { Button } from "@chakra-ui/core"
 import { theme } from "../utils/theme"
-import DarkMode from "../assets/DarkMode/DarkMode"
+import DarkMode from "./DarkMode/DarkMode"
 
 const Wrapper = styled.header`
   display: flex;
