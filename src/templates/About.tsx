@@ -7,7 +7,7 @@ import styled from "@emotion/styled"
 import MasonryGallery from "../components/MasonryGallery/MasonryGallery"
 import ImageZoom from "../components/Image/Image.Zoom"
 import SEO from "../components/SEO"
-import { List, ListItem, Heading } from "@chakra-ui/core"
+import { List, ListItem, Heading, Text } from "@chakra-ui/core"
 
 export interface PostProps {
   data: any
@@ -37,9 +37,10 @@ const Wrapper = styled.div`
 const components = {
   MasonryGallery,
   img: ImageZoom,
-  h2: (props) => <Heading {...props} size="l" />,
-  ul: (props) => <List {...props} styleType="disc" />,
-  li: (props) => <ListItem {...props} paddingLeft="32px" />,
+  h2: (props) => <Heading {...props} size="l" mt="32px" />,
+  ul: (props) => <List {...props} styleType="disc" mt="16px" />,
+  li: (props) => <ListItem {...props} paddingLeft="32px" mt="8px" />,
+  p: (props) => <Text {...props} mt="16px" />,
 }
 
 const About: React.FC<PostProps> = ({ data: { mdx } }) => {
