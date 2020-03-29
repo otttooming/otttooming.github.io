@@ -1,17 +1,17 @@
-import * as React from "react"
-import Pipedrive from "../../assets/logo-pipedrive.svg"
-import Iglu from "../../assets/logo-iglu.svg"
-import Voog from "../../assets/logo-voog.svg"
-import Gtap from "../../assets/logo-gtap.svg"
-import styled from "@emotion/styled"
-import { css } from "@emotion/core"
+import * as React from 'react';
+import Pipedrive from '../../assets/logo-pipedrive.svg';
+import Iglu from '../../assets/logo-iglu.svg';
+import Voog from '../../assets/logo-voog.svg';
+import Gtap from '../../assets/logo-gtap.svg';
+import styled from '@emotion/styled';
+import { css } from '@emotion/core';
 
 export interface CoopProps {}
 
 const Wrapper = styled.div`
   display: flex;
   flex-direction: row-reverse;
-`
+`;
 
 const Item = styled.div<{ type?: string }>`
   background: #25292c;
@@ -30,39 +30,39 @@ const Item = styled.div<{ type?: string }>`
     color: #fff;
 
 
-    ${({ type }) => (type === "iglu" ? "background: #1797d4;" : "")}
-    ${({ type }) => (type === "voog" ? "background: #443DF6;" : "")}
-    ${({ type }) => (type === "gtap" ? "background: #00bf9c;" : "")}
+    ${({ type }) => (type === 'iglu' ? 'background: #1797d4;' : '')}
+    ${({ type }) => (type === 'voog' ? 'background: #443DF6;' : '')}
+    ${({ type }) => (type === 'gtap' ? 'background: #00bf9c;' : '')}
 
     /* &:hover {
         transform: rotateX(65deg) rotateZ(-45deg) translate3d(62px, 62px, 62px);
     } */
-`
+`;
 
 const cardCommon = css`
   width: 100%;
   max-height: 100%;
   max-width: 200px;
-`
+`;
 
 const PipedriveCard = styled(Pipedrive)`
   ${cardCommon}
   max-width: 250px;
-`
+`;
 
 const IgluCard = styled(Iglu)`
   ${cardCommon}
 
   max-width: 150px;
-`
+`;
 const VoogCard = styled(Voog)`
   ${cardCommon}
-`
+`;
 
 const GtapCard = styled(Gtap)`
   ${cardCommon}
   max-width: 250px;
-`
+`;
 
 const Coop: React.SFC<CoopProps> = () => {
   return (
@@ -80,7 +80,7 @@ const Coop: React.SFC<CoopProps> = () => {
         <PipedriveCard />
       </Item>
     </Wrapper>
-  )
-}
+  );
+};
 
-export default Coop
+export default Coop;

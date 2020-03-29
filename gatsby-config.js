@@ -38,13 +38,13 @@ module.exports = {
       },
     },
     {
-      resolve: "gatsby-plugin-mdx",
+      resolve: 'gatsby-plugin-mdx',
       options: {
         root: __dirname,
         gatsbyRemarkPlugins: [
           // set up config for embedded images in mdx files
           {
-            resolve: "gatsby-remark-images",
+            resolve: 'gatsby-remark-images',
             options: {
               maxWidth: 10000,
               quality: 100,
@@ -71,7 +71,7 @@ module.exports = {
       },
     },
     {
-      resolve: "gatsby-plugin-react-svg",
+      resolve: 'gatsby-plugin-react-svg',
       options: {
         rule: {
           include: `${__dirname}/src/assets`, // See below to configure properly
@@ -82,4 +82,4 @@ module.exports = {
     // To learn more, visit: https://gatsby.dev/offline
     // `gatsby-plugin-offline`,
   ],
-}
+};

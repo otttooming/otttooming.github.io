@@ -1,5 +1,5 @@
-import * as React from "react"
-import styled from "@emotion/styled"
+import * as React from 'react';
+import styled from '@emotion/styled';
 
 export interface OutClipProps {}
 
@@ -12,7 +12,7 @@ const Wrapper = styled.div`
   min-height: 100%;
   background: rebeccapurple;
   border-radius: 8px;
-`
+`;
 
 const Top = styled.div`
   position: absolute;
@@ -28,7 +28,7 @@ const Top = styled.div`
   top: -90px;
   border-radius: 16px;
   z-index: -1;
-`
+`;
 
 const OutClip: React.SFC<OutClipProps> = () => {
   return (
@@ -36,7 +36,7 @@ const OutClip: React.SFC<OutClipProps> = () => {
       Lorem
       <Top />
     </Wrapper>
-  )
-}
+  );
+};
 
-export default OutClip
+export default OutClip;

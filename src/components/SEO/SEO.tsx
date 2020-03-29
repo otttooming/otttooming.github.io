@@ -5,20 +5,20 @@
  * See: https://www.gatsbyjs.org/docs/use-static-query/
  */
 
-import * as React from "react"
-import Helmet from "react-helmet"
-import { useStaticQuery, graphql } from "gatsby"
+import * as React from 'react';
+import Helmet from 'react-helmet';
+import { useStaticQuery, graphql } from 'gatsby';
 
 export interface MetaProps {
-  name: string
-  content: string
+  name: string;
+  content: string;
 }
 
 export interface SEOProps {
-  description: string
-  lang?: string
-  meta?: MetaProps[]
-  title: string
+  description: string;
+  lang?: string;
+  meta?: MetaProps[];
+  title: string;
 }
 
 const SEO: React.FC<SEOProps> = ({ description, lang, meta, title }) => {
@@ -34,9 +34,9 @@ const SEO: React.FC<SEOProps> = ({ description, lang, meta, title }) => {
         }
       }
     `
-  )
+  );
 
-  const metaDescription = description || site.siteMetadata.description
+  const metaDescription = description || site.siteMetadata.description;
 
   return (
     <Helmet
@@ -48,8 +48,8 @@ const SEO: React.FC<SEOProps> = ({ description, lang, meta, title }) => {
       link={[
         {
           href:
-            "https://fonts.googleapis.com/css?family=Montserrat:400,500,600,700,800&display=swap",
-          rel: "stylesheet",
+            'https://fonts.googleapis.com/css?family=Montserrat:400,500,600,700,800&display=swap',
+          rel: 'stylesheet',
         },
       ]}
       meta={[
@@ -87,13 +87,13 @@ const SEO: React.FC<SEOProps> = ({ description, lang, meta, title }) => {
         },
       ].concat(meta)}
     />
-  )
-}
+  );
+};
 
 SEO.defaultProps = {
   lang: `en`,
   meta: [],
   description: ``,
-}
+};
 
-export default SEO
+export default SEO;

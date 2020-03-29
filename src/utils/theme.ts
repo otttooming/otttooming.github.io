@@ -9,7 +9,7 @@ import {
   color,
   textColor,
   backgroundColor,
-} from "./customProperties"
+} from './customProperties';
 
 export const theme = {
   color: setThemeVariable(color),
@@ -21,4 +21,4 @@ export const theme = {
   fontSize: setThemeVariable(fontSize),
   fontFamily: setThemeVariable(fontFamily),
   fontWeight: setThemeVariable(fontWeight),
-}
+};

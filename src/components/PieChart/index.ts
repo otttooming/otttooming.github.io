@@ -1,2 +1,2 @@
-import { default as PieChart } from "./PieChart"
-export default PieChart
+import { default as PieChart } from './PieChart';
+export default PieChart;

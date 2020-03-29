@@ -1,14 +1,14 @@
-import * as React from "react"
-import Layout from "../components/layout"
-import Image from "../components/image"
-import SEO from "../components/SEO"
-import styled from "@emotion/styled"
-import { GitHub, Linkedin, Twitter } from "react-feather"
-import Gallery from "../components/Gallery/Gallery"
-import HexGrid from "../components/HexGrid/HexGrid"
-import Coop from "../components/Coop/Coop"
-import { theme } from "../utils/theme"
-import { Link, Heading, Box, Text as ChakraText } from "@chakra-ui/core"
+import * as React from 'react';
+import Layout from '../components/layout';
+import Image from '../components/image';
+import SEO from '../components/SEO';
+import styled from '@emotion/styled';
+import { GitHub, Linkedin, Twitter } from 'react-feather';
+import Gallery from '../components/Gallery/Gallery';
+import HexGrid from '../components/HexGrid/HexGrid';
+import Coop from '../components/Coop/Coop';
+import { theme } from '../utils/theme';
+import { Link, Heading, Box, Text as ChakraText } from '@chakra-ui/core';
 
 const StyledImage = styled(Image)`
   border-radius: 8px;
@@ -16,7 +16,7 @@ const StyledImage = styled(Image)`
   align-content: center;
   display: flex;
   justify-content: center;
-`
+`;
 
 const Grid = styled.section`
   display: grid;
@@ -26,7 +26,7 @@ const Grid = styled.section`
   min-height: calc(100vh - 72px);
   max-width: 960px;
   margin: 0 auto;
-`
+`;
 
 const AltGrid = styled.section`
   display: grid;
@@ -36,7 +36,7 @@ const AltGrid = styled.section`
   padding: ${theme.space.xl};
   max-width: 1280px;
   margin: 0 auto;
-`
+`;
 
 const PlainGrid = ({ ...restProps }) => (
   <Box
@@ -45,32 +45,32 @@ const PlainGrid = ({ ...restProps }) => (
     margin="var(--space-xl) auto"
     {...restProps}
   />
-)
+);
 
 const CenterImage = styled.div`
   align-content: center;
   display: flex;
   justify-content: center;
-`
+`;
 
 const Subheading = ({ ...restProps }) => (
   <ChakraText as="h2" fontWeight={theme.fontWeight.normal} {...restProps} />
-)
+);
 
-const Segment = styled.div``
+const Segment = styled.div``;
 
 const SmallType = styled.p`
   margin: 0 0 8px;
   text-transform: uppercase;
   color: #243343;
   font-size: 14px;
-`
+`;
 
-const Text = ({ ...restProps }) => <ChakraText mt="8px" {...restProps} />
+const Text = ({ ...restProps }) => <ChakraText mt="8px" {...restProps} />;
 
 const OutLink = ({ ...restProps }) => (
   <Link mt={theme.space.s} display="flex" {...restProps} />
-)
+);
 
 const IndexPage = () => (
   <Layout>
@@ -157,6 +157,6 @@ const IndexPage = () => (
       </PlainGrid>
     </Segment>
   </Layout>
-)
+);
 
-export default IndexPage
+export default IndexPage;

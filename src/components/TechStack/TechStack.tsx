@@ -1,25 +1,25 @@
-import * as React from "react"
-import styled from "@emotion/styled"
-import { theme } from "../../utils/theme"
-import { Link, Button } from "@chakra-ui/core"
+import * as React from 'react';
+import styled from '@emotion/styled';
+import { theme } from '../../utils/theme';
+import { Link, Button } from '@chakra-ui/core';
 
 export interface TechStackProps {
-  items?: string[]
+  items?: string[];
 }
 
 const Wrapper = styled.ul`
   margin: ${theme.space.m} auto;
   padding: 0;
-`
+`;
 
 const Item = styled.li`
   list-style: none;
   display: inline-flex;
-`
+`;
 
 const TechStack: React.FC<TechStackProps> = ({ items }) => {
   if (!Array.isArray(items) || !items.length) {
-    return null
+    return null;
   }
 
   return (
@@ -32,7 +32,7 @@ const TechStack: React.FC<TechStackProps> = ({ items }) => {
         </Item>
       ))}
     </Wrapper>
-  )
-}
+  );
+};
 
-export default TechStack
+export default TechStack;

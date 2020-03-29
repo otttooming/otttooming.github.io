@@ -1,8 +1,8 @@
-import * as React from "react"
-import styled from "@emotion/styled"
-import GalleryImage from "./GalleryImage"
-import { theme } from "../../utils/theme"
-import { useStaticQuery, graphql } from "gatsby"
+import * as React from 'react';
+import styled from '@emotion/styled';
+import GalleryImage from './GalleryImage';
+import { theme } from '../../utils/theme';
+import { useStaticQuery, graphql } from 'gatsby';
 
 export interface GalleryProps {}
 
@@ -21,7 +21,7 @@ const Wrapper = styled.div`
     grid-template-rows: repeat(14, minmax(16px, 1fr));
     grid-template-columns: repeat(22, minmax(16px, 1fr));
   }
-`
+`;
 
 const Item = styled.div`
   position: relative;
@@ -93,7 +93,7 @@ const Item = styled.div`
       grid-column: 13/17;
     }
   }
-`
+`;
 
 const ItemContainer = styled.div`
   position: absolute;
@@ -115,7 +115,7 @@ const ItemContainer = styled.div`
     height: 100%;
     flex: 1;
   }
-`
+`;
 
 const Gallery: React.SFC<GalleryProps> = () => {
   const data = useStaticQuery(graphql`
@@ -140,34 +140,34 @@ const Gallery: React.SFC<GalleryProps> = () => {
         }
       }
     }
-  `)
+  `);
 
   const gridMap = {
     bella: {
-      type: "landscape",
+      type: 'landscape',
       gallery: [],
     },
     ossu: {
-      type: "portrait",
+      type: 'portrait',
       gallery: [],
     },
     gustav: {
-      type: "landscape",
+      type: 'landscape',
       gallery: [],
     },
     bobby: {
-      type: "portrait",
+      type: 'portrait',
       gallery: [],
     },
     max: {
-      type: "landscape",
+      type: 'landscape',
       gallery: [],
     },
     tondu: {
-      type: "landscape",
+      type: 'landscape',
       gallery: [],
     },
-  }
+  };
 
   const mapImagesToGrid = (
     acc,
@@ -177,12 +177,12 @@ const Gallery: React.SFC<GalleryProps> = () => {
       },
     }
   ) => {
-    acc[slug].gallery = [featuredImage]
+    acc[slug].gallery = [featuredImage];
 
-    return acc
-  }
+    return acc;
+  };
 
-  const grid = data.images.edges.reduce(mapImagesToGrid, gridMap)
+  const grid = data.images.edges.reduce(mapImagesToGrid, gridMap);
 
   return (
     <Wrapper>
@@ -193,10 +193,10 @@ const Gallery: React.SFC<GalleryProps> = () => {
               <GalleryImage image={gallery[0]} />
             </ItemContainer>
           </Item>
-        )
+        );
       })}
     </Wrapper>
-  )
-}
+  );
+};
 
-export default Gallery
+export default Gallery;

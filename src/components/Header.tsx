@@ -1,10 +1,10 @@
-import * as React from "react"
-import styled from "@emotion/styled"
-import { Wind, BookOpen, User } from "react-feather"
-import { navigate } from "gatsby"
-import { Button } from "@chakra-ui/core"
-import { theme } from "../utils/theme"
-import DarkMode from "./DarkMode/DarkMode"
+import * as React from 'react';
+import styled from '@emotion/styled';
+import { Wind, BookOpen, User } from 'react-feather';
+import { navigate } from 'gatsby';
+import { Button } from '@chakra-ui/core';
+import { theme } from '../utils/theme';
+import DarkMode from './DarkMode/DarkMode';
 
 const Wrapper = styled.header`
   display: flex;
@@ -13,17 +13,17 @@ const Wrapper = styled.header`
   max-width: 960px;
   margin: 0 auto;
   padding: ${theme.space.l};
-`
+`;
 const Home = styled(Button)`
   font-size: 18px;
   background: transparent;
-`
+`;
 
 const List = styled.ul`
   display: flex;
   margin: 0;
   padding: 0;
-`
+`;
 
 const Item = styled.li`
   display: flex;
@@ -34,15 +34,15 @@ const Item = styled.li`
   &:last-of-type {
     margin-right: 0;
   }
-`
+`;
 
 const StyledButton = styled(Button)`
   background: transparent;
-`
+`;
 
 const Header = ({ siteTitle }) => (
   <Wrapper>
-    <Home leftIcon={Wind} variant="link" onClick={() => navigate("/")}>
+    <Home leftIcon={Wind} variant="link" onClick={() => navigate('/')}>
       OTTO
     </Home>
 
@@ -51,7 +51,7 @@ const Header = ({ siteTitle }) => (
         <StyledButton
           leftIcon={User}
           variant="ghost"
-          onClick={() => navigate("/about/me")}
+          onClick={() => navigate('/about/me')}
         >
           About
         </StyledButton>
@@ -60,7 +60,7 @@ const Header = ({ siteTitle }) => (
         <StyledButton
           leftIcon={BookOpen}
           variant="ghost"
-          onClick={() => navigate("/projects")}
+          onClick={() => navigate('/projects')}
         >
           Projects
         </StyledButton>
@@ -70,10 +70,10 @@ const Header = ({ siteTitle }) => (
       </Item>
     </List>
   </Wrapper>
-)
+);
 
 Header.defaultProps = {
   siteTitle: ``,
-}
+};
 
-export default Header
+export default Header;

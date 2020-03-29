@@ -1,10 +1,10 @@
-const path = require("path")
+const path = require('path');
 
 const templates = {
   about: path.resolve(`./src/templates/About.tsx`),
   persons: path.resolve(`./src/templates/Project.tsx`),
   projects: path.resolve(`./src/templates/Project.tsx`),
-}
+};
 
 module.exports = async function createProjects(graphql, reporter, createPage) {
   const result = await graphql(`
@@ -21,15 +21,15 @@ module.exports = async function createProjects(graphql, reporter, createPage) {
         }
       }
     }
-  `)
+  `);
   if (result.errors) {
-    reporter.panicOnBuild('🚨  ERROR: Loading "createPages" query')
+    reporter.panicOnBuild('🚨  ERROR: Loading "createPages" query');
   }
   // Create blog post pages.
-  const posts = result.data.allMdx.edges
+  const posts = result.data.allMdx.edges;
   // We'll call `createPage` for each result
   posts.forEach(({ node }, index) => {
-    const directory = node.fileAbsolutePath.split("/").reverse()[2]
+    const directory = node.fileAbsolutePath.split('/').reverse()[2];
 
     createPage({
       // This is the slug we created before
@@ -40,6 +40,6 @@ module.exports = async function createProjects(graphql, reporter, createPage) {
       // We can use the values in this context in
       // our page layout component
       context: { id: node.id },
-    })
-  })
-}
+    });
+  });
+};

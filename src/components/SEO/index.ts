@@ -1,2 +1,2 @@
-import { default as SEO } from "./SEO"
-export default SEO
+import { default as SEO } from './SEO';
+export default SEO;

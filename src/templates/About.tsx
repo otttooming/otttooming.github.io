@@ -1,15 +1,15 @@
-import * as React from "react"
-import { graphql } from "gatsby"
-import { MDXProvider } from "@mdx-js/react"
-import { MDXRenderer } from "gatsby-plugin-mdx"
-import Layout from "../components/layout"
-import styled from "@emotion/styled"
-import SEO from "../components/SEO"
-import { Heading } from "@chakra-ui/core"
-import MDXComponents from "../components/MDXComponents/MDXComponents"
+import * as React from 'react';
+import { graphql } from 'gatsby';
+import { MDXProvider } from '@mdx-js/react';
+import { MDXRenderer } from 'gatsby-plugin-mdx';
+import Layout from '../components/layout';
+import styled from '@emotion/styled';
+import SEO from '../components/SEO';
+import { Heading } from '@chakra-ui/core';
+import MDXComponents from '../components/MDXComponents/MDXComponents';
 
 export interface PostProps {
-  data: any
+  data: any;
 }
 
 const Wrapper = styled.div`
@@ -31,7 +31,7 @@ const Wrapper = styled.div`
   .gatsby-resp-image-wrapper > picture img {
     width: 100%;
   }
-`
+`;
 
 const About: React.FC<PostProps> = ({ data: { mdx } }) => {
   return (
@@ -48,10 +48,10 @@ const About: React.FC<PostProps> = ({ data: { mdx } }) => {
         </MDXProvider>
       </Wrapper>
     </Layout>
-  )
-}
+  );
+};
 
-export default About
+export default About;
 
 export const pageQuery = graphql`
   query AboutPostQuery($id: String) {
@@ -63,4 +63,4 @@ export const pageQuery = graphql`
       }
     }
   }
-`
+`;

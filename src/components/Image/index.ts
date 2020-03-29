@@ -1,1 +1,1 @@
-export { default } from "./Image.Zoom"
+export { default } from './Image.Zoom';

@@ -1,16 +1,16 @@
-import * as React from "react"
-import { PieChart, Pie, Sector, Cell } from "recharts"
-import styled from "@emotion/styled"
-import { theme } from "../../utils/theme"
+import * as React from 'react';
+import { PieChart, Pie, Sector, Cell } from 'recharts';
+import styled from '@emotion/styled';
+import { theme } from '../../utils/theme';
 
 interface DataProps {
-  name: string
-  value: number
+  name: string;
+  value: number;
 }
 
 interface Props {
-  data: DataProps[]
-  info?: React.ReactNode
+  data: DataProps[];
+  info?: React.ReactNode;
 }
 
 // const data = [
@@ -20,10 +20,10 @@ interface Props {
 //   { name: "Group D", value: 200 },
 // ]
 
-const COLORS = ["#80CC8E", "#686AF6", "#C5C7F0", "#CFD2F0", "#DADDEF"]
+const COLORS = ['#80CC8E', '#686AF6', '#C5C7F0', '#CFD2F0', '#DADDEF'];
 // const COLORS = ["#686AF6", "#C5C7F0", "#CFD2F0", "#DADDEF"]
 
-const RADIAN = Math.PI / 180
+const RADIAN = Math.PI / 180;
 const renderCustomizedLabel = ({
   cx,
   cy,
@@ -33,9 +33,9 @@ const renderCustomizedLabel = ({
   percent,
   index,
 }) => {
-  const radius = innerRadius + (outerRadius - innerRadius) * 0.5
-  const x = cx + radius * Math.cos(-midAngle * RADIAN)
-  const y = cy + radius * Math.sin(-midAngle * RADIAN)
+  const radius = innerRadius + (outerRadius - innerRadius) * 0.5;
+  const x = cx + radius * Math.cos(-midAngle * RADIAN);
+  const y = cy + radius * Math.sin(-midAngle * RADIAN);
 
   return (
     <>
@@ -46,7 +46,7 @@ const renderCustomizedLabel = ({
         strokeLinecap="round"
         y2={y}
         style={{
-          stroke: "#3E3E54",
+          stroke: '#3E3E54',
           strokeWidth: 25,
         }}
       />
@@ -55,14 +55,14 @@ const renderCustomizedLabel = ({
         x={x}
         y={y}
         fill="#fff"
-        textAnchor={"start"}
+        textAnchor={'start'}
         dominantBaseline="central"
       >
         {`${(percent * 100).toFixed(0)}%`}
       </text>
     </>
-  )
-}
+  );
+};
 
 const Wrapper = styled.div`
   display: flex;
@@ -74,19 +74,19 @@ const Wrapper = styled.div`
   border-radius: 8px;
   padding: 32px;
   max-width: 1024px !important;
-`
+`;
 
 const PieWrapper = styled.div`
   display: inline-flex;
   border-radius: 8px;
   margin-top: 24px;
-`
+`;
 
 const List = styled.ul`
   text-align: center;
   padding: 0;
   margin: 0;
-`
+`;
 
 const ListItem = styled.li<{ index: number }>`
   display: inline-flex;
@@ -100,7 +100,7 @@ const ListItem = styled.li<{ index: number }>`
   }
 
   &:before {
-    content: "";
+    content: '';
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
@@ -109,17 +109,17 @@ const ListItem = styled.li<{ index: number }>`
     height: 16px;
     background-color: ${(props) => COLORS[props.index % COLORS.length]};
   }
-`
+`;
 
 const InfoWrapper = styled.div`
   font-size: ${theme.fontSize.xs};
   margin-top: 24px;
   color: #808080;
-`
+`;
 
 export default class Example extends React.PureComponent<Props> {
   render() {
-    const { data, info } = this.props
+    const { data, info } = this.props;
 
     return (
       <Wrapper>
@@ -140,7 +140,7 @@ export default class Example extends React.PureComponent<Props> {
               label={renderCustomizedLabel}
               outerRadius={96}
               innerRadius={64}
-              stroke={"none"}
+              stroke={'none'}
               fill="#8884d8"
               dataKey="value"
               paddingAngle={4}
@@ -158,6 +158,6 @@ export default class Example extends React.PureComponent<Props> {
 
         {info && <InfoWrapper>{info}</InfoWrapper>}
       </Wrapper>
-    )
+    );
   }
 }

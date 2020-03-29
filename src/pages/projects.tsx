@@ -1,25 +1,25 @@
-import * as React from "react"
-import { Link, graphql } from "gatsby"
-import Layout from "../components/layout"
-import { theme } from "../utils/theme"
-import styled from "@emotion/styled"
-import GatsbyImage from "gatsby-image"
-import Logo from "../components/Logo/Logo"
-import { textMap } from "../utils/textMap"
-import SEO from "../components/SEO"
-import { Heading, Text } from "@chakra-ui/core"
+import * as React from 'react';
+import { Link, graphql } from 'gatsby';
+import Layout from '../components/layout';
+import { theme } from '../utils/theme';
+import styled from '@emotion/styled';
+import GatsbyImage from 'gatsby-image';
+import Logo from '../components/Logo/Logo';
+import { textMap } from '../utils/textMap';
+import SEO from '../components/SEO';
+import { Heading, Text } from '@chakra-ui/core';
 
 const Wrapper = styled.div`
   margin: 80px auto;
   padding: 0;
   max-width: 960px;
-`
+`;
 
 const Container = styled.ul`
   margin: 80px auto;
   padding: 0;
   max-width: 1080px;
-`
+`;
 
 const Item = styled.li`
   display: grid;
@@ -32,34 +32,34 @@ const Item = styled.li`
   &:nth-of-type(even) {
     direction: rtl;
   }
-`
+`;
 
 const Content = styled.div`
   direction: ltr;
-`
+`;
 
 const Img = styled(GatsbyImage)`
   border-radius: ${theme.borderRadius.m};
-`
+`;
 
 const Description = styled.div`
   margin-top: ${theme.space.l};
-`
+`;
 
 /**
  * Only return posts when Gatsby has run static site query
  */
 const getPosts = (data) => {
   if (!data.allMdx) {
-    return []
+    return [];
   }
-  const { edges: posts } = data.allMdx
+  const { edges: posts } = data.allMdx;
 
-  return posts
-}
+  return posts;
+};
 
 const Projects = ({ data }) => {
-  const posts = getPosts(data)
+  const posts = getPosts(data);
 
   return (
     <Layout>
@@ -84,7 +84,7 @@ const Projects = ({ data }) => {
       <Container>
         {posts.map(({ node: post }) => {
           const featuredImgFluid =
-            post.frontmatter.featuredImage.childImageSharp.fluid
+            post.frontmatter.featuredImage.childImageSharp.fluid;
 
           return (
             <Item key={post.id}>
@@ -97,7 +97,7 @@ const Projects = ({ data }) => {
 
                 <Heading mt={theme.space.s} fontWeight={400}>
                   <Link to={post.fields.slug}>
-                    <strong>{post.frontmatter.title}</strong>{" "}
+                    <strong>{post.frontmatter.title}</strong>{' '}
                     {textMap(post.frontmatter.kind)}
                   </Link>
                 </Heading>
@@ -105,12 +105,12 @@ const Projects = ({ data }) => {
                 <Text mt={theme.space.s}>{post.excerpt}</Text>
               </Content>
             </Item>
-          )
+          );
         })}
       </Container>
     </Layout>
-  )
-}
+  );
+};
 export const pageQuery = graphql`
   query projectIndex {
     allMdx(
@@ -142,5 +142,5 @@ export const pageQuery = graphql`
       }
     }
   }
-`
-export default Projects
+`;
+export default Projects;

@@ -5,13 +5,13 @@
  * See: https://www.gatsbyjs.org/docs/use-static-query/
  */
 
-import * as React from "react"
-import { useStaticQuery, graphql } from "gatsby"
-import Header from "./Header"
-import { ThemeProvider, CSSReset } from "@chakra-ui/core"
-import { Global, css } from "@emotion/core"
-import { customProperties } from "../utils/customProperties"
-import { theme } from "../utils/theme"
+import * as React from 'react';
+import { useStaticQuery, graphql } from 'gatsby';
+import Header from './Header';
+import { ThemeProvider, CSSReset } from '@chakra-ui/core';
+import { Global, css } from '@emotion/core';
+import { customProperties } from '../utils/customProperties';
+import { theme } from '../utils/theme';
 
 const Layout = ({ children }) => {
   const data = useStaticQuery(graphql`
@@ -22,7 +22,7 @@ const Layout = ({ children }) => {
         }
       }
     }
-  `)
+  `);
 
   return (
     <ThemeProvider>
@@ -68,7 +68,7 @@ const Layout = ({ children }) => {
         <footer></footer>
       </>
     </ThemeProvider>
-  )
-}
+  );
+};
 
-export default Layout
+export default Layout;

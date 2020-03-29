@@ -1,20 +1,20 @@
-import * as React from "react"
-import { graphql } from "gatsby"
-import { MDXProvider } from "@mdx-js/react"
-import { MDXRenderer } from "gatsby-plugin-mdx"
-import Layout from "../components/layout"
-import styled from "@emotion/styled"
-import GatsbyImage from "gatsby-image"
-import TechStack from "../components/TechStack/TechStack"
-import { textMap } from "../utils/textMap"
-import Logo from "../components/Logo/Logo"
-import SEO from "../components/SEO"
-import { theme } from "../utils/theme"
-import { Heading } from "@chakra-ui/core"
-import MDXComponents from "../components/MDXComponents/MDXComponents"
+import * as React from 'react';
+import { graphql } from 'gatsby';
+import { MDXProvider } from '@mdx-js/react';
+import { MDXRenderer } from 'gatsby-plugin-mdx';
+import Layout from '../components/layout';
+import styled from '@emotion/styled';
+import GatsbyImage from 'gatsby-image';
+import TechStack from '../components/TechStack/TechStack';
+import { textMap } from '../utils/textMap';
+import Logo from '../components/Logo/Logo';
+import SEO from '../components/SEO';
+import { theme } from '../utils/theme';
+import { Heading } from '@chakra-ui/core';
+import MDXComponents from '../components/MDXComponents/MDXComponents';
 
 export interface PostProps {
-  data: any
+  data: any;
 }
 
 const Wrapper = styled.div`
@@ -50,16 +50,16 @@ const Wrapper = styled.div`
   .gatsby-resp-image-wrapper > picture img {
     width: 100%;
   }
-`
+`;
 
 const Img = styled(GatsbyImage)`
   max-width: 1024px;
   margin: 0 auto;
   border-radius: ${theme.borderRadius.m};
-`
+`;
 
 const Project: React.FC<PostProps> = ({ data: { mdx } }) => {
-  const featuredImgFluid = mdx.frontmatter.featuredImage.childImageSharp.fluid
+  const featuredImgFluid = mdx.frontmatter.featuredImage.childImageSharp.fluid;
 
   return (
     <Layout>
@@ -69,7 +69,7 @@ const Project: React.FC<PostProps> = ({ data: { mdx } }) => {
         <Logo name={mdx.frontmatter.company} link={mdx.frontmatter.link} />
 
         <Heading fontWeight={500}>
-          <strong>{mdx.frontmatter.title}</strong>{" "}
+          <strong>{mdx.frontmatter.title}</strong>{' '}
           {textMap(mdx.frontmatter.kind)}
         </Heading>
 
@@ -83,10 +83,10 @@ const Project: React.FC<PostProps> = ({ data: { mdx } }) => {
         </MDXProvider>
       </Wrapper>
     </Layout>
-  )
-}
+  );
+};
 
-export default Project
+export default Project;
 
 export const pageQuery = graphql`
   query ProjectPostQuery($id: String) {
@@ -110,4 +110,4 @@ export const pageQuery = graphql`
       }
     }
   }
-`
+`;

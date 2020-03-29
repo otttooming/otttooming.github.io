@@ -1,10 +1,10 @@
-import * as React from "react"
-import styled from "@emotion/styled"
-import TSIcon from "../../assets/tech-typescript.svg"
-import ReduxIcon from "../../assets/tech-redux.svg"
-import GatsbyIcon from "../../assets/tech-gatsby.svg"
-import GraphQLIcon from "../../assets/tech-graphql.svg"
-import ReactIcon from "../../assets/tech-react.svg"
+import * as React from 'react';
+import styled from '@emotion/styled';
+import TSIcon from '../../assets/tech-typescript.svg';
+import ReduxIcon from '../../assets/tech-redux.svg';
+import GatsbyIcon from '../../assets/tech-gatsby.svg';
+import GraphQLIcon from '../../assets/tech-graphql.svg';
+import ReactIcon from '../../assets/tech-react.svg';
 
 export interface HexGridProps {}
 
@@ -18,9 +18,9 @@ const Wrapper = styled.div`
 
   @media (min-width: 960px) {
     display: grid;
-    grid-template-areas: ". a1 a1 a2 a2 ." ". a1 a1 a2 a2 ." "b1 b1 b2 b2 b3 b3" "b1 b1 b2 b2 b3 b3" ". c1 c1 c2 c2 ." ". c1 c1 c2 c2 .";
+    grid-template-areas: '. a1 a1 a2 a2 .' '. a1 a1 a2 a2 .' 'b1 b1 b2 b2 b3 b3' 'b1 b1 b2 b2 b3 b3' '. c1 c1 c2 c2 .' '. c1 c1 c2 c2 .';
   }
-`
+`;
 
 const Item = styled.div`
   position: relative;
@@ -47,7 +47,7 @@ const Item = styled.div`
   &:nth-of-type(7) {
     grid-area: c2;
   }
-`
+`;
 
 const Hex = styled.div`
   position: relative;
@@ -66,31 +66,31 @@ const Hex = styled.div`
   }
 
   ${({ type }) =>
-    type === "gatsby"
+    type === 'gatsby'
       ? `    background: #663399;
     color: #fff;`
       : ``}
 
   ${({ type }) =>
-    type === "react"
+    type === 'react'
       ? `    background: #20232a;
     color: #fff;`
       : ``}
 
   ${({ type }) =>
-    type === "graphql"
+    type === 'graphql'
       ? `    background: rgba(221,23,151,0.75);
     color: #fff;`
       : ``}
 
   ${({ type }) =>
-    type === "typescript"
+    type === 'typescript'
       ? `    background: #007acc;
     color: #fff;`
       : ``}
 
   ${({ type }) =>
-    type === "redux"
+    type === 'redux'
       ? `    background: #764abc;
     color: #fff;`
       : ``}
@@ -155,7 +155,7 @@ const Hex = styled.div`
     8.93111% 22.33956%,
     10.35898% 21.33975%
   );
-`
+`;
 
 const Icon = styled.div`
   position: absolute;
@@ -171,7 +171,7 @@ const Icon = styled.div`
     width: 50%;
     height: 100%;
   }
-`
+`;
 
 const HexGrid: React.SFC<HexGridProps> = () => {
   return (
@@ -212,7 +212,7 @@ const HexGrid: React.SFC<HexGridProps> = () => {
         </Hex>
       </Item>
     </Wrapper>
-  )
-}
+  );
+};
 
-export default HexGrid
+export default HexGrid;

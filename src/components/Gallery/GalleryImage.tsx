@@ -1,5 +1,5 @@
-import * as React from "react"
-import Img from "gatsby-image"
+import * as React from 'react';
+import Img from 'gatsby-image';
 
 /*
  * This component is built using `gatsby-image` to automatically serve optimized
@@ -13,7 +13,7 @@ import Img from "gatsby-image"
  */
 
 const GalleryImage = ({ image, ...restProps }) => {
-  return <Img {...restProps} fluid={image.childImageSharp.fluid} />
-}
+  return <Img {...restProps} fluid={image.childImageSharp.fluid} />;
+};
 
-export default GalleryImage
+export default GalleryImage;
