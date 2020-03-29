@@ -8,13 +8,10 @@ import GatsbyImage from "gatsby-image"
 import TechStack from "../components/TechStack/TechStack"
 import { textMap } from "../utils/textMap"
 import Logo from "../components/Logo/Logo"
-import MasonryGallery from "../components/MasonryGallery/MasonryGallery"
-import ImageZoom from "../components/Image/Image.Zoom"
-import PieChart from "../components/PieChart"
-import Illustration from "../components/Illustration/"
 import SEO from "../components/SEO"
 import { theme } from "../utils/theme"
 import { Heading } from "@chakra-ui/core"
+import MDXComponents from "../components/MDXComponents/MDXComponents"
 
 export interface PostProps {
   data: any
@@ -61,8 +58,6 @@ const Img = styled(GatsbyImage)`
   border-radius: ${theme.borderRadius.m};
 `
 
-const components = { MasonryGallery, img: ImageZoom, PieChart, Illustration }
-
 const Project: React.FC<PostProps> = ({ data: { mdx } }) => {
   const featuredImgFluid = mdx.frontmatter.featuredImage.childImageSharp.fluid
 
@@ -77,12 +72,13 @@ const Project: React.FC<PostProps> = ({ data: { mdx } }) => {
           <strong>{mdx.frontmatter.title}</strong>{" "}
           {textMap(mdx.frontmatter.kind)}
         </Heading>
+
         <TechStack items={mdx.frontmatter.tech} />
       </Wrapper>
       <Img fluid={featuredImgFluid} />
 
       <Wrapper>
-        <MDXProvider components={components}>
+        <MDXProvider components={MDXComponents}>
           <MDXRenderer>{mdx.body}</MDXRenderer>
         </MDXProvider>
       </Wrapper>
