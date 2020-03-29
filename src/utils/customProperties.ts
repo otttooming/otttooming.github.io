@@ -1,6 +1,6 @@
 import { css } from '@emotion/core';
 
-const rootSize: number = 16;
+const rootSize = 16;
 
 type CustomPropertySizeValues = 'xs' | 's' | 'm' | 'l' | 'xl' | 'xxl' | 'xxxl';
 

@@ -1,8 +1,6 @@
 import * as React from 'react';
 import styled from '@emotion/styled';
 
-export interface IllustrationProps {}
-
 const Wrapper = styled.div`
   margin-top: 160px;
   margin-bottom: 64px;
@@ -18,7 +16,7 @@ const Container = styled.div`
   max-width: 480px;
 `;
 
-const Illustration: React.FC<IllustrationProps> = ({ children }) => {
+const Illustration: React.FC = ({ children }) => {
   return (
     <Wrapper>
       <Container>{children}</Container>

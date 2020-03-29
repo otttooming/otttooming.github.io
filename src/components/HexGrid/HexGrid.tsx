@@ -6,8 +6,6 @@ import GatsbyIcon from '../../assets/tech-gatsby.svg';
 import GraphQLIcon from '../../assets/tech-graphql.svg';
 import ReactIcon from '../../assets/tech-react.svg';
 
-export interface HexGridProps {}
-
 const Wrapper = styled.div`
   /* grid-template-columns: repeat(auto-fit, minmax(60px, 1fr)); */
   /* height: 400px;
@@ -49,7 +47,7 @@ const Item = styled.div`
   }
 `;
 
-const Hex = styled.div`
+const Hex = styled.div<{ type: string }>`
   position: relative;
   /* border-radius: 1em/0.5em; */
   /* background: red; */
@@ -173,7 +171,7 @@ const Icon = styled.div`
   }
 `;
 
-const HexGrid: React.SFC<HexGridProps> = () => {
+const HexGrid: React.FC = () => {
   return (
     <Wrapper>
       <Item>

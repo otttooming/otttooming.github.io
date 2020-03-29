@@ -1,11 +1,8 @@
 import * as React from 'react';
 import styled from '@emotion/styled';
 
-// @ts-ignore
 import StatsCardClip from '../../assets/statscard-clip.svg';
 import OutClip from './OutClip';
-
-export interface StatsCardProps {}
 
 const HiddenStatsCardClip = styled(StatsCardClip)`
   position: absolute;
@@ -31,7 +28,7 @@ const Container = styled.div`
   clip-path: url(#statscard);
 `;
 
-const StatsCard: React.SFC<StatsCardProps> = () => {
+const StatsCard: React.FC = () => {
   return (
     <Wrapper>
       <HiddenStatsCardClip />

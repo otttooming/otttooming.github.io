@@ -6,8 +6,6 @@ import Gtap from '../../assets/logo-gtap.svg';
 import styled from '@emotion/styled';
 import { css } from '@emotion/core';
 
-export interface CoopProps {}
-
 const Wrapper = styled.div`
   display: flex;
   flex-direction: row-reverse;
@@ -64,7 +62,7 @@ const GtapCard = styled(Gtap)`
   max-width: 250px;
 `;
 
-const Coop: React.SFC<CoopProps> = () => {
+const Coop: React.FC = () => {
   return (
     <Wrapper>
       <Item type="gtap">

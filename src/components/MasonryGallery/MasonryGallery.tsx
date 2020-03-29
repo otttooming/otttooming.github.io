@@ -2,8 +2,6 @@ import styled from '@emotion/styled';
 import * as React from 'react';
 import { theme } from '../../utils/theme';
 
-export interface MasonryGalleryProps {}
-
 const Wrapper = styled.div`
   display: grid;
   grid-auto-flow: column;
@@ -24,7 +22,7 @@ const Item = styled.div`
   border-radius: ${theme.borderRadius.s};
 `;
 
-const MasonryGallery: React.FC<MasonryGalleryProps> = ({ children }) => {
+const MasonryGallery: React.FC = ({ children }) => {
   const minWidth = 300;
   const cols = [];
   const ref = React.useRef(null);

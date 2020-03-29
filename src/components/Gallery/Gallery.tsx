@@ -4,8 +4,6 @@ import GalleryImage from './GalleryImage';
 import { theme } from '../../utils/theme';
 import { useStaticQuery, graphql } from 'gatsby';
 
-export interface GalleryProps {}
-
 const Wrapper = styled.div`
   display: grid;
   align-items: stretch;
@@ -117,7 +115,7 @@ const ItemContainer = styled.div`
   }
 `;
 
-const Gallery: React.SFC<GalleryProps> = () => {
+const Gallery: React.FC = () => {
   const data = useStaticQuery(graphql`
     query {
       images: allMdx(

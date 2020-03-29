@@ -150,7 +150,7 @@ const IndexPage = () => (
       <PlainGrid textAlign="center">
         <SmallType>Industry</SmallType>
         <Subheading>
-          Some <strong>amazing companies </strong> I've worked with
+          Some <strong>amazing companies </strong> I&apos;ve worked with
         </Subheading>
 
         <Coop />

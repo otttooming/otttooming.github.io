@@ -1,8 +1,6 @@
 import * as React from 'react';
 import styled from '@emotion/styled';
 
-export interface OutClipProps {}
-
 const Wrapper = styled.div`
   position: absolute;
   z-index: 1;
@@ -30,7 +28,7 @@ const Top = styled.div`
   z-index: -1;
 `;
 
-const OutClip: React.SFC<OutClipProps> = () => {
+const OutClip: React.FC = () => {
   return (
     <Wrapper>
       Lorem
