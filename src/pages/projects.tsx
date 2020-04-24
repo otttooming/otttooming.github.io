@@ -7,7 +7,8 @@ import GatsbyImage from 'gatsby-image';
 import Logo from '../components/Logo/Logo';
 import { textMap } from '../utils/textMap';
 import SEO from '../components/SEO';
-import { Heading, Text } from '@chakra-ui/core';
+import { Heading, Text, useColorMode } from '@chakra-ui/core';
+import { css } from '@emotion/core';
 
 const Wrapper = styled.div`
   margin: 80px auto;
@@ -21,13 +22,27 @@ const Container = styled.ul`
   max-width: 1080px;
 `;
 
-const Item = styled.li`
+const lightMode = css`
+  background: #edf2f7;
+`;
+
+const darkMode = css`
+  background: #2c3442;
+`;
+
+const Item = styled.li<{ colorMode: 'light' | 'dark' }>`
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(256px, 1fr));
   grid-gap: 32px;
   list-style: none;
   margin-bottom: 196px;
   align-items: center;
+
+  ${({ colorMode }) => (colorMode === 'light' ? lightMode : darkMode)}
+
+  padding: 48px;
+  border-radius: 16px;
+  margin-bottom: 96px;
 
   &:nth-of-type(even) {
     direction: rtl;
@@ -59,6 +74,8 @@ const getPosts = (data) => {
 };
 
 const Projects = ({ data }) => {
+  const { colorMode, toggleColorMode } = useColorMode();
+
   const posts = getPosts(data);
 
   return (
@@ -87,7 +104,7 @@ const Projects = ({ data }) => {
             post.frontmatter.featuredImage.childImageSharp.fluid;
 
           return (
-            <Item key={post.id}>
+            <Item key={post.id} colorMode={colorMode}>
               <Img fluid={featuredImgFluid} />
               <Content>
                 <Logo
