@@ -68,7 +68,7 @@
     "start": "npm run develop",
     "serve": "gatsby serve",
     "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\"",
-    "prettier": "prettier --write --config .prettierrc \"**/*.{js,jsx,ts,tsx,json,css,scss,md,yaml,yml}\""
+    "prettier": "prettier --write --config .prettierrc \"**/*.{js,jsx,ts,tsx,json,css,scss,md,mdx,yaml,yml}\""
   },
   "repository": {
     "type": "git",
@@ -83,7 +83,7 @@
     }
   },
   "lint-staged": {
-    "*.{js,jsx,ts,tsx,json,css,scss,md,yaml,yml}": [
+    "*.{js,jsx,ts,tsx,json,css,scss,md,mdx,yaml,yml}": [
       "npm run prettier",
       "npm run lint",
       "git add"
