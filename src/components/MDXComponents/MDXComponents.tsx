@@ -9,9 +9,20 @@ import {
   Heading,
   Text as ChakraText,
 } from '@chakra-ui/core';
+import { theme } from '../../utils/theme';
 
 export const HeadingH2: React.FC = (props) => (
   <Heading {...props} as="h2" size="lg" mt="32px" />
+);
+
+export const HeadingH3: React.FC = (props) => (
+  <Heading
+    {...props}
+    as="h3"
+    size="md"
+    mt="32px"
+    fontWeight={theme.fontWeight.normal}
+  />
 );
 
 export const List: React.FC = (props) => (
@@ -31,6 +42,7 @@ const MDXComponents = {
   Illustration,
   img: ImageZoom,
   h2: HeadingH2,
+  h3: HeadingH3,
   ul: List,
   li: ListItem,
   p: Text,
