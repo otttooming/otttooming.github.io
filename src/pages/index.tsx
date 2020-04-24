@@ -8,7 +8,13 @@ import Gallery from '../components/Gallery/Gallery';
 import HexGrid from '../components/HexGrid/HexGrid';
 import Coop from '../components/Coop/Coop';
 import { theme } from '../utils/theme';
-import { Link, Heading, Box, Text as ChakraText } from '@chakra-ui/core';
+import {
+  Link,
+  Heading,
+  Box,
+  Text as ChakraText,
+  IconButton,
+} from '@chakra-ui/core';
 
 const StyledImage = styled(Image)`
   border-radius: 8px;
@@ -69,7 +75,17 @@ const SmallType = styled.p`
 const Text = ({ ...restProps }) => <ChakraText mt="8px" {...restProps} />;
 
 const OutLink = ({ ...restProps }) => (
-  <Link mt={theme.space.s} display="flex" {...restProps} />
+  <Link display="flex" alignItems="center" fontSize="16px" {...restProps} />
+);
+
+const SocialIcon = ({ ...restProps }) => (
+  <IconButton
+    as="span"
+    aria-label="button"
+    size="sm"
+    mr={theme.space.s}
+    {...restProps}
+  />
 );
 
 const IndexPage = () => (
@@ -91,21 +107,24 @@ const IndexPage = () => (
             documentation I have lingering around
           </Text>
 
-          <Text mt="32px">
+          <Text mt="24px">
             <OutLink href="https://github.com/otttooming">
-              <GitHub /> github.com/otttooming
+              <SocialIcon icon={() => <GitHub size="20" />} />
+              <strong>github.com</strong>/otttooming
             </OutLink>
           </Text>
 
-          <Text>
+          <Text mt="4px">
             <OutLink href="https://www.linkedin.com/in/otttooming/">
-              <Linkedin /> linkedin.com/in/otttooming
+              <SocialIcon icon={() => <Linkedin size="16" />} />
+              <strong>linkedin.com</strong>/in/otttooming
             </OutLink>
           </Text>
 
-          <Text>
+          <Text mt="4px">
             <OutLink href="https://twitter.com/otttooming">
-              <Twitter /> twitter.com/otttooming
+              <SocialIcon icon={() => <Twitter size="16" />} />
+              <strong>twitter.com</strong>/otttooming
             </OutLink>
           </Text>
         </Box>
