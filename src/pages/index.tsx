@@ -14,6 +14,8 @@ import {
   Box,
   Text as ChakraText,
   IconButton,
+  useColorMode,
+  BoxProps,
 } from '@chakra-ui/core';
 
 const StyledImage = styled(Image)`
@@ -82,7 +84,9 @@ const SmallType = ({ children }) => {
   );
 };
 
-const Text = ({ ...restProps }) => <ChakraText mt="8px" {...restProps} />;
+const Text: React.FC<BoxProps> = ({ ...restProps }) => (
+  <ChakraText mt="8px" {...restProps} />
+);
 
 const OutLink = ({ ...restProps }) => (
   <Link display="flex" alignItems="center" fontSize="16px" {...restProps} />
@@ -167,7 +171,7 @@ const IndexPage = () => (
             <strong>Tech stack</strong> that I currently use
           </Subheading>
 
-          <Text>
+          <Text mt="16px">
             Passionate about TypeScript, React, NodeJS, GraphQL and statically
             typed languages in general.
           </Text>
