@@ -8,9 +8,6 @@ import ReactIcon from '../../assets/tech-react.svg';
 import { Link as ChakraLink, LinkProps } from '@chakra-ui/core';
 
 const Wrapper = styled.div`
-  /* grid-template-columns: repeat(auto-fit, minmax(60px, 1fr)); */
-  /* height: 400px;
-  max-width: 500px; */
   margin: 128px auto;
   display: flex;
   flex-direction: column-reverse;
@@ -23,7 +20,6 @@ const Wrapper = styled.div`
 
 const Item = styled.div`
   position: relative;
-  /* transform: rotate(-90deg); */
 
   &:nth-of-type(1) {
     grid-area: a1;
@@ -61,8 +57,6 @@ const Hex = ({ children, type, ...restProps }) => (
 const Content = styled.span<{ type: string }>`
   display: block;
   position: relative;
-  /* border-radius: 1em/0.5em; */
-  /* background: red; */
   width: 16vw;
   height: 16vw;
   max-width: 8rem;
@@ -111,22 +105,6 @@ const Content = styled.span<{ type: string }>`
     color: #fff;`
       : ``}
 
-  /* &::after,
-  &::before {
-    position: absolute;
-    width: inherit;
-    height: inherit;
-    border-radius: inherit;
-    background: inherit;
-    content: "";
-  }
-
-  &::before {
-    transform: rotate(60deg);
-  }
-  &::after {
-    transform: rotate(-60deg);
-  } */
   clip-path: polygon(
     45% 1.33975%,
     46.5798% 0.60307%,
