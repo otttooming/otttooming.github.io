@@ -5,7 +5,13 @@ import ReduxIcon from '../../assets/tech-redux.svg';
 import GatsbyIcon from '../../assets/tech-gatsby.svg';
 import GraphQLIcon from '../../assets/tech-graphql.svg';
 import ReactIcon from '../../assets/tech-react.svg';
-import { Link as ChakraLink, LinkProps } from '@chakra-ui/core';
+import {
+  Link as ChakraLink,
+  LinkProps,
+  Box,
+  PseudoBox,
+  PseudoBoxProps,
+} from '@chakra-ui/core';
 
 const Wrapper = styled.div`
   margin: 128px auto;
@@ -48,13 +54,17 @@ const Link: React.FC<LinkProps> = ({ ...restProps }) => (
   <ChakraLink display="block" target="blank" {...restProps} />
 );
 
-const Hex = ({ children, type, ...restProps }) => (
-  <Link {...restProps}>
-    <Content type={type}>{children}</Content>
+const Hex: React.FC<PseudoBoxProps & { href: string }> = ({
+  children,
+  href,
+  ...restProps
+}) => (
+  <Link href={href}>
+    <Content {...restProps}>{children}</Content>
   </Link>
 );
 
-const Content = styled.span<{ type: string }>`
+const StyledContent = styled.span`
   display: block;
   position: relative;
   width: 16vw;
@@ -74,36 +84,6 @@ const Content = styled.span<{ type: string }>`
     transform: scale3d(1.2, 1.2, 1.2);
     z-index: 1;
   }
-
-  ${({ type }) =>
-    type === 'gatsby'
-      ? `    background: #663399;
-    color: #fff;`
-      : ``}
-
-  ${({ type }) =>
-    type === 'react'
-      ? `    background: #20232a;
-    color: #fff;`
-      : ``}
-
-  ${({ type }) =>
-    type === 'graphql'
-      ? `    background: rgba(221,23,151,0.75);
-    color: #fff;`
-      : ``}
-
-  ${({ type }) =>
-    type === 'typescript'
-      ? `    background: #007acc;
-    color: #fff;`
-      : ``}
-
-  ${({ type }) =>
-    type === 'redux'
-      ? `    background: #764abc;
-    color: #fff;`
-      : ``}
 
   clip-path: polygon(
     45% 1.33975%,
@@ -167,39 +147,46 @@ const Icon = styled.span`
   }
 `;
 
+const Content: React.FC<PseudoBoxProps> = ({ ...restProps }) => {
+  return <PseudoBox as={StyledContent} display="block" {...restProps} />;
+};
+
 const HexGrid: React.FC = () => {
   return (
     <Wrapper>
       <Item>
-        <Hex type="typescript" href="https://www.typescriptlang.org/">
+        <Hex backgroundColor="#007acc" href="https://www.typescriptlang.org/">
           <Icon>
             <TSIcon />
           </Icon>
         </Hex>
       </Item>
       <Item>
-        <Hex type="redux" href="https://redux.js.org/">
+        <Hex backgroundColor="#764abc" href="https://redux.js.org/">
           <Icon>
             <ReduxIcon />
           </Icon>
         </Hex>
       </Item>
       <Item>
-        <Hex type="gatsby" href="https://www.gatsbyjs.org/">
+        <Hex backgroundColor="#663399" href="https://www.gatsbyjs.org/">
           <Icon>
             <GatsbyIcon />
           </Icon>
         </Hex>
       </Item>
       <Item>
-        <Hex type="react" href="https://reactjs.org/">
+        <Hex backgroundColor="#20232a" href="https://reactjs.org/">
           <Icon>
             <ReactIcon />
           </Icon>
         </Hex>
       </Item>
       <Item>
-        <Hex type="graphql" href="https://graphql.org/">
+        <Hex
+          backgroundColor="rgba(221,23,151,0.75)"
+          href="https://graphql.org/"
+        >
           <Icon>
             <GraphQLIcon />
           </Icon>
