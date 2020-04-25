@@ -65,12 +65,22 @@ const Subheading = ({ ...restProps }) => (
 
 const Segment = styled.div``;
 
-const SmallType = styled.p`
-  margin: 0 0 8px;
-  text-transform: uppercase;
-  color: #243343;
-  font-size: 14px;
-`;
+const SmallType = ({ children }) => {
+  const { colorMode } = useColorMode();
+
+  const color = colorMode === 'light' ? '#243343' : '';
+
+  return (
+    <ChakraText
+      mb="8px"
+      color={color}
+      textTransform="uppercase"
+      fontSize="14px"
+    >
+      {children}
+    </ChakraText>
+  );
+};
 
 const Text = ({ ...restProps }) => <ChakraText mt="8px" {...restProps} />;
 
