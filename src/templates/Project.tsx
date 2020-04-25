@@ -55,6 +55,7 @@ const Wrapper = styled.div`
 const Img = styled(GatsbyImage)`
   max-width: 1024px;
   margin: 0 auto;
+  margin-top: 80px;
   border-radius: ${theme.borderRadius.m};
 `;
 
@@ -64,6 +65,8 @@ const Project: React.FC<PostProps> = ({ data: { mdx } }) => {
   return (
     <Layout>
       <SEO title={mdx.frontmatter.title} description="" />
+
+      <Img fluid={featuredImgFluid} />
 
       <Wrapper>
         <Logo name={mdx.frontmatter.company} link={mdx.frontmatter.link} />
@@ -75,7 +78,6 @@ const Project: React.FC<PostProps> = ({ data: { mdx } }) => {
 
         <TechStack items={mdx.frontmatter.tech} />
       </Wrapper>
-      <Img fluid={featuredImgFluid} />
 
       <Wrapper>
         <MDXProvider components={MDXComponents}>
