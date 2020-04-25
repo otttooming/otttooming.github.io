@@ -52,7 +52,14 @@ const Link: React.FC<LinkProps> = ({ ...restProps }) => (
   <ChakraLink display="block" target="blank" {...restProps} />
 );
 
-const Hex = styled(Link)<{ type: string }>`
+const Hex = ({ children, type, ...restProps }) => (
+  <Link {...restProps}>
+    <Content type={type}>{children}</Content>
+  </Link>
+);
+
+const Content = styled.span<{ type: string }>`
+  display: block;
   position: relative;
   /* border-radius: 1em/0.5em; */
   /* background: red; */
@@ -166,7 +173,7 @@ const Hex = styled(Link)<{ type: string }>`
   );
 `;
 
-const Icon = styled.div`
+const Icon = styled.span`
   position: absolute;
   display: flex;
   align-items: center;
