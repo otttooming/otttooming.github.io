@@ -5,6 +5,7 @@ import ReduxIcon from '../../assets/tech-redux.svg';
 import GatsbyIcon from '../../assets/tech-gatsby.svg';
 import GraphQLIcon from '../../assets/tech-graphql.svg';
 import ReactIcon from '../../assets/tech-react.svg';
+import { Link as ChakraLink, LinkProps } from '@chakra-ui/core';
 
 const Wrapper = styled.div`
   /* grid-template-columns: repeat(auto-fit, minmax(60px, 1fr)); */
@@ -47,7 +48,11 @@ const Item = styled.div`
   }
 `;
 
-const Hex = styled.div<{ type: string }>`
+const Link: React.FC<LinkProps> = ({ ...restProps }) => (
+  <ChakraLink display="block" target="blank" {...restProps} />
+);
+
+const Hex = styled(Link)<{ type: string }>`
   position: relative;
   /* border-radius: 1em/0.5em; */
   /* background: red; */
@@ -60,7 +65,13 @@ const Hex = styled.div<{ type: string }>`
 
   @media (min-width: 960px) {
     margin-top: 0;
+  }
 
+  transition: transform 200ms;
+
+  &:hover {
+    transform: scale3d(1.2, 1.2, 1.2);
+    z-index: 1;
   }
 
   ${({ type }) =>
@@ -175,35 +186,35 @@ const HexGrid: React.FC = () => {
   return (
     <Wrapper>
       <Item>
-        <Hex type="typescript">
+        <Hex type="typescript" href="https://www.typescriptlang.org/">
           <Icon>
             <TSIcon />
           </Icon>
         </Hex>
       </Item>
       <Item>
-        <Hex type="redux">
+        <Hex type="redux" href="https://redux.js.org/">
           <Icon>
             <ReduxIcon />
           </Icon>
         </Hex>
       </Item>
       <Item>
-        <Hex type="gatsby">
+        <Hex type="gatsby" href="https://www.gatsbyjs.org/">
           <Icon>
             <GatsbyIcon />
           </Icon>
         </Hex>
       </Item>
       <Item>
-        <Hex type="react">
+        <Hex type="react" href="https://reactjs.org/">
           <Icon>
             <ReactIcon />
           </Icon>
         </Hex>
       </Item>
       <Item>
-        <Hex type="graphql">
+        <Hex type="graphql" href="https://graphql.org/">
           <Icon>
             <GraphQLIcon />
           </Icon>
