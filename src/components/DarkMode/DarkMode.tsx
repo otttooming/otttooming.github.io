@@ -4,13 +4,17 @@ import { useColorMode, Button, PseudoBox } from '@chakra-ui/core';
 const MoonOrSun = () => {
   const { colorMode } = useColorMode();
 
-  const border = { light: '2px solid #000', dark: '4px solid #fff' };
-  const background = { light: '#000', dark: '#fff' };
+  const border = {
+    light: 'inset 10px -10px 0 0 #000',
+    dark: 'inset 10px -10px 0 0 #fff',
+  };
   const overflow = { light: 'hidden', dark: 'visible' };
   const transform = {
     light: 'scale(1)',
     dark: 'scale(0.55)',
   };
+
+  const background = { light: 'transparent', dark: '#fff' };
 
   const boxShadow = (color: string) => `
     0 -23px 0 ${color},
@@ -43,10 +47,10 @@ const MoonOrSun = () => {
       position="relative"
       width="24px"
       height="24px"
-      border={border[colorMode]}
-      borderRadius="50%"
-      transition="all 0.45s ease"
       background={background[colorMode]}
+      boxShadow={border[colorMode]}
+      borderRadius="50%"
+      transition="box-shadow .5s ease 0s, background .5s ease 0s, transform .4s ease .1s"
       transform={transform[colorMode]}
       overflow={overflow[colorMode]}
       _after={{
@@ -55,58 +59,28 @@ const MoonOrSun = () => {
         content: `""`,
         width: '8px',
         height: '8px',
-        borderRadius: '50%',
+        borderRadius: 'inherit',
         margin: '-4px 0 0 -4px',
         position: 'absolute',
         top: '50%',
         left: '50%',
         boxShadow: after.boxShadow[colorMode],
         transform: after.transform[colorMode],
-        transition: 'all 0.35s ease',
+        transition: 'all 0.25s ease',
       }}
       _before={{
         // eslint-disable-next-line
         // @ts-ignore-next-line
         content: `""`,
         position: 'absolute',
-        right: '-9px',
-        top: '-9px',
-        height: '24px',
-        width: '24px',
+        height: 'inherit',
+        width: 'inherit',
         border: before.border[colorMode],
-        borderRadius: '50%',
+        borderRadius: 'inherit',
         transform: before.transform[colorMode],
         opacity: before.opacity[colorMode],
         transition: 'transform 0.45s ease',
       }}
-    />
-  );
-};
-
-const MoonMask = () => {
-  const { colorMode } = useColorMode();
-
-  const background = { light: '#EDF2F7', dark: '#000' };
-  const transform = {
-    light: 'translate(0, 0)',
-    dark: 'translate(14px, -14px)',
-  };
-  const opacity = { light: 1, dark: 0 };
-
-  return (
-    <PseudoBox
-      as="span"
-      position="absolute"
-      right="-1px"
-      top="-8px"
-      height="24px"
-      width="24px"
-      borderRadius="50%"
-      border="0"
-      transition="transform 0.45s ease"
-      background={background[colorMode]}
-      transform={transform[colorMode]}
-      opacity={opacity[colorMode]}
     />
   );
 };
@@ -126,7 +100,6 @@ const DarkMode: React.FC = () => {
         height="25px"
       >
         <MoonOrSun />
-        <MoonMask />
       </PseudoBox>
     </Button>
   );
