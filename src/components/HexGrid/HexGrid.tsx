@@ -144,6 +144,7 @@ const Icon = styled.span`
   > svg {
     width: 50%;
     height: 100%;
+    color: #fff;
   }
 `;
 
