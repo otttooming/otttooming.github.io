@@ -6,15 +6,16 @@ const MoonOrSun = () => {
 
   const border = {
     light: 'inset 10px -10px 0 0 #000',
-    dark: 'inset 10px -10px 0 0 #fff',
+    dark: 'inset 32px -32px 0 0 #000',
   };
-  const overflow = { light: 'hidden', dark: 'visible' };
   const transform = {
-    light: 'scale(1)',
-    dark: 'scale(0.55)',
+    light: 'scale(1) rotate(-2deg)',
+    dark: 'scale(0.5) rotate(0deg)',
   };
-
-  const background = { light: 'transparent', dark: '#fff' };
+  const transition = {
+    light: 'box-shadow .5s ease 0s, transform .4s ease .1s',
+    dark: 'transform .3s ease .1s, box-shadow .2s ease 0s',
+  };
 
   const boxShadow = (color: string) => `
     0 -23px 0 ${color},
@@ -30,15 +31,21 @@ const MoonOrSun = () => {
   const after = {
     boxShadow: { light: boxShadow('#000'), dark: boxShadow('#fff') },
     transform: { light: 'scale(0)', dark: 'scale(1)' },
+    transition: { light: 'all .3ms ease', dark: 'transform .5s ease .15s' },
   };
 
   const before = {
+    background: { light: 'transparent', dark: '#fff' },
     border: {
       light: '2px solid #000',
       dark: '2px solid #fff',
     },
     opacity: { light: 1, dark: 0 },
     transform: { light: 'translate(14px, -14px)', dark: 'translate(0, 0)' },
+    transtion: {
+      light: 'background .3s ease',
+      dark: 'background .3s ease .1s',
+    },
   };
 
   return (
@@ -47,12 +54,10 @@ const MoonOrSun = () => {
       position="relative"
       width="24px"
       height="24px"
-      background={background[colorMode]}
       boxShadow={border[colorMode]}
       borderRadius="50%"
-      transition="box-shadow .5s ease 0s, background .5s ease 0s, transform .4s ease .1s"
+      transition={transition[colorMode]}
       transform={transform[colorMode]}
-      overflow={overflow[colorMode]}
       _after={{
         // eslint-disable-next-line
         // @ts-ignore-next-line
@@ -66,20 +71,20 @@ const MoonOrSun = () => {
         left: '50%',
         boxShadow: after.boxShadow[colorMode],
         transform: after.transform[colorMode],
-        transition: 'all 0.25s ease',
+        transition: after.transition[colorMode],
       }}
       _before={{
         // eslint-disable-next-line
         // @ts-ignore-next-line
         content: `""`,
         position: 'absolute',
+        left: 0,
+        top: 0,
         height: 'inherit',
         width: 'inherit',
-        border: before.border[colorMode],
         borderRadius: 'inherit',
-        transform: before.transform[colorMode],
-        opacity: before.opacity[colorMode],
-        transition: 'transform 0.45s ease',
+        background: before.background[colorMode],
+        transition: before.transtion[colorMode],
       }}
     />
   );
@@ -90,17 +95,7 @@ const DarkMode: React.FC = () => {
 
   return (
     <Button onClick={toggleColorMode}>
-      <PseudoBox
-        as="span"
-        display="flex"
-        alignItems="center"
-        justifyContent="center"
-        position="relative"
-        width="40px"
-        height="25px"
-      >
-        <MoonOrSun />
-      </PseudoBox>
+      <MoonOrSun />
     </Button>
   );
 };
