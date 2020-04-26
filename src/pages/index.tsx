@@ -24,6 +24,7 @@ const StyledImage = styled(Image)`
   align-content: center;
   display: flex;
   justify-content: center;
+  box-shadow: 5px 25px 40px rgba(0, 0, 0, 0.2);
 `;
 
 const Grid = styled.section`

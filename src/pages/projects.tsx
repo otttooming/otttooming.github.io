@@ -55,6 +55,7 @@ const Content = styled.div`
 
 const Img = styled(GatsbyImage)`
   border-radius: ${theme.borderRadius.m};
+  box-shadow: 5px 25px 40px rgba(0, 0, 0, 0.2);
 `;
 
 const Description = styled.div`
