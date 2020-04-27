@@ -1,12 +1,17 @@
 import * as React from 'react';
-import { useColorMode, Button, PseudoBox } from '@chakra-ui/core';
+import { useColorMode, PseudoBox, IconButton } from '@chakra-ui/core';
 
 const MoonOrSun = () => {
   const { colorMode } = useColorMode();
 
+  /**
+   * `box-shadow` requires `.1px` blur for smooth transitions.
+   * Otherwise a flicker is noticable in the transition.
+   * `1.px` blur does not create any discernible visual effects.
+   */
   const border = {
-    light: 'inset 10px -10px 0 0 #000',
-    dark: 'inset 32px -32px 0 0 #000',
+    light: 'inset 10px -10px .1px 0 #000',
+    dark: 'inset 32px -32px .1px 0 #000',
   };
   const transform = {
     light: 'scale(1) rotate(-2deg)',
@@ -94,9 +99,11 @@ const DarkMode: React.FC = () => {
   const { toggleColorMode } = useColorMode();
 
   return (
-    <Button onClick={toggleColorMode}>
-      <MoonOrSun />
-    </Button>
+    <IconButton
+      aria-label="Toggle dark mode"
+      icon={MoonOrSun}
+      onClick={toggleColorMode}
+    />
   );
 };
 
