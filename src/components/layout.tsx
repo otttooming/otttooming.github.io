@@ -42,6 +42,8 @@ const Layout = ({ children }) => {
             -webkit-text-size-adjust: none;
             -webkit-text-size-adjust: 100%;
             -ms-text-size-adjust: 100%;
+
+            background-color: ${theme.backgroundColor.primary};
           }
           body {
             overflow-x: hidden;
@@ -49,7 +51,6 @@ const Layout = ({ children }) => {
             line-height: ${theme.lineHeight.s};
             font-family: ${theme.fontFamily.primary};
             /* color: ${theme.textColor.primary}; */
-            background-color: ${theme.backgroundColor.primary};
           }
 
           h1,

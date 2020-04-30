@@ -215,7 +215,7 @@ export const backgroundColor = setCustomPropertyGenerator<
 >('background-color', [
   {
     key: 'primary',
-    value: 'hsla(214, 57%, 24%, 0.1)',
+    value: '#1a2332',
   },
   {
     key: 'secondary',
