@@ -43,7 +43,6 @@ export const Text: React.FC = (props) => <ChakraText {...props} mt="24px" />;
 
 const MDXComponents = {
   MasonryGallery,
-  ImageZoom,
   PieChart,
   Illustration,
   img: ImageZoom,
