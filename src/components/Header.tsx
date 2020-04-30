@@ -24,7 +24,7 @@ const Header = ({ siteTitle }) => (
     m="0 auto"
     p={theme.space.l}
   >
-    <Button leftIcon={Wind} variant="link" onClick={() => navigate('/')}>
+    <Button leftIcon={Wind} variant="ghost" onClick={() => navigate('/')}>
       OTTO
     </Button>
 
