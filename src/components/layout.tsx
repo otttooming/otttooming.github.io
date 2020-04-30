@@ -8,7 +8,7 @@
 import * as React from 'react';
 import { useStaticQuery, graphql } from 'gatsby';
 import Header from './Header';
-import { ThemeProvider, CSSReset } from '@chakra-ui/core';
+import { ThemeProvider, CSSReset, useColorMode } from '@chakra-ui/core';
 import { Global, css } from '@emotion/core';
 import { customProperties } from '../utils/customProperties';
 import { theme } from '../utils/theme';
@@ -23,6 +23,13 @@ const Layout = ({ children }) => {
       }
     }
   `);
+
+  const { colorMode } = useColorMode();
+
+  const backgroundColor = {
+    light: '#e8eaee',
+    dark: theme.backgroundColor.primary,
+  };
 
   return (
     <ThemeProvider>
@@ -43,7 +50,7 @@ const Layout = ({ children }) => {
             -webkit-text-size-adjust: 100%;
             -ms-text-size-adjust: 100%;
 
-            background-color: ${theme.backgroundColor.primary};
+            background-color: ${backgroundColor[colorMode]};
           }
           body {
             overflow-x: hidden;
