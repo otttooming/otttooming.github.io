@@ -12,16 +12,22 @@ import {
 import { theme } from '../../utils/theme';
 
 export const HeadingH2: React.FC = (props) => (
-  <Heading {...props} as="h2" size="lg" mt="32px" />
+  <Heading
+    {...props}
+    as="h2"
+    size="xl"
+    mt="32px"
+    fontWeight={theme.fontWeight.semiBold}
+  />
 );
 
 export const HeadingH3: React.FC = (props) => (
   <Heading
     {...props}
     as="h3"
-    size="md"
+    size="lg"
     mt="32px"
-    fontWeight={theme.fontWeight.normal}
+    fontWeight={theme.fontWeight.semiBold}
   />
 );
 
@@ -33,7 +39,7 @@ export const ListItem: React.FC = (props) => (
   <ChakraListItem {...props} paddingLeft="32px" mt="8px" />
 );
 
-export const Text: React.FC = (props) => <ChakraText {...props} mt="16px" />;
+export const Text: React.FC = (props) => <ChakraText {...props} mt="24px" />;
 
 const MDXComponents = {
   MasonryGallery,

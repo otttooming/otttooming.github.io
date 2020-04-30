@@ -27,14 +27,6 @@ const Wrapper = styled.div`
     margin-right: auto;
   }
 
-  h2 {
-    font-size: 48px;
-  }
-
-  h3 {
-    font-size: 40px;
-  }
-
   .gatsby-resp-image-wrapper {
     width: 100%;
   }
