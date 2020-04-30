@@ -49,6 +49,7 @@ const Img = styled(GatsbyImage)`
   margin: 0 auto;
   margin-top: 80px;
   border-radius: ${theme.borderRadius.m};
+  box-shadow: 5px 25px 40px rgba(0, 0, 0, 0.2);
 `;
 
 const Project: React.FC<PostProps> = ({ data: { mdx } }) => {
