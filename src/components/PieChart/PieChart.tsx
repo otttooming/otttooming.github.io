@@ -94,6 +94,7 @@ const ListItem = styled.li<{ index: number }>`
   margin-top: 16px;
   padding-left: 24px;
   position: relative;
+  color: #000;
 
   &:first-of-type {
     margin-left: 0;
