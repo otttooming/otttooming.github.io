@@ -4,14 +4,13 @@ import { MDXProvider } from '@mdx-js/react';
 import { MDXRenderer } from 'gatsby-plugin-mdx';
 import Layout from '../components/layout';
 import styled from '@emotion/styled';
-import GatsbyImage from 'gatsby-image';
 import TechStack from '../components/TechStack/TechStack';
 import { textMap } from '../utils/textMap';
 import Logo from '../components/Logo/Logo';
 import SEO from '../components/SEO';
-import { theme } from '../utils/theme';
-import { Box, Heading, BoxProps } from '@chakra-ui/core';
+import { Heading } from '@chakra-ui/core';
 import MDXComponents from '../components/MDXComponents/MDXComponents';
+import CoverImage from '../components/CoverImage/CoverImage';
 
 export interface PostProps {
   data: any;
@@ -44,49 +43,6 @@ const Wrapper = styled.div`
   }
 `;
 
-const Image: React.FC<BoxProps & { fit: string; fluid: any }> = ({
-  fit: passedFit,
-  fluid,
-  background: passedBackground,
-  ...restProps
-}) => {
-  const fit = Boolean(passedFit) ? passedFit : 'cover';
-
-  const isObjectFitCover = fit === 'cover';
-  const background = passedBackground ?? '#EDF2F7';
-
-  const fitProps: BoxProps = {
-    display: 'flex',
-    alignItems: 'center',
-  };
-
-  const width = isObjectFitCover ? '100%' : undefined;
-  const maxHeight = isObjectFitCover ? undefined : '70vh';
-
-  return (
-    <Box
-      maxWidth="1024px"
-      background={background}
-      m="80px auto 0"
-      borderRadius={theme.borderRadius.m}
-      overflow="hidden"
-      maxHeight="70vh"
-      boxShadow="5px 25px 40px rgba(0, 0, 0, 0.2)"
-      {...(isObjectFitCover && fitProps)}
-      {...restProps}
-    >
-      <GatsbyImage
-        fluid={fluid}
-        style={{ width }}
-        imgStyle={{
-          objectFit: fit,
-          maxHeight,
-        }}
-      />
-    </Box>
-  );
-};
-
 const Project: React.FC<PostProps> = ({ data: { mdx } }) => {
   const { image, background, fit } = mdx.frontmatter.featured;
 
@@ -94,7 +50,10 @@ const Project: React.FC<PostProps> = ({ data: { mdx } }) => {
     <Layout>
       <SEO title={mdx.frontmatter.title} description="" />
 
-      <Image
+      <CoverImage
+        maxWidth="1024px"
+        m="80px auto 0"
+        maxHeight="70vh"
         fit={fit}
         background={background}
         fluid={image.childImageSharp.fluid}
