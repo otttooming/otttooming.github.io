@@ -7,6 +7,8 @@ import {
   List as ChakraList,
   ListItem as ChakraListItem,
   Heading,
+  Icon,
+  Link as ChakraLink,
   Text as ChakraText,
 } from '@chakra-ui/core';
 import { theme } from '../../utils/theme';
@@ -31,6 +33,25 @@ export const HeadingH3: React.FC = (props) => (
   />
 );
 
+export const Link = ({ children, href = '', ...restProps }) => {
+  const isExternal = href.includes('http');
+
+  return (
+    <ChakraLink
+      display="inline-flex"
+      alignItems="center"
+      isExternal={isExternal}
+      href={href}
+      {...restProps}
+    >
+      {children}
+      {isExternal && (
+        <Icon size="14px" name="external-link" mx="2px" ml="4px" />
+      )}
+    </ChakraLink>
+  );
+};
+
 export const List: React.FC = (props) => (
   <ChakraList {...props} styleType="disc" mt="16px" />
 );
@@ -51,6 +72,7 @@ const MDXComponents = {
   ul: List,
   li: ListItem,
   p: Text,
+  a: Link,
 };
 
 export default MDXComponents;
