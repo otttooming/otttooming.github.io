@@ -126,10 +126,12 @@ const Gallery: React.FC = () => {
           node {
             frontmatter {
               slug
-              featuredImage {
-                childImageSharp {
-                  fluid(maxWidth: 300) {
-                    ...GatsbyImageSharpFluid
+              featured {
+                image {
+                  childImageSharp {
+                    fluid(maxWidth: 300) {
+                      ...GatsbyImageSharpFluid
+                    }
                   }
                 }
               }
@@ -171,11 +173,14 @@ const Gallery: React.FC = () => {
     acc,
     {
       node: {
-        frontmatter: { slug, featuredImage },
+        frontmatter: {
+          slug,
+          featured: { image },
+        },
       },
     }
   ) => {
-    acc[slug].gallery = [featuredImage];
+    acc[slug].gallery = [image];
 
     return acc;
   };

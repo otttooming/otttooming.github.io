@@ -53,7 +53,7 @@ const Img = styled(GatsbyImage)`
 `;
 
 const Project: React.FC<PostProps> = ({ data: { mdx } }) => {
-  const featuredImgFluid = mdx.frontmatter.featuredImage.childImageSharp.fluid;
+  const featuredImgFluid = mdx.frontmatter.featured.image.childImageSharp.fluid;
 
   return (
     <Layout>
@@ -95,10 +95,12 @@ export const pageQuery = graphql`
         link
         kind
         tech
-        featuredImage {
-          childImageSharp {
-            fluid(maxWidth: 800) {
-              ...GatsbyImageSharpFluid
+        featured {
+          image {
+            childImageSharp {
+              fluid(maxWidth: 800) {
+                ...GatsbyImageSharpFluid
+              }
             }
           }
         }

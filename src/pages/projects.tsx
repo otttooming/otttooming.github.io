@@ -102,7 +102,7 @@ const Projects = ({ data }) => {
       <Container>
         {posts.map(({ node: post }) => {
           const featuredImgFluid =
-            post.frontmatter.featuredImage.childImageSharp.fluid;
+            post.frontmatter.featured.image.childImageSharp.fluid;
 
           return (
             <Item key={post.id} colorMode={colorMode}>
@@ -145,10 +145,12 @@ export const pageQuery = graphql`
             git
             link
             kind
-            featuredImage {
-              childImageSharp {
-                fluid(maxWidth: 800) {
-                  ...GatsbyImageSharpFluid
+            featured {
+              image {
+                childImageSharp {
+                  fluid(maxWidth: 800) {
+                    ...GatsbyImageSharpFluid
+                  }
                 }
               }
             }
