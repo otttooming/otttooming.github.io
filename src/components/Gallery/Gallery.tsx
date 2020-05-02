@@ -129,7 +129,7 @@ const Gallery: React.FC = () => {
               featured {
                 image {
                   childImageSharp {
-                    fluid(maxWidth: 300) {
+                    fluid(maxWidth: 245) {
                       ...GatsbyImageSharpFluid
                     }
                   }
