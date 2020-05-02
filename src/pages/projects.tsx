@@ -3,12 +3,12 @@ import { Link, graphql } from 'gatsby';
 import Layout from '../components/layout';
 import { theme } from '../utils/theme';
 import styled from '@emotion/styled';
-import GatsbyImage from 'gatsby-image';
 import Logo from '../components/Logo/Logo';
 import { textMap } from '../utils/textMap';
 import SEO from '../components/SEO';
 import { Heading, Text, useColorMode } from '@chakra-ui/core';
 import { css } from '@emotion/core';
+import CoverImage from '../components/CoverImage/CoverImage';
 
 const Wrapper = styled.div`
   margin: 80px auto;
@@ -51,11 +51,6 @@ const Item = styled.li<{ colorMode: 'light' | 'dark' }>`
 
 const Content = styled.div`
   direction: ltr;
-`;
-
-const Img = styled(GatsbyImage)`
-  border-radius: ${theme.borderRadius.m};
-  box-shadow: 5px 25px 40px rgba(0, 0, 0, 0.2);
 `;
 
 const Description = styled.div`
@@ -101,12 +96,17 @@ const Projects = ({ data }) => {
 
       <Container>
         {posts.map(({ node: post }) => {
-          const featuredImgFluid =
-            post.frontmatter.featured.image.childImageSharp.fluid;
+          const { image, background, fit } = post.frontmatter.featured;
 
           return (
             <Item key={post.id} colorMode={colorMode}>
-              <Img fluid={featuredImgFluid} />
+              <CoverImage
+                maxHeight="360px"
+                fluid={image.childImageSharp.fluid}
+                background={background}
+                fit={fit}
+              />
+
               <Content>
                 <Logo
                   name={post.frontmatter.company}
@@ -153,6 +153,8 @@ export const pageQuery = graphql`
                   }
                 }
               }
+              background
+              fit
             }
           }
           fields {
