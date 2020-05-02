@@ -10,7 +10,7 @@ import { textMap } from '../utils/textMap';
 import Logo from '../components/Logo/Logo';
 import SEO from '../components/SEO';
 import { theme } from '../utils/theme';
-import { Heading } from '@chakra-ui/core';
+import { Box, Heading, BoxProps } from '@chakra-ui/core';
 import MDXComponents from '../components/MDXComponents/MDXComponents';
 
 export interface PostProps {
@@ -44,22 +44,61 @@ const Wrapper = styled.div`
   }
 `;
 
-const Img = styled(GatsbyImage)`
-  max-width: 1024px;
-  margin: 0 auto;
-  margin-top: 80px;
-  border-radius: ${theme.borderRadius.m};
-  box-shadow: 5px 25px 40px rgba(0, 0, 0, 0.2);
-`;
+const Image: React.FC<BoxProps & { fit: string; fluid: any }> = ({
+  fit: passedFit,
+  fluid,
+  background: passedBackground,
+  ...restProps
+}) => {
+  const fit = Boolean(passedFit) ? passedFit : 'cover';
+
+  const isObjectFitCover = fit === 'cover';
+  const background = passedBackground ?? '#EDF2F7';
+
+  const fitProps: BoxProps = {
+    display: 'flex',
+    alignItems: 'center',
+  };
+
+  const width = isObjectFitCover ? '100%' : undefined;
+  const maxHeight = isObjectFitCover ? undefined : '70vh';
+
+  return (
+    <Box
+      maxWidth="1024px"
+      background={background}
+      m="80px auto 0"
+      borderRadius={theme.borderRadius.m}
+      overflow="hidden"
+      maxHeight="70vh"
+      boxShadow="5px 25px 40px rgba(0, 0, 0, 0.2)"
+      {...(isObjectFitCover && fitProps)}
+      {...restProps}
+    >
+      <GatsbyImage
+        fluid={fluid}
+        style={{ width }}
+        imgStyle={{
+          objectFit: fit,
+          maxHeight,
+        }}
+      />
+    </Box>
+  );
+};
 
 const Project: React.FC<PostProps> = ({ data: { mdx } }) => {
-  const featuredImgFluid = mdx.frontmatter.featured.image.childImageSharp.fluid;
+  const { image, background, fit } = mdx.frontmatter.featured;
 
   return (
     <Layout>
       <SEO title={mdx.frontmatter.title} description="" />
 
-      <Img fluid={featuredImgFluid} />
+      <Image
+        fit={fit}
+        background={background}
+        fluid={image.childImageSharp.fluid}
+      />
 
       <Wrapper>
         <Logo name={mdx.frontmatter.company} link={mdx.frontmatter.link} />
@@ -103,6 +142,8 @@ export const pageQuery = graphql`
               }
             }
           }
+          background
+          fit
         }
       }
     }
