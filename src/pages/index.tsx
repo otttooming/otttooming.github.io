@@ -90,7 +90,13 @@ const Text: React.FC<BoxProps> = ({ ...restProps }) => (
 );
 
 const OutLink = ({ ...restProps }) => (
-  <Link display="flex" alignItems="center" fontSize="16px" {...restProps} />
+  <Link
+    display="flex"
+    alignItems="center"
+    fontSize="16px"
+    isExternal={true}
+    {...restProps}
+  />
 );
 
 const SocialIcon = ({ ...restProps }) => (
