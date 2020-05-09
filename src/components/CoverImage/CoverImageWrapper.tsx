@@ -8,6 +8,7 @@ const CoverImageWrapper: React.FC<BoxProps> = ({ children, ...restProps }) => {
       borderRadius={theme.borderRadius.m}
       overflow="hidden"
       boxShadow="5px 25px 40px rgba(0, 0, 0, 0.2)"
+      background="#EDF2F7"
       {...restProps}
     >
       {children}
