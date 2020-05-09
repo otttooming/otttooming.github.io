@@ -9,6 +9,7 @@ import { Heading, Box, Image } from '@chakra-ui/core';
 import MDXComponents from '../components/MDXComponents/MDXComponents';
 import CoverImage from '../components/CoverImage/CoverImage';
 import CoverImageWrapper from '../components/CoverImage/CoverImageWrapper';
+import TechStack from '../components/TechStack/TechStack';
 
 export interface PostProps {
   data: any;
@@ -41,6 +42,7 @@ const About: React.FC<PostProps> = ({
       frontmatter: {
         featured: { illustration, height: htmlHeight, width: htmlWidth, alt },
         title,
+        tags,
       },
       body,
     },
@@ -68,6 +70,8 @@ const About: React.FC<PostProps> = ({
 
       <Wrapper>
         <Heading>{title}</Heading>
+
+        <TechStack items={tags} />
       </Wrapper>
 
       <Wrapper>
@@ -88,6 +92,7 @@ export const pageQuery = graphql`
       body
       frontmatter {
         title
+        tags
         featured {
           illustration {
             publicURL
