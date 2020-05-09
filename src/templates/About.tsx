@@ -5,8 +5,10 @@ import { MDXRenderer } from 'gatsby-plugin-mdx';
 import Layout from '../components/layout';
 import styled from '@emotion/styled';
 import SEO from '../components/SEO';
-import { Heading } from '@chakra-ui/core';
+import { Heading, Box, Image } from '@chakra-ui/core';
 import MDXComponents from '../components/MDXComponents/MDXComponents';
+import CoverImage from '../components/CoverImage/CoverImage';
+import CoverImageWrapper from '../components/CoverImage/CoverImageWrapper';
 
 export interface PostProps {
   data: any;
@@ -33,18 +35,44 @@ const Wrapper = styled.div`
   }
 `;
 
-const About: React.FC<PostProps> = ({ data: { mdx } }) => {
+const About: React.FC<PostProps> = ({
+  data: {
+    mdx: {
+      frontmatter: {
+        featured: { illustration, height: htmlHeight, width: htmlWidth, alt },
+        title,
+      },
+      body,
+    },
+  },
+}) => {
   return (
     <Layout>
-      <SEO title={mdx.frontmatter.title} description="" />
+      <SEO title={title} description="" />
+
+      <CoverImageWrapper
+        maxWidth="1024px"
+        m="80px auto 0"
+        p="32px"
+        display="flex"
+        justifyContent="center"
+      >
+        <Image
+          maxHeight="100%"
+          src={illustration.publicURL}
+          alt={alt}
+          htmlHeight={htmlHeight}
+          htmlWidth={htmlWidth}
+        />
+      </CoverImageWrapper>
 
       <Wrapper>
-        <Heading>{mdx.frontmatter.title}</Heading>
+        <Heading>{title}</Heading>
       </Wrapper>
 
       <Wrapper>
         <MDXProvider components={MDXComponents}>
-          <MDXRenderer>{mdx.body}</MDXRenderer>
+          <MDXRenderer>{body}</MDXRenderer>
         </MDXProvider>
       </Wrapper>
     </Layout>
@@ -60,6 +88,14 @@ export const pageQuery = graphql`
       body
       frontmatter {
         title
+        featured {
+          illustration {
+            publicURL
+          }
+          width
+          height
+          alt
+        }
       }
     }
   }
