@@ -1,7 +1,7 @@
 import * as React from 'react';
 import GatsbyImage from 'gatsby-image';
-import { Box, BoxProps } from '@chakra-ui/core';
-import { theme } from '../../utils/theme';
+import { BoxProps } from '@chakra-ui/core';
+import CoverImageWrapper from './CoverImageWrapper';
 
 const CoverImage: React.FC<
   BoxProps & { maxHeight: string; fit: string; fluid: any }
@@ -26,12 +26,9 @@ const CoverImage: React.FC<
   const objectFitmaxHeight = isObjectFitCover ? undefined : passedMaxHeight;
 
   return (
-    <Box
+    <CoverImageWrapper
       background={background}
-      borderRadius={theme.borderRadius.m}
-      overflow="hidden"
       maxHeight={passedMaxHeight}
-      boxShadow="5px 25px 40px rgba(0, 0, 0, 0.2)"
       {...(isObjectFitCover && fitProps)}
       {...restProps}
     >
@@ -43,7 +40,7 @@ const CoverImage: React.FC<
           maxHeight: objectFitmaxHeight,
         }}
       />
-    </Box>
+    </CoverImageWrapper>
   );
 };
 
