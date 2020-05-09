@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { Wind, BookOpen, User } from 'react-feather';
-import { navigate } from 'gatsby';
+import { Link as GatsbyLink } from 'gatsby';
 import { Button, Box, BoxProps } from '@chakra-ui/core';
 import { theme } from '../utils/theme';
 import DarkMode from './DarkMode/DarkMode';
@@ -15,6 +15,10 @@ const Item: React.FC<BoxProps> = ({ ...restProps }) => (
   />
 );
 
+const link = (to: string) => ({ ...restProps }) => (
+  <GatsbyLink to={to} {...restProps} />
+);
+
 const Header = ({ siteTitle }) => (
   <Box
     display="flex"
@@ -24,27 +28,19 @@ const Header = ({ siteTitle }) => (
     m="0 auto"
     p={theme.space.l}
   >
-    <Button leftIcon={Wind} variant="ghost" onClick={() => navigate('/')}>
+    <Button as={link('/')} leftIcon={Wind} variant="ghost">
       OTTO
     </Button>
 
     <Box display="flex" m="0" p="0">
       <Item>
-        <Button
-          leftIcon={User}
-          variant="ghost"
-          onClick={() => navigate('/about/me')}
-        >
+        <Button as={link('/about/me')} leftIcon={User} variant="ghost">
           About
         </Button>
       </Item>
 
       <Item>
-        <Button
-          leftIcon={BookOpen}
-          variant="ghost"
-          onClick={() => navigate('/projects')}
-        >
+        <Button as={link('/projects')} leftIcon={BookOpen} variant="ghost">
           Projects
         </Button>
       </Item>
