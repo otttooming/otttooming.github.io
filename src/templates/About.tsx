@@ -9,7 +9,7 @@ import { Heading, Box, Image } from '@chakra-ui/core';
 import MDXComponents from '../components/MDXComponents/MDXComponents';
 import CoverImage from '../components/CoverImage/CoverImage';
 import CoverImageWrapper from '../components/CoverImage/CoverImageWrapper';
-import TechStack from '../components/TechStack/TechStack';
+import TagList from '../components/TagList/TagList';
 
 export interface PostProps {
   data: any;
@@ -71,7 +71,7 @@ const About: React.FC<PostProps> = ({
       <Wrapper>
         <Heading>{title}</Heading>
 
-        <TechStack items={tags} />
+        <TagList items={tags} />
       </Wrapper>
 
       <Wrapper>

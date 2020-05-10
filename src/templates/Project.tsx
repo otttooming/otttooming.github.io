@@ -4,7 +4,7 @@ import { MDXProvider } from '@mdx-js/react';
 import { MDXRenderer } from 'gatsby-plugin-mdx';
 import Layout from '../components/layout';
 import styled from '@emotion/styled';
-import TechStack from '../components/TechStack/TechStack';
+import TagList from '../components/TagList/TagList';
 import { textMap, projectTexts } from '../utils/textMap';
 import Logo from '../components/Logo/Logo';
 import SEO from '../components/SEO';
@@ -67,7 +67,7 @@ const Project: React.FC<PostProps> = ({ data: { mdx } }) => {
           {textMap(mdx.frontmatter.kind, projectTexts)}
         </Heading>
 
-        <TechStack items={mdx.frontmatter.tech} />
+        <TagList items={mdx.frontmatter.tech} />
       </Wrapper>
 
       <Wrapper>

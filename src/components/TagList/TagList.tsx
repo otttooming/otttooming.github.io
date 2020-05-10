@@ -1,9 +1,9 @@
 import * as React from 'react';
 import styled from '@emotion/styled';
 import { theme } from '../../utils/theme';
-import { Link, Button } from '@chakra-ui/core';
+import { Button } from '@chakra-ui/core';
 
-export interface TechStackProps {
+export interface TagListProps {
   items?: string[];
 }
 
@@ -17,7 +17,7 @@ const Item = styled.li`
   display: inline-flex;
 `;
 
-const TechStack: React.FC<TechStackProps> = ({ items }) => {
+const TagList: React.FC<TagListProps> = ({ items }) => {
   if (!Array.isArray(items) || !items.length) {
     return null;
   }
@@ -35,4 +35,4 @@ const TechStack: React.FC<TechStackProps> = ({ items }) => {
   );
 };
 
-export default TechStack;
+export default TagList;
