@@ -10,6 +10,8 @@ import MDXComponents from '../components/MDXComponents/MDXComponents';
 import CoverImage from '../components/CoverImage/CoverImage';
 import CoverImageWrapper from '../components/CoverImage/CoverImageWrapper';
 import TagList from '../components/TagList/TagList';
+import { getMappedTags } from '../components/TagList/tagMap';
+import { socialTags } from '../constants/social';
 
 export interface PostProps {
   data: any;
@@ -42,12 +44,14 @@ const About: React.FC<PostProps> = ({
       frontmatter: {
         featured: { illustration, height: htmlHeight, width: htmlWidth, alt },
         title,
-        tags,
+        tags: tagList,
       },
       body,
     },
   },
 }) => {
+  const tags = getMappedTags(tagList, socialTags);
+
   return (
     <Layout>
       <SEO title={title} description="" />
@@ -71,7 +75,7 @@ const About: React.FC<PostProps> = ({
       <Wrapper>
         <Heading>{title}</Heading>
 
-        <TagList items={tags} />
+        <TagList tags={tags} />
       </Wrapper>
 
       <Wrapper>

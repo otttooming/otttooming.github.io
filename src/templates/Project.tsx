@@ -11,6 +11,8 @@ import SEO from '../components/SEO';
 import { Heading } from '@chakra-ui/core';
 import MDXComponents from '../components/MDXComponents/MDXComponents';
 import CoverImage from '../components/CoverImage/CoverImage';
+import { getMappedTags } from '../components/TagList/tagMap';
+import { techTags } from '../constants/tech';
 
 export interface PostProps {
   data: any;
@@ -67,7 +69,7 @@ const Project: React.FC<PostProps> = ({ data: { mdx } }) => {
           {textMap(mdx.frontmatter.kind, projectTexts)}
         </Heading>
 
-        <TagList items={mdx.frontmatter.tech} />
+        <TagList tags={getMappedTags(mdx.frontmatter.tech, techTags)} />
       </Wrapper>
 
       <Wrapper>

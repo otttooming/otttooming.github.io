@@ -2,9 +2,12 @@ import * as React from 'react';
 import styled from '@emotion/styled';
 import { theme } from '../../utils/theme';
 import { Button } from '@chakra-ui/core';
+import { Tag } from './tagMap';
+import { Link as GatsbyLink } from 'gatsby';
+import { getIsExternalLink } from '../../utils/getIsExternalLink';
 
 export interface TagListProps {
-  items?: string[];
+  tags: Tag[];
 }
 
 const Wrapper = styled.ul`
@@ -17,17 +20,30 @@ const Item = styled.li`
   display: inline-flex;
 `;
 
-const TagList: React.FC<TagListProps> = ({ items }) => {
-  if (!Array.isArray(items) || !items.length) {
-    return null;
+const link = (to: string) => ({ ...restProps }) => {
+  const isExternal = getIsExternalLink(to);
+
+  if (isExternal) {
+    return (
+      <a href={to} target="_blank" rel="noopener noreferrer" {...restProps} />
+    );
   }
 
+  return <GatsbyLink to={to} {...restProps} />;
+};
+
+const TagList: React.FC<TagListProps> = ({ tags }) => {
   return (
     <Wrapper>
-      {items.map((item) => (
-        <Item key={item}>
-          <Button mr={theme.space.s} size="xs">
-            {item}
+      {tags.map((item) => (
+        <Item key={item.title}>
+          <Button
+            as={link(item.url)}
+            mr={theme.space.s}
+            size="xs"
+            rightIcon={getIsExternalLink(item.url) ? 'external-link' : null}
+          >
+            {item.title}
           </Button>
         </Item>
       ))}
