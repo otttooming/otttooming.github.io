@@ -4,7 +4,7 @@ export type Text = 'client' | 'crm' | 'cms' | 'pms' | 'template';
  * Available matched texts.
  * All shorthands should be strictly collected.
  */
-const texts: { [K in Text]: string } = {
+export const projectTexts: { [K in Text]: string } = {
   client: 'client project',
   crm: 'CRM',
   cms: 'content management system',
@@ -15,12 +15,8 @@ const texts: { [K in Text]: string } = {
 /**
  * Match existing shorthands with expanded equivalents
  */
-export const textMap = (text: Text) => {
-  const value = texts[text];
-
-  if (!value) {
-    return text;
-  }
+export function textMap<T>(text: string, items: T): T[keyof T] {
+  const value = items[text];
 
   return value;
-};
+}

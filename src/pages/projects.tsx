@@ -4,7 +4,7 @@ import Layout from '../components/layout';
 import { theme } from '../utils/theme';
 import styled from '@emotion/styled';
 import Logo from '../components/Logo/Logo';
-import { textMap } from '../utils/textMap';
+import { textMap, projectTexts } from '../utils/textMap';
 import SEO from '../components/SEO';
 import { Heading, Text, useColorMode } from '@chakra-ui/core';
 import { css } from '@emotion/core';
@@ -116,7 +116,7 @@ const Projects = ({ data }) => {
                 <Heading mt={theme.space.s} fontWeight={400}>
                   <Link to={post.fields.slug}>
                     <strong>{post.frontmatter.title}</strong>{' '}
-                    {textMap(post.frontmatter.kind)}
+                    {textMap(post.frontmatter.kind, projectTexts)}
                   </Link>
                 </Heading>
 

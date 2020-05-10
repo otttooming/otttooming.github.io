@@ -5,7 +5,7 @@ import { MDXRenderer } from 'gatsby-plugin-mdx';
 import Layout from '../components/layout';
 import styled from '@emotion/styled';
 import TechStack from '../components/TechStack/TechStack';
-import { textMap } from '../utils/textMap';
+import { textMap, projectTexts } from '../utils/textMap';
 import Logo from '../components/Logo/Logo';
 import SEO from '../components/SEO';
 import { Heading } from '@chakra-ui/core';
@@ -64,7 +64,7 @@ const Project: React.FC<PostProps> = ({ data: { mdx } }) => {
 
         <Heading fontWeight={500}>
           <strong>{mdx.frontmatter.title}</strong>{' '}
-          {textMap(mdx.frontmatter.kind)}
+          {textMap(mdx.frontmatter.kind, projectTexts)}
         </Heading>
 
         <TechStack items={mdx.frontmatter.tech} />
