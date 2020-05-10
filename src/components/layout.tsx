@@ -12,6 +12,7 @@ import { ThemeProvider, CSSReset, useColorMode } from '@chakra-ui/core';
 import { Global, css } from '@emotion/core';
 import { customProperties } from '../utils/customProperties';
 import { theme } from '../utils/theme';
+import Footer from './Footer/Footer';
 
 const Layout = ({ children }) => {
   const data = useStaticQuery(graphql`
@@ -73,7 +74,8 @@ const Layout = ({ children }) => {
 
       <>
         <main>{children}</main>
-        <footer></footer>
+
+        <Footer />
       </>
     </ThemeProvider>
   );
