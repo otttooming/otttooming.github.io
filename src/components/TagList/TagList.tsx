@@ -32,20 +32,23 @@ const link = (to: string) => ({ ...restProps }) => {
   return <GatsbyLink to={to} {...restProps} />;
 };
 
+const Tag: React.FC<Tag> = ({ title, url }) => {
+  const rightIcon = getIsExternalLink(url) ? 'external-link' : null;
+
+  return (
+    <Item>
+      <Button as={link(url)} mr={theme.space.s} size="xs" rightIcon={rightIcon}>
+        {title}
+      </Button>
+    </Item>
+  );
+};
+
 const TagList: React.FC<TagListProps> = ({ tags }) => {
   return (
     <Wrapper>
       {tags.map((item) => (
-        <Item key={item.title}>
-          <Button
-            as={link(item.url)}
-            mr={theme.space.s}
-            size="xs"
-            rightIcon={getIsExternalLink(item.url) ? 'external-link' : null}
-          >
-            {item.title}
-          </Button>
-        </Item>
+        <Tag key={item.title} {...item} />
       ))}
     </Wrapper>
   );
