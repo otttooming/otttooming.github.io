@@ -12,6 +12,7 @@ import {
   Text as ChakraText,
 } from '@chakra-ui/core';
 import { theme } from '../../utils/theme';
+import { getIsExternalLink } from '../../utils/getIsExternalLink';
 
 export const HeadingH2: React.FC = (props) => (
   <Heading
@@ -34,7 +35,7 @@ export const HeadingH3: React.FC = (props) => (
 );
 
 export const Link = ({ children, href = '', ...restProps }) => {
-  const isExternal = href.includes('http');
+  const isExternal = getIsExternalLink(href);
 
   return (
     <ChakraLink
