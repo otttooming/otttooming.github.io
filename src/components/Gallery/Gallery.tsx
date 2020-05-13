@@ -32,7 +32,7 @@ const Item = styled.div`
     &:first-of-type {
       display: block;
       grid-column: 1/7;
-      grid-row: 5/11;
+      grid-row: 3/12;
     }
   }
 
