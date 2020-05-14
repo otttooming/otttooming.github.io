@@ -53,10 +53,6 @@ const Content = styled.div`
   direction: ltr;
 `;
 
-const Description = styled.div`
-  margin-top: ${theme.space.l};
-`;
-
 /**
  * Only return posts when Gatsby has run static site query
  */
@@ -83,15 +79,14 @@ const Projects = ({ data }) => {
           <strong>Some projects</strong> I have been involved in
         </Heading>
 
-        <Description>
-          <Text>
-            All of the projects have been a team collaboration and effort.
-          </Text>
-          <Text>
-            I have been thoroughly fortunate to have been given the opportunity
-            to work with some amazing people.
-          </Text>
-        </Description>
+        <Text mt={theme.space.l}>
+          All of the projects have been a team collaboration and effort.
+        </Text>
+
+        <Text>
+          I have been thoroughly fortunate to have been given the opportunity to
+          work with some amazing people.
+        </Text>
       </Wrapper>
 
       <Container>
