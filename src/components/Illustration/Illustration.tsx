@@ -8,7 +8,7 @@ const Wrapper = styled.div`
   justify-content: center;
   background-color: #fff;
   border-radius: 8px;
-  padding: 128px;
+  padding: 64px;
   max-width: 1280px !important;
 `;
 
