@@ -79,7 +79,7 @@ const Projects = ({ data }) => {
       <SEO title="Projects" description="" />
 
       <Wrapper>
-        <Heading mt={theme.space.s} fontWeight={500}>
+        <Heading as="h1" mt={theme.space.s} fontWeight={500}>
           <strong>Some projects</strong> I have been involved in
         </Heading>
 

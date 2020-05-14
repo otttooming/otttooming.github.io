@@ -73,7 +73,7 @@ const About: React.FC<PostProps> = ({
       </CoverImageWrapper>
 
       <Wrapper>
-        <Heading>{title}</Heading>
+        <Heading as="h1">{title}</Heading>
 
         <TagList tags={tags} />
       </Wrapper>
