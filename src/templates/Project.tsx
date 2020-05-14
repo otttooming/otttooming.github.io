@@ -13,6 +13,7 @@ import MDXComponents from '../components/MDXComponents/MDXComponents';
 import CoverImage from '../components/CoverImage/CoverImage';
 import { getMappedTags } from '../components/TagList/tagMap';
 import { techTags } from '../constants/tech';
+import { theme } from '../utils/theme';
 
 export interface PostProps {
   data: any;
@@ -64,7 +65,7 @@ const Project: React.FC<PostProps> = ({ data: { mdx } }) => {
       <Wrapper>
         <Logo name={mdx.frontmatter.company} link={mdx.frontmatter.link} />
 
-        <Heading as="h1" fontWeight={500}>
+        <Heading as="h1" fontWeight={500} mt={theme.space.s}>
           <strong>{mdx.frontmatter.title}</strong>{' '}
           {textMap(mdx.frontmatter.kind, projectTexts)}
         </Heading>
