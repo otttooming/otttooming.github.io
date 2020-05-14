@@ -65,7 +65,7 @@ const Project: React.FC<PostProps> = ({ data: { mdx } }) => {
       <Wrapper>
         <Logo name={mdx.frontmatter.company} link={mdx.frontmatter.link} />
 
-        <Heading as="h1" fontWeight={500} mt={theme.space.s}>
+        <Heading as="h1" fontWeight={400} mt={theme.space.s}>
           <strong>{mdx.frontmatter.title}</strong>{' '}
           {textMap(mdx.frontmatter.kind, projectTexts)}
         </Heading>

@@ -115,7 +115,7 @@ const IndexPage = () => (
     <Segment>
       <Grid>
         <Box>
-          <Heading as="h1" fontWeight={500}>
+          <Heading as="h1" fontWeight={400}>
             Hi, I am <strong>Ott</strong>
           </Heading>
 
