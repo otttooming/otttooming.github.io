@@ -73,7 +73,7 @@ const Projects = ({ data }) => {
         </Text>
       </Box>
 
-      <Box as="ul" m="80px auto" p={0} maxWidth="1080px">
+      <Box as="ol" m="80px auto" p={0} maxWidth="1080px">
         {posts.map(({ node: post }) => {
           const { image, background, fit } = post.frontmatter.featured;
 
