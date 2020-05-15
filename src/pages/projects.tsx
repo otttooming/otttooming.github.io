@@ -58,20 +58,24 @@ const Projects = ({ data }) => {
     <Layout>
       <SEO title="Projects" description="" />
 
-      <Box m="80px auto" maxWidth="960px">
-        <Heading as="h1" mt={theme.space.s} fontWeight={400}>
-          <strong>Some projects</strong> I have been involved in
-        </Heading>
+      <Heading
+        as="h1"
+        mt="80px"
+        marginX="auto"
+        maxWidth="960px"
+        fontWeight={400}
+      >
+        <strong>Some projects</strong> I have been involved in
+      </Heading>
 
-        <Text mt={theme.space.l}>
-          All of the projects have been a team collaboration and effort.
-        </Text>
+      <Text mt={theme.space.l} marginX="auto" maxWidth="960px">
+        All of the projects have been a team collaboration and effort.
+      </Text>
 
-        <Text>
-          I have been thoroughly fortunate to have been given the opportunity to
-          work with some amazing people.
-        </Text>
-      </Box>
+      <Text marginX="auto" maxWidth="960px">
+        I have been thoroughly fortunate to have been given the opportunity to
+        work with some amazing people.
+      </Text>
 
       <Box as="ol" m="80px auto" p={0} maxWidth="1080px">
         {posts.map(({ node: post }) => {
