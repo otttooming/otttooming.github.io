@@ -5,31 +5,9 @@ import Voog from '../../assets/logo-voog.svg';
 import Gtap from '../../assets/logo-gtap.svg';
 import { Box, BoxProps } from '@chakra-ui/core';
 
-const getCompanyBgColor = (type?: string) => {
-  if (type === 'iglu') {
-    return '#1797d4';
-  }
-
-  if (type === 'voog') {
-    return '#443DF6';
-  }
-
-  if (type === 'gtap') {
-    return '#00bf9c';
-  }
-
-  return '#25292c';
-};
-
-const Company: React.FC<BoxProps & { type?: string }> = ({
-  type,
-  ...restProps
-}) => {
-  const backgroundColor = getCompanyBgColor(type);
-
+const Company: React.FC<BoxProps> = ({ ...restProps }) => {
   return (
     <Box
-      backgroundColor={backgroundColor}
       height="200px"
       width="300px"
       marginRight="8px"
@@ -55,19 +33,19 @@ const Card: React.FC<BoxProps> = ({ ...restProps }) => {
 const Coop: React.FC = () => {
   return (
     <Box display="flex" flexDirection="row-reverse">
-      <Company type="gtap">
+      <Company backgroundColor="#00bf9c">
         <Card as={Gtap} maxWidth="250px" />
       </Company>
 
-      <Company type="voog">
+      <Company backgroundColor="#443DF6">
         <Card as={Voog} />
       </Company>
 
-      <Company type="iglu">
+      <Company backgroundColor="#1797d4">
         <Card as={Iglu} maxWidth="150px" />
       </Company>
 
-      <Company>
+      <Company backgroundColor="#25292c">
         <Card as={Pipedrive} maxWidth="250px" />
       </Company>
     </Box>
