@@ -48,7 +48,12 @@ const Card: React.FC<BoxProps> = ({ ...restProps }) => {
 
 const Coop: React.FC = () => {
   return (
-    <Box as="ol" display="flex" flexDirection="row-reverse">
+    <Box
+      as="ol"
+      display="flex"
+      flexDirection="row-reverse"
+      listStyleType="none"
+    >
       <Company backgroundColor="#00bf9c">
         <Link href="https://play.ee/">
           <Card as={Gtap} maxWidth="250px" />
