@@ -6,21 +6,9 @@ import styled from '@emotion/styled';
 import Logo from '../components/Logo/Logo';
 import { textMap, projectTexts } from '../utils/textMap';
 import SEO from '../components/SEO';
-import { Heading, Text, useColorMode } from '@chakra-ui/core';
+import { Heading, Text, useColorMode, Box } from '@chakra-ui/core';
 import { css } from '@emotion/core';
 import CoverImage from '../components/CoverImage/CoverImage';
-
-const Wrapper = styled.div`
-  margin: 80px auto;
-  padding: 0;
-  max-width: 960px;
-`;
-
-const Container = styled.ul`
-  margin: 80px auto;
-  padding: 0;
-  max-width: 1080px;
-`;
 
 const lightMode = css`
   background: #edf2f7;
@@ -49,10 +37,6 @@ const Item = styled.li<{ colorMode: 'light' | 'dark' }>`
   }
 `;
 
-const Content = styled.div`
-  direction: ltr;
-`;
-
 /**
  * Only return posts when Gatsby has run static site query
  */
@@ -74,7 +58,7 @@ const Projects = ({ data }) => {
     <Layout>
       <SEO title="Projects" description="" />
 
-      <Wrapper>
+      <Box m="80px auto" maxWidth="960px">
         <Heading as="h1" mt={theme.space.s} fontWeight={400}>
           <strong>Some projects</strong> I have been involved in
         </Heading>
@@ -87,9 +71,9 @@ const Projects = ({ data }) => {
           I have been thoroughly fortunate to have been given the opportunity to
           work with some amazing people.
         </Text>
-      </Wrapper>
+      </Box>
 
-      <Container>
+      <Box as="ul" m="80px auto" p={0} maxWidth="1080px">
         {posts.map(({ node: post }) => {
           const { image, background, fit } = post.frontmatter.featured;
 
@@ -102,7 +86,7 @@ const Projects = ({ data }) => {
                 fit={fit}
               />
 
-              <Content>
+              <Box dir="ltr">
                 <Logo
                   name={post.frontmatter.company}
                   link={post.frontmatter.link}
@@ -116,11 +100,11 @@ const Projects = ({ data }) => {
                 </Heading>
 
                 <Text mt={theme.space.s}>{post.excerpt}</Text>
-              </Content>
+              </Box>
             </Item>
           );
         })}
-      </Container>
+      </Box>
     </Layout>
   );
 };
