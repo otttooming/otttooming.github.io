@@ -8,6 +8,7 @@ import { Box, BoxProps } from '@chakra-ui/core';
 const Company: React.FC<BoxProps> = ({ ...restProps }) => {
   return (
     <Box
+      as="li"
       height="200px"
       width="300px"
       marginRight="8px"
@@ -32,7 +33,7 @@ const Card: React.FC<BoxProps> = ({ ...restProps }) => {
 
 const Coop: React.FC = () => {
   return (
-    <Box display="flex" flexDirection="row-reverse">
+    <Box as="ol" display="flex" flexDirection="row-reverse">
       <Company backgroundColor="#00bf9c">
         <Card as={Gtap} maxWidth="250px" />
       </Company>
