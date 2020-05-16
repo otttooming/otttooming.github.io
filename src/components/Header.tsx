@@ -7,6 +7,7 @@ import DarkMode from './DarkMode/DarkMode';
 
 const Item: React.FC<BoxProps> = ({ ...restProps }) => (
   <Box
+    as="li"
     display="flex"
     alignSelf="center"
     listStyleType="none"
@@ -21,6 +22,7 @@ const link = (to: string) => ({ ...restProps }) => (
 
 const Header = ({ siteTitle }) => (
   <Box
+    as="header"
     display="flex"
     alignSelf="center"
     justifyContent="space-between"
@@ -32,23 +34,25 @@ const Header = ({ siteTitle }) => (
       OTTO
     </Button>
 
-    <Box display="flex" m="0" p="0">
-      <Item>
-        <Button as={link('/about/me')} leftIcon={User} variant="ghost">
-          About
-        </Button>
-      </Item>
+    <nav role="navigation">
+      <Box as="ol" display="flex" m="0" p="0">
+        <Item>
+          <Button as={link('/about/me')} leftIcon={User} variant="ghost">
+            About
+          </Button>
+        </Item>
 
-      <Item>
-        <Button as={link('/projects')} leftIcon={BookOpen} variant="ghost">
-          Projects
-        </Button>
-      </Item>
+        <Item>
+          <Button as={link('/projects')} leftIcon={BookOpen} variant="ghost">
+            Projects
+          </Button>
+        </Item>
 
-      <Item>
-        <DarkMode />
-      </Item>
-    </Box>
+        <Item>
+          <DarkMode />
+        </Item>
+      </Box>
+    </nav>
   </Box>
 );
 
