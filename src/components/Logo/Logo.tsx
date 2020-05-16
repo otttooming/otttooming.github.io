@@ -12,8 +12,6 @@ export interface LogoProps {
   link: string;
 }
 
-const Wrapper = styled.div``;
-
 const Link = styled.a`
   display: block;
   text-decoration: none;
@@ -35,11 +33,9 @@ const Container: React.FC<{ link: string; type: string }> = ({
   link,
   type,
 }) => (
-  <Wrapper>
-    <Link type={type} href={link}>
-      {children}
-    </Link>
-  </Wrapper>
+  <Link type={type} href={link}>
+    {children}
+  </Link>
 );
 
 const Logo: React.FC<LogoProps> = ({ name, link }) => {
