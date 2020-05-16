@@ -5,7 +5,7 @@ import Voog from '../../assets/logo-voog.svg';
 import Gtap from '../../assets/logo-gtap.svg';
 import Pethealth from '../../assets/logo-pethealth.svg';
 import Khk from '../../assets/logo-khk.svg';
-import { Box, Link as ChakraLink, BoxProps } from '@chakra-ui/core';
+import { Box, Link as ChakraLink, BoxProps, LinkProps } from '@chakra-ui/core';
 
 export interface LogoProps {
   name: string;
@@ -28,75 +28,64 @@ const getHeight = (type: string) => {
   return '16px';
 };
 
-const Container: React.FC<{ link: string; type: string }> = ({
-  children,
-  link,
-  type,
-}) => {
-  const height = getHeight(type);
-
-  return (
-    <ChakraLink
-      href={link}
-      height={height}
-      display="block"
-      color="currentColor"
-    >
-      {children}
-    </ChakraLink>
-  );
-};
+const Link: React.FC<LinkProps> = ({ ...restProps }) => (
+  <ChakraLink display="block" color="currentColor" {...restProps} />
+);
 
 const Icon: React.FC<BoxProps> = ({ ...restProps }) => {
   return <Box height="100%" maxWidth="100%" {...restProps} />;
 };
 
 const Logo: React.FC<LogoProps> = ({ name, link }) => {
+  const commonProps = {
+    height: getHeight(name),
+  };
+
   if (name === 'voog') {
     return (
-      <Container link={link} type={name}>
+      <Link {...commonProps} href={link}>
         <Icon as={Voog} />
-      </Container>
+      </Link>
     );
   }
 
   if (name === 'iglu') {
     return (
-      <Container link={link} type={name}>
+      <Link {...commonProps} href={link}>
         <Icon as={Iglu} />
-      </Container>
+      </Link>
     );
   }
 
   if (name === 'gtap') {
     return (
-      <Container link={link} type={name}>
+      <Link {...commonProps} href={link}>
         <Icon as={Gtap} />
-      </Container>
+      </Link>
     );
   }
 
   if (name === 'pipedrive') {
     return (
-      <Container link={link} type={name}>
+      <Link {...commonProps} href={link}>
         <Icon as={Pipedrive} />
-      </Container>
+      </Link>
     );
   }
 
   if (name === 'pethealth') {
     return (
-      <Container link={link} type={name}>
+      <Link {...commonProps} href={link}>
         <Icon as={Pethealth} />
-      </Container>
+      </Link>
     );
   }
 
   if (name === 'khk') {
     return (
-      <Container link={link} type={name}>
+      <Link {...commonProps} href={link}>
         <Icon as={Khk} />
-      </Container>
+      </Link>
     );
   }
 
