@@ -5,44 +5,57 @@ import Voog from '../../assets/logo-voog.svg';
 import Gtap from '../../assets/logo-gtap.svg';
 import Pethealth from '../../assets/logo-pethealth.svg';
 import Khk from '../../assets/logo-khk.svg';
-import styled from '@emotion/styled';
+import { Box, Link as ChakraLink, BoxProps } from '@chakra-ui/core';
 
 export interface LogoProps {
   name: string;
   link: string;
 }
 
-const Link = styled.a`
-  display: block;
-  text-decoration: none;
-  color: currentColor;
-  height: 16px;
-
-  ${({ type }) => (type === 'iglu' ? 'height: 32px;' : '')}
-  ${({ type }) => (type === 'pethealth' ? 'height: 32px;' : '')}
-  ${({ type }) => (type === 'khk' ? 'height: 24px;' : '')}
-
-  > svg {
-    height: 100%;
-    max-width: 100%;
+const getHeight = (type: string) => {
+  if (type === 'iglu') {
+    return '32px';
   }
-`;
+
+  if (type === 'pethealth') {
+    return '32px';
+  }
+
+  if (type === 'khk') {
+    return '24px';
+  }
+
+  return '16px';
+};
 
 const Container: React.FC<{ link: string; type: string }> = ({
   children,
   link,
   type,
-}) => (
-  <Link type={type} href={link}>
-    {children}
-  </Link>
-);
+}) => {
+  const height = getHeight(type);
+
+  return (
+    <ChakraLink
+      href={link}
+      height={height}
+      display="block"
+      color="currentColor"
+    >
+      {children}
+    </ChakraLink>
+  );
+};
+
+const Icon: React.FC<BoxProps> = ({ ...restProps }) => {
+  return <Box height="100%" maxWidth="100%" {...restProps} />;
+};
 
 const Logo: React.FC<LogoProps> = ({ name, link }) => {
   if (name === 'voog') {
     return (
       <Container link={link} type={name}>
-        <Voog />
+        <Icon as={Voog} />
       </Container>
     );
   }
@@ -50,7 +63,7 @@ const Logo: React.FC<LogoProps> = ({ name, link }) => {
   if (name === 'iglu') {
     return (
       <Container link={link} type={name}>
-        <Iglu />
+        <Icon as={Iglu} />
       </Container>
     );
   }
@@ -58,7 +71,7 @@ const Logo: React.FC<LogoProps> = ({ name, link }) => {
   if (name === 'gtap') {
     return (
       <Container link={link} type={name}>
-        <Gtap />
+        <Icon as={Gtap} />
       </Container>
     );
   }
@@ -66,7 +79,7 @@ const Logo: React.FC<LogoProps> = ({ name, link }) => {
   if (name === 'pipedrive') {
     return (
       <Container link={link} type={name}>
-        <Pipedrive />
+        <Icon as={Pipedrive} />
       </Container>
     );
   }
@@ -74,7 +87,7 @@ const Logo: React.FC<LogoProps> = ({ name, link }) => {
   if (name === 'pethealth') {
     return (
       <Container link={link} type={name}>
-        <Pethealth />
+        <Icon as={Pethealth} />
       </Container>
     );
   }
@@ -82,7 +95,7 @@ const Logo: React.FC<LogoProps> = ({ name, link }) => {
   if (name === 'khk') {
     return (
       <Container link={link} type={name}>
-        <Khk />
+        <Icon as={Khk} />
       </Container>
     );
   }
