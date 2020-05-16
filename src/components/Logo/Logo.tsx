@@ -89,7 +89,7 @@ const Logo: React.FC<LogoProps> = ({ name, link }) => {
     );
   }
 
-  return <div>Logo</div>;
+  return null;
 };
 
 export default Logo;
