@@ -10,7 +10,9 @@ import {
   Icon,
   Link as ChakraLink,
   Text as ChakraText,
+  LinkProps,
 } from '@chakra-ui/core';
+import { Link as GatsbyLink } from 'gatsby';
 import { theme } from '../../utils/theme';
 import { getIsExternalLink } from '../../utils/getIsExternalLink';
 
@@ -34,11 +36,23 @@ export const HeadingH3: React.FC = (props) => (
   />
 );
 
+const internalOrExternalLink = (isExternal: boolean): React.FC<LinkProps> => ({
+  href,
+  ...restProps
+}) => {
+  if (isExternal) {
+    return <a {...restProps} />;
+  }
+
+  return <GatsbyLink to={href} {...restProps} />;
+};
+
 export const Link = ({ children, href = '', ...restProps }) => {
   const isExternal = getIsExternalLink(href);
 
   return (
     <ChakraLink
+      as={internalOrExternalLink(isExternal)}
       display="inline-flex"
       alignItems="center"
       isExternal={isExternal}
