@@ -1,4 +1,4 @@
-export type Text = 'client' | 'crm' | 'cms' | 'pms' | 'template';
+export type Text = 'client' | 'crm' | 'cms' | 'pms' | 'template' | 'poster';
 
 /**
  * Available matched texts.
@@ -10,6 +10,7 @@ export const projectTexts: { [K in Text]: string } = {
   cms: 'content management system',
   pms: 'patient management software',
   template: 'template',
+  poster: 'poster',
 };
 
 /**
