@@ -6,6 +6,7 @@ export enum Tech {
   GRAPHQL = 'graphql',
   NODEJS = 'nodejs',
   REACT = 'react',
+  BACKBONEJS = 'backbonejs',
   APOLLO = 'apollo',
   PRISMA = 'prisma',
   ES6 = 'es6',
@@ -40,6 +41,10 @@ export const techTags: TagMap = {
   },
   [Tech.REACT]: {
     title: 'React',
+    url: '/',
+  },
+  [Tech.BACKBONEJS]: {
+    title: 'Backbone.js',
     url: '/',
   },
   [Tech.APOLLO]: {
