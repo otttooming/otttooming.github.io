@@ -6,7 +6,13 @@ import styled from '@emotion/styled';
 import Logo from '../components/Logo/Logo';
 import { textMap, projectTexts } from '../utils/textMap';
 import SEO from '../components/SEO';
-import { Heading, Text, useColorMode, Box } from '@chakra-ui/core';
+import {
+  Heading,
+  Text,
+  useColorMode,
+  Box,
+  Link as ExternalLink,
+} from '@chakra-ui/core';
 import { css } from '@emotion/core';
 import CoverImage from '../components/CoverImage/CoverImage';
 
@@ -91,10 +97,9 @@ const Projects = ({ data }) => {
               />
 
               <Box dir="ltr">
-                <Logo
-                  name={post.frontmatter.company}
-                  link={post.frontmatter.link}
-                />
+                <ExternalLink href={post.frontmatter.link} display="block">
+                  <Logo name={post.frontmatter.company} />
+                </ExternalLink>
 
                 <Heading mt={theme.space.s} fontWeight={400}>
                   <Link to={post.fields.slug}>

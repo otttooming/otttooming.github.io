@@ -8,7 +8,7 @@ import TagList from '../components/TagList/TagList';
 import { textMap, projectTexts } from '../utils/textMap';
 import Logo from '../components/Logo/Logo';
 import SEO from '../components/SEO';
-import { Heading } from '@chakra-ui/core';
+import { Heading, Link } from '@chakra-ui/core';
 import MDXComponents from '../components/MDXComponents/MDXComponents';
 import CoverImage from '../components/CoverImage/CoverImage';
 import { getMappedTags } from '../components/TagList/tagMap';
@@ -63,7 +63,9 @@ const Project: React.FC<PostProps> = ({ data: { mdx } }) => {
       />
 
       <Wrapper>
-        <Logo name={mdx.frontmatter.company} link={mdx.frontmatter.link} />
+        <Link href={mdx.frontmatter.link} display="block">
+          <Logo name={mdx.frontmatter.company} />
+        </Link>
 
         <Heading as="h1" fontWeight={400} mt={theme.space.s}>
           <strong>{mdx.frontmatter.title}</strong>{' '}
