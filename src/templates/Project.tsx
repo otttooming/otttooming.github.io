@@ -8,7 +8,7 @@ import TagList from '../components/TagList/TagList';
 import { textMap, projectTexts } from '../utils/textMap';
 import Logo from '../components/Logo/Logo';
 import SEO from '../components/SEO';
-import { Heading, Link } from '@chakra-ui/core';
+import { Heading, Link, Box } from '@chakra-ui/core';
 import MDXComponents from '../components/MDXComponents/MDXComponents';
 import CoverImage from '../components/CoverImage/CoverImage';
 import { getMappedTags } from '../components/TagList/tagMap';
@@ -62,7 +62,7 @@ const Project: React.FC<PostProps> = ({ data: { mdx } }) => {
         fluid={image.childImageSharp.fluid}
       />
 
-      <Wrapper>
+      <Box as="header" mt="80px" mx="auto" maxWidth="960px">
         <Link href={mdx.frontmatter.link} display="block">
           <Logo name={mdx.frontmatter.company} />
         </Link>
@@ -73,7 +73,7 @@ const Project: React.FC<PostProps> = ({ data: { mdx } }) => {
         </Heading>
 
         <TagList tags={getMappedTags(mdx.frontmatter.tech, techTags)} />
-      </Wrapper>
+      </Box>
 
       <Wrapper>
         <MDXProvider components={MDXComponents}>
