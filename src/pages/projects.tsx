@@ -15,6 +15,7 @@ import {
 } from '@chakra-ui/core';
 import { css } from '@emotion/core';
 import CoverImage from '../components/CoverImage/CoverImage';
+import { Link as MDXLink } from '../components/MDXComponents/MDXComponents';
 
 const lightMode = css`
   background: #edf2f7;
@@ -89,12 +90,14 @@ const Projects = ({ data }) => {
 
           return (
             <Item key={post.id} colorMode={colorMode}>
-              <CoverImage
-                maxHeight="360px"
-                fluid={image.childImageSharp.fluid}
-                background={background}
-                fit={fit}
-              />
+              <MDXLink to={post.fields.slug} display="block">
+                <CoverImage
+                  maxHeight="360px"
+                  fluid={image.childImageSharp.fluid}
+                  background={background}
+                  fit={fit}
+                />
+              </MDXLink>
 
               <Box dir="ltr">
                 <ExternalLink href={post.frontmatter.link} display="block">
