@@ -41,7 +41,7 @@ const internalOrExternalLink = (isExternal: boolean): React.FC<LinkProps> => ({
   ...restProps
 }) => {
   if (isExternal) {
-    return <a {...restProps} />;
+    return <a href={href} {...restProps} />;
   }
 
   return <GatsbyLink to={href} {...restProps} />;
