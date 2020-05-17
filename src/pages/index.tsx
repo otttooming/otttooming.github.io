@@ -63,7 +63,12 @@ const CenterImage = styled.div`
 `;
 
 const Subheading = ({ ...restProps }) => (
-  <ChakraText as="h2" fontWeight={theme.fontWeight.normal} {...restProps} />
+  <Heading
+    as="h2"
+    size="md"
+    fontWeight={theme.fontWeight.normal}
+    {...restProps}
+  />
 );
 
 const Segment = styled.div``;
