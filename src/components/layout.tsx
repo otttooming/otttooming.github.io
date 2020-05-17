@@ -56,7 +56,7 @@ const Layout = ({ children }) => {
           body {
             overflow-x: hidden;
             margin: 0;
-            line-height: ${theme.lineHeight.s};
+            line-height: ${theme.lineHeight.m};
             font-family: ${theme.fontFamily.primary};
             /* color: ${theme.textColor.primary}; */
           }
