@@ -104,12 +104,12 @@ const Projects = ({ data }) => {
                   <Logo name={post.frontmatter.company} />
                 </ExternalLink>
 
-                <Heading mt={theme.space.s} fontWeight={400}>
-                  <Link to={post.fields.slug}>
+                <MDXLink to={post.fields.slug}>
+                  <Heading mt={theme.space.s} fontWeight={400}>
                     <strong>{post.frontmatter.title}</strong>{' '}
                     {textMap(post.frontmatter.kind, projectTexts)}
-                  </Link>
-                </Heading>
+                  </Heading>
+                </MDXLink>
 
                 <Text mt={theme.space.s}>{post.excerpt}</Text>
               </Box>
