@@ -18,6 +18,7 @@ export enum Tech {
   JQUERY = 'jquery',
   LIQUID = 'liquid',
   VUE = 'vue',
+  MJML = 'mjml',
   ILLUSTRATOR = 'illustrator',
   PHOTOSHOP = 'photoshop',
 }
@@ -89,6 +90,10 @@ export const techTags: TagMap = {
   },
   [Tech.VUE]: {
     title: 'Vue.js',
+    url: '/',
+  },
+  [Tech.MJML]: {
+    title: 'MJML',
     url: '/',
   },
   [Tech.ILLUSTRATOR]: {
