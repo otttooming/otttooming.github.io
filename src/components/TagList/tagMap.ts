@@ -14,5 +14,11 @@ const getTag = (tags: TagMap) => (acc: Tag[], cur: string): Tag[] => {
   return [...acc, value];
 };
 
-export const getMappedTags = (items: string[], tagMap: TagMap) =>
-  items.reduce(getTag(tagMap), []);
+export const getMappedTags = (
+  passedItems: string[] | undefined | null,
+  tagMap: TagMap
+) => {
+  const items = passedItems || [];
+
+  return items.reduce(getTag(tagMap), []);
+};
