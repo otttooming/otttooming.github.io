@@ -14,6 +14,7 @@ import CoverImage from '../components/CoverImage/CoverImage';
 import { getMappedTags } from '../components/TagList/tagMap';
 import { techTags } from '../constants/tech';
 import { theme } from '../utils/theme';
+import { ExternalLink } from 'react-feather';
 
 export interface PostProps {
   data: any;
@@ -53,19 +54,37 @@ const Project: React.FC<PostProps> = ({ data: { mdx } }) => {
     <Layout>
       <SEO title={mdx.frontmatter.title} description="" />
 
-      <CoverImage
-        maxWidth="1024px"
-        m="80px auto 0"
-        maxHeight="70vh"
-        fit={fit}
-        background={background}
-        fluid={image.childImageSharp.fluid}
-      />
+      <Box maxWidth="1024px" m="80px auto 0" position="relative">
+        <CoverImage
+          maxHeight="70vh"
+          fit={fit}
+          background={background}
+          fluid={image.childImageSharp.fluid}
+        />
+
+        <Link
+          position="absolute"
+          bottom="-16px"
+          left="32px"
+          display="inline-flex"
+          background="#edf2f7"
+          p="8px 16px"
+          borderWidth="1px"
+          flex="1"
+          rounded="md"
+          fontSize="14px"
+          alignItems="center"
+          href={mdx.frontmatter.link}
+          target="_blank"
+        >
+          <p>Link to project</p>
+
+          <Box as={ExternalLink} ml="8px" width="16px" />
+        </Link>
+      </Box>
 
       <Box as="header" mt="80px" mx="auto" maxWidth="960px">
-        <Link href={mdx.frontmatter.link} display="block">
-          <Logo name={mdx.frontmatter.company} />
-        </Link>
+        <Logo name={mdx.frontmatter.company} />
 
         <Heading as="h1" fontWeight={400} mt={theme.space.s}>
           <strong>{mdx.frontmatter.title}</strong>{' '}
