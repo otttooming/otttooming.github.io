@@ -71,7 +71,9 @@ const Subheading = ({ ...restProps }) => (
   />
 );
 
-const Segment = styled.div``;
+const Segment: React.FC<BoxProps> = ({ ...restProps }) => (
+  <Box px="16px" {...restProps} />
+);
 
 const SmallType = ({ children }) => {
   const { colorMode } = useColorMode();

@@ -70,21 +70,22 @@ const Projects = ({ data }) => {
         mt="80px"
         marginX="auto"
         maxWidth="960px"
+        px="16px"
         fontWeight={400}
       >
         <strong>Some projects</strong> I have been involved in
       </Heading>
 
-      <Text mt={theme.space.l} marginX="auto" maxWidth="960px">
+      <Text mt={theme.space.l} marginX="auto" maxWidth="960px" px="16px">
         All of the projects have been a team collaboration and effort.
       </Text>
 
-      <Text marginX="auto" maxWidth="960px">
+      <Text marginX="auto" maxWidth="960px" px="16px">
         I have been thoroughly fortunate to have been given the opportunity to
         work with some amazing people.
       </Text>
 
-      <Box as="ol" m="80px auto" p={0} maxWidth="1080px">
+      <Box as="ol" m="80px auto" p={0} maxWidth="1080px" px="16px">
         {posts.map(({ node: post }) => {
           const { image, background, fit } = post.frontmatter.featured;
 

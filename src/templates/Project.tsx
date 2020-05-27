@@ -23,6 +23,8 @@ export interface PostProps {
 const Wrapper = styled.div`
   margin-top: 80px;
   margin-bottom: 80px;
+  padding-left: 16px;
+  padding-right: 16px;
 
   > * {
     max-width: 960px;
@@ -54,7 +56,7 @@ const Project: React.FC<PostProps> = ({ data: { mdx } }) => {
     <Layout>
       <SEO title={mdx.frontmatter.title} description="" />
 
-      <Box maxWidth="1024px" m="80px auto 0" position="relative">
+      <Box maxWidth="1024px" m="80px auto 0" px="16px" position="relative">
         <CoverImage
           maxHeight="70vh"
           fit={fit}
@@ -84,7 +86,7 @@ const Project: React.FC<PostProps> = ({ data: { mdx } }) => {
         </Link>
       </Box>
 
-      <Box as="header" mt="80px" mx="auto" maxWidth="960px">
+      <Box as="header" mt="80px" mx="auto" px="16px" maxWidth="960px">
         <Logo name={mdx.frontmatter.company} />
 
         <Heading as="h1" fontWeight={400} mt={theme.space.s}>

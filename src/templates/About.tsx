@@ -20,6 +20,8 @@ export interface PostProps {
 const Wrapper = styled.div`
   max-width: 960px;
   margin: 80px auto;
+  padding-left: 16px;
+  padding-right: 16px;
 
   .gatsby-resp-image-wrapper {
     width: 100%;
