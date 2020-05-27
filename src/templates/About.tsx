@@ -5,7 +5,7 @@ import { MDXRenderer } from 'gatsby-plugin-mdx';
 import Layout from '../components/layout';
 import styled from '@emotion/styled';
 import SEO from '../components/SEO';
-import { Heading, Box, Image } from '@chakra-ui/core';
+import { Heading, Image, AspectRatioBox } from '@chakra-ui/core';
 import MDXComponents from '../components/MDXComponents/MDXComponents';
 import CoverImage from '../components/CoverImage/CoverImage';
 import CoverImageWrapper from '../components/CoverImage/CoverImageWrapper';
@@ -51,6 +51,7 @@ const About: React.FC<PostProps> = ({
   },
 }) => {
   const tags = getMappedTags(tagList, socialTags);
+  const ratio = htmlWidth / htmlHeight;
 
   return (
     <Layout>
@@ -63,13 +64,16 @@ const About: React.FC<PostProps> = ({
         display="flex"
         justifyContent="center"
       >
-        <Image
-          maxHeight="100%"
-          src={illustration.publicURL}
-          alt={alt}
-          htmlHeight={htmlHeight}
-          htmlWidth={htmlWidth}
-        />
+        <AspectRatioBox ratio={ratio} maxWidth={htmlWidth} width="100%">
+          <Image
+            maxHeight="100%"
+            src={illustration.publicURL}
+            alt={alt}
+            htmlHeight={htmlHeight}
+            htmlWidth={htmlWidth}
+            loading="lazy"
+          />
+        </AspectRatioBox>
       </CoverImageWrapper>
 
       <Wrapper>
