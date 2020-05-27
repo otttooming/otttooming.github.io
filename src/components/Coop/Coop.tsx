@@ -47,7 +47,7 @@ const Coop: React.FC = () => {
 
       <Company>
         <Link href="https://www.voog.com/">
-          <Card as={Voog} />
+          <Card as={Voog} maxWidth="150px" />
         </Link>
       </Company>
 
