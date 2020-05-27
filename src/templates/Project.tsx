@@ -68,6 +68,7 @@ const Project: React.FC<PostProps> = ({ data: { mdx } }) => {
           left="32px"
           display="inline-flex"
           background="#edf2f7"
+          color="rgb(26, 32, 44)"
           p="8px 16px"
           borderWidth="1px"
           flex="1"
