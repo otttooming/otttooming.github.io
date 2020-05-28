@@ -31,7 +31,7 @@ const MasonryGallery: React.FC = ({ children }) => {
   const [numCols, setNumCols] = React.useState(3);
 
   const calcNumCols = () => {
-    const possibleColumns = Math.floor(ref.current.offsetWidth / minWidth);
+    const possibleColumns = Math.floor(ref.current.offsetWidth / minWidth) || 1;
     const optimalColumns =
       possibleColumns > childrenCount ? childrenCount : possibleColumns;
 
