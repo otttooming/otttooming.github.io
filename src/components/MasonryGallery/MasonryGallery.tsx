@@ -1,6 +1,7 @@
 import styled from '@emotion/styled';
 import * as React from 'react';
 import { theme } from '../../utils/theme';
+import ImageZoom from '../Image/Image.Zoom';
 
 const Wrapper = styled.div`
   display: grid;
@@ -42,7 +43,11 @@ const MasonryGallery: React.FC = ({ children }) => {
     for (let i = 0; i < numCols; i++) cols[i] = [];
 
     React.Children.forEach(children, (child, i) =>
-      cols[i % numCols].push(<Item key={i}>{child}</Item>)
+      cols[i % numCols].push(
+        <Item key={i}>
+          <ImageZoom>{child} </ImageZoom>
+        </Item>
+      )
     );
   };
 
