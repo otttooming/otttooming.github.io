@@ -1,15 +1,17 @@
 import * as React from 'react';
 import ImageWithZoom from 'react-medium-image-zoom';
 import 'react-medium-image-zoom/dist/styles.css';
-import { Box } from '@chakra-ui/core';
 
 const ImageZoom: React.FC<React.HTMLAttributes<HTMLImageElement>> = ({
-  style,
+  children,
   ...restProps
 }) => {
   return (
-    <ImageWithZoom wrapElement="span">
-      <Box {...restProps} as="img" position="relative" />
+    <ImageWithZoom
+      wrapElement="div"
+      wrapStyle={{ display: 'block', width: '100%', ...restProps }}
+    >
+      {children}
     </ImageWithZoom>
   );
 };
