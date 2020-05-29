@@ -1,26 +1,20 @@
 import * as React from 'react';
-import styled from '@emotion/styled';
-
-const Wrapper = styled.div`
-  margin-top: 160px;
-  margin-bottom: 64px;
-  display: flex;
-  justify-content: center;
-  background-color: #fff;
-  border-radius: 8px;
-  padding: 64px;
-  max-width: 1280px !important;
-`;
-
-const Container = styled.div`
-  max-width: 480px;
-`;
+import { Box } from '@chakra-ui/core';
 
 const Illustration: React.FC = ({ children }) => {
   return (
-    <Wrapper>
-      <Container>{children}</Container>
-    </Wrapper>
+    <Box
+      mt="160px"
+      mb="64px"
+      display="flex"
+      justifyContent="center"
+      backgroundColor="#fff"
+      borderRadius="8px"
+      padding="64px"
+      maxWidth="1280px !important"
+    >
+      <Box maxWidth="480px">{children}</Box>
+    </Box>
   );
 };
 
