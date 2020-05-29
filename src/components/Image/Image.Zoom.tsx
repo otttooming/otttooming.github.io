@@ -8,7 +8,7 @@ const ImageZoom: React.FC<React.HTMLAttributes<HTMLImageElement>> = ({
   ...restProps
 }) => {
   return (
-    <ImageWithZoom>
+    <ImageWithZoom wrapElement="span">
       <Box {...restProps} as="img" position="relative" />
     </ImageWithZoom>
   );
