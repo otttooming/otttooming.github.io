@@ -81,7 +81,6 @@ const MDXComponents = {
   MasonryGallery,
   PieChart,
   Illustration,
-  img: ImageZoom,
   h2: HeadingH2,
   h3: HeadingH3,
   ul: List,

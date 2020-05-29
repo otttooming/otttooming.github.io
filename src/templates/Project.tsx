@@ -31,22 +31,6 @@ const Wrapper = styled.div`
     padding-left: 16px;
     padding-right: 16px;
   }
-
-  .gatsby-resp-image-wrapper {
-    width: 100%;
-  }
-
-  .gatsby-resp-image-wrapper > picture {
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-  }
-
-  .gatsby-resp-image-wrapper > picture img {
-    width: 100%;
-  }
 `;
 
 const Project: React.FC<PostProps> = ({ data: { mdx } }) => {
