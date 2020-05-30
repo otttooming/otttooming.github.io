@@ -28,10 +28,8 @@ const Grid: React.FC<BoxProps> = ({ ...restProps }) => {
       as="section"
       display="grid"
       gridGap="var(--space-l)"
-      gridTemplateColumns="repeat(auto-fit, minmax(200px, 1fr))"
+      gridTemplateColumns="repeat(auto-fit, minmax(256px, 1fr))"
       alignItems="center"
-      maxWidth="960px"
-      margin="0 auto"
       backgroundColor={backgroundColor}
       padding="48px"
       borderRadius="16px"
@@ -125,6 +123,8 @@ const IndexPage = () => (
       pb="72px"
       display="flex"
       alignItems="center"
+      maxWidth="960px"
+      margin="0 auto"
     >
       <Grid>
         <Box>
