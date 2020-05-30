@@ -18,21 +18,27 @@ import {
   HeadingProps,
 } from '@chakra-ui/core';
 
-const Grid: React.FC<BoxProps> = ({ ...restProps }) => (
-  <Box
-    as="section"
-    display="grid"
-    gridGap="var(--space-l)"
-    gridTemplateColumns="repeat(auto-fit, minmax(200px, 1fr))"
-    alignItems="center"
-    maxWidth="960px"
-    margin="0 auto"
-    backgroundColor="#edf2f7"
-    padding="48px"
-    borderRadius="16px"
-    {...restProps}
-  />
-);
+const Grid: React.FC<BoxProps> = ({ ...restProps }) => {
+  const { colorMode } = useColorMode();
+
+  const backgroundColor = colorMode === 'light' ? ' #edf2f7' : '#2c3442';
+
+  return (
+    <Box
+      as="section"
+      display="grid"
+      gridGap="var(--space-l)"
+      gridTemplateColumns="repeat(auto-fit, minmax(200px, 1fr))"
+      alignItems="center"
+      maxWidth="960px"
+      margin="0 auto"
+      backgroundColor={backgroundColor}
+      padding="48px"
+      borderRadius="16px"
+      {...restProps}
+    />
+  );
+};
 
 const AltGrid: React.FC<BoxProps> = ({ ...restProps }) => (
   <Box
