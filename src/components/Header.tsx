@@ -31,7 +31,7 @@ const Header = ({ siteTitle }) => (
     p={theme.space.l}
   >
     <Button as={link('/')} leftIcon={Wind} variant="ghost">
-      OTTO
+      Ott
     </Button>
 
     <nav role="navigation">
