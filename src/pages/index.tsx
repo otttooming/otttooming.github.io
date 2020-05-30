@@ -32,9 +32,11 @@ const Grid = styled.section`
   grid-gap: var(--space-l);
   grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
   align-items: center;
-  min-height: calc(100vh - 72px);
   max-width: 960px;
   margin: 0 auto;
+  background: #edf2f7;
+  padding: 48px;
+  border-radius: 16px;
 `;
 
 const AltGrid = styled.section`
@@ -119,7 +121,12 @@ const SocialIcon = ({ ...restProps }) => (
 const IndexPage = () => (
   <Layout>
     <SEO title="Home" description="" />
-    <Segment>
+    <Segment
+      minHeight="calc(100vh - 72px)"
+      pb="72px"
+      display="flex"
+      alignItems="center"
+    >
       <Grid>
         <Box>
           <Heading as="h1" fontWeight={400}>
