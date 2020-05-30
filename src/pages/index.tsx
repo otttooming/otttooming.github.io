@@ -2,7 +2,6 @@ import * as React from 'react';
 import Layout from '../components/layout';
 import Image from '../components/image';
 import SEO from '../components/SEO';
-import styled from '@emotion/styled';
 import { GitHub, Linkedin, Twitter } from 'react-feather';
 import Gallery from '../components/Gallery/Gallery';
 import HexGrid from '../components/HexGrid/HexGrid';
@@ -16,40 +15,40 @@ import {
   IconButton,
   useColorMode,
   BoxProps,
+  HeadingProps,
 } from '@chakra-ui/core';
 
-const StyledImage = styled(Image)`
-  border-radius: 8px;
-  width: 100%;
-  align-content: center;
-  display: flex;
-  justify-content: center;
-  box-shadow: 5px 25px 40px rgba(0, 0, 0, 0.2);
-`;
+const Grid: React.FC<BoxProps> = ({ ...restProps }) => (
+  <Box
+    as="section"
+    display="grid"
+    gridGap="var(--space-l)"
+    gridTemplateColumns="repeat(auto-fit, minmax(200px, 1fr))"
+    alignItems="center"
+    maxWidth="960px"
+    margin="0 auto"
+    backgroundColor="#edf2f7"
+    padding="48px"
+    borderRadius="16px"
+    {...restProps}
+  />
+);
 
-const Grid = styled.section`
-  display: grid;
-  grid-gap: var(--space-l);
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  align-items: center;
-  max-width: 960px;
-  margin: 0 auto;
-  background: #edf2f7;
-  padding: 48px;
-  border-radius: 16px;
-`;
+const AltGrid: React.FC<BoxProps> = ({ ...restProps }) => (
+  <Box
+    as="section"
+    display="grid"
+    gridGap="var(--space-l)"
+    gridTemplateColumns="repeat(auto-fit, minmax(64px, auto))"
+    alignItems="center"
+    maxWidth="1280px"
+    margin="0 auto"
+    padding={theme.space.xl}
+    {...restProps}
+  />
+);
 
-const AltGrid = styled.section`
-  display: grid;
-  grid-gap: var(--space-l);
-  grid-template-columns: repeat(auto-fit, minmax(64px, auto));
-  align-items: center;
-  padding: ${theme.space.xl};
-  max-width: 1280px;
-  margin: 0 auto;
-`;
-
-const PlainGrid = ({ ...restProps }) => (
+const PlainGrid: React.FC<BoxProps> = ({ ...restProps }) => (
   <Box
     as="section"
     maxWidth="960px"
@@ -58,13 +57,7 @@ const PlainGrid = ({ ...restProps }) => (
   />
 );
 
-const CenterImage = styled.div`
-  align-content: center;
-  display: flex;
-  justify-content: center;
-`;
-
-const Subheading = ({ ...restProps }) => (
+const Subheading: React.FC<HeadingProps> = ({ ...restProps }) => (
   <Heading
     as="h2"
     size="md"
@@ -164,9 +157,16 @@ const IndexPage = () => (
           </Text>
         </Box>
 
-        <CenterImage>
-          <StyledImage />
-        </CenterImage>
+        <Box display="flex" alignContent="center" justifyContent="center">
+          <Box
+            as={Image}
+            display="flex"
+            justifyContent="center"
+            width="100%"
+            borderRadius="8px"
+            boxShadow="5px 25px 40px rgba(0, 0, 0, 0.2)"
+          />
+        </Box>
       </Grid>
     </Segment>
 
