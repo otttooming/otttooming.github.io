@@ -10,7 +10,13 @@ const Container: React.FC<BoxProps> = ({ ...restProps }) => (
 
 const Footer: React.FC<BoxProps> = () => {
   return (
-    <Box maxWidth="960px" marginTop="80px" marginBottom="40px" marginX="auto">
+    <Box
+      as="footer"
+      maxWidth="960px"
+      marginTop="80px"
+      marginBottom="40px"
+      marginX="auto"
+    >
       <Container>
         <TagList
           tags={getMappedTags(
