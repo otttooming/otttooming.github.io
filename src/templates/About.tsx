@@ -3,9 +3,8 @@ import { graphql } from 'gatsby';
 import { MDXProvider } from '@mdx-js/react';
 import { MDXRenderer } from 'gatsby-plugin-mdx';
 import Layout from '../components/layout';
-import styled from '@emotion/styled';
 import SEO from '../components/SEO';
-import { Heading, Image, AspectRatioBox } from '@chakra-ui/core';
+import { Heading, Image, AspectRatioBox, Box, BoxProps } from '@chakra-ui/core';
 import MDXComponents from '../components/MDXComponents/MDXComponents';
 import CoverImage from '../components/CoverImage/CoverImage';
 import CoverImageWrapper from '../components/CoverImage/CoverImageWrapper';
@@ -17,12 +16,9 @@ export interface PostProps {
   data: any;
 }
 
-const Wrapper = styled.div`
-  max-width: 960px;
-  margin: 80px auto;
-  padding-left: 16px;
-  padding-right: 16px;
-`;
+const Wrapper: React.FC<BoxProps> = ({ ...restProps }) => (
+  <Box maxWidth="960px" m="80px auto" px="16px" {...restProps} />
+);
 
 const About: React.FC<PostProps> = ({
   data: {
