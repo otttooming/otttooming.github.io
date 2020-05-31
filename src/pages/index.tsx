@@ -157,16 +157,11 @@ const IndexPage = () => (
           </Text>
         </Box>
 
-        <Box display="flex" alignContent="center" justifyContent="center">
-          <Box
-            as={Image}
-            display="flex"
-            justifyContent="center"
-            width="100%"
-            borderRadius="8px"
-            boxShadow="5px 25px 40px rgba(0, 0, 0, 0.2)"
-          />
-        </Box>
+        <Box
+          as={Image}
+          borderRadius="8px"
+          boxShadow="5px 25px 40px rgba(0, 0, 0, 0.2)"
+        />
       </Grid>
     </Segment>
 
