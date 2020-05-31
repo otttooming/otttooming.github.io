@@ -188,9 +188,7 @@ const IndexPage = () => (
     </Segment>
     <Segment>
       <AltGrid>
-        <Box>
-          <HexGrid />
-        </Box>
+        <HexGrid />
 
         <Box>
           <SmallType>Experience</SmallType>
