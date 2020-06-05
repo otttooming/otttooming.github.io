@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { Wind, BookOpen, User } from 'react-feather';
+import { Wind, BookOpen, User, Tool } from 'react-feather';
 import { Link as GatsbyLink } from 'gatsby';
 import { Button, Box, BoxProps } from '@chakra-ui/core';
 import { theme } from '../utils/theme';
@@ -26,7 +26,7 @@ const Header = ({ siteTitle }) => (
     display="flex"
     alignSelf="center"
     justifyContent="space-between"
-    maxWidth="960px"
+    maxWidth="1024px"
     m="0 auto"
     p={theme.space.l}
   >
@@ -39,6 +39,12 @@ const Header = ({ siteTitle }) => (
         <Item>
           <Button as={link('/about/me')} leftIcon={User} variant="ghost">
             About
+          </Button>
+        </Item>
+
+        <Item>
+          <Button as={link('/technologies')} leftIcon={Tool} variant="ghost">
+            Tech
           </Button>
         </Item>
 
