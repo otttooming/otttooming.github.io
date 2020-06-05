@@ -38,6 +38,13 @@ module.exports = {
       },
     },
     {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        path: `${__dirname}/content/technologies`,
+        name: `technologies`,
+      },
+    },
+    {
       resolve: 'gatsby-plugin-mdx',
       options: {
         root: __dirname,
