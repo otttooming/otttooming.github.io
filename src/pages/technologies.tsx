@@ -55,6 +55,7 @@ const Technologies: React.FC<TechnologiesProps> = ({ data }) => {
               title={title}
               body={post.body}
               featured={featured}
+              projects={data.projects}
             />
           );
         })}
@@ -87,6 +88,37 @@ export const pageQuery = graphql`
           fields {
             slug
           }
+        }
+      }
+    }
+    projects: allMdx(
+      filter: { fileAbsolutePath: { regex: "/projects/" } }
+      sort: { fields: [frontmatter___date], order: DESC }
+    ) {
+      nodes {
+        id
+        excerpt(pruneLength: 72)
+        frontmatter {
+          title
+          company
+          git
+          link
+          kind
+          tech
+          featured {
+            image {
+              childImageSharp {
+                fluid(maxWidth: 476) {
+                  ...GatsbyImageSharpFluid
+                }
+              }
+            }
+            background
+            fit
+          }
+        }
+        fields {
+          slug
         }
       }
     }

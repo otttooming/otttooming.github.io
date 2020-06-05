@@ -10,14 +10,33 @@ import {
 import { MDXRenderer } from 'gatsby-plugin-mdx';
 import MDXComponents from '../MDXComponents/MDXComponents';
 import { MDXProvider } from '@mdx-js/react';
+import CoverImage from '../CoverImage/CoverImage';
+import { getMatchingProjects } from './Card.helpers';
 
 export interface CardProps {
   title: string;
   body: any;
   featured: any;
+  projects: any;
 }
 
-const Card: React.FC<CardProps> = ({ title, body, featured }) => {
+const Item = ({ id, frontmatter: { featured } }) => {
+  const { image, background, fit } = featured;
+
+  return (
+    <Box key={id} width="100%" minWidth="320px" mr="16px">
+      <CoverImage
+        maxHeight="260px"
+        fit={fit}
+        background={background}
+        fluid={image.childImageSharp.fluid}
+        boxShadow="none"
+      />
+    </Box>
+  );
+};
+
+const Card: React.FC<CardProps> = ({ title, body, featured, projects }) => {
   const {
     illustration,
     height: htmlHeight,
@@ -31,6 +50,8 @@ const Card: React.FC<CardProps> = ({ title, body, featured }) => {
   const backgroundColor = colorMode === 'light' ? ' #edf2f7' : '#2c3442';
 
   const ratio = htmlWidth / htmlHeight;
+
+  const matchingProjects = getMatchingProjects(projects, title);
 
   return (
     <PseudoBox
@@ -47,15 +68,21 @@ const Card: React.FC<CardProps> = ({ title, body, featured }) => {
       marginBottom="80px"
     >
       <Box
-        gridColumn="2 / 3"
+        gridColumn="1 / 4"
         gridRow="1 / 2"
         color="#fff"
-        padding="35px 20px"
         height="320px"
         display="flex"
         alignItems="center"
+        overflow="scroll"
       >
-        <AspectRatioBox ratio={ratio} maxWidth={160} width="100%">
+        <AspectRatioBox
+          ratio={ratio}
+          maxWidth={160}
+          width="100%"
+          ml="32px"
+          mr="64px"
+        >
           <Image
             maxHeight="100%"
             src={illustration.publicURL}
@@ -65,6 +92,22 @@ const Card: React.FC<CardProps> = ({ title, body, featured }) => {
             loading="lazy"
           />
         </AspectRatioBox>
+
+        <Box width="100%" height="100%" position="relative">
+          <Box
+            display="flex"
+            alignItems="center"
+            position="absolute"
+            left="0"
+            right="0"
+            top="0"
+            bottom="0"
+          >
+            {matchingProjects.map((item) => {
+              return <Item key={item.id} {...item} />;
+            })}
+          </Box>
+        </Box>
       </Box>
       <Box
         gridRow="2 / 4"
