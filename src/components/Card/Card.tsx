@@ -56,14 +56,14 @@ const Card: React.FC<CardProps> = ({ title, body, featured, projects }) => {
   return (
     <PseudoBox
       display="grid"
-      gridTemplateColumns="64px 1fr 64px"
+      gridTemplateColumns={['0 1fr 0', '0 1fr 0', '64px 1fr 64px']}
       gridTemplateRows="auto 8em 1fr auto"
       _before={{
         content: `""`,
         gridColumn: '1/-1',
         gridRow: '1/3',
         background,
-        borderRadius: 8,
+        borderRadius: [0, 0, 8],
       }}
       marginBottom="80px"
     >
@@ -112,9 +112,10 @@ const Card: React.FC<CardProps> = ({ title, body, featured, projects }) => {
       <Box
         gridRow="2 / 4"
         gridColumn="2 / 3"
-        padding="32px"
+        paddingY="32px"
+        paddingX={['16px', '32px', '32px']}
         backgroundColor={backgroundColor}
-        borderRadius="8px"
+        borderRadius={['0 0 8px 8px', '0 0 8px 8px', 8]}
       >
         <Heading>{title}</Heading>
 

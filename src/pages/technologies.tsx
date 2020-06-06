@@ -46,7 +46,7 @@ const Technologies: React.FC<TechnologiesProps> = ({ data }) => {
         languages in general.
       </Text>
 
-      <Box as="ol" m="80px auto" p={0} maxWidth="1080px" px="16px">
+      <Box as="ol" m="80px auto" p={0} maxWidth="1080px" px={[0, 0, '16px']}>
         {posts.map(({ node: post }) => {
           const { title, featured } = post.frontmatter;
 
