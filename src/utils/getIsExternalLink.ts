@@ -1,1 +1,2 @@
-export const getIsExternalLink = (item: string) => item.includes('http');
+export const getIsExternalLink = (item: string): boolean =>
+  item.includes('http');
