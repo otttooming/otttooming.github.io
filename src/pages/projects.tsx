@@ -52,8 +52,6 @@ const Projects: React.FC<ProjectsProps> = ({
     allMdx: { nodes: posts },
   },
 }) => {
-  const { colorMode } = useColorMode();
-
   return (
     <Layout>
       <SEO title="Projects" description="" />
@@ -89,7 +87,7 @@ const Projects: React.FC<ProjectsProps> = ({
           const { image, background, fit } = frontmatter.featured;
 
           return (
-            <Item key={id} colorMode={colorMode}>
+            <Item key={id}>
               <MDXLink to={fields.slug} display="block">
                 <CoverImage
                   maxHeight="360px"
