@@ -49,22 +49,12 @@ const Item = styled.li<{ colorMode: 'light' | 'dark' }>`
   }
 `;
 
-/**
- * Only return posts when Gatsby has run static site query
- */
-const getPosts = (data: ProjectsListQueryQuery) => {
-  if (!data.allMdx) {
-    return [];
-  }
-  const { edges: posts } = data.allMdx;
-
-  return posts;
-};
-
-const Projects: React.FC<ProjectsProps> = ({ data }) => {
+const Projects: React.FC<ProjectsProps> = ({
+  data: {
+    allMdx: { nodes: posts },
+  },
+}) => {
   const { colorMode } = useColorMode();
-
-  const posts = getPosts(data);
 
   return (
     <Layout>
@@ -91,12 +81,12 @@ const Projects: React.FC<ProjectsProps> = ({ data }) => {
       </Text>
 
       <Box as="ol" m="80px auto" p={0} maxWidth="1080px" px="16px">
-        {posts.map(({ node: post }) => {
-          const { image, background, fit } = post.frontmatter.featured;
+        {posts.map(({ id, fields, excerpt, frontmatter }) => {
+          const { image, background, fit } = frontmatter.featured;
 
           return (
-            <Item key={post.id} colorMode={colorMode}>
-              <MDXLink to={post.fields.slug} display="block">
+            <Item key={id} colorMode={colorMode}>
+              <MDXLink to={fields.slug} display="block">
                 <CoverImage
                   maxHeight="360px"
                   fluid={image.childImageSharp.fluid}
@@ -106,18 +96,18 @@ const Projects: React.FC<ProjectsProps> = ({ data }) => {
               </MDXLink>
 
               <Box dir="ltr">
-                <ExternalLink href={post.frontmatter.link} display="block">
-                  <Logo name={post.frontmatter.company} />
+                <ExternalLink href={frontmatter.link} display="block">
+                  <Logo name={frontmatter.company} />
                 </ExternalLink>
 
-                <MDXLink to={post.fields.slug}>
+                <MDXLink to={fields.slug}>
                   <Heading mt={theme.space.s} fontWeight={400}>
-                    <strong>{post.frontmatter.title}</strong>{' '}
-                    {textMap(post.frontmatter.kind, projectTexts)}
+                    <strong>{frontmatter.title}</strong>{' '}
+                    {textMap(frontmatter.kind, projectTexts)}
                   </Heading>
                 </MDXLink>
 
-                <Text mt={theme.space.s}>{post.excerpt}</Text>
+                <Text mt={theme.space.s}>{excerpt}</Text>
               </Box>
             </Item>
           );
@@ -132,31 +122,29 @@ export const pageQuery = graphql`
       filter: { fileAbsolutePath: { regex: "/projects/" } }
       sort: { fields: [frontmatter___date], order: DESC }
     ) {
-      edges {
-        node {
-          id
-          excerpt(pruneLength: 72)
-          frontmatter {
-            title
-            company
-            git
-            link
-            kind
-            featured {
-              image {
-                childImageSharp {
-                  fluid(maxWidth: 476) {
-                    ...GatsbyImageSharpFluid
-                  }
+      nodes {
+        id
+        excerpt(pruneLength: 72)
+        frontmatter {
+          title
+          company
+          git
+          link
+          kind
+          featured {
+            image {
+              childImageSharp {
+                fluid(maxWidth: 476) {
+                  ...GatsbyImageSharpFluid
                 }
               }
-              background
-              fit
             }
+            background
+            fit
           }
-          fields {
-            slug
-          }
+        }
+        fields {
+          slug
         }
       }
     }
