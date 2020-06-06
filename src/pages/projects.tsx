@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { Link, graphql } from 'gatsby';
+import { graphql } from 'gatsby';
 import Layout from '../components/layout';
 import { theme } from '../utils/theme';
 import styled from '@emotion/styled';
@@ -62,7 +62,7 @@ const getPosts = (data: ProjectsListQueryQuery) => {
 };
 
 const Projects: React.FC<ProjectsProps> = ({ data }) => {
-  const { colorMode, toggleColorMode } = useColorMode();
+  const { colorMode } = useColorMode();
 
   const posts = getPosts(data);
 

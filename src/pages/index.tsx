@@ -109,7 +109,7 @@ const SocialIcon = ({ ...restProps }) => (
   />
 );
 
-const IndexPage = () => (
+const IndexPage: React.FC = () => (
   <Layout>
     <SEO title="Home" description="" />
     <Segment
