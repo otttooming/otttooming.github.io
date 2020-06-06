@@ -28,11 +28,17 @@ const Grid: React.FC<BoxProps> = ({ ...restProps }) => {
       as="section"
       display="grid"
       gridGap="var(--space-l)"
-      gridTemplateColumns="repeat(auto-fit, minmax(256px, 1fr))"
+      gridTemplateColumns={[
+        'repeat(auto-fit, minmax(260, 1fr))',
+        'repeat(auto-fit, minmax(320px, 1fr))',
+        'repeat(auto-fit, minmax(320px, 1fr))',
+      ]}
       alignItems="center"
       backgroundColor={backgroundColor}
-      padding="48px"
-      borderRadius="16px"
+      paddingY="32px"
+      paddingX={['16px', '32px', '48px']}
+      borderRadius={[0, '16px', '16px']}
+      mb={['32px', '64px', '128px']}
       {...restProps}
     />
   );
@@ -65,7 +71,7 @@ const Subheading: React.FC<HeadingProps> = ({ ...restProps }) => (
 );
 
 const Segment: React.FC<BoxProps> = ({ ...restProps }) => (
-  <Box as="section" px="16px" {...restProps} />
+  <Box as="section" px={[0, '16px', '16px']} {...restProps} />
 );
 
 const SmallType = ({ children }) => {
