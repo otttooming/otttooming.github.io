@@ -47,7 +47,11 @@ const internalOrExternalLink = (
   return <GatsbyLink to={href} {...restProps} />;
 };
 
-export const Link = ({ children, href = '', ...restProps }) => {
+export const Link: React.FC<React.AnchorHTMLAttributes<HTMLAnchorElement>> = ({
+  children,
+  href = '',
+  ...restProps
+}) => {
   const isExternal = getIsExternalLink(href);
   const isPlainHrefTag = [getIsDocument(href), isExternal].some(Boolean);
 
