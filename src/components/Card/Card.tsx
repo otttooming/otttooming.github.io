@@ -78,7 +78,7 @@ const Card: React.FC<CardProps> = ({ title, body, featured, projects }) => {
       >
         <AspectRatioBox
           ratio={ratio}
-          maxWidth={160}
+          maxWidth={96}
           width="100%"
           ml="32px"
           mr="64px"
