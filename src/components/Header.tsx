@@ -20,7 +20,7 @@ const link = (to: string) => ({ ...restProps }) => (
   <GatsbyLink to={to} {...restProps} />
 );
 
-const Header = ({ siteTitle }) => (
+const Header: React.FC = () => (
   <Box
     as="header"
     display="flex"
@@ -61,9 +61,5 @@ const Header = ({ siteTitle }) => (
     </nav>
   </Box>
 );
-
-Header.defaultProps = {
-  siteTitle: ``,
-};
 
 export default Header;
