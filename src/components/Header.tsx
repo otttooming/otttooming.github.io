@@ -30,9 +30,11 @@ const Header: React.FC = () => (
     m="0 auto"
     p={theme.space.l}
   >
-    <Button as={link('/')} leftIcon={Wind} variant="ghost">
-      Ott
-    </Button>
+    <p>
+      <Button as={link('/')} leftIcon={Wind} variant="ghost">
+        Ott
+      </Button>
+    </p>
 
     <nav role="navigation">
       <Box as="ol" display="flex" m="0" p="0">
