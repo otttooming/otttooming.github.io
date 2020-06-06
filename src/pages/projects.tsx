@@ -32,12 +32,16 @@ const Item: React.FC<BoxProps> = ({ ...restProps }) => {
       display="grid"
       listStyleType="none"
       gridGap="var(--space-l)"
-      gridTemplateColumns="repeat(auto-fit, minmax(256px, 1fr))"
+      gridTemplateColumns={[
+        'repeat(auto-fit, minmax(260, 1fr))',
+        'repeat(auto-fit, minmax(320px, 1fr))',
+        'repeat(auto-fit, minmax(320px, 1fr))',
+      ]}
       alignItems="center"
       backgroundColor={backgroundColor}
-      padding="48px"
-      borderRadius="16px"
-      mb="196px"
+      padding={['16px', '32px', '48px']}
+      borderRadius={[0, '16px', '16px']}
+      mb={['32px', '64px', '128px']}
       {...restProps}
     />
   );
@@ -74,7 +78,13 @@ const Projects: React.FC<ProjectsProps> = ({
         work with some amazing people.
       </Text>
 
-      <Box as="ol" m="80px auto" p={0} maxWidth="1080px" px="16px">
+      <Box
+        as="ol"
+        m="80px auto"
+        p={0}
+        maxWidth="1080px"
+        px={[0, '16px', '16px']}
+      >
         {posts.map(({ id, fields, excerpt, frontmatter }) => {
           const { image, background, fit } = frontmatter.featured;
 
