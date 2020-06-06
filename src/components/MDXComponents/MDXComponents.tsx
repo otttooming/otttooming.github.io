@@ -15,6 +15,7 @@ import {
 import { Link as GatsbyLink } from 'gatsby';
 import { theme } from '../../utils/theme';
 import { getIsExternalLink } from '../../utils/getIsExternalLink';
+import { getIsDocument } from '../../utils/getLinkType';
 
 export const HeadingH2: React.FC = (props) => (
   <Heading
@@ -36,11 +37,10 @@ export const HeadingH3: React.FC = (props) => (
   />
 );
 
-const internalOrExternalLink = (isExternal: boolean): React.FC<LinkProps> => ({
-  href,
-  ...restProps
-}) => {
-  if (isExternal) {
+const internalOrExternalLink = (
+  isPlainHrefTag: boolean
+): React.FC<LinkProps> => ({ href, ...restProps }) => {
+  if (isPlainHrefTag) {
     return <a href={href} {...restProps} />;
   }
 
@@ -49,10 +49,11 @@ const internalOrExternalLink = (isExternal: boolean): React.FC<LinkProps> => ({
 
 export const Link = ({ children, href = '', ...restProps }) => {
   const isExternal = getIsExternalLink(href);
+  const isPlainHrefTag = [getIsDocument(href), isExternal].some(Boolean);
 
   return (
     <ChakraLink
-      as={internalOrExternalLink(isExternal)}
+      as={internalOrExternalLink(isPlainHrefTag)}
       display="inline-flex"
       alignItems="center"
       isExternal={isExternal}
