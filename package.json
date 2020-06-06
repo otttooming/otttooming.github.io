@@ -26,6 +26,7 @@
     "gatsby-remark-images": "^3.3.8",
     "gatsby-source-filesystem": "^2.3.8",
     "gatsby-transformer-sharp": "^2.5.3",
+    "graphql": "14.6.0",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "react-feather": "^2.0.8",
@@ -35,6 +36,9 @@
     "typescript": "^3.9.3"
   },
   "devDependencies": {
+    "@graphql-codegen/cli": "^1.15.0",
+    "@graphql-codegen/typescript": "^1.15.0",
+    "@graphql-codegen/typescript-operations": "^1.15.0",
     "@types/gh-pages": "^2.2.0",
     "@types/mdx-js__react": "^1.5.2",
     "@types/prettier": "^2.0.1",
@@ -60,6 +64,7 @@
   "license": "MIT",
   "scripts": {
     "build": "gatsby build",
+    "build:graphql": "graphql-codegen",
     "clean": "gatsby clean",
     "develop": "gatsby develop",
     "deploy": "npm run build && gh-pages -d public -b master",
