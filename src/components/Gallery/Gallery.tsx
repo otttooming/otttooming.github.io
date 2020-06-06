@@ -10,7 +10,6 @@ const Wrapper = styled.div`
   grid-gap: 16px;
   max-width: 960px;
   margin: 0 auto;
-  padding: 0 ${theme.space.s};
 
   grid-template-rows: repeat(14, minmax(24px, 1fr));
   grid-template-columns: repeat(9, minmax(16px, 1fr));
