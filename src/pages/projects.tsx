@@ -2,7 +2,6 @@ import * as React from 'react';
 import { graphql } from 'gatsby';
 import Layout from '../components/layout';
 import { theme } from '../utils/theme';
-import styled from '@emotion/styled';
 import Logo from '../components/Logo/Logo';
 import { textMap, projectTexts } from '../utils/textMap';
 import SEO from '../components/SEO';
@@ -12,8 +11,8 @@ import {
   useColorMode,
   Box,
   Link as ExternalLink,
+  BoxProps,
 } from '@chakra-ui/core';
-import { css } from '@emotion/core';
 import CoverImage from '../components/CoverImage/CoverImage';
 import { Link as MDXLink } from '../components/MDXComponents/MDXComponents';
 import { ProjectsListQueryQuery } from '../types';
@@ -22,32 +21,27 @@ export interface ProjectsProps {
   data: ProjectsListQueryQuery;
 }
 
-const lightMode = css`
-  background: #edf2f7;
-`;
+const Item: React.FC<BoxProps> = ({ ...restProps }) => {
+  const { colorMode } = useColorMode();
 
-const darkMode = css`
-  background: #2c3442;
-`;
+  const backgroundColor = colorMode === 'light' ? ' #edf2f7' : '#2c3442';
 
-const Item = styled.li<{ colorMode: 'light' | 'dark' }>`
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(256px, 1fr));
-  grid-gap: 32px;
-  list-style: none;
-  margin-bottom: 196px;
-  align-items: center;
-
-  ${({ colorMode }) => (colorMode === 'light' ? lightMode : darkMode)}
-
-  padding: 48px;
-  border-radius: 16px;
-  margin-bottom: 96px;
-
-  &:nth-of-type(even) {
-    direction: rtl;
-  }
-`;
+  return (
+    <Box
+      as="li"
+      display="grid"
+      listStyleType="none"
+      gridGap="var(--space-l)"
+      gridTemplateColumns="repeat(auto-fit, minmax(256px, 1fr))"
+      alignItems="center"
+      backgroundColor={backgroundColor}
+      padding="48px"
+      borderRadius="16px"
+      mb="196px"
+      {...restProps}
+    />
+  );
+};
 
 const Projects: React.FC<ProjectsProps> = ({
   data: {
