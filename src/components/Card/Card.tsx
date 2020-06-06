@@ -24,7 +24,7 @@ const Item = ({ id, frontmatter: { featured } }) => {
   const { image, background, fit } = featured;
 
   return (
-    <Box key={id} width="100%" minWidth="320px" mr="16px">
+    <Box key={id} minWidth="320px" mr="16px">
       <CoverImage
         maxHeight="260px"
         fit={fit}
