@@ -11,20 +11,13 @@ interface TechnologiesProps {
   data: TechnologiesListQueryQuery;
 }
 
-/**
- * Only return posts when Gatsby has run static site query
- */
-const getPosts = (data: TechnologiesListQueryQuery) => {
-  if (!data.allMdx) {
-    return [];
-  }
-  const { edges: posts } = data.allMdx;
-
-  return posts;
-};
-
-const Technologies: React.FC<TechnologiesProps> = ({ data }) => {
-  const posts = getPosts(data);
+const Technologies: React.FC<TechnologiesProps> = ({
+  data: {
+    allMdx: { nodes },
+    projects,
+  },
+}) => {
+  const posts = nodes;
 
   return (
     <Layout>
@@ -47,16 +40,16 @@ const Technologies: React.FC<TechnologiesProps> = ({ data }) => {
       </Text>
 
       <Box as="ol" m="80px auto" p={0} maxWidth="1080px" px={[0, 0, '16px']}>
-        {posts.map(({ node: post }) => {
-          const { title, featured } = post.frontmatter;
+        {posts.map(({ body, frontmatter }) => {
+          const { title, featured } = frontmatter;
 
           return (
             <Card
               key={title}
               title={title}
-              body={post.body}
+              body={body}
               featured={featured}
-              projects={data.projects}
+              projects={projects}
             />
           );
         })}
@@ -70,25 +63,23 @@ export const pageQuery = graphql`
       filter: { fileAbsolutePath: { regex: "/technologies/" } }
       sort: { fields: [frontmatter___order], order: ASC }
     ) {
-      edges {
-        node {
-          id
-          body
-          frontmatter {
-            title
-            featured {
-              illustration {
-                publicURL
-              }
-              width
-              height
-              alt
-              background
+      nodes {
+        id
+        body
+        frontmatter {
+          title
+          featured {
+            illustration {
+              publicURL
             }
+            width
+            height
+            alt
+            background
           }
-          fields {
-            slug
-          }
+        }
+        fields {
+          slug
         }
       }
     }

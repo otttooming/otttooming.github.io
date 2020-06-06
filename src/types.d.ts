@@ -3285,27 +3285,24 @@ export type TechnologiesListQueryQuery = (
   { __typename?: 'Query' }
   & { allMdx: (
     { __typename?: 'MdxConnection' }
-    & { edges: Array<(
-      { __typename?: 'MdxEdge' }
-      & { node: (
-        { __typename?: 'Mdx' }
-        & Pick<Mdx, 'id' | 'body'>
-        & { frontmatter?: Maybe<(
-          { __typename?: 'MdxFrontmatter' }
-          & Pick<MdxFrontmatter, 'title'>
-          & { featured?: Maybe<(
-            { __typename?: 'MdxFrontmatterFeatured' }
-            & Pick<MdxFrontmatterFeatured, 'width' | 'height' | 'alt' | 'background'>
-            & { illustration?: Maybe<(
-              { __typename?: 'File' }
-              & Pick<File, 'publicURL'>
-            )> }
+    & { nodes: Array<(
+      { __typename?: 'Mdx' }
+      & Pick<Mdx, 'id' | 'body'>
+      & { frontmatter?: Maybe<(
+        { __typename?: 'MdxFrontmatter' }
+        & Pick<MdxFrontmatter, 'title'>
+        & { featured?: Maybe<(
+          { __typename?: 'MdxFrontmatterFeatured' }
+          & Pick<MdxFrontmatterFeatured, 'width' | 'height' | 'alt' | 'background'>
+          & { illustration?: Maybe<(
+            { __typename?: 'File' }
+            & Pick<File, 'publicURL'>
           )> }
-        )>, fields?: Maybe<(
-          { __typename?: 'MdxFields' }
-          & Pick<MdxFields, 'slug'>
         )> }
-      ) }
+      )>, fields?: Maybe<(
+        { __typename?: 'MdxFields' }
+        & Pick<MdxFields, 'slug'>
+      )> }
     )> }
   ), projects: (
     { __typename?: 'MdxConnection' }
