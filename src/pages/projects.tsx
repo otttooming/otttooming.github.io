@@ -11,7 +11,8 @@ import {
   useColorMode,
   Box,
   Link as ExternalLink,
-  BoxProps,
+  PseudoBox,
+  PseudoBoxProps,
 } from '@chakra-ui/core';
 import CoverImage from '../components/CoverImage/CoverImage';
 import { Link as MDXLink } from '../components/MDXComponents/MDXComponents';
@@ -21,13 +22,13 @@ export interface ProjectsProps {
   data: ProjectsListQueryQuery;
 }
 
-const Item: React.FC<BoxProps> = ({ ...restProps }) => {
+const Item: React.FC<PseudoBoxProps> = ({ ...restProps }) => {
   const { colorMode } = useColorMode();
 
   const backgroundColor = colorMode === 'light' ? ' #edf2f7' : '#2c3442';
 
   return (
-    <Box
+    <PseudoBox
       as="li"
       display="grid"
       listStyleType="none"
@@ -42,6 +43,9 @@ const Item: React.FC<BoxProps> = ({ ...restProps }) => {
       padding={['16px', '32px', '48px']}
       borderRadius={[0, '16px', '16px']}
       mb={['32px', '64px', '128px']}
+      _even={{
+        direction: 'rtl',
+      }}
       {...restProps}
     />
   );
