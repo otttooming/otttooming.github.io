@@ -47,7 +47,7 @@ const internalOrExternalLink = (
   return <GatsbyLink to={href} {...restProps} />;
 };
 
-export const Link: React.FC<React.AnchorHTMLAttributes<HTMLAnchorElement>> = ({
+export const Link: React.FC<LinkProps> = ({
   children,
   href = '',
   ...restProps

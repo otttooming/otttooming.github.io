@@ -92,7 +92,7 @@ const Projects: React.FC<ProjectsProps> = ({
 
           return (
             <Item key={id}>
-              <MDXLink to={fields.slug} display="block">
+              <MDXLink href={fields.slug} display="block">
                 <CoverImage
                   maxHeight="360px"
                   fluid={image.childImageSharp.fluid}
@@ -106,7 +106,7 @@ const Projects: React.FC<ProjectsProps> = ({
                   <Logo name={frontmatter.company} />
                 </ExternalLink>
 
-                <MDXLink to={fields.slug}>
+                <MDXLink href={fields.slug}>
                   <Heading mt={theme.space.s} fontWeight={400}>
                     <strong>{frontmatter.title}</strong>{' '}
                     {textMap(frontmatter.kind, projectTexts)}
