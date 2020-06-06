@@ -80,7 +80,7 @@ const Card: React.FC<CardProps> = ({ title, body, featured, projects }) => {
           ratio={ratio}
           maxWidth={96}
           width="100%"
-          ml="32px"
+          ml="96px"
           mr="64px"
         >
           <Image
