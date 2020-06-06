@@ -1,10 +1,3 @@
-/**
- * Layout component that queries for data
- * with Gatsby's useStaticQuery component
- *
- * See: https://www.gatsbyjs.org/docs/use-static-query/
- */
-
 import * as React from 'react';
 import { useStaticQuery, graphql } from 'gatsby';
 import Header from './Header';
@@ -14,7 +7,7 @@ import { customProperties } from '../utils/customProperties';
 import { theme } from '../utils/theme';
 import Footer from './Footer/Footer';
 
-const Layout = ({ children }) => {
+const Layout: React.FC = ({ children }) => {
   const data = useStaticQuery(graphql`
     query SiteTitleQuery {
       site {
@@ -58,7 +51,6 @@ const Layout = ({ children }) => {
             margin: 0;
             line-height: ${theme.lineHeight.m};
             font-family: ${theme.fontFamily.primary};
-            /* color: ${theme.textColor.primary}; */
           }
 
           h1,
