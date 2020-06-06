@@ -5,15 +5,16 @@ import { theme } from '../utils/theme';
 import SEO from '../components/SEO';
 import { Heading, Text, Box } from '@chakra-ui/core';
 import Card from '../components/Card/Card';
+import { TechnologiesListQueryQuery } from '../types';
 
 interface TechnologiesProps {
-  data: any;
+  data: TechnologiesListQueryQuery;
 }
 
 /**
  * Only return posts when Gatsby has run static site query
  */
-const getPosts = (data) => {
+const getPosts = (data: TechnologiesListQueryQuery) => {
   if (!data.allMdx) {
     return [];
   }
@@ -64,7 +65,7 @@ const Technologies: React.FC<TechnologiesProps> = ({ data }) => {
   );
 };
 export const pageQuery = graphql`
-  query technologiesIndex {
+  query TechnologiesListQuery {
     allMdx(
       filter: { fileAbsolutePath: { regex: "/technologies/" } }
       sort: { fields: [frontmatter___order], order: ASC }

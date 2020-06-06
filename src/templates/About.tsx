@@ -11,9 +11,10 @@ import CoverImageWrapper from '../components/CoverImage/CoverImageWrapper';
 import TagList from '../components/TagList/TagList';
 import { getMappedTags } from '../components/TagList/tagMap';
 import { socialTags } from '../constants/social';
+import { AboutPostQueryQuery } from '../types';
 
 export interface PostProps {
-  data: any;
+  data: AboutPostQueryQuery;
 }
 
 const Wrapper: React.FC<BoxProps> = ({ ...restProps }) => (

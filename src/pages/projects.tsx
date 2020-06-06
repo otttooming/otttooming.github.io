@@ -16,6 +16,11 @@ import {
 import { css } from '@emotion/core';
 import CoverImage from '../components/CoverImage/CoverImage';
 import { Link as MDXLink } from '../components/MDXComponents/MDXComponents';
+import { ProjectsListQueryQuery } from '../types';
+
+export interface ProjectsProps {
+  data: ProjectsListQueryQuery;
+}
 
 const lightMode = css`
   background: #edf2f7;
@@ -47,7 +52,7 @@ const Item = styled.li<{ colorMode: 'light' | 'dark' }>`
 /**
  * Only return posts when Gatsby has run static site query
  */
-const getPosts = (data) => {
+const getPosts = (data: ProjectsListQueryQuery) => {
   if (!data.allMdx) {
     return [];
   }
@@ -56,7 +61,7 @@ const getPosts = (data) => {
   return posts;
 };
 
-const Projects = ({ data }) => {
+const Projects: React.FC<ProjectsProps> = ({ data }) => {
   const { colorMode, toggleColorMode } = useColorMode();
 
   const posts = getPosts(data);
@@ -122,7 +127,7 @@ const Projects = ({ data }) => {
   );
 };
 export const pageQuery = graphql`
-  query projectIndex {
+  query ProjectsListQuery {
     allMdx(
       filter: { fileAbsolutePath: { regex: "/projects/" } }
       sort: { fields: [frontmatter___date], order: DESC }

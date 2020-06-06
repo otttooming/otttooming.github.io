@@ -15,9 +15,10 @@ import { getMappedTags } from '../components/TagList/tagMap';
 import { techTags } from '../constants/tech';
 import { theme } from '../utils/theme';
 import { ExternalLink } from 'react-feather';
+import { ProjectPostQueryQuery } from '../types';
 
 export interface PostProps {
-  data: any;
+  data: ProjectPostQueryQuery;
 }
 
 const Wrapper = styled.div`
