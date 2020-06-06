@@ -4,6 +4,11 @@ const templates = {
   about: path.resolve(`./src/templates/About.tsx`),
   persons: path.resolve(`./src/templates/Project.tsx`),
   projects: path.resolve(`./src/templates/Project.tsx`),
+  /**
+   * We don't need individual pages for technologies listing.
+   * Only listing is shown.
+   */
+  technologies: path.resolve(`./src/pages/404.js`),
 };
 
 module.exports = async function createProjects(graphql, reporter, createPage) {
