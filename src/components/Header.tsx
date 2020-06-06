@@ -28,7 +28,9 @@ const Header: React.FC = () => (
     justifyContent="space-between"
     maxWidth="1024px"
     m="0 auto"
-    p={theme.space.l}
+    paddingY={theme.space.l}
+    paddingX={[theme.space.s, theme.space.s, theme.space.l]}
+    overflow="scroll"
   >
     <p>
       <Button as={link('/')} leftIcon={Wind} variant="ghost">
