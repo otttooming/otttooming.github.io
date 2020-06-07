@@ -21,7 +21,7 @@ const Technologies: React.FC<TechnologiesProps> = ({
 
   return (
     <Layout>
-      <SEO title="Projects" description="" />
+      <SEO title="Technologies" description="Tech stack that I currently use" />
 
       <Heading
         as="h1"
