@@ -12,11 +12,12 @@ import MDXComponents from '../MDXComponents/MDXComponents';
 import { MDXProvider } from '@mdx-js/react';
 import CoverImage from '../CoverImage/CoverImage';
 import { getMatchingProjects } from './Card.helpers';
+import { TechnologiesFrontmatterFragmentFragment } from '../../types';
 
 export interface CardProps {
   title: string;
   body: any;
-  featured: any;
+  featured: TechnologiesFrontmatterFragmentFragment['featured'];
   projects: any;
 }
 

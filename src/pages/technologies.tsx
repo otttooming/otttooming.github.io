@@ -58,6 +58,21 @@ const Technologies: React.FC<TechnologiesProps> = ({
   );
 };
 export const pageQuery = graphql`
+  fragment TechnologiesFrontmatterFragment on MdxFrontmatter {
+    featured {
+      illustration {
+        publicURL
+      }
+      background
+      width
+      height
+      alt
+    }
+    tags
+    kind
+    title
+  }
+
   query TechnologiesListQuery {
     allMdx(
       filter: { fileAbsolutePath: { regex: "/technologies/" } }
@@ -67,16 +82,7 @@ export const pageQuery = graphql`
         id
         body
         frontmatter {
-          title
-          featured {
-            illustration {
-              publicURL
-            }
-            width
-            height
-            alt
-            background
-          }
+          ...TechnologiesFrontmatterFragment
         }
         fields {
           slug
