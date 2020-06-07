@@ -38,13 +38,14 @@ const Item: React.FC<PseudoBoxProps> = ({ ...restProps }) => {
         'repeat(auto-fit, minmax(320px, 1fr))',
         'repeat(auto-fit, minmax(320px, 1fr))',
       ]}
+      gridTemplateAreas={[null, null, `"illustration content"`]}
       alignItems="center"
       backgroundColor={backgroundColor}
       padding={['16px', '32px', '48px']}
       borderRadius={[0, '16px', '16px']}
       mb={['32px', '64px', '128px']}
       _even={{
-        direction: 'rtl',
+        gridTemplateAreas: [null, null, `"content illustration"`],
       }}
       {...restProps}
     />
@@ -92,7 +93,11 @@ const Projects: React.FC<ProjectsProps> = ({
 
           return (
             <Item key={id}>
-              <MDXLink href={fields.slug} display="block">
+              <MDXLink
+                href={fields.slug}
+                display="block"
+                gridArea={[null, null, 'illustration']}
+              >
                 <CoverImage
                   maxHeight="360px"
                   fluid={image.childImageSharp.fluid}
@@ -101,7 +106,7 @@ const Projects: React.FC<ProjectsProps> = ({
                 />
               </MDXLink>
 
-              <Box dir="ltr">
+              <Box gridArea={[null, null, 'content']}>
                 <ExternalLink href={frontmatter.link} display="block">
                   <Logo name={frontmatter.company} />
                 </ExternalLink>
