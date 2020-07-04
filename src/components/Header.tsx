@@ -30,7 +30,7 @@ const Header: React.FC = () => (
     m="0 auto"
     paddingY={theme.space.l}
     paddingX={[theme.space.s, theme.space.s, theme.space.l]}
-    overflow="scroll"
+    overflow="scroll hidden"
   >
     <p>
       <Button as={link('/')} leftIcon={Wind} variant="ghost">

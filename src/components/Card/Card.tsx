@@ -75,7 +75,7 @@ const Card: React.FC<CardProps> = ({ title, body, featured, projects }) => {
         height="320px"
         display="flex"
         alignItems="center"
-        overflow="scroll"
+        overflow="scroll hidden"
       >
         <AspectRatioBox
           ratio={ratio}
