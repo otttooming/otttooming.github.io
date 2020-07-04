@@ -57,6 +57,7 @@ const Card: React.FC<CardProps> = ({ title, body, featured, projects }) => {
 
   return (
     <PseudoBox
+      as="li"
       display="grid"
       gridTemplateColumns={['0 1fr 0', '0 1fr 0', '64px 1fr 64px']}
       gridTemplateRows="auto 8em 1fr auto"
