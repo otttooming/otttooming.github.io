@@ -34,6 +34,7 @@ const Grid: React.FC<BoxProps> = ({ ...restProps }) => {
         'repeat(auto-fit, minmax(320px, 1fr))',
       ]}
       alignItems="center"
+      width="100%"
       backgroundColor={backgroundColor}
       paddingY="32px"
       paddingX={['16px', '32px', '48px']}
@@ -148,11 +149,6 @@ const IndexPage: React.FC = () => (
           <Subheading>
             Front-end developer/<strong>student</strong>
           </Subheading>
-
-          <Text mt="16px">
-            This is something to collate all my thoughts and gather the
-            documentation I have lingering around
-          </Text>
 
           <Text mt="24px">
             <OutLink href="https://github.com/otttooming">
