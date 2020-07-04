@@ -58,7 +58,12 @@ const AltGrid: React.FC<BoxProps> = ({ ...restProps }) => (
 );
 
 const PlainGrid: React.FC<BoxProps> = ({ ...restProps }) => (
-  <Box maxWidth="960px" margin="var(--space-xl) auto" {...restProps} />
+  <Box
+    width="100%"
+    maxWidth="960px"
+    margin="var(--space-xl) auto"
+    {...restProps}
+  />
 );
 
 const Subheading: React.FC<HeadingProps> = ({ ...restProps }) => (
@@ -71,7 +76,15 @@ const Subheading: React.FC<HeadingProps> = ({ ...restProps }) => (
 );
 
 const Segment: React.FC<BoxProps> = ({ ...restProps }) => (
-  <Box as="section" px={[0, '16px', '16px']} {...restProps} />
+  <Box
+    as="section"
+    px={[0, '16px', '16px']}
+    display="flex"
+    flexDirection="column"
+    justifyContent="center"
+    minHeight="min(100vh, 768px)"
+    {...restProps}
+  />
 );
 
 const SmallType = ({ children }) => {
