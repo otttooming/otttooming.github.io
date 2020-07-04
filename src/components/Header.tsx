@@ -4,6 +4,7 @@ import { Link as GatsbyLink } from 'gatsby';
 import { Button, Box, BoxProps } from '@chakra-ui/core';
 import { theme } from '../utils/theme';
 import DarkMode from './DarkMode/DarkMode';
+import { css } from '@emotion/core';
 
 const Item: React.FC<BoxProps> = ({ ...restProps }) => (
   <Box
@@ -31,6 +32,13 @@ const Header: React.FC = () => (
     paddingY={theme.space.l}
     paddingX={[theme.space.s, theme.space.s, theme.space.l]}
     overflow="scroll hidden"
+    css={css`
+      scrollbar-width: none;
+
+      &::-webkit-scrollbar {
+        width: 0px;
+      }
+    `}
   >
     <p>
       <Button as={link('/')} leftIcon={Wind} variant="ghost">

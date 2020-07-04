@@ -13,6 +13,7 @@ import { MDXProvider } from '@mdx-js/react';
 import CoverImage from '../CoverImage/CoverImage';
 import { getMatchingProjects } from './Card.helpers';
 import { TechnologiesFrontmatterFragmentFragment } from '../../types';
+import { css } from '@emotion/core';
 
 export interface CardProps {
   title: string;
@@ -76,6 +77,13 @@ const Card: React.FC<CardProps> = ({ title, body, featured, projects }) => {
         display="flex"
         alignItems="center"
         overflow="scroll hidden"
+        css={css`
+          scrollbar-width: none;
+
+          &::-webkit-scrollbar {
+            width: 0px;
+          }
+        `}
       >
         <AspectRatioBox
           ratio={ratio}
