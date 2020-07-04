@@ -42,7 +42,7 @@ const Item: React.FC<PseudoBoxProps> = ({ ...restProps }) => {
       alignItems="center"
       backgroundColor={backgroundColor}
       padding={['16px', '32px', '48px']}
-      borderRadius={[0, '16px', '16px']}
+      borderRadius={[0, 0, '16px']}
       mb={['32px', '64px', '128px']}
       _even={{
         gridTemplateAreas: [null, null, `"content illustration"`],
@@ -81,13 +81,7 @@ const Projects: React.FC<ProjectsProps> = ({
         work with some amazing people.
       </Text>
 
-      <Box
-        as="ol"
-        m="80px auto"
-        p={0}
-        maxWidth="1080px"
-        px={[0, '16px', '16px']}
-      >
+      <Box as="ol" m="80px auto" p={0} maxWidth="1080px" px={[0, 0, '16px']}>
         {posts.map(({ id, fields, excerpt, frontmatter }) => {
           const { image, background, fit } = frontmatter.featured;
 
