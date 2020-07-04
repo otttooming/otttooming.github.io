@@ -90,6 +90,7 @@ const Projects: React.FC<ProjectsProps> = ({
               <MDXLink
                 href={fields.slug}
                 display="block"
+                minWidth="320px"
                 gridArea={[null, null, 'illustration']}
               >
                 <CoverImage
