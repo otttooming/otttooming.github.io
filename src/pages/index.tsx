@@ -143,7 +143,7 @@ const IndexPage: React.FC = () => (
       <Grid>
         <Box>
           <Heading as="h1" fontWeight={400}>
-            Hi, I am <strong>Ott</strong>
+            👋 Hi, I am <strong>Ott</strong>
           </Heading>
 
           <Subheading>
