@@ -16,25 +16,32 @@ import { Link as GatsbyLink } from 'gatsby';
 import { theme } from '../../utils/theme';
 import { getIsExternalLink } from '../../utils/getIsExternalLink';
 import { getIsDocument } from '../../utils/getLinkType';
+import { getURISafeString } from '../../utils/text';
 
-export const HeadingH2: React.FC = (props) => (
+export const HeadingH2: React.FC = ({ children, ...restProps }) => (
   <Heading
-    {...props}
+    {...restProps}
     as="h2"
+    id={getURISafeString(children)}
     size="xl"
     mt="32px"
     fontWeight={theme.fontWeight.semiBold}
-  />
+  >
+    {children}
+  </Heading>
 );
 
-export const HeadingH3: React.FC = (props) => (
+export const HeadingH3: React.FC = ({ children, ...restProps }) => (
   <Heading
-    {...props}
+    {...restProps}
     as="h3"
+    id={getURISafeString(children)}
     size="lg"
     mt="32px"
     fontWeight={theme.fontWeight.semiBold}
-  />
+  >
+    {children}
+  </Heading>
 );
 
 const internalOrExternalLink = (
