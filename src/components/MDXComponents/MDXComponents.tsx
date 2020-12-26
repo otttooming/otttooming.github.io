@@ -2,21 +2,21 @@ import * as React from 'react';
 import MasonryGallery from '../MasonryGallery/MasonryGallery';
 import PieChart from '../PieChart';
 import Illustration from '../Illustration/';
-import ImageZoom from '../Image/Image.Zoom';
 import {
   List as ChakraList,
   ListItem as ChakraListItem,
   Heading,
-  Icon,
   Link as ChakraLink,
   Text as ChakraText,
   LinkProps,
-} from '@chakra-ui/core';
+  Box,
+} from '@chakra-ui/react';
 import { Link as GatsbyLink } from 'gatsby';
 import { theme } from '../../utils/theme';
 import { getIsExternalLink } from '../../utils/getIsExternalLink';
 import { getIsDocument } from '../../utils/getLinkType';
 import { getURISafeString } from '../../utils/text';
+import { ExternalLink } from 'react-feather';
 
 export const HeadingH2: React.FC = ({ children, ...restProps }) => (
   <Heading
@@ -67,13 +67,16 @@ export const Link: React.FC<LinkProps> = ({
       as={internalOrExternalLink(isPlainHrefTag)}
       display="inline-flex"
       alignItems="center"
+      verticalAlign="middle"
       isExternal={isExternal}
       href={href}
       {...restProps}
     >
       {children}
       {isExternal && (
-        <Icon size="14px" name="external-link" mx="2px" ml="4px" />
+        <Box as="span" mx="2px" ml="4px">
+          <ExternalLink width="14px" height="14px" />
+        </Box>
       )}
     </ChakraLink>
   );

@@ -3,7 +3,7 @@ import Pipedrive from '../../assets/logo-pipedrive.svg';
 import Iglu from '../../assets/logo-iglu.svg';
 import Voog from '../../assets/logo-voog.svg';
 import Gtap from '../../assets/logo-gtap.svg';
-import { Box, BoxProps, Link as ChakraLink, LinkProps } from '@chakra-ui/core';
+import { Box, BoxProps, Link as ChakraLink, LinkProps } from '@chakra-ui/react';
 
 const Company: React.FC<BoxProps> = ({ ...restProps }) => {
   return <Box as="li" {...restProps} />;

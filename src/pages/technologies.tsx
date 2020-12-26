@@ -3,7 +3,7 @@ import { graphql } from 'gatsby';
 import Layout from '../components/layout';
 import { theme } from '../utils/theme';
 import SEO from '../components/SEO';
-import { Heading, Text, Box } from '@chakra-ui/core';
+import { Heading, Text, Box } from '@chakra-ui/react';
 import Card from '../components/Card/Card';
 import { TechnologiesListQueryQuery } from '../types';
 

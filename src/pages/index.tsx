@@ -16,7 +16,7 @@ import {
   useColorMode,
   BoxProps,
   HeadingProps,
-} from '@chakra-ui/core';
+} from '@chakra-ui/react';
 
 const Grid: React.FC<BoxProps> = ({ ...restProps }) => {
   const { colorMode } = useColorMode();
@@ -152,21 +152,21 @@ const IndexPage: React.FC = () => (
 
           <Text mt="24px">
             <OutLink href="https://github.com/otttooming">
-              <SocialIcon icon={() => <GitHub size="20" />} />
+              <SocialIcon icon={<GitHub size="20" />} />
               <strong>github.com</strong>/otttooming
             </OutLink>
           </Text>
 
           <Text mt="4px">
             <OutLink href="https://www.linkedin.com/in/otttooming/">
-              <SocialIcon icon={() => <Linkedin size="16" />} />
+              <SocialIcon icon={<Linkedin size="16" />} />
               <strong>linkedin.com</strong>/in/otttooming
             </OutLink>
           </Text>
 
           <Text mt="4px">
             <OutLink href="https://twitter.com/otttooming">
-              <SocialIcon icon={() => <Twitter size="16" />} />
+              <SocialIcon icon={<Twitter size="16" />} />
               <strong>twitter.com</strong>/otttooming
             </OutLink>
           </Text>

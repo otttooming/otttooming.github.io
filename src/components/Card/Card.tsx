@@ -2,18 +2,18 @@ import * as React from 'react';
 import {
   PseudoBox,
   Box,
-  AspectRatioBox,
+  AspectRatio,
   Image,
   Heading,
   useColorMode,
-} from '@chakra-ui/core';
+} from '@chakra-ui/react';
 import { MDXRenderer } from 'gatsby-plugin-mdx';
 import MDXComponents from '../MDXComponents/MDXComponents';
 import { MDXProvider } from '@mdx-js/react';
 import CoverImage from '../CoverImage/CoverImage';
 import { getMatchingProjects } from './Card.helpers';
 import { TechnologiesFrontmatterFragmentFragment } from '../../types';
-import { css } from '@emotion/core';
+import { css } from '@emotion/react';
 
 export interface CardProps {
   title: string;
@@ -56,7 +56,7 @@ const Card: React.FC<CardProps> = ({ title, body, featured, projects }) => {
   const matchingProjects = getMatchingProjects(projects, title);
 
   return (
-    <PseudoBox
+    <Box
       as="li"
       display="grid"
       gridTemplateColumns={['0 1fr 0', '0 1fr 0', '64px 1fr 64px']}
@@ -86,7 +86,7 @@ const Card: React.FC<CardProps> = ({ title, body, featured, projects }) => {
           }
         `}
       >
-        <AspectRatioBox
+        <AspectRatio
           ratio={ratio}
           maxWidth={96}
           width="100%"
@@ -101,7 +101,7 @@ const Card: React.FC<CardProps> = ({ title, body, featured, projects }) => {
             htmlWidth={htmlWidth}
             loading="lazy"
           />
-        </AspectRatioBox>
+        </AspectRatio>
 
         <Box width="100%" height="100%" position="relative">
           <Box
@@ -133,7 +133,7 @@ const Card: React.FC<CardProps> = ({ title, body, featured, projects }) => {
           <MDXRenderer>{body}</MDXRenderer>
         </MDXProvider>
       </Box>
-    </PseudoBox>
+    </Box>
   );
 };
 

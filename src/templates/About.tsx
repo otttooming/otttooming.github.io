@@ -4,7 +4,7 @@ import { MDXProvider } from '@mdx-js/react';
 import { MDXRenderer } from 'gatsby-plugin-mdx';
 import Layout from '../components/layout';
 import SEO from '../components/SEO';
-import { Heading, Image, AspectRatioBox, Box, BoxProps } from '@chakra-ui/core';
+import { Heading, Image, AspectRatio, Box, BoxProps } from '@chakra-ui/react';
 import MDXComponents from '../components/MDXComponents/MDXComponents';
 import CoverImage from '../components/CoverImage/CoverImage';
 import CoverImageWrapper from '../components/CoverImage/CoverImageWrapper';
@@ -47,7 +47,7 @@ const About: React.FC<PostProps> = ({
         display="flex"
         justifyContent="center"
       >
-        <AspectRatioBox ratio={ratio} maxWidth={htmlWidth} width="100%">
+        <AspectRatio ratio={ratio} maxWidth={htmlWidth} width="100%">
           <Image
             maxHeight="100%"
             src={illustration.publicURL}
@@ -56,7 +56,7 @@ const About: React.FC<PostProps> = ({
             htmlWidth={htmlWidth}
             loading="lazy"
           />
-        </AspectRatioBox>
+        </AspectRatio>
       </CoverImageWrapper>
 
       <Wrapper>

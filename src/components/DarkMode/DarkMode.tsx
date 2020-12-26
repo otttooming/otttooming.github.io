@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { useColorMode, PseudoBox, IconButton } from '@chakra-ui/core';
+import { useColorMode, Box, IconButton } from '@chakra-ui/react';
 
 const MoonOrSun = () => {
   const { colorMode } = useColorMode();
@@ -54,7 +54,7 @@ const MoonOrSun = () => {
   };
 
   return (
-    <PseudoBox
+    <Box
       as="span"
       position="relative"
       width="24px"
@@ -101,7 +101,7 @@ const DarkMode: React.FC = () => {
   return (
     <IconButton
       aria-label="Toggle dark mode"
-      icon={MoonOrSun}
+      icon={<MoonOrSun />}
       onClick={toggleColorMode}
     />
   );

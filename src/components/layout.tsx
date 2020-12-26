@@ -1,8 +1,8 @@
 import * as React from 'react';
 import { useStaticQuery, graphql } from 'gatsby';
 import Header from './Header';
-import { ThemeProvider, CSSReset, useColorMode } from '@chakra-ui/core';
-import { Global, css } from '@emotion/core';
+import { useColorMode } from '@chakra-ui/react';
+import { Global, css } from '@emotion/react';
 import { customProperties } from '../utils/customProperties';
 import { theme } from '../utils/theme';
 import Footer from './Footer/Footer';
@@ -26,9 +26,7 @@ const Layout: React.FC = ({ children }) => {
   };
 
   return (
-    <ThemeProvider>
-      <CSSReset />
-
+    <>
       <Header siteTitle={data.site.siteMetadata.title} />
 
       <Global
@@ -47,6 +45,7 @@ const Layout: React.FC = ({ children }) => {
             background-color: ${backgroundColor[colorMode]};
           }
           body {
+            background: none;
             overflow-x: hidden;
             margin: 0;
             line-height: ${theme.lineHeight.m};
@@ -69,7 +68,7 @@ const Layout: React.FC = ({ children }) => {
 
         <Footer />
       </>
-    </ThemeProvider>
+    </>
   );
 };
 

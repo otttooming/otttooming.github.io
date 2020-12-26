@@ -9,9 +9,9 @@ import {
   Link as ChakraLink,
   LinkProps,
   Box,
-  PseudoBox,
+  BoxProps,
   PseudoBoxProps,
-} from '@chakra-ui/core';
+} from '@chakra-ui/react';
 
 const Wrapper = styled.div`
   margin: 128px auto;
@@ -54,7 +54,7 @@ const Link: React.FC<LinkProps> = ({ ...restProps }) => (
   <ChakraLink display="block" target="blank" {...restProps} />
 );
 
-const Hex: React.FC<PseudoBoxProps & { href: string }> = ({
+const Hex: React.FC<BoxProps & { href: string }> = ({
   children,
   href,
   ...restProps
@@ -148,8 +148,8 @@ const Icon = styled.span`
   }
 `;
 
-const Content: React.FC<PseudoBoxProps> = ({ ...restProps }) => {
-  return <PseudoBox as={StyledContent} display="block" {...restProps} />;
+const Content: React.FC<BoxProps> = ({ ...restProps }) => {
+  return <Box as={StyledContent} display="block" {...restProps} />;
 };
 
 const HexGrid: React.FC = () => {

@@ -8,7 +8,7 @@ import TagList from '../components/TagList/TagList';
 import { textMap, projectTexts } from '../utils/textMap';
 import Logo from '../components/Logo/Logo';
 import SEO from '../components/SEO';
-import { Heading, Link, Box } from '@chakra-ui/core';
+import { Heading, Link, Box } from '@chakra-ui/react';
 import MDXComponents from '../components/MDXComponents/MDXComponents';
 import CoverImage from '../components/CoverImage/CoverImage';
 import { getMappedTags } from '../components/TagList/tagMap';
