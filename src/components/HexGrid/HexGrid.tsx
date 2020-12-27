@@ -5,13 +5,7 @@ import ReduxIcon from '../../assets/tech-redux.svg';
 import GatsbyIcon from '../../assets/tech-gatsby.svg';
 import GraphQLIcon from '../../assets/tech-graphql.svg';
 import ReactIcon from '../../assets/tech-react.svg';
-import {
-  Link as ChakraLink,
-  LinkProps,
-  Box,
-  BoxProps,
-  PseudoBoxProps,
-} from '@chakra-ui/react';
+import { Link as ChakraLink, LinkProps, Box, BoxProps } from '@chakra-ui/react';
 
 const Wrapper = styled.div`
   margin: 128px auto;
