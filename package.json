@@ -67,7 +67,7 @@
     "clean": "gatsby clean",
     "develop": "gatsby develop",
     "deploy": "npm run build && gh-pages -d public -b master",
-    "format": "prettier --write \"**/*.{js,jsx,json,md}\"",
+    "format": "prettier --write \"**/*.{js,jsx,ts,tsx,json,md}\"",
     "lint": "eslint 'src/**/*.{js,ts,tsx}' --quiet --fix",
     "start": "npm run develop",
     "serve": "gatsby serve",
