@@ -191,37 +191,39 @@ export const color = setCustomPropertyGenerator<CustomPropertyColorValues>(
 
 type CustomPropertyTextColorValues = 'header' | 'primary' | 'secondary';
 
-export const textColor = setCustomPropertyGenerator<
-  CustomPropertyTextColorValues
->('text-color', [
-  {
-    key: 'header',
-    value: 'hsl(214, 35%, 15%)',
-  },
-  {
-    key: 'primary',
-    value: 'hsla(214, 40%, 16%, 0.94)',
-  },
-  {
-    key: 'secondary',
-    value: '#fff',
-  },
-]);
+export const textColor = setCustomPropertyGenerator<CustomPropertyTextColorValues>(
+  'text-color',
+  [
+    {
+      key: 'header',
+      value: 'hsl(214, 35%, 15%)',
+    },
+    {
+      key: 'primary',
+      value: 'hsla(214, 40%, 16%, 0.94)',
+    },
+    {
+      key: 'secondary',
+      value: '#fff',
+    },
+  ]
+);
 
 type CustomPropertyBackgroundColorValues = 'primary' | 'secondary';
 
-export const backgroundColor = setCustomPropertyGenerator<
-  CustomPropertyBackgroundColorValues
->('background-color', [
-  {
-    key: 'primary',
-    value: '#1a2332',
-  },
-  {
-    key: 'secondary',
-    value: '#fff',
-  },
-]);
+export const backgroundColor = setCustomPropertyGenerator<CustomPropertyBackgroundColorValues>(
+  'background-color',
+  [
+    {
+      key: 'primary',
+      value: '#1a2332',
+    },
+    {
+      key: 'secondary',
+      value: '#fff',
+    },
+  ]
+);
 
 export const customProperties = css`
   :root {
