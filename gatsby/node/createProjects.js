@@ -33,7 +33,7 @@ module.exports = async function createProjects(graphql, reporter, createPage) {
   // Create blog post pages.
   const posts = result.data.allMdx.edges;
   // We'll call `createPage` for each result
-  posts.forEach(({ node }, index) => {
+  const promises = posts.map(async ({ node }) => {
     const directory = node.fileAbsolutePath.split('/').reverse()[2];
 
     createPage({
@@ -47,4 +47,6 @@ module.exports = async function createProjects(graphql, reporter, createPage) {
       context: { id: node.id },
     });
   });
+
+  await Promise.all(promises);
 };

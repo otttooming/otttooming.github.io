@@ -46,7 +46,6 @@ module.exports = {
     {
       resolve: 'gatsby-plugin-mdx',
       options: {
-        root: __dirname,
         gatsbyRemarkPlugins: [
           // set up config for embedded images in mdx files
           {
