@@ -1,4 +1,7 @@
 export type Maybe<T> = T | null;
+export type Exact<T extends { [key: string]: unknown }> = { [K in keyof T]: T[K] };
+export type MakeOptional<T, K extends keyof T> = Omit<T, K> & { [SubKey in K]?: Maybe<T[SubKey]> };
+export type MakeMaybe<T, K extends keyof T> = Omit<T, K> & { [SubKey in K]: Maybe<T[SubKey]> };
 /** All built-in and custom scalars, mapped to their actual values */
 export type Scalars = {
   ID: string;
@@ -10,6 +13,26 @@ export type Scalars = {
   Date: any;
   /** The `JSON` scalar type represents JSON values as specified by [ECMA-404](http://www.ecma-international.org/publications/files/ECMA-ST/ECMA-404.pdf). */
   JSON: any;
+};
+
+
+
+
+
+
+
+
+
+
+
+export type BlurredOptions = {
+  /** Width of the generated low-res preview. Default is 20px */
+  width?: Maybe<Scalars['Int']>;
+  /**
+   * Force the output format for the low-res preview. Default is to use the same
+   * format as the input. You should rarely need to change this
+   */
+  toFormat?: Maybe<ImageFormat>;
 };
 
 export type BooleanQueryOperatorInput = {
@@ -553,6 +576,7 @@ export enum FileFieldsEnum {
   ChildImageSharpSizesOriginalName = 'childImageSharp___sizes___originalName',
   ChildImageSharpSizesPresentationWidth = 'childImageSharp___sizes___presentationWidth',
   ChildImageSharpSizesPresentationHeight = 'childImageSharp___sizes___presentationHeight',
+  ChildImageSharpGatsbyImageData = 'childImageSharp___gatsbyImageData',
   ChildImageSharpOriginalWidth = 'childImageSharp___original___width',
   ChildImageSharpOriginalHeight = 'childImageSharp___original___height',
   ChildImageSharpOriginalSrc = 'childImageSharp___original___src',
@@ -703,6 +727,7 @@ export enum FileFieldsEnum {
   ChildMdxFrontmatterGit = 'childMdx___frontmatter___git',
   ChildMdxFrontmatterTags = 'childMdx___frontmatter___tags',
   ChildMdxFrontmatterOrder = 'childMdx___frontmatter___order',
+  ChildMdxSlug = 'childMdx___slug',
   ChildMdxBody = 'childMdx___body',
   ChildMdxExcerpt = 'childMdx___excerpt',
   ChildMdxHeadings = 'childMdx___headings',
@@ -858,9 +883,23 @@ export enum ImageFit {
 
 export enum ImageFormat {
   NoChange = 'NO_CHANGE',
+  Auto = 'AUTO',
   Jpg = 'JPG',
   Png = 'PNG',
   Webp = 'WEBP'
+}
+
+export enum ImageLayout {
+  Fixed = 'FIXED',
+  Fluid = 'FLUID',
+  Constrained = 'CONSTRAINED'
+}
+
+export enum ImagePlaceholder {
+  DominantColor = 'DOMINANT_COLOR',
+  TracedSvg = 'TRACED_SVG',
+  Blurred = 'BLURRED',
+  None = 'NONE'
 }
 
 export type ImageSharp = Node & {
@@ -871,6 +910,7 @@ export type ImageSharp = Node & {
   fluid?: Maybe<ImageSharpFluid>;
   /** @deprecated Sizes was deprecated in Gatsby v2. It's been renamed to "fluid" https://example.com/write-docs-and-fix-this-example-link */
   sizes?: Maybe<ImageSharpSizes>;
+  gatsbyImageData: Scalars['JSON'];
   original?: Maybe<ImageSharpOriginal>;
   resize?: Maybe<ImageSharpResize>;
   id: Scalars['ID'];
@@ -976,6 +1016,27 @@ export type ImageSharpSizesArgs = {
 };
 
 
+export type ImageSharpGatsbyImageDataArgs = {
+  layout?: Maybe<ImageLayout>;
+  maxWidth?: Maybe<Scalars['Int']>;
+  maxHeight?: Maybe<Scalars['Int']>;
+  width?: Maybe<Scalars['Int']>;
+  height?: Maybe<Scalars['Int']>;
+  placeholder?: Maybe<ImagePlaceholder>;
+  blurredOptions?: Maybe<BlurredOptions>;
+  tracedSVGOptions?: Maybe<Potrace>;
+  formats?: Maybe<Array<Maybe<ImageFormat>>>;
+  outputPixelDensities?: Maybe<Array<Maybe<Scalars['Float']>>>;
+  sizes?: Maybe<Scalars['String']>;
+  quality?: Maybe<Scalars['Int']>;
+  jpgOptions?: Maybe<JpgOptions>;
+  pngOptions?: Maybe<PngOptions>;
+  webpOptions?: Maybe<WebPOptions>;
+  transformOptions?: Maybe<TransformOptions>;
+  background?: Maybe<Scalars['String']>;
+};
+
+
 export type ImageSharpResizeArgs = {
   width?: Maybe<Scalars['Int']>;
   height?: Maybe<Scalars['Int']>;
@@ -1072,6 +1133,7 @@ export enum ImageSharpFieldsEnum {
   SizesOriginalName = 'sizes___originalName',
   SizesPresentationWidth = 'sizes___presentationWidth',
   SizesPresentationHeight = 'sizes___presentationHeight',
+  GatsbyImageData = 'gatsbyImageData',
   OriginalWidth = 'original___width',
   OriginalHeight = 'original___height',
   OriginalSrc = 'original___src',
@@ -1174,6 +1236,7 @@ export type ImageSharpFilterInput = {
   resolutions?: Maybe<ImageSharpResolutionsFilterInput>;
   fluid?: Maybe<ImageSharpFluidFilterInput>;
   sizes?: Maybe<ImageSharpSizesFilterInput>;
+  gatsbyImageData?: Maybe<JsonQueryOperatorInput>;
   original?: Maybe<ImageSharpOriginalFilterInput>;
   resize?: Maybe<ImageSharpResizeFilterInput>;
   id?: Maybe<StringQueryOperatorInput>;
@@ -1379,6 +1442,11 @@ export type IntQueryOperatorInput = {
   nin?: Maybe<Array<Maybe<Scalars['Int']>>>;
 };
 
+export type JpgOptions = {
+  quality?: Maybe<Scalars['Int']>;
+  progressive?: Maybe<Scalars['Boolean']>;
+};
+
 
 export type JsonQueryOperatorInput = {
   eq?: Maybe<Scalars['JSON']>;
@@ -1394,6 +1462,7 @@ export type Mdx = Node & {
   rawBody: Scalars['String'];
   fileAbsolutePath: Scalars['String'];
   frontmatter?: Maybe<MdxFrontmatter>;
+  slug?: Maybe<Scalars['String']>;
   body: Scalars['String'];
   excerpt: Scalars['String'];
   headings?: Maybe<Array<Maybe<MdxHeadingMdx>>>;
@@ -1549,6 +1618,7 @@ export enum MdxFieldsEnum {
   FrontmatterGit = 'frontmatter___git',
   FrontmatterTags = 'frontmatter___tags',
   FrontmatterOrder = 'frontmatter___order',
+  Slug = 'slug',
   Body = 'body',
   Excerpt = 'excerpt',
   Headings = 'headings',
@@ -1658,6 +1728,7 @@ export type MdxFilterInput = {
   rawBody?: Maybe<StringQueryOperatorInput>;
   fileAbsolutePath?: Maybe<StringQueryOperatorInput>;
   frontmatter?: Maybe<MdxFrontmatterFilterInput>;
+  slug?: Maybe<StringQueryOperatorInput>;
   body?: Maybe<StringQueryOperatorInput>;
   excerpt?: Maybe<StringQueryOperatorInput>;
   headings?: Maybe<MdxHeadingMdxFilterListInput>;
@@ -1804,6 +1875,11 @@ export type PageInfo = {
   totalCount: Scalars['Int'];
 };
 
+export type PngOptions = {
+  quality?: Maybe<Scalars['Int']>;
+  compressionSpeed?: Maybe<Scalars['Int']>;
+};
+
 export type Potrace = {
   turnPolicy?: Maybe<PotraceTurnPolicy>;
   turdSize?: Maybe<Scalars['Float']>;
@@ -1831,10 +1907,10 @@ export type Query = {
   allFile: FileConnection;
   directory?: Maybe<Directory>;
   allDirectory: DirectoryConnection;
-  sitePage?: Maybe<SitePage>;
-  allSitePage: SitePageConnection;
   site?: Maybe<Site>;
   allSite: SiteConnection;
+  sitePage?: Maybe<SitePage>;
+  allSitePage: SitePageConnection;
   imageSharp?: Maybe<ImageSharp>;
   allImageSharp: ImageSharpConnection;
   mdx?: Maybe<Mdx>;
@@ -1947,6 +2023,28 @@ export type QueryAllDirectoryArgs = {
 };
 
 
+export type QuerySiteArgs = {
+  buildTime?: Maybe<DateQueryOperatorInput>;
+  siteMetadata?: Maybe<SiteSiteMetadataFilterInput>;
+  port?: Maybe<IntQueryOperatorInput>;
+  host?: Maybe<StringQueryOperatorInput>;
+  polyfill?: Maybe<BooleanQueryOperatorInput>;
+  pathPrefix?: Maybe<StringQueryOperatorInput>;
+  id?: Maybe<StringQueryOperatorInput>;
+  parent?: Maybe<NodeFilterInput>;
+  children?: Maybe<NodeFilterListInput>;
+  internal?: Maybe<InternalFilterInput>;
+};
+
+
+export type QueryAllSiteArgs = {
+  filter?: Maybe<SiteFilterInput>;
+  sort?: Maybe<SiteSortInput>;
+  skip?: Maybe<Scalars['Int']>;
+  limit?: Maybe<Scalars['Int']>;
+};
+
+
 export type QuerySitePageArgs = {
   path?: Maybe<StringQueryOperatorInput>;
   component?: Maybe<StringQueryOperatorInput>;
@@ -1973,33 +2071,12 @@ export type QueryAllSitePageArgs = {
 };
 
 
-export type QuerySiteArgs = {
-  buildTime?: Maybe<DateQueryOperatorInput>;
-  siteMetadata?: Maybe<SiteSiteMetadataFilterInput>;
-  port?: Maybe<DateQueryOperatorInput>;
-  host?: Maybe<StringQueryOperatorInput>;
-  polyfill?: Maybe<BooleanQueryOperatorInput>;
-  pathPrefix?: Maybe<StringQueryOperatorInput>;
-  id?: Maybe<StringQueryOperatorInput>;
-  parent?: Maybe<NodeFilterInput>;
-  children?: Maybe<NodeFilterListInput>;
-  internal?: Maybe<InternalFilterInput>;
-};
-
-
-export type QueryAllSiteArgs = {
-  filter?: Maybe<SiteFilterInput>;
-  sort?: Maybe<SiteSortInput>;
-  skip?: Maybe<Scalars['Int']>;
-  limit?: Maybe<Scalars['Int']>;
-};
-
-
 export type QueryImageSharpArgs = {
   fixed?: Maybe<ImageSharpFixedFilterInput>;
   resolutions?: Maybe<ImageSharpResolutionsFilterInput>;
   fluid?: Maybe<ImageSharpFluidFilterInput>;
   sizes?: Maybe<ImageSharpSizesFilterInput>;
+  gatsbyImageData?: Maybe<JsonQueryOperatorInput>;
   original?: Maybe<ImageSharpOriginalFilterInput>;
   resize?: Maybe<ImageSharpResizeFilterInput>;
   id?: Maybe<StringQueryOperatorInput>;
@@ -2021,6 +2098,7 @@ export type QueryMdxArgs = {
   rawBody?: Maybe<StringQueryOperatorInput>;
   fileAbsolutePath?: Maybe<StringQueryOperatorInput>;
   frontmatter?: Maybe<MdxFrontmatterFilterInput>;
+  slug?: Maybe<StringQueryOperatorInput>;
   body?: Maybe<StringQueryOperatorInput>;
   excerpt?: Maybe<StringQueryOperatorInput>;
   headings?: Maybe<MdxHeadingMdxFilterListInput>;
@@ -2090,7 +2168,7 @@ export type Site = Node & {
   __typename?: 'Site';
   buildTime?: Maybe<Scalars['Date']>;
   siteMetadata?: Maybe<SiteSiteMetadata>;
-  port?: Maybe<Scalars['Date']>;
+  port?: Maybe<Scalars['Int']>;
   host?: Maybe<Scalars['String']>;
   polyfill?: Maybe<Scalars['Boolean']>;
   pathPrefix?: Maybe<Scalars['String']>;
@@ -2102,14 +2180,6 @@ export type Site = Node & {
 
 
 export type SiteBuildTimeArgs = {
-  formatString?: Maybe<Scalars['String']>;
-  fromNow?: Maybe<Scalars['Boolean']>;
-  difference?: Maybe<Scalars['String']>;
-  locale?: Maybe<Scalars['String']>;
-};
-
-
-export type SitePortArgs = {
   formatString?: Maybe<Scalars['String']>;
   fromNow?: Maybe<Scalars['Boolean']>;
   difference?: Maybe<Scalars['String']>;
@@ -2404,7 +2474,7 @@ export enum SiteFieldsEnum {
 export type SiteFilterInput = {
   buildTime?: Maybe<DateQueryOperatorInput>;
   siteMetadata?: Maybe<SiteSiteMetadataFilterInput>;
-  port?: Maybe<DateQueryOperatorInput>;
+  port?: Maybe<IntQueryOperatorInput>;
   host?: Maybe<StringQueryOperatorInput>;
   polyfill?: Maybe<BooleanQueryOperatorInput>;
   pathPrefix?: Maybe<StringQueryOperatorInput>;
@@ -2615,21 +2685,37 @@ export enum SitePageFieldsEnum {
   PluginCreatorResolve = 'pluginCreator___resolve',
   PluginCreatorName = 'pluginCreator___name',
   PluginCreatorVersion = 'pluginCreator___version',
+  PluginCreatorPluginOptionsSourceMap = 'pluginCreator___pluginOptions___sourceMap',
+  PluginCreatorPluginOptionsAutoLabel = 'pluginCreator___pluginOptions___autoLabel',
+  PluginCreatorPluginOptionsLabelFormat = 'pluginCreator___pluginOptions___labelFormat',
+  PluginCreatorPluginOptionsCssPropOptimization = 'pluginCreator___pluginOptions___cssPropOptimization',
+  PluginCreatorPluginOptionsIsTsx = 'pluginCreator___pluginOptions___isTSX',
+  PluginCreatorPluginOptionsJsxPragma = 'pluginCreator___pluginOptions___jsxPragma',
+  PluginCreatorPluginOptionsAllExtensions = 'pluginCreator___pluginOptions___allExtensions',
   PluginCreatorPluginOptionsName = 'pluginCreator___pluginOptions___name',
   PluginCreatorPluginOptionsPath = 'pluginCreator___pluginOptions___path',
-  PluginCreatorPluginOptionsRoot = 'pluginCreator___pluginOptions___root',
+  PluginCreatorPluginOptionsExtensions = 'pluginCreator___pluginOptions___extensions',
+  PluginCreatorPluginOptionsLessBabel = 'pluginCreator___pluginOptions___lessBabel',
+  PluginCreatorPluginOptionsMediaTypes = 'pluginCreator___pluginOptions___mediaTypes',
+  PluginCreatorPluginOptionsBase64Width = 'pluginCreator___pluginOptions___base64Width',
+  PluginCreatorPluginOptionsStripMetadata = 'pluginCreator___pluginOptions___stripMetadata',
+  PluginCreatorPluginOptionsDefaultQuality = 'pluginCreator___pluginOptions___defaultQuality',
+  PluginCreatorPluginOptionsFailOnError = 'pluginCreator___pluginOptions___failOnError',
   PluginCreatorPluginOptionsShortName = 'pluginCreator___pluginOptions___short_name',
   PluginCreatorPluginOptionsStartUrl = 'pluginCreator___pluginOptions___start_url',
   PluginCreatorPluginOptionsBackgroundColor = 'pluginCreator___pluginOptions___background_color',
   PluginCreatorPluginOptionsThemeColor = 'pluginCreator___pluginOptions___theme_color',
   PluginCreatorPluginOptionsDisplay = 'pluginCreator___pluginOptions___display',
   PluginCreatorPluginOptionsIcon = 'pluginCreator___pluginOptions___icon',
-  PluginCreatorPluginOptionsCacheBustingMode = 'pluginCreator___pluginOptions___cache_busting_mode',
-  PluginCreatorPluginOptionsIncludeFavicon = 'pluginCreator___pluginOptions___include_favicon',
   PluginCreatorPluginOptionsLegacy = 'pluginCreator___pluginOptions___legacy',
   PluginCreatorPluginOptionsThemeColorInHead = 'pluginCreator___pluginOptions___theme_color_in_head',
+  PluginCreatorPluginOptionsCacheBustingMode = 'pluginCreator___pluginOptions___cache_busting_mode',
+  PluginCreatorPluginOptionsCrossOrigin = 'pluginCreator___pluginOptions___crossOrigin',
+  PluginCreatorPluginOptionsIncludeFavicon = 'pluginCreator___pluginOptions___include_favicon',
   PluginCreatorPluginOptionsCacheDigest = 'pluginCreator___pluginOptions___cacheDigest',
   PluginCreatorPluginOptionsRuleInclude = 'pluginCreator___pluginOptions___rule___include',
+  PluginCreatorPluginOptionsIsResettingCss = 'pluginCreator___pluginOptions___isResettingCSS',
+  PluginCreatorPluginOptionsIsUsingColorMode = 'pluginCreator___pluginOptions___isUsingColorMode',
   PluginCreatorPluginOptionsPathCheck = 'pluginCreator___pluginOptions___pathCheck',
   PluginCreatorNodeApIs = 'pluginCreator___nodeAPIs',
   PluginCreatorBrowserApIs = 'pluginCreator___browserAPIs',
@@ -2822,21 +2908,37 @@ export enum SitePluginFieldsEnum {
   Resolve = 'resolve',
   Name = 'name',
   Version = 'version',
+  PluginOptionsSourceMap = 'pluginOptions___sourceMap',
+  PluginOptionsAutoLabel = 'pluginOptions___autoLabel',
+  PluginOptionsLabelFormat = 'pluginOptions___labelFormat',
+  PluginOptionsCssPropOptimization = 'pluginOptions___cssPropOptimization',
+  PluginOptionsIsTsx = 'pluginOptions___isTSX',
+  PluginOptionsJsxPragma = 'pluginOptions___jsxPragma',
+  PluginOptionsAllExtensions = 'pluginOptions___allExtensions',
   PluginOptionsName = 'pluginOptions___name',
   PluginOptionsPath = 'pluginOptions___path',
-  PluginOptionsRoot = 'pluginOptions___root',
+  PluginOptionsExtensions = 'pluginOptions___extensions',
+  PluginOptionsLessBabel = 'pluginOptions___lessBabel',
+  PluginOptionsMediaTypes = 'pluginOptions___mediaTypes',
+  PluginOptionsBase64Width = 'pluginOptions___base64Width',
+  PluginOptionsStripMetadata = 'pluginOptions___stripMetadata',
+  PluginOptionsDefaultQuality = 'pluginOptions___defaultQuality',
+  PluginOptionsFailOnError = 'pluginOptions___failOnError',
   PluginOptionsShortName = 'pluginOptions___short_name',
   PluginOptionsStartUrl = 'pluginOptions___start_url',
   PluginOptionsBackgroundColor = 'pluginOptions___background_color',
   PluginOptionsThemeColor = 'pluginOptions___theme_color',
   PluginOptionsDisplay = 'pluginOptions___display',
   PluginOptionsIcon = 'pluginOptions___icon',
-  PluginOptionsCacheBustingMode = 'pluginOptions___cache_busting_mode',
-  PluginOptionsIncludeFavicon = 'pluginOptions___include_favicon',
   PluginOptionsLegacy = 'pluginOptions___legacy',
   PluginOptionsThemeColorInHead = 'pluginOptions___theme_color_in_head',
+  PluginOptionsCacheBustingMode = 'pluginOptions___cache_busting_mode',
+  PluginOptionsCrossOrigin = 'pluginOptions___crossOrigin',
+  PluginOptionsIncludeFavicon = 'pluginOptions___include_favicon',
   PluginOptionsCacheDigest = 'pluginOptions___cacheDigest',
   PluginOptionsRuleInclude = 'pluginOptions___rule___include',
+  PluginOptionsIsResettingCss = 'pluginOptions___isResettingCSS',
+  PluginOptionsIsUsingColorMode = 'pluginOptions___isUsingColorMode',
   PluginOptionsPathCheck = 'pluginOptions___pathCheck',
   NodeApIs = 'nodeAPIs',
   BrowserApIs = 'browserAPIs',
@@ -2957,40 +3059,72 @@ export type SitePluginPackageJsonPeerDependenciesFilterListInput = {
 
 export type SitePluginPluginOptions = {
   __typename?: 'SitePluginPluginOptions';
+  sourceMap?: Maybe<Scalars['Boolean']>;
+  autoLabel?: Maybe<Scalars['String']>;
+  labelFormat?: Maybe<Scalars['String']>;
+  cssPropOptimization?: Maybe<Scalars['Boolean']>;
+  isTSX?: Maybe<Scalars['Boolean']>;
+  jsxPragma?: Maybe<Scalars['String']>;
+  allExtensions?: Maybe<Scalars['Boolean']>;
   name?: Maybe<Scalars['String']>;
   path?: Maybe<Scalars['String']>;
-  root?: Maybe<Scalars['String']>;
+  extensions?: Maybe<Array<Maybe<Scalars['String']>>>;
+  lessBabel?: Maybe<Scalars['Boolean']>;
+  mediaTypes?: Maybe<Array<Maybe<Scalars['String']>>>;
+  base64Width?: Maybe<Scalars['Int']>;
+  stripMetadata?: Maybe<Scalars['Boolean']>;
+  defaultQuality?: Maybe<Scalars['Int']>;
+  failOnError?: Maybe<Scalars['Boolean']>;
   short_name?: Maybe<Scalars['String']>;
   start_url?: Maybe<Scalars['String']>;
   background_color?: Maybe<Scalars['String']>;
   theme_color?: Maybe<Scalars['String']>;
   display?: Maybe<Scalars['String']>;
   icon?: Maybe<Scalars['String']>;
-  cache_busting_mode?: Maybe<Scalars['String']>;
-  include_favicon?: Maybe<Scalars['Boolean']>;
   legacy?: Maybe<Scalars['Boolean']>;
   theme_color_in_head?: Maybe<Scalars['Boolean']>;
+  cache_busting_mode?: Maybe<Scalars['String']>;
+  crossOrigin?: Maybe<Scalars['String']>;
+  include_favicon?: Maybe<Scalars['Boolean']>;
   cacheDigest?: Maybe<Scalars['String']>;
   rule?: Maybe<SitePluginPluginOptionsRule>;
+  isResettingCSS?: Maybe<Scalars['Boolean']>;
+  isUsingColorMode?: Maybe<Scalars['Boolean']>;
   pathCheck?: Maybe<Scalars['Boolean']>;
 };
 
 export type SitePluginPluginOptionsFilterInput = {
+  sourceMap?: Maybe<BooleanQueryOperatorInput>;
+  autoLabel?: Maybe<StringQueryOperatorInput>;
+  labelFormat?: Maybe<StringQueryOperatorInput>;
+  cssPropOptimization?: Maybe<BooleanQueryOperatorInput>;
+  isTSX?: Maybe<BooleanQueryOperatorInput>;
+  jsxPragma?: Maybe<StringQueryOperatorInput>;
+  allExtensions?: Maybe<BooleanQueryOperatorInput>;
   name?: Maybe<StringQueryOperatorInput>;
   path?: Maybe<StringQueryOperatorInput>;
-  root?: Maybe<StringQueryOperatorInput>;
+  extensions?: Maybe<StringQueryOperatorInput>;
+  lessBabel?: Maybe<BooleanQueryOperatorInput>;
+  mediaTypes?: Maybe<StringQueryOperatorInput>;
+  base64Width?: Maybe<IntQueryOperatorInput>;
+  stripMetadata?: Maybe<BooleanQueryOperatorInput>;
+  defaultQuality?: Maybe<IntQueryOperatorInput>;
+  failOnError?: Maybe<BooleanQueryOperatorInput>;
   short_name?: Maybe<StringQueryOperatorInput>;
   start_url?: Maybe<StringQueryOperatorInput>;
   background_color?: Maybe<StringQueryOperatorInput>;
   theme_color?: Maybe<StringQueryOperatorInput>;
   display?: Maybe<StringQueryOperatorInput>;
   icon?: Maybe<StringQueryOperatorInput>;
-  cache_busting_mode?: Maybe<StringQueryOperatorInput>;
-  include_favicon?: Maybe<BooleanQueryOperatorInput>;
   legacy?: Maybe<BooleanQueryOperatorInput>;
   theme_color_in_head?: Maybe<BooleanQueryOperatorInput>;
+  cache_busting_mode?: Maybe<StringQueryOperatorInput>;
+  crossOrigin?: Maybe<StringQueryOperatorInput>;
+  include_favicon?: Maybe<BooleanQueryOperatorInput>;
   cacheDigest?: Maybe<StringQueryOperatorInput>;
   rule?: Maybe<SitePluginPluginOptionsRuleFilterInput>;
+  isResettingCSS?: Maybe<BooleanQueryOperatorInput>;
+  isUsingColorMode?: Maybe<BooleanQueryOperatorInput>;
   pathCheck?: Maybe<BooleanQueryOperatorInput>;
 };
 
@@ -3038,6 +3172,19 @@ export type StringQueryOperatorInput = {
   nin?: Maybe<Array<Maybe<Scalars['String']>>>;
   regex?: Maybe<Scalars['String']>;
   glob?: Maybe<Scalars['String']>;
+};
+
+export type TransformOptions = {
+  grayscale?: Maybe<Scalars['Boolean']>;
+  duotone?: Maybe<DuotoneGradient>;
+  rotate?: Maybe<Scalars['Int']>;
+  trim?: Maybe<Scalars['Float']>;
+  cropFocus?: Maybe<ImageCropFocus>;
+  fit?: Maybe<ImageFit>;
+};
+
+export type WebPOptions = {
+  quality?: Maybe<Scalars['Int']>;
 };
 
 export type GatsbyImageSharpFixedFragment = (
@@ -3165,7 +3312,7 @@ export type GatsbyImageSharpSizes_WithWebp_NoBase64Fragment = (
   & Pick<ImageSharpSizes, 'aspectRatio' | 'src' | 'srcSet' | 'srcWebp' | 'srcSetWebp' | 'sizes'>
 );
 
-export type PagesQueryQueryVariables = {};
+export type PagesQueryQueryVariables = Exact<{ [key: string]: never; }>;
 
 
 export type PagesQueryQuery = (
@@ -3179,7 +3326,7 @@ export type PagesQueryQuery = (
   ) }
 );
 
-export type Unnamed_1_QueryVariables = {};
+export type Unnamed_1_QueryVariables = Exact<{ [key: string]: never; }>;
 
 
 export type Unnamed_1_Query = (
@@ -3212,7 +3359,7 @@ export type Unnamed_1_Query = (
   ) }
 );
 
-export type Unnamed_2_QueryVariables = {};
+export type Unnamed_2_QueryVariables = Exact<{ [key: string]: never; }>;
 
 
 export type Unnamed_2_Query = (
@@ -3226,7 +3373,7 @@ export type Unnamed_2_Query = (
   )> }
 );
 
-export type SiteTitleQueryQueryVariables = {};
+export type SiteTitleQueryQueryVariables = Exact<{ [key: string]: never; }>;
 
 
 export type SiteTitleQueryQuery = (
@@ -3240,7 +3387,7 @@ export type SiteTitleQueryQuery = (
   )> }
 );
 
-export type ProjectsListQueryQueryVariables = {};
+export type ProjectsListQueryQueryVariables = Exact<{ [key: string]: never; }>;
 
 
 export type ProjectsListQueryQuery = (
@@ -3288,7 +3435,7 @@ export type TechnologiesFrontmatterFragmentFragment = (
   )> }
 );
 
-export type TechnologiesListQueryQueryVariables = {};
+export type TechnologiesListQueryQueryVariables = Exact<{ [key: string]: never; }>;
 
 
 export type TechnologiesListQueryQuery = (
@@ -3336,9 +3483,9 @@ export type TechnologiesListQueryQuery = (
   ) }
 );
 
-export type AboutPostQueryQueryVariables = {
+export type AboutPostQueryQueryVariables = Exact<{
   id?: Maybe<Scalars['String']>;
-};
+}>;
 
 
 export type AboutPostQueryQuery = (
@@ -3361,9 +3508,9 @@ export type AboutPostQueryQuery = (
   )> }
 );
 
-export type ProjectPostQueryQueryVariables = {
+export type ProjectPostQueryQueryVariables = Exact<{
   id?: Maybe<Scalars['String']>;
-};
+}>;
 
 
 export type ProjectPostQueryQuery = (
