@@ -83,11 +83,11 @@ export const Link: React.FC<LinkProps> = ({
 };
 
 export const List: React.FC = (props) => (
-  <ChakraList {...props} styleType="disc" mt="16px" />
+  <ChakraList {...props} styleType="disc" paddingLeft="32px" mt="16px" />
 );
 
 export const ListItem: React.FC = (props) => (
-  <ChakraListItem {...props} paddingLeft="32px" mt="8px" />
+  <ChakraListItem {...props} mt="8px" />
 );
 
 export const Text: React.FC = (props) => <ChakraText {...props} mt="24px" />;
