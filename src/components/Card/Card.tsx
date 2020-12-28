@@ -87,12 +87,13 @@ const Card: React.FC<CardProps> = ({ title, body, featured, projects }) => {
       >
         <AspectRatio
           ratio={ratio}
-          maxWidth={96}
+          maxWidth="96px"
           width="100%"
           ml="96px"
           mr="64px"
         >
           <Image
+            objectFit="contain"
             maxHeight="100%"
             src={illustration.publicURL}
             alt={alt}
