@@ -64,8 +64,6 @@ const MoonOrSun = () => {
       transition={transition[colorMode]}
       transform={transform[colorMode]}
       _after={{
-        // eslint-disable-next-line
-        // @ts-ignore-next-line
         content: `""`,
         width: '8px',
         height: '8px',
@@ -79,8 +77,6 @@ const MoonOrSun = () => {
         transition: after.transition[colorMode],
       }}
       _before={{
-        // eslint-disable-next-line
-        // @ts-ignore-next-line
         content: `""`,
         position: 'absolute',
         left: 0,
