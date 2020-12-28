@@ -92,15 +92,16 @@ const Card: React.FC<CardProps> = ({ title, body, featured, projects }) => {
           ml="96px"
           mr="64px"
         >
-          <Image
-            objectFit="contain"
-            maxHeight="100%"
-            src={illustration.publicURL}
-            alt={alt}
-            htmlHeight={htmlHeight}
-            htmlWidth={htmlWidth}
-            loading="lazy"
-          />
+          <div>
+            <Image
+              maxHeight="100%"
+              src={illustration.publicURL}
+              alt={alt}
+              htmlHeight={htmlHeight}
+              htmlWidth={htmlWidth}
+              loading="lazy"
+            />
+          </div>
         </AspectRatio>
 
         <Box width="100%" height="100%" position="relative">
