@@ -106,9 +106,7 @@ export const pageQuery = graphql`
           featured {
             image {
               childImageSharp {
-                fluid(maxWidth: 476) {
-                  ...GatsbyImageSharpFluid
-                }
+                gatsbyImageData(width: 476, layout: CONSTRAINED)
               }
             }
             background

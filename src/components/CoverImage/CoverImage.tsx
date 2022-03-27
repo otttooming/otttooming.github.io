@@ -1,5 +1,5 @@
 import * as React from 'react';
-import GatsbyImage from 'gatsby-image';
+import { GatsbyImage } from 'gatsby-plugin-image';
 import { BoxProps } from '@chakra-ui/react';
 import CoverImageWrapper from './CoverImageWrapper';
 
@@ -33,7 +33,7 @@ const CoverImage: React.FC<
       {...restProps}
     >
       <GatsbyImage
-        fluid={fluid}
+        image={fluid}
         style={{ width }}
         imgStyle={{
           objectFit: fit,

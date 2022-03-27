@@ -30,7 +30,7 @@ const Item = ({ id, frontmatter: { featured } }) => {
         maxHeight="260px"
         fit={fit}
         background={background}
-        fluid={image.childImageSharp.fluid}
+        fluid={image.childImageSharp.gatsbyImageData}
         boxShadow="none"
       />
     </Box>

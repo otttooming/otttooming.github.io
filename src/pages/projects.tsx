@@ -94,7 +94,7 @@ const Projects: React.FC<ProjectsProps> = ({
               >
                 <CoverImage
                   maxHeight="360px"
-                  fluid={image.childImageSharp.fluid}
+                  fluid={image.childImageSharp.gatsbyImageData}
                   background={background}
                   fit={fit}
                 />
@@ -139,9 +139,7 @@ export const pageQuery = graphql`
           featured {
             image {
               childImageSharp {
-                fluid(maxWidth: 476) {
-                  ...GatsbyImageSharpFluid
-                }
+                gatsbyImageData(width: 476, layout: CONSTRAINED)
               }
             }
             background

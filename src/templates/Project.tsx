@@ -46,7 +46,7 @@ const Project: React.FC<PostProps> = ({ data: { mdx } }) => {
           maxHeight="70vh"
           fit={fit}
           background={background}
-          fluid={image.childImageSharp.fluid}
+          fluid={image.childImageSharp.gatsbyImageData}
         />
 
         <Link
@@ -108,9 +108,7 @@ export const pageQuery = graphql`
         featured {
           image {
             childImageSharp {
-              fluid(maxWidth: 1024) {
-                ...GatsbyImageSharpFluid
-              }
+              gatsbyImageData(layout: FULL_WIDTH)
             }
           }
           background

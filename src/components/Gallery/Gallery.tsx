@@ -117,7 +117,7 @@ const ItemContainer = styled.div`
 
 const Gallery: React.FC = () => {
   const data = useStaticQuery(graphql`
-    query {
+    {
       images: allMdx(
         filter: { fileAbsolutePath: { regex: "/persons/" } }
         limit: 6
@@ -129,9 +129,7 @@ const Gallery: React.FC = () => {
               featured {
                 image {
                   childImageSharp {
-                    fluid(maxWidth: 245) {
-                      ...GatsbyImageSharpFluid
-                    }
+                    gatsbyImageData(width: 245, layout: CONSTRAINED)
                   }
                 }
               }
