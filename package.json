@@ -49,8 +49,8 @@
     "eslint-config-prettier": "^8.5.0",
     "eslint-plugin-prettier": "^4.0.0",
     "gh-pages": "^3.2.3",
-    "husky": "^4.3.6",
-    "lint-staged": "^10.5.3",
+    "husky": "^7.0.4",
+    "lint-staged": "^12.3.7",
     "prettier": "^2.6.1"
   },
   "keywords": [
@@ -70,7 +70,8 @@
     "start": "npm run develop",
     "serve": "gatsby serve",
     "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\"",
-    "prettier": "prettier --write --config .prettierrc \"**/*.{js,jsx,ts,tsx,json,css,scss,md,mdx,yaml,yml}\""
+    "prettier": "prettier --write --config .prettierrc \"**/*.{js,jsx,ts,tsx,json,css,scss,md,mdx,yaml,yml}\"",
+    "prepare": "husky install"
   },
   "repository": {
     "type": "git",
@@ -78,11 +79,6 @@
   },
   "bugs": {
     "url": "https://github.com/otttooming/otttooming.github.io/issues"
-  },
-  "husky": {
-    "hooks": {
-      "pre-commit": "lint-staged"
-    }
   },
   "lint-staged": {
     "*.{md,mdx,yaml,yml}": [
