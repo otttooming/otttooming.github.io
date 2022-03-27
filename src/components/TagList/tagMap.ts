@@ -4,15 +4,17 @@ export type Tag = { title: string; url: string };
 
 export type TagMap = { [K in string]: Tag };
 
-const getTag = (tags: TagMap) => (acc: Tag[], cur: string): Tag[] => {
-  const value = textMap(cur, tags);
+const getTag =
+  (tags: TagMap) =>
+  (acc: Tag[], cur: string): Tag[] => {
+    const value = textMap(cur, tags);
 
-  if (!value) {
-    return acc;
-  }
+    if (!value) {
+      return acc;
+    }
 
-  return [...acc, value];
-};
+    return [...acc, value];
+  };
 
 export const getMappedTags = (
   passedItems: string[] | undefined | null,

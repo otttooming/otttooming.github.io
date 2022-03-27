@@ -44,15 +44,15 @@ export const HeadingH3: React.FC = ({ children, ...restProps }) => (
   </Heading>
 );
 
-const internalOrExternalLink = (
-  isPlainHrefTag: boolean
-): React.FC<LinkProps> => ({ href, ...restProps }) => {
-  if (isPlainHrefTag) {
-    return <a href={href} {...restProps} />;
-  }
+const internalOrExternalLink =
+  (isPlainHrefTag: boolean): React.FC<LinkProps> =>
+  ({ href, ...restProps }) => {
+    if (isPlainHrefTag) {
+      return <a href={href} {...restProps} />;
+    }
 
-  return <GatsbyLink to={href} {...restProps} />;
-};
+    return <GatsbyLink to={href} {...restProps} />;
+  };
 
 export const Link: React.FC<LinkProps> = ({
   children,

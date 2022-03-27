@@ -47,8 +47,7 @@ const SEO: React.FC<SEOProps> = ({ description, lang, meta, title }) => {
       titleTemplate={`%s | ${site.siteMetadata.title}`}
       link={[
         {
-          href:
-            'https://fonts.googleapis.com/css?family=Montserrat:400,500,600,700,800&display=swap',
+          href: 'https://fonts.googleapis.com/css?family=Montserrat:400,500,600,700,800&display=swap',
           rel: 'stylesheet',
         },
       ]}

@@ -10,17 +10,19 @@ export interface TagListProps {
   tags: TagProps[];
 }
 
-const link = (to: string) => ({ ...restProps }) => {
-  const isExternal = getIsExternalLink(to);
+const link =
+  (to: string) =>
+  ({ ...restProps }) => {
+    const isExternal = getIsExternalLink(to);
 
-  if (isExternal) {
-    return (
-      <a href={to} target="_blank" rel="noopener noreferrer" {...restProps} />
-    );
-  }
+    if (isExternal) {
+      return (
+        <a href={to} target="_blank" rel="noopener noreferrer" {...restProps} />
+      );
+    }
 
-  return <GatsbyLink to={to} {...restProps} />;
-};
+    return <GatsbyLink to={to} {...restProps} />;
+  };
 
 const Tag: React.FC<TagProps> = ({ title, url }) => {
   const rightIcon = getIsExternalLink(url) ? (
