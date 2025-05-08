@@ -19,8 +19,7 @@ const Item: React.FC<BoxProps> = ({ ...restProps }) => (
 
 const link =
   (to: string) =>
-  ({ ...restProps }) =>
-    <GatsbyLink to={to} {...restProps} />;
+  ({ ...restProps }) => <GatsbyLink to={to} {...restProps} />;
 
 const Header: React.FC = () => (
   <Box

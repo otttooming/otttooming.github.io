@@ -176,7 +176,7 @@ const Gallery: React.FC = () => {
           featured: { image },
         },
       },
-    }
+    },
   ) => {
     acc[slug].gallery = [image];
 

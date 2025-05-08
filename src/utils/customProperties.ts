@@ -5,7 +5,7 @@ const rootSize = 16;
 type CustomPropertySizeValues = 'xs' | 's' | 'm' | 'l' | 'xl' | 'xxl' | 'xxxl';
 
 function setCustomProperties<K extends string>(
-  obj: CustomPropertyGeneratorReturnObject<K>
+  obj: CustomPropertyGeneratorReturnObject<K>,
 ) {
   const values: CustomPropertyGeneratorReturn<K>[] = Object.values(obj);
 
@@ -38,7 +38,7 @@ type CustomPropertyGeneratorReturnObject<K extends string> = {
 
 function setCustomPropertyGenerator<K extends string>(
   name: string,
-  values: CustomPropertyGenerator<K>[]
+  values: CustomPropertyGenerator<K>[],
 ): CustomPropertyGeneratorReturnObject<K> {
   return values.reduce((acc, { key, value }) => {
     const customProperty = `--${name}-${key}`;
@@ -58,7 +58,7 @@ type ThemeVariableReturn<K extends string> = {
 };
 
 export function setThemeVariable<K extends string>(
-  obj: CustomPropertyGeneratorReturnObject<K>
+  obj: CustomPropertyGeneratorReturnObject<K>,
 ): ThemeVariableReturn<K> {
   return Object.entries<CustomPropertyGeneratorReturn<K>>(obj).reduce(
     (acc, [key, values]) => {
@@ -68,7 +68,7 @@ export function setThemeVariable<K extends string>(
 
       return acc;
     },
-    {} as ThemeVariableReturn<K>
+    {} as ThemeVariableReturn<K>,
   );
 }
 
@@ -127,7 +127,7 @@ export const fontSize = setCustomPropertyGenerator<CustomPropertySizeValues>(
       key: 'xxxl',
       value: '2.5rem',
     },
-  ]
+  ],
 );
 
 export const fontFamily = setCustomPropertyGenerator<'primary' | 'secondary'>(
@@ -141,7 +141,7 @@ export const fontFamily = setCustomPropertyGenerator<'primary' | 'secondary'>(
       key: 'secondary',
       value: `'Helvetica Neue', Arial, sans-serif`,
     },
-  ]
+  ],
 );
 
 export const fontWeight = setCustomPropertyGenerator<
@@ -186,7 +186,7 @@ export const color = setCustomPropertyGenerator<CustomPropertyColorValues>(
       key: 'danger',
       value: '#f04141',
     },
-  ]
+  ],
 );
 
 type CustomPropertyTextColorValues = 'header' | 'primary' | 'secondary';
@@ -221,7 +221,7 @@ export const backgroundColor =
         key: 'secondary',
         value: '#fff',
       },
-    ]
+    ],
   );
 
 export const customProperties = css`

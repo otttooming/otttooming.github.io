@@ -18,7 +18,7 @@ const getTag =
 
 export const getMappedTags = (
   passedItems: string[] | undefined | null,
-  tagMap: TagMap
+  tagMap: TagMap,
 ) => {
   const items = passedItems || [];
 

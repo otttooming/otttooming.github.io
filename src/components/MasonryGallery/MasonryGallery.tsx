@@ -46,8 +46,8 @@ const MasonryGallery: React.FC = ({ children }) => {
       cols[i % numCols].push(
         <Item key={i}>
           <ImageZoom>{child} </ImageZoom>
-        </Item>
-      )
+        </Item>,
+      ),
     );
   };
 

@@ -21,7 +21,7 @@ const Footer: React.FC<BoxProps> = () => {
         <TagList
           tags={getMappedTags(
             [Social.GITHUB, Social.LINKEDIN, Social.TWITTER],
-            socialTags
+            socialTags,
           )}
         />
       </Container>
