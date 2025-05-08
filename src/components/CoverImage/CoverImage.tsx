@@ -12,7 +12,7 @@ const CoverImage: React.FC<
   background: passedBackground,
   ...restProps
 }) => {
-  const fit = Boolean(passedFit) ? passedFit : 'cover';
+  const fit = passedFit ? passedFit : 'cover';
 
   const isObjectFitCover = fit === 'cover';
   const background = passedBackground ?? '#EDF2F7';

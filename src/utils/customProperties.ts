@@ -1,7 +1,5 @@
 import { css } from '@emotion/react';
 
-const rootSize = 16;
-
 type CustomPropertySizeValues = 'xs' | 's' | 'm' | 'l' | 'xl' | 'xxl' | 'xxxl';
 
 function setCustomProperties<K extends string>(

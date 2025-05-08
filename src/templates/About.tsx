@@ -6,7 +6,6 @@ import Layout from '../components/layout';
 import SEO from '../components/SEO';
 import { Heading, Image, AspectRatio, Box, BoxProps } from '@chakra-ui/react';
 import MDXComponents from '../components/MDXComponents/MDXComponents';
-import CoverImage from '../components/CoverImage/CoverImage';
 import CoverImageWrapper from '../components/CoverImage/CoverImageWrapper';
 import TagList from '../components/TagList/TagList';
 import { getMappedTags } from '../components/TagList/tagMap';
