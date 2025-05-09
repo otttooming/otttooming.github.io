@@ -1,5 +1,5 @@
-import * as React from 'react';
-import { Box, BoxProps } from '@chakra-ui/react';
+import type * as React from 'react';
+import { Box, type BoxProps } from '@chakra-ui/react';
 import TagList from '../TagList/TagList';
 import { getMappedTags } from '../TagList/tagMap';
 import { socialTags, Social } from '../../constants/social';

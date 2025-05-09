@@ -1,7 +1,7 @@
-import * as React from 'react';
+import type * as React from 'react';
 import { Wind, BookOpen, User, Tool } from 'react-feather';
 import { Link as GatsbyLink } from 'gatsby';
-import { Button, Box, BoxProps } from '@chakra-ui/react';
+import { Button, Box, type BoxProps } from '@chakra-ui/react';
 import { theme } from '../utils/theme';
 import DarkMode from './DarkMode/DarkMode';
 import { css } from '@emotion/react';
@@ -46,7 +46,7 @@ const Header: React.FC = () => (
       </Button>
     </p>
 
-    <nav role="navigation">
+    <nav >
       <Box as="ol" display="flex" m="0" p="0">
         <Item>
           <Button as={link('/about/me')} leftIcon={<User />} variant="ghost">

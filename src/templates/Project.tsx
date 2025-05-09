@@ -1,4 +1,4 @@
-import * as React from 'react';
+import type * as React from 'react';
 import { graphql } from 'gatsby';
 import { MDXProvider } from '@mdx-js/react';
 import { MDXRenderer } from 'gatsby-plugin-mdx';
@@ -15,7 +15,7 @@ import { getMappedTags } from '../components/TagList/tagMap';
 import { techTags } from '../constants/tech';
 import { theme } from '../utils/theme';
 import { ExternalLink } from 'react-feather';
-import { ProjectPostQueryQuery } from '../types';
+import type { ProjectPostQueryQuery } from '../types';
 
 export interface PostProps {
   data: ProjectPostQueryQuery;

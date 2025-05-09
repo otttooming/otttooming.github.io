@@ -1,4 +1,4 @@
-import * as React from 'react';
+import type * as React from 'react';
 import MasonryGallery from '../MasonryGallery/MasonryGallery';
 import PieChart from '../PieChart';
 import Illustration from '../Illustration/';
@@ -8,7 +8,7 @@ import {
   Heading,
   Link as ChakraLink,
   Text as ChakraText,
-  LinkProps,
+  type LinkProps,
   Box,
 } from '@chakra-ui/react';
 import { Link as GatsbyLink } from 'gatsby';

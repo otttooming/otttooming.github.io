@@ -1,4 +1,4 @@
-import * as React from 'react';
+import type * as React from 'react';
 import { useStaticQuery, graphql } from 'gatsby';
 import Header from './Header';
 import { useColorMode } from '@chakra-ui/react';

@@ -1,16 +1,22 @@
-import * as React from 'react';
-import { graphql } from 'gatsby';
-import { MDXProvider } from '@mdx-js/react';
-import { MDXRenderer } from 'gatsby-plugin-mdx';
-import Layout from '../components/layout';
-import SEO from '../components/SEO';
-import { Heading, Image, AspectRatio, Box, BoxProps } from '@chakra-ui/react';
-import MDXComponents from '../components/MDXComponents/MDXComponents';
-import CoverImageWrapper from '../components/CoverImage/CoverImageWrapper';
-import TagList from '../components/TagList/TagList';
-import { getMappedTags } from '../components/TagList/tagMap';
-import { socialTags } from '../constants/social';
-import { AboutPostQueryQuery } from '../types';
+import type * as React from "react";
+import { graphql } from "gatsby";
+import { MDXProvider } from "@mdx-js/react";
+import { MDXRenderer } from "gatsby-plugin-mdx";
+import Layout from "../components/layout";
+import SEO from "../components/SEO";
+import {
+  Heading,
+  Image,
+  AspectRatio,
+  Box,
+  type BoxProps,
+} from "@chakra-ui/react";
+import MDXComponents from "../components/MDXComponents/MDXComponents";
+import CoverImageWrapper from "../components/CoverImage/CoverImageWrapper";
+import TagList from "../components/TagList/TagList";
+import { getMappedTags } from "../components/TagList/tagMap";
+import { socialTags } from "../constants/social";
+import type { AboutPostQueryQuery } from "../types";
 
 export interface PostProps {
   data: AboutPostQueryQuery;

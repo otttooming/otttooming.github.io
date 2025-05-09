@@ -1,4 +1,4 @@
-import * as React from 'react';
+import type * as React from 'react';
 import { graphql } from 'gatsby';
 import Layout from '../components/layout';
 import { theme } from '../utils/theme';
@@ -10,12 +10,12 @@ import {
   Text,
   useColorMode,
   Box,
-  BoxProps,
+  type BoxProps,
   Link as ExternalLink,
 } from '@chakra-ui/react';
 import CoverImage from '../components/CoverImage/CoverImage';
 import { Link as MDXLink } from '../components/MDXComponents/MDXComponents';
-import { ProjectsListQueryQuery } from '../types';
+import type { ProjectsListQueryQuery } from '../types';
 
 export interface ProjectsProps {
   data: ProjectsListQueryQuery;

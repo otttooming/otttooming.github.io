@@ -1,4 +1,4 @@
-import * as React from 'react';
+import type * as React from 'react';
 import {
   Box,
   AspectRatio,
@@ -11,7 +11,7 @@ import MDXComponents from '../MDXComponents/MDXComponents';
 import { MDXProvider } from '@mdx-js/react';
 import CoverImage from '../CoverImage/CoverImage';
 import { getMatchingProjects } from './Card.helpers';
-import { TechnologiesFrontmatterFragmentFragment } from '../../types';
+import type { TechnologiesFrontmatterFragmentFragment } from '../../types';
 import { css } from '@emotion/react';
 
 export interface CardProps {

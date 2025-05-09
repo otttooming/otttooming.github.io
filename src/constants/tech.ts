@@ -1,4 +1,4 @@
-import { TagMap } from '../components/TagList/tagMap';
+import type { TagMap } from '../components/TagList/tagMap';
 
 export enum Tech {
   ESNEXT = 'esnext',

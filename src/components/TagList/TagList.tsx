@@ -1,7 +1,7 @@
-import * as React from 'react';
+import type * as React from 'react';
 import { theme } from '../../utils/theme';
 import { Button, Box } from '@chakra-ui/react';
-import { Tag as TagProps } from './tagMap';
+import type { Tag as TagProps } from './tagMap';
 import { Link as GatsbyLink } from 'gatsby';
 import { getIsExternalLink } from '../../utils/getIsExternalLink';
 import { ExternalLink } from 'react-feather';

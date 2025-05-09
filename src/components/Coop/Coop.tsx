@@ -1,9 +1,9 @@
-import * as React from 'react';
+import type * as React from 'react';
 import Pipedrive from '../../assets/logo-pipedrive.svg';
 import Iglu from '../../assets/logo-iglu.svg';
 import Voog from '../../assets/logo-voog.svg';
 import Gtap from '../../assets/logo-gtap.svg';
-import { Box, BoxProps, Link as ChakraLink, LinkProps } from '@chakra-ui/react';
+import { Box, type BoxProps, Link as ChakraLink, type LinkProps } from '@chakra-ui/react';
 
 const Company: React.FC<BoxProps> = ({ ...restProps }) => {
   return <Box as="li" {...restProps} />;

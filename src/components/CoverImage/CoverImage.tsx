@@ -1,6 +1,6 @@
-import * as React from 'react';
+import type * as React from 'react';
 import { GatsbyImage } from 'gatsby-plugin-image';
-import { BoxProps } from '@chakra-ui/react';
+import type { BoxProps } from '@chakra-ui/react';
 import CoverImageWrapper from './CoverImageWrapper';
 
 const CoverImage: React.FC<

@@ -1,4 +1,4 @@
-import * as React from 'react';
+import type * as React from 'react';
 import styled from '@emotion/styled';
 
 import StatsCardClip from '../../assets/statscard-clip.svg';
