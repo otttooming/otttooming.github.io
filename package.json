@@ -34,7 +34,7 @@
     "typescript": "^4.6.3"
   },
   "devDependencies": {
-    "@eslint/js": "^9.26.0",
+    "@biomejs/biome": "1.9.4",
     "@graphql-codegen/cli": "^2.6.2",
     "@graphql-codegen/typescript": "^2.4.8",
     "@graphql-codegen/typescript-operations": "^2.3.5",
@@ -44,14 +44,10 @@
     "@types/react": "^17.0.43",
     "@types/react-dom": "^17.0.14",
     "@types/react-helmet": "^6.1.5",
-    "eslint": "^9.26.0",
-    "eslint-plugin-react": "^7.37.5",
     "gh-pages": "^3.2.3",
     "globals": "^16.1.0",
     "husky": "^7.0.4",
-    "lint-staged": "^12.3.7",
-    "prettier": "^3.5.3",
-    "typescript-eslint": "^8.32.0"
+    "lint-staged": "^12.3.7"
   },
   "keywords": [
     "gatsby",
@@ -65,12 +61,10 @@
     "clean": "gatsby clean",
     "develop": "gatsby develop",
     "deploy": "npm run build && gh-pages -d public -b master",
-    "format": "prettier --write \"**/*.{js,jsx,ts,tsx,json,md}\"",
-    "lint": "eslint 'src/**/*.{js,ts,tsx}' --quiet --fix",
+    "lint": "npx @biomejs/biome lint --write ./src",
     "start": "npm run develop",
     "serve": "gatsby serve",
     "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\"",
-    "prettier": "prettier --write --config .prettierrc \"**/*.{js,jsx,ts,tsx,json,css,scss,md,mdx,yaml,yml}\"",
     "prepare": "husky install"
   },
   "repository": {
