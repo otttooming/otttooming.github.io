@@ -1,23 +1,23 @@
-import type * as React from 'react';
+import type * as React from "react";
 import {
   Box,
   AspectRatio,
   Image,
   Heading,
   useColorMode,
-} from '@chakra-ui/react';
-import { MDXRenderer } from 'gatsby-plugin-mdx';
-import MDXComponents from '../MDXComponents/MDXComponents';
-import { MDXProvider } from '@mdx-js/react';
-import CoverImage from '../CoverImage/CoverImage';
-import { getMatchingProjects } from './Card.helpers';
-import type { TechnologiesFrontmatterFragmentFragment } from '../../types';
-import { css } from '@emotion/react';
+} from "@chakra-ui/react";
+import { MDXRenderer } from "gatsby-plugin-mdx";
+import MDXComponents from "../MDXComponents/MDXComponents";
+import { MDXProvider } from "@mdx-js/react";
+import CoverImage from "../CoverImage/CoverImage";
+import { getMatchingProjects } from "./Card.helpers";
+import type { TechnologiesFrontmatterFragmentFragment } from "../../types";
+import { css } from "@emotion/react";
 
 export interface CardProps {
   title: string;
   body: any;
-  featured: TechnologiesFrontmatterFragmentFragment['featured'];
+  featured: TechnologiesFrontmatterFragmentFragment["featured"];
   projects: any;
 }
 
@@ -48,7 +48,7 @@ const Card: React.FC<CardProps> = ({ title, body, featured, projects }) => {
 
   const { colorMode } = useColorMode();
 
-  const backgroundColor = colorMode === 'light' ? ' #edf2f7' : '#2c3442';
+  const backgroundColor = colorMode === "light" ? " #edf2f7" : "#2c3442";
 
   const ratio = htmlWidth / htmlHeight;
 
@@ -58,12 +58,12 @@ const Card: React.FC<CardProps> = ({ title, body, featured, projects }) => {
     <Box
       as="li"
       display="grid"
-      gridTemplateColumns={['0 1fr 0', '0 1fr 0', '64px 1fr 64px']}
+      gridTemplateColumns={["0 1fr 0", "0 1fr 0", "64px 1fr 64px"]}
       gridTemplateRows="auto 8em 1fr auto"
       _before={{
         content: `""`,
-        gridColumn: '1/-1',
-        gridRow: '1/3',
+        gridColumn: "1/-1",
+        gridRow: "1/3",
         background,
         borderRadius: [0, 0, 8],
       }}
@@ -124,9 +124,9 @@ const Card: React.FC<CardProps> = ({ title, body, featured, projects }) => {
         gridRow="2 / 4"
         gridColumn="2 / 3"
         paddingY="32px"
-        paddingX={['16px', '32px', '32px']}
+        paddingX={["16px", "32px", "32px"]}
         backgroundColor={backgroundColor}
-        borderRadius={['0 0 8px 8px', '0 0 8px 8px', 8]}
+        borderRadius={["0 0 8px 8px", "0 0 8px 8px", 8]}
       >
         <Heading>{title}</Heading>
 
