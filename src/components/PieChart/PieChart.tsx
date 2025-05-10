@@ -124,9 +124,9 @@ export default class Example extends React.PureComponent<Props> {
     return (
       <Wrapper>
         <List>
-          {data.map((item, index) => (
-            <ListItem key={index} index={index}>
-              {item.name}
+          {data.map(({ name }, index) => (
+            <ListItem key={name} index={index}>
+              {name}
             </ListItem>
           ))}
         </List>
@@ -146,11 +146,8 @@ export default class Example extends React.PureComponent<Props> {
               paddingAngle={4}
               cornerRadius={4}
             >
-              {data.map((entry, index) => (
-                <Cell
-                  key={`cell-${index}`}
-                  fill={COLORS[index % COLORS.length]}
-                />
+              {data.map(({ name }, index) => (
+                <Cell key={name} fill={COLORS[index % COLORS.length]} />
               ))}
             </Pie>
           </PieChart>
