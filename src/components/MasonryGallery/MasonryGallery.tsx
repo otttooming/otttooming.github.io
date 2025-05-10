@@ -1,7 +1,7 @@
-import styled from '@emotion/styled';
-import * as React from 'react';
-import { theme } from '../../utils/theme';
-import ImageZoom from '../Image/Image.Zoom';
+import styled from "@emotion/styled";
+import * as React from "react";
+import { theme } from "../../utils/theme";
+import ImageZoom from "../Image/Image.Zoom";
 
 const Wrapper = styled.div`
   display: grid;
@@ -46,15 +46,15 @@ const MasonryGallery: React.FC = ({ children }) => {
       cols[i % numCols].push(
         <Item key={i}>
           <ImageZoom>{child} </ImageZoom>
-        </Item>,
-      ),
+        </Item>
+      )
     );
   };
 
   React.useEffect(() => {
     calcNumCols();
-    window.addEventListener('resize', calcNumCols);
-    return () => window.removeEventListener('resize', calcNumCols);
+    window.addEventListener("resize", calcNumCols);
+    return () => window.removeEventListener("resize", calcNumCols);
   });
   createCols();
 
