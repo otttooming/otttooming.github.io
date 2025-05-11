@@ -1,5 +1,21 @@
 {
-	"files": {
-		"ignore": ["src/types.d.ts"]
-	}
+  "files": {
+    "ignore": ["src/types.d.ts"]
+  },
+  "linter": {
+    "rules": {
+      "style": {
+        "useImportType": "off"
+      }
+    }
+  },
+  "formatter": {
+    "useEditorconfig": true
+  },
+  "javascript": {
+    "formatter": {
+      "quoteStyle": "single",
+      "jsxQuoteStyle": "double"
+    }
+  }
 }
