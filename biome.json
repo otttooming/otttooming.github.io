@@ -6,6 +6,10 @@
     "rules": {
       "style": {
         "useImportType": "off"
+      },
+      "suspicious": {
+        "noArrayIndexKey": "off",
+        "noExplicitAny": "off"
       }
     }
   },
