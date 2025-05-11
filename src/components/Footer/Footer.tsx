@@ -1,8 +1,8 @@
-import type * as React from "react";
-import { Box, type BoxProps } from "@chakra-ui/react";
-import TagList from "../TagList/TagList";
-import { getMappedTags } from "../TagList/tagMap";
-import { socialTags, Social } from "../../constants/social";
+import { Box, type BoxProps } from '@chakra-ui/react';
+import type * as React from 'react';
+import { Social, socialTags } from '../../constants/social';
+import TagList from '../TagList/TagList';
+import { getMappedTags } from '../TagList/tagMap';
 
 const Container: React.FC<BoxProps> = ({ ...restProps }) => (
   <Box display="flex" justifyContent="center" {...restProps} />
@@ -21,7 +21,7 @@ const Footer: React.FC<BoxProps> = () => {
         <TagList
           tags={getMappedTags(
             [Social.GITHUB, Social.LINKEDIN, Social.TWITTER],
-            socialTags
+            socialTags,
           )}
         />
       </Container>

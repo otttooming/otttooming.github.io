@@ -1,22 +1,22 @@
+import {
+  Box,
+  type BoxProps,
+  Text as ChakraText,
+  Heading,
+  type HeadingProps,
+  IconButton,
+  Link,
+  useColorMode,
+} from '@chakra-ui/react';
 import type * as React from 'react';
-import Layout from '../components/layout';
-import Image from '../components/image';
-import SEO from '../components/SEO';
 import { GitHub, Linkedin, Twitter } from 'react-feather';
+import Coop from '../components/Coop/Coop';
 import Gallery from '../components/Gallery/Gallery';
 import HexGrid from '../components/HexGrid/HexGrid';
-import Coop from '../components/Coop/Coop';
+import SEO from '../components/SEO';
+import Image from '../components/image';
+import Layout from '../components/layout';
 import { theme } from '../utils/theme';
-import {
-  Link,
-  Heading,
-  Box,
-  Text as ChakraText,
-  IconButton,
-  useColorMode,
-  type BoxProps,
-  type HeadingProps,
-} from '@chakra-ui/react';
 
 const Grid: React.FC<BoxProps> = ({ ...restProps }) => {
   const { colorMode } = useColorMode();

@@ -38,17 +38,20 @@ function setCustomPropertyGenerator<K extends string>(
   name: string,
   values: CustomPropertyGenerator<K>[],
 ): CustomPropertyGeneratorReturnObject<K> {
-  return values.reduce((acc, { key, value }) => {
-    const customProperty = `--${name}-${key}`;
+  return values.reduce(
+    (acc, { key, value }) => {
+      const customProperty = `--${name}-${key}`;
 
-    acc[key] = {
-      value,
-      property: customProperty,
-      variable: `var(${customProperty})`,
-    };
+      acc[key] = {
+        value,
+        property: customProperty,
+        variable: `var(${customProperty})`,
+      };
 
-    return acc;
-  }, {} as CustomPropertyGeneratorReturnObject<K>);
+      return acc;
+    },
+    {} as CustomPropertyGeneratorReturnObject<K>,
+  );
 }
 
 type ThemeVariableReturn<K extends string> = {

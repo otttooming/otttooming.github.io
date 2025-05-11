@@ -1,10 +1,10 @@
-import type * as React from 'react';
-import { theme } from '../../utils/theme';
-import { Button, Box } from '@chakra-ui/react';
-import type { Tag as TagProps } from './tagMap';
+import { Box, Button } from '@chakra-ui/react';
 import { Link as GatsbyLink } from 'gatsby';
-import { getIsExternalLink } from '../../utils/getIsExternalLink';
+import type * as React from 'react';
 import { ExternalLink } from 'react-feather';
+import { getIsExternalLink } from '../../utils/getIsExternalLink';
+import { theme } from '../../utils/theme';
+import type { Tag as TagProps } from './tagMap';
 
 export interface TagListProps {
   tags: TagProps[];

@@ -1,22 +1,22 @@
-import type * as React from 'react';
-import MasonryGallery from '../MasonryGallery/MasonryGallery';
-import PieChart from '../PieChart';
-import Illustration from '../Illustration/';
 import {
+  Box,
+  Link as ChakraLink,
   List as ChakraList,
   ListItem as ChakraListItem,
-  Heading,
-  Link as ChakraLink,
   Text as ChakraText,
+  Heading,
   type LinkProps,
-  Box,
 } from '@chakra-ui/react';
 import { Link as GatsbyLink } from 'gatsby';
-import { theme } from '../../utils/theme';
+import type * as React from 'react';
+import { ExternalLink } from 'react-feather';
 import { getIsExternalLink } from '../../utils/getIsExternalLink';
 import { getIsDocument } from '../../utils/getLinkType';
 import { getURISafeString } from '../../utils/text';
-import { ExternalLink } from 'react-feather';
+import { theme } from '../../utils/theme';
+import Illustration from '../Illustration/';
+import MasonryGallery from '../MasonryGallery/MasonryGallery';
+import PieChart from '../PieChart';
 
 export const HeadingH2: React.FC = ({ children, ...restProps }) => (
   <Heading

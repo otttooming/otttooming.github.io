@@ -1,14 +1,14 @@
 import {
-  fontSize,
-  lineHeight,
-  borderRadius,
-  space,
-  setThemeVariable,
-  fontFamily,
-  fontWeight,
-  color,
-  textColor,
   backgroundColor,
+  borderRadius,
+  color,
+  fontFamily,
+  fontSize,
+  fontWeight,
+  lineHeight,
+  setThemeVariable,
+  space,
+  textColor,
 } from './customProperties';
 
 export const theme = {

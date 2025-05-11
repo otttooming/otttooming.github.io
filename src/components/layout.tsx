@@ -1,11 +1,11 @@
-import type * as React from 'react';
-import { useStaticQuery, graphql } from 'gatsby';
-import Header from './Header';
 import { useColorMode } from '@chakra-ui/react';
 import { Global, css } from '@emotion/react';
+import { graphql, useStaticQuery } from 'gatsby';
+import type * as React from 'react';
 import { customProperties } from '../utils/customProperties';
 import { theme } from '../utils/theme';
 import Footer from './Footer/Footer';
+import Header from './Header';
 
 const Layout: React.FC = ({ children }) => {
   const data = useStaticQuery(graphql`

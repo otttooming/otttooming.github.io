@@ -1,7 +1,7 @@
-import * as React from "react";
-import { PieChart, Pie, Cell } from "recharts";
-import styled from "@emotion/styled";
-import { theme } from "../../utils/theme";
+import styled from '@emotion/styled';
+import * as React from 'react';
+import { Cell, Pie, PieChart } from 'recharts';
+import { theme } from '../../utils/theme';
 
 interface DataProps {
   name: string;
@@ -20,7 +20,7 @@ interface Props {
 //   { name: "Group D", value: 200 },
 // ]
 
-const COLORS = ["#80CC8E", "#686AF6", "#C5C7F0", "#CFD2F0", "#DADDEF"];
+const COLORS = ['#80CC8E', '#686AF6', '#C5C7F0', '#CFD2F0', '#DADDEF'];
 // const COLORS = ["#686AF6", "#C5C7F0", "#CFD2F0", "#DADDEF"]
 
 const RADIAN = Math.PI / 180;
@@ -45,7 +45,7 @@ const renderCustomizedLabel = ({
         strokeLinecap="round"
         y2={y}
         style={{
-          stroke: "#3E3E54",
+          stroke: '#3E3E54',
           strokeWidth: 25,
         }}
       />
@@ -54,7 +54,7 @@ const renderCustomizedLabel = ({
         x={x}
         y={y}
         fill="#fff"
-        textAnchor={"start"}
+        textAnchor={'start'}
         dominantBaseline="central"
       >
         {`${(percent * 100).toFixed(0)}%`}
@@ -140,7 +140,7 @@ export default class Example extends React.PureComponent<Props> {
               label={renderCustomizedLabel}
               outerRadius={96}
               innerRadius={64}
-              stroke={"none"}
+              stroke={'none'}
               fill="#8884d8"
               dataKey="value"
               paddingAngle={4}

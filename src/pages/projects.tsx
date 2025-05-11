@@ -1,21 +1,21 @@
-import type * as React from 'react';
-import { graphql } from 'gatsby';
-import Layout from '../components/layout';
-import { theme } from '../utils/theme';
-import Logo from '../components/Logo/Logo';
-import { textMap, projectTexts } from '../utils/textMap';
-import SEO from '../components/SEO';
 import {
-  Heading,
-  Text,
-  useColorMode,
   Box,
   type BoxProps,
   Link as ExternalLink,
+  Heading,
+  Text,
+  useColorMode,
 } from '@chakra-ui/react';
+import { graphql } from 'gatsby';
+import type * as React from 'react';
 import CoverImage from '../components/CoverImage/CoverImage';
+import Logo from '../components/Logo/Logo';
 import { Link as MDXLink } from '../components/MDXComponents/MDXComponents';
+import SEO from '../components/SEO';
+import Layout from '../components/layout';
 import type { ProjectsListQueryQuery } from '../types';
+import { projectTexts, textMap } from '../utils/textMap';
+import { theme } from '../utils/theme';
 
 export interface ProjectsProps {
   data: ProjectsListQueryQuery;

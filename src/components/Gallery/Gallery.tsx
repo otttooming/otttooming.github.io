@@ -1,8 +1,8 @@
-import type * as React from 'react';
 import styled from '@emotion/styled';
-import GalleryImage from './GalleryImage';
+import { graphql, useStaticQuery } from 'gatsby';
+import type * as React from 'react';
 import { theme } from '../../utils/theme';
-import { useStaticQuery, graphql } from 'gatsby';
+import GalleryImage from './GalleryImage';
 
 const Wrapper = styled.div`
   display: grid;

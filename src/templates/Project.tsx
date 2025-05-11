@@ -1,21 +1,21 @@
-import type * as React from 'react';
-import { graphql } from 'gatsby';
-import { MDXProvider } from '@mdx-js/react';
-import { MDXRenderer } from 'gatsby-plugin-mdx';
-import Layout from '../components/layout';
+import { Box, Heading, Link } from '@chakra-ui/react';
 import styled from '@emotion/styled';
-import TagList from '../components/TagList/TagList';
-import { textMap, projectTexts } from '../utils/textMap';
-import Logo from '../components/Logo/Logo';
-import SEO from '../components/SEO';
-import { Heading, Link, Box } from '@chakra-ui/react';
-import MDXComponents from '../components/MDXComponents/MDXComponents';
-import CoverImage from '../components/CoverImage/CoverImage';
-import { getMappedTags } from '../components/TagList/tagMap';
-import { techTags } from '../constants/tech';
-import { theme } from '../utils/theme';
+import { MDXProvider } from '@mdx-js/react';
+import { graphql } from 'gatsby';
+import { MDXRenderer } from 'gatsby-plugin-mdx';
+import type * as React from 'react';
 import { ExternalLink } from 'react-feather';
+import CoverImage from '../components/CoverImage/CoverImage';
+import Logo from '../components/Logo/Logo';
+import MDXComponents from '../components/MDXComponents/MDXComponents';
+import SEO from '../components/SEO';
+import TagList from '../components/TagList/TagList';
+import { getMappedTags } from '../components/TagList/tagMap';
+import Layout from '../components/layout';
+import { techTags } from '../constants/tech';
 import type { ProjectPostQueryQuery } from '../types';
+import { projectTexts, textMap } from '../utils/textMap';
+import { theme } from '../utils/theme';
 
 export interface PostProps {
   data: ProjectPostQueryQuery;

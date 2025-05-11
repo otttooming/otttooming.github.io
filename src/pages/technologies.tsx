@@ -1,11 +1,11 @@
-import type * as React from 'react';
+import { Box, Heading, Text } from '@chakra-ui/react';
 import { graphql } from 'gatsby';
-import Layout from '../components/layout';
-import { theme } from '../utils/theme';
-import SEO from '../components/SEO';
-import { Heading, Text, Box } from '@chakra-ui/react';
+import type * as React from 'react';
 import Card from '../components/Card/Card';
+import SEO from '../components/SEO';
+import Layout from '../components/layout';
 import type { TechnologiesListQueryQuery } from '../types';
+import { theme } from '../utils/theme';
 
 interface TechnologiesProps {
   data: TechnologiesListQueryQuery;
