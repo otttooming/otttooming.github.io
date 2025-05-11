@@ -1,5 +1,5 @@
 import { Box } from '@chakra-ui/react';
-import type * as React from 'react';
+import * as React from 'react';
 
 const Illustration: React.FC = ({ children }) => {
   return (

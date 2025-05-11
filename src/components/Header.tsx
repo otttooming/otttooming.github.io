@@ -1,7 +1,7 @@
 import { Box, type BoxProps, Button } from '@chakra-ui/react';
 import { css } from '@emotion/react';
 import { Link as GatsbyLink } from 'gatsby';
-import type * as React from 'react';
+import * as React from 'react';
 import { BookOpen, Tool, User, Wind } from 'react-feather';
 import { theme } from '../utils/theme';
 import DarkMode from './DarkMode/DarkMode';

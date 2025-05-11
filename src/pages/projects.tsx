@@ -7,7 +7,7 @@ import {
   useColorMode,
 } from '@chakra-ui/react';
 import { graphql } from 'gatsby';
-import type * as React from 'react';
+import * as React from 'react';
 import CoverImage from '../components/CoverImage/CoverImage';
 import Logo from '../components/Logo/Logo';
 import { Link as MDXLink } from '../components/MDXComponents/MDXComponents';

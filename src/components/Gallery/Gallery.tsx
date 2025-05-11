@@ -1,6 +1,6 @@
 import styled from '@emotion/styled';
 import { graphql, useStaticQuery } from 'gatsby';
-import type * as React from 'react';
+import * as React from 'react';
 import { theme } from '../../utils/theme';
 import GalleryImage from './GalleryImage';
 

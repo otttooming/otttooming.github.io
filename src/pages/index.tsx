@@ -8,7 +8,7 @@ import {
   Link,
   useColorMode,
 } from '@chakra-ui/react';
-import type * as React from 'react';
+import * as React from 'react';
 import { GitHub, Linkedin, Twitter } from 'react-feather';
 import Coop from '../components/Coop/Coop';
 import Gallery from '../components/Gallery/Gallery';

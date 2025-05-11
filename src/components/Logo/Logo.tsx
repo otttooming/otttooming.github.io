@@ -1,5 +1,5 @@
 import { Box, type BoxProps } from '@chakra-ui/react';
-import type * as React from 'react';
+import * as React from 'react';
 import Gtap from '../../assets/logo-gtap.svg';
 import Iglu from '../../assets/logo-iglu.svg';
 import Khk from '../../assets/logo-khk.svg';

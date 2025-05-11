@@ -5,7 +5,7 @@ import {
   type LinkProps,
 } from '@chakra-ui/react';
 import styled from '@emotion/styled';
-import type * as React from 'react';
+import * as React from 'react';
 import GatsbyIcon from '../../assets/tech-gatsby.svg';
 import GraphQLIcon from '../../assets/tech-graphql.svg';
 import ReactIcon from '../../assets/tech-react.svg';

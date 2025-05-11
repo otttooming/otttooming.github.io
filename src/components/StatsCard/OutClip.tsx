@@ -1,5 +1,5 @@
 import styled from '@emotion/styled';
-import type * as React from 'react';
+import * as React from 'react';
 
 const Wrapper = styled.div`
   position: absolute;

@@ -3,7 +3,7 @@ import styled from '@emotion/styled';
 import { MDXProvider } from '@mdx-js/react';
 import { graphql } from 'gatsby';
 import { MDXRenderer } from 'gatsby-plugin-mdx';
-import type * as React from 'react';
+import * as React from 'react';
 import { ExternalLink } from 'react-feather';
 import CoverImage from '../components/CoverImage/CoverImage';
 import Logo from '../components/Logo/Logo';

@@ -1,7 +1,7 @@
 import { useColorMode } from '@chakra-ui/react';
 import { Global, css } from '@emotion/react';
 import { graphql, useStaticQuery } from 'gatsby';
-import type * as React from 'react';
+import * as React from 'react';
 import { customProperties } from '../utils/customProperties';
 import { theme } from '../utils/theme';
 import Footer from './Footer/Footer';

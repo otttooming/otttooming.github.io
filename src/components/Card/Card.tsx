@@ -8,7 +8,7 @@ import {
 import { css } from '@emotion/react';
 import { MDXProvider } from '@mdx-js/react';
 import { MDXRenderer } from 'gatsby-plugin-mdx';
-import type * as React from 'react';
+import * as React from 'react';
 import type { TechnologiesFrontmatterFragmentFragment } from '../../types';
 import CoverImage from '../CoverImage/CoverImage';
 import MDXComponents from '../MDXComponents/MDXComponents';
