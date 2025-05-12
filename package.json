@@ -49,11 +49,7 @@
     "husky": "^7.0.4",
     "lint-staged": "^16.0.0"
   },
-  "keywords": [
-    "gatsby",
-    "react",
-    "typescript"
-  ],
+  "keywords": ["gatsby", "react", "typescript"],
   "license": "MIT",
   "scripts": {
     "build": "gatsby build",
@@ -75,12 +71,6 @@
     "url": "https://github.com/otttooming/otttooming.github.io/issues"
   },
   "lint-staged": {
-    "*.{md,mdx,yaml,yml}": [
-      "npm run prettier"
-    ],
-    "*.{js,jsx,ts,tsx,json,css,scss}": [
-      "npm run prettier",
-      "npm run lint"
-    ]
+    "*": ["npm run lint"]
   }
 }
