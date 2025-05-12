@@ -2,7 +2,6 @@ import {
   Box,
   Link as ChakraLink,
   List as ChakraList,
-  ListItem as ChakraListItem,
   Text as ChakraText,
   Heading,
   type LinkProps,
@@ -83,11 +82,11 @@ export const Link: React.FC<LinkProps> = ({
 };
 
 export const List: React.FC = (props) => (
-  <ChakraList {...props} styleType="disc" paddingLeft="32px" mt="16px" />
+  <ChakraList.Root {...props} styleType="disc" paddingLeft="32px" mt="16px" />
 );
 
 export const ListItem: React.FC = (props) => (
-  <ChakraListItem {...props} mt="8px" />
+  <ChakraList.Item {...props} mt="8px" />
 );
 
 export const Text: React.FC = (props) => <ChakraText {...props} mt="24px" />;

@@ -125,7 +125,7 @@ export default class Example extends React.PureComponent<Props> {
       <Wrapper>
         <List>
           {data.map(({ name }, index) => (
-            <ListItem key={name} index={index}>
+            <ListItem key={index} index={index}>
               {name}
             </ListItem>
           ))}

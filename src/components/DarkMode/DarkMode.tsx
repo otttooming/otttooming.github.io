@@ -1,5 +1,6 @@
-import { Box, IconButton, useColorMode } from '@chakra-ui/react';
+import { Box, IconButton } from '@chakra-ui/react';
 import * as React from 'react';
+import { useColorMode } from '../ui/color-mode';
 
 const MoonOrSun = () => {
   const { colorMode } = useColorMode();

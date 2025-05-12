@@ -6,7 +6,6 @@ import {
   type HeadingProps,
   IconButton,
   Link,
-  useColorMode,
 } from '@chakra-ui/react';
 import * as React from 'react';
 import { GitHub, Linkedin, Twitter } from 'react-feather';
@@ -17,6 +16,8 @@ import SEO from '../components/SEO';
 import Image from '../components/image';
 import Layout from '../components/layout';
 import { theme } from '../utils/theme';
+import { useColorMode } from '../components/ui/color-mode';
+import { Provider } from '../components/ui/provider';
 
 const Grid: React.FC<BoxProps> = ({ ...restProps }) => {
   const { colorMode } = useColorMode();

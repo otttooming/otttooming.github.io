@@ -4,7 +4,6 @@ import {
   Link as ExternalLink,
   Heading,
   Text,
-  useColorMode,
 } from '@chakra-ui/react';
 import { graphql } from 'gatsby';
 import * as React from 'react';
@@ -16,6 +15,7 @@ import Layout from '../components/layout';
 import type { ProjectsListQueryQuery } from '../types';
 import { projectTexts, textMap } from '../utils/textMap';
 import { theme } from '../utils/theme';
+import { useColorMode } from '../components/ui/color-mode';
 
 export interface ProjectsProps {
   data: ProjectsListQueryQuery;

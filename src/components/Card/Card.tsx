@@ -1,10 +1,4 @@
-import {
-  AspectRatio,
-  Box,
-  Heading,
-  Image,
-  useColorMode,
-} from '@chakra-ui/react';
+import { AspectRatio, Box, Heading, Image } from '@chakra-ui/react';
 import { css } from '@emotion/react';
 import { MDXProvider } from '@mdx-js/react';
 import { MDXRenderer } from 'gatsby-plugin-mdx';
@@ -13,6 +7,7 @@ import type { TechnologiesFrontmatterFragmentFragment } from '../../types';
 import CoverImage from '../CoverImage/CoverImage';
 import MDXComponents from '../MDXComponents/MDXComponents';
 import { getMatchingProjects } from './Card.helpers';
+import { useColorMode } from '../ui/color-mode';
 
 export interface CardProps {
   title: string;

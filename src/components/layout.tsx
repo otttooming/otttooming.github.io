@@ -1,4 +1,3 @@
-import { useColorMode } from '@chakra-ui/react';
 import { Global, css } from '@emotion/react';
 import { graphql, useStaticQuery } from 'gatsby';
 import * as React from 'react';
@@ -6,6 +5,8 @@ import { customProperties } from '../utils/customProperties';
 import { theme } from '../utils/theme';
 import Footer from './Footer/Footer';
 import Header from './Header';
+import { useColorMode } from './ui/color-mode';
+import { Provider } from './ui/provider';
 
 const Layout: React.FC = ({ children }) => {
   const data = useStaticQuery(graphql`
@@ -72,4 +73,10 @@ const Layout: React.FC = ({ children }) => {
   );
 };
 
-export default Layout;
+export default ({ children }) => {
+  return (
+    <Provider>
+      <Layout>{children}</Layout>
+    </Provider>
+  );
+};
