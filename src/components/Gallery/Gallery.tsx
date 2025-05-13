@@ -119,7 +119,7 @@ const Gallery: React.FC = () => {
   const data = useStaticQuery(graphql`
     {
       images: allMdx(
-        filter: { fileAbsolutePath: { regex: "/persons/" } }
+        filter: {internal: {contentFilePath: { regex: "/persons/" }}}
         limit: 6
       ) {
         edges {

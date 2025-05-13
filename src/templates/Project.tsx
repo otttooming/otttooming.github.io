@@ -2,7 +2,6 @@ import { Box, Heading, Link } from '@chakra-ui/react';
 import styled from '@emotion/styled';
 import { MDXProvider } from '@mdx-js/react';
 import { graphql } from 'gatsby';
-import { MDXRenderer } from 'gatsby-plugin-mdx';
 import * as React from 'react';
 import { ExternalLink } from 'react-feather';
 import CoverImage from '../components/CoverImage/CoverImage';
@@ -83,9 +82,7 @@ const Project: React.FC<PostProps> = ({ data: { mdx } }) => {
       </Box>
 
       <Wrapper>
-        <MDXProvider components={MDXComponents}>
-          <MDXRenderer>{mdx.body}</MDXRenderer>
-        </MDXProvider>
+        <MDXProvider components={MDXComponents}>{mdx.body}</MDXProvider>
       </Wrapper>
     </Layout>
   );

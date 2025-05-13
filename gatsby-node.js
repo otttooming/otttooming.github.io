@@ -1,9 +1,3 @@
-/**
- * Implement Gatsby's Node APIs in this file.
- *
- * See: https://www.gatsbyjs.org/docs/node-apis/
- */
-
 const { createFilePath } = require('gatsby-source-filesystem');
 const createProjects = require('./gatsby/node/createProjects');
 
@@ -14,7 +8,7 @@ exports.onCreateNode = ({ node, actions, getNode }) => {
   // `File` node here
   if (node.internal.type === 'Mdx') {
     const value = createFilePath({ node, getNode });
-    const directory = node.fileAbsolutePath.split('/').reverse()[2];
+    const directory = node.internal.contentFilePath.split('/').reverse()[2];
 
     createNodeField({
       // Name of the field you are adding
@@ -29,7 +23,6 @@ exports.onCreateNode = ({ node, actions, getNode }) => {
   }
 };
 
-const path = require('path');
 
 exports.createPages = async ({ graphql, actions, reporter }) => {
   // Destructure the createPage function from the actions object

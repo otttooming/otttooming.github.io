@@ -7,7 +7,6 @@ import {
 } from '@chakra-ui/react';
 import { MDXProvider } from '@mdx-js/react';
 import { graphql } from 'gatsby';
-import { MDXRenderer } from 'gatsby-plugin-mdx';
 import * as React from 'react';
 import CoverImageWrapper from '../components/CoverImage/CoverImageWrapper';
 import MDXComponents from '../components/MDXComponents/MDXComponents';
@@ -27,6 +26,7 @@ const Wrapper: React.FC<BoxProps> = ({ ...restProps }) => (
 );
 
 const About: React.FC<PostProps> = ({
+  children,
   data: {
     mdx: {
       frontmatter: {
@@ -34,7 +34,6 @@ const About: React.FC<PostProps> = ({
         title,
         tags: tagList,
       },
-      body,
     },
   },
 }) => {
@@ -71,9 +70,7 @@ const About: React.FC<PostProps> = ({
       </Wrapper>
 
       <Wrapper>
-        <MDXProvider components={MDXComponents}>
-          <MDXRenderer>{body}</MDXRenderer>
-        </MDXProvider>
+        <MDXProvider components={MDXComponents}>{children}</MDXProvider>
       </Wrapper>
     </Layout>
   );
@@ -85,7 +82,6 @@ export const pageQuery = graphql`
   query AboutPostQuery($id: String) {
     mdx(id: { eq: $id }) {
       id
-      body
       frontmatter {
         title
         tags

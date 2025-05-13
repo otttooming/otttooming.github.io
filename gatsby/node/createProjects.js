@@ -18,8 +18,10 @@ module.exports = async function createProjects(graphql, reporter, createPage) {
         edges {
           node {
             id
-            fileAbsolutePath
-            fields {
+            internal {
+              contentFilePath
+            }
+            frontmatter {
               slug
             }
           }
@@ -33,13 +35,13 @@ module.exports = async function createProjects(graphql, reporter, createPage) {
   // Create blog post pages.
   const posts = result.data.allMdx.edges;
   // We'll call `createPage` for each result
-  const promises = posts.map(async ({ node }) => {
-    const directory = node.fileAbsolutePath.split('/').reverse()[2];
+  const promises = posts.map(async ({node}) => {
+    const directory = node.internal.contentFilePath.split('/').reverse()[2];
 
     createPage({
       // This is the slug we created before
       // (or `node.frontmatter.slug`)
-      path: node.fields.slug,
+      path: directory + '/' + node.frontmatter.slug,
       // This component will wrap our MDX content
       component: templates[directory],
       // We can use the values in this context in

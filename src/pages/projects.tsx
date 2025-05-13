@@ -87,7 +87,7 @@ const Projects: React.FC<ProjectsProps> = ({
           return (
             <Item key={id}>
               <MDXLink
-                href={fields.slug}
+                href={frontmatter.slug}
                 display="block"
                 minWidth="320px"
                 gridArea={[null, null, 'illustration']}
@@ -105,7 +105,7 @@ const Projects: React.FC<ProjectsProps> = ({
                   <Logo name={frontmatter.company} />
                 </ExternalLink>
 
-                <MDXLink href={fields.slug}>
+                <MDXLink href={frontmatter.slug}>
                   <Heading mt={theme.space.s} fontWeight={400}>
                     <strong>{frontmatter.title}</strong>{' '}
                     {textMap(frontmatter.kind, projectTexts)}
@@ -122,35 +122,34 @@ const Projects: React.FC<ProjectsProps> = ({
   );
 };
 export const pageQuery = graphql`
-  query ProjectsListQuery {
-    allMdx(
-      filter: { fileAbsolutePath: { regex: "/projects/" } }
-      sort: { fields: [frontmatter___date], order: DESC }
-    ) {
-      nodes {
-        id
-        excerpt(pruneLength: 72)
-        frontmatter {
-          title
-          company
-          git
-          link
-          kind
-          featured {
-            image {
-              childImageSharp {
-                gatsbyImageData(width: 476, layout: CONSTRAINED)
-              }
+query ProjectsListQuery {
+  allMdx(
+    filter: {internal: {contentFilePath: {regex: "/projects/"}}}
+    sort: {frontmatter: {date: DESC}}
+  ) {
+    nodes {
+      id
+      excerpt(pruneLength: 72)
+      frontmatter {
+        title
+        company
+        git
+        link
+        kind
+        featured {
+          image {
+            childImageSharp {
+              gatsbyImageData(width: 476, layout: CONSTRAINED)
             }
-            background
-            fit
           }
+          background
+          fit
         }
-        fields {
-          slug
-        }
+      }
+      frontmatter {
+        slug
       }
     }
   }
-`;
+}`;
 export default Projects;

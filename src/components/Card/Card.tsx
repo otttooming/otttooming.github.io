@@ -1,7 +1,6 @@
 import { AspectRatio, Box, Heading, Image } from '@chakra-ui/react';
 import { css } from '@emotion/react';
 import { MDXProvider } from '@mdx-js/react';
-import { MDXRenderer } from 'gatsby-plugin-mdx';
 import * as React from 'react';
 import type { TechnologiesFrontmatterFragmentFragment } from '../../types';
 import CoverImage from '../CoverImage/CoverImage';
@@ -125,9 +124,7 @@ const Card: React.FC<CardProps> = ({ title, body, featured, projects }) => {
       >
         <Heading>{title}</Heading>
 
-        <MDXProvider components={MDXComponents}>
-          <MDXRenderer>{body}</MDXRenderer>
-        </MDXProvider>
+        <MDXProvider components={MDXComponents}>{body}</MDXProvider>
       </Box>
     </Box>
   );

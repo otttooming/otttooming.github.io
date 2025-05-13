@@ -57,68 +57,66 @@ const Technologies: React.FC<TechnologiesProps> = ({
     </Layout>
   );
 };
-export const pageQuery = graphql`
-  fragment TechnologiesFrontmatterFragment on MdxFrontmatter {
-    featured {
-      illustration {
-        publicURL
-      }
-      background
-      width
-      height
-      alt
+export const pageQuery = graphql`fragment TechnologiesFrontmatterFragment on MdxFrontmatter {
+  featured {
+    illustration {
+      publicURL
     }
-    tags
-    kind
-    title
+    background
+    width
+    height
+    alt
   }
+  tags
+  kind
+  title
+}
 
-  query TechnologiesListQuery {
-    allMdx(
-      filter: { fileAbsolutePath: { regex: "/technologies/" } }
-      sort: { fields: [frontmatter___order], order: ASC }
-    ) {
-      nodes {
-        id
-        body
-        frontmatter {
-          ...TechnologiesFrontmatterFragment
-        }
-        fields {
-          slug
-        }
+query TechnologiesListQuery {
+  allMdx(
+    filter: {internal: {contentFilePath: {regex: "/technologies/"}}}
+    sort: {frontmatter: {order: ASC}}
+  ) {
+    nodes {
+      id
+      body
+      frontmatter {
+        ...TechnologiesFrontmatterFragment
       }
-    }
-    projects: allMdx(
-      filter: { fileAbsolutePath: { regex: "/projects/" } }
-      sort: { fields: [frontmatter___date], order: DESC }
-    ) {
-      nodes {
-        id
-        excerpt(pruneLength: 72)
-        frontmatter {
-          title
-          company
-          git
-          link
-          kind
-          tech
-          featured {
-            image {
-              childImageSharp {
-                gatsbyImageData(width: 476, layout: CONSTRAINED)
-              }
-            }
-            background
-            fit
-          }
-        }
-        fields {
-          slug
-        }
+      frontmatter {
+        slug
       }
     }
   }
-`;
+  projects: allMdx(
+    filter: {internal: {contentFilePath: {regex: "/projects/"}}}
+    sort: {frontmatter: {date: DESC}}
+  ) {
+    nodes {
+      id
+      excerpt(pruneLength: 72)
+      frontmatter {
+        title
+        company
+        git
+        link
+        kind
+        tech
+        featured {
+          image {
+            childImageSharp {
+              gatsbyImageData(width: 476, layout: CONSTRAINED)
+            }
+          }
+          background
+          fit
+        }
+      }
+      frontmatter {
+        slug
+      }
+    }
+  }
+}`;
 
 export default Technologies;
