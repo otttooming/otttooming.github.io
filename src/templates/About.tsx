@@ -26,7 +26,6 @@ const Wrapper: React.FC<BoxProps> = ({ ...restProps }) => (
 );
 
 const About: React.FC<PostProps> = ({
-  children,
   data: {
     mdx: {
       frontmatter: {
@@ -34,6 +33,7 @@ const About: React.FC<PostProps> = ({
         title,
         tags: tagList,
       },
+      body,
     },
   },
 }) => {
@@ -70,7 +70,7 @@ const About: React.FC<PostProps> = ({
       </Wrapper>
 
       <Wrapper>
-        <MDXProvider components={MDXComponents}>{children}</MDXProvider>
+        <MDXProvider components={MDXComponents}>{body}</MDXProvider>
       </Wrapper>
     </Layout>
   );
@@ -82,6 +82,7 @@ export const pageQuery = graphql`
   query AboutPostQuery($id: String) {
     mdx(id: { eq: $id }) {
       id
+      body
       frontmatter {
         title
         tags
