@@ -153,21 +153,27 @@ const IndexPage: React.FC = () => (
 
           <Text mt="24px">
             <OutLink href="https://github.com/otttooming">
-              <SocialIcon icon={<GitHub size="20" />} />
+              <SocialIcon>
+                <GitHub size="20" />
+              </SocialIcon>
               <strong>github.com</strong>/otttooming
             </OutLink>
           </Text>
 
           <Text mt="4px">
             <OutLink href="https://www.linkedin.com/in/otttooming/">
-              <SocialIcon icon={<Linkedin size="16" />} />
+              <SocialIcon>
+                <Linkedin size="16" />
+              </SocialIcon>
               <strong>linkedin.com</strong>/in/otttooming
             </OutLink>
           </Text>
 
           <Text mt="4px">
             <OutLink href="https://twitter.com/otttooming">
-              <SocialIcon icon={<Twitter size="16" />} />
+              <SocialIcon>
+                <Twitter size="16" />
+              </SocialIcon>
               <strong>twitter.com</strong>/otttooming
             </OutLink>
           </Text>

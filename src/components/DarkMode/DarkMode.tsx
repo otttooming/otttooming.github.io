@@ -96,11 +96,9 @@ const DarkMode: React.FC = () => {
   const { toggleColorMode } = useColorMode();
 
   return (
-    <IconButton
-      aria-label="Toggle dark mode"
-      icon={<MoonOrSun />}
-      onClick={toggleColorMode}
-    />
+    <IconButton aria-label="Toggle dark mode" onClick={toggleColorMode}>
+      <MoonOrSun />
+    </IconButton>
   );
 };
 
