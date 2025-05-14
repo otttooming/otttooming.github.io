@@ -4,12 +4,13 @@ import * as React from 'react';
 import CoverImageWrapper from './CoverImageWrapper';
 
 const CoverImage: React.FC<
-  BoxProps & { maxHeight: string; fit: string; fluid: any }
+  BoxProps & { maxHeight: string; fit: string; fluid: any; alt: string }
 > = ({
   maxHeight: passedMaxHeight,
   fit: passedFit,
   fluid,
   background: passedBackground,
+  alt,
   ...restProps
 }) => {
   const fit = passedFit ? passedFit : 'cover';
@@ -33,6 +34,7 @@ const CoverImage: React.FC<
       {...restProps}
     >
       <GatsbyImage
+        alt={alt}
         image={fluid}
         style={{ width }}
         imgStyle={{

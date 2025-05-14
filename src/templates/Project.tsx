@@ -42,6 +42,7 @@ const Project: React.FC<PostProps> = ({ data: { mdx } }) => {
 
       <Box maxWidth="1024px" m="80px auto 0" px="16px" position="relative">
         <CoverImage
+          alt={mdx.frontmatter.title}
           maxHeight="70vh"
           fit={fit}
           background={background}

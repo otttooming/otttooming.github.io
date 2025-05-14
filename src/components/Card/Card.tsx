@@ -15,7 +15,7 @@ export interface CardProps {
   projects: any;
 }
 
-const Item = ({ id, frontmatter: { featured } }) => {
+const Item = ({ id, frontmatter: { featured, title } }) => {
   const { image, background, fit } = featured;
 
   return (
@@ -26,6 +26,7 @@ const Item = ({ id, frontmatter: { featured } }) => {
         background={background}
         fluid={image.childImageSharp.gatsbyImageData}
         boxShadow="none"
+        alt={title}
       />
     </Box>
   );

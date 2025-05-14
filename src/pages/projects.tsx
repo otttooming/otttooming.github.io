@@ -97,6 +97,7 @@ const Projects: React.FC<ProjectsProps> = ({
                   fluid={image.childImageSharp.gatsbyImageData}
                   background={background}
                   fit={fit}
+                  alt={frontmatter.title}
                 />
               </MDXLink>
 

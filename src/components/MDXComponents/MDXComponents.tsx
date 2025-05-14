@@ -67,7 +67,6 @@ export const Link: React.FC<LinkProps> = ({
       display="inline-flex"
       alignItems="center"
       verticalAlign="middle"
-      isExternal={isExternal}
       href={href}
       {...restProps}
     >
@@ -82,7 +81,12 @@ export const Link: React.FC<LinkProps> = ({
 };
 
 export const List: React.FC = (props) => (
-  <ChakraList.Root {...props} styleType="disc" paddingLeft="32px" mt="16px" />
+  <ChakraList.Root
+    {...props}
+    listStyleType="disc"
+    paddingLeft="32px"
+    mt="16px"
+  />
 );
 
 export const ListItem: React.FC = (props) => (
