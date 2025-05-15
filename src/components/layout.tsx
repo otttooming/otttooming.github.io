@@ -1,5 +1,4 @@
 import { Global, css } from '@emotion/react';
-import { graphql, useStaticQuery } from 'gatsby';
 import * as React from 'react';
 import { customProperties } from '../utils/customProperties';
 import { theme } from '../utils/theme';
@@ -9,16 +8,6 @@ import { useColorMode } from './ui/color-mode';
 import { Provider } from './ui/provider';
 
 const Layout: React.FC = ({ children }) => {
-  const data = useStaticQuery(graphql`
-    query SiteTitleQuery {
-      site {
-        siteMetadata {
-          title
-        }
-      }
-    }
-  `);
-
   const { colorMode } = useColorMode();
 
   const backgroundColor = {
@@ -28,7 +17,7 @@ const Layout: React.FC = ({ children }) => {
 
   return (
     <>
-      <Header siteTitle={data.site.siteMetadata.title} />
+      <Header />
 
       <Global
         styles={css`
