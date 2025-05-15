@@ -16,7 +16,6 @@ import SEO from '../components/SEO';
 import Layout from '../components/layout';
 import { theme } from '../utils/theme';
 import { useColorMode } from '../components/ui/color-mode';
-import { Provider } from '../components/ui/provider';
 import { graphql, useStaticQuery } from 'gatsby';
 import { GatsbyImage } from 'gatsby-plugin-image';
 
