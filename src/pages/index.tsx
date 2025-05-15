@@ -13,7 +13,7 @@ import Coop from '../components/Coop/Coop';
 import Gallery from '../components/Gallery/Gallery';
 import HexGrid from '../components/HexGrid/HexGrid';
 import SEO from '../components/SEO';
-import Image from '../components/image';
+import Image from '../components/Image';
 import Layout from '../components/layout';
 import { theme } from '../utils/theme';
 import { useColorMode } from '../components/ui/color-mode';
