@@ -41,7 +41,8 @@ const Header: React.FC = () => (
     `}
   >
     <p>
-      <Button as={link('/')} leftIcon={<Wind />} variant="ghost">
+      <Button as={link('/')} variant="ghost">
+        <Wind />
         Ott
       </Button>
     </p>
@@ -49,27 +50,22 @@ const Header: React.FC = () => (
     <nav>
       <Box as="ol" display="flex" m="0" p="0">
         <Item>
-          <Button as={link('/about/me')} leftIcon={<User />} variant="ghost">
+          <Button as={link('/about/me')} variant="ghost">
+            <User />
             About
           </Button>
         </Item>
 
         <Item>
-          <Button
-            as={link('/technologies')}
-            leftIcon={<Tool />}
-            variant="ghost"
-          >
+          <Button as={link('/technologies')} variant="ghost">
+            <Tool />
             Tech
           </Button>
         </Item>
 
         <Item>
-          <Button
-            as={link('/projects')}
-            leftIcon={<BookOpen />}
-            variant="ghost"
-          >
+          <Button as={link('/projects')} variant="ghost">
+            <BookOpen />
             Projects
           </Button>
         </Item>
