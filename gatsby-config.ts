@@ -1,4 +1,6 @@
-module.exports = {
+import type { GatsbyConfig } from 'gatsby';
+
+const config: GatsbyConfig = {
   siteMetadata: {
     title: 'Personal portfolio - Ott',
     description: 'This is something to collate all my thoughts.',
@@ -93,3 +95,5 @@ module.exports = {
     },
   ],
 };
+
+export default config;
