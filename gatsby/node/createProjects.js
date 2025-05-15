@@ -8,7 +8,7 @@ const templates = {
    * We don't need individual pages for technologies listing.
    * Only listing is shown.
    */
-  technologies: path.resolve(`./src/pages/404.js`),
+  technologies: path.resolve(`./src/pages/Route404.tsx`),
 };
 
 module.exports = async function createProjects(graphql, reporter, createPage) {
@@ -35,7 +35,7 @@ module.exports = async function createProjects(graphql, reporter, createPage) {
   // Create blog post pages.
   const posts = result.data.allMdx.edges;
   // We'll call `createPage` for each result
-  const promises = posts.map(async ({node}) => {
+  const promises = posts.map(async ({ node }) => {
     const directory = node.internal.contentFilePath.split('/').reverse()[2];
 
     createPage({
