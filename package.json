@@ -16,8 +16,8 @@
     "gatsby-plugin-manifest": "^5.14.0",
     "gatsby-plugin-mdx": "^5.14.1",
     "gatsby-plugin-react-helmet": "^6.14.0",
-    "gatsby-plugin-react-svg": "^3.3.0",
     "gatsby-plugin-sharp": "^5.14.0",
+    "gatsby-plugin-svgr-loader": "^0.1.0",
     "gatsby-plugin-typescript": "^5.14.0",
     "gatsby-remark-copy-linked-files": "^6.14.0",
     "gatsby-remark-images": "^7.14.0",
@@ -47,7 +47,11 @@
     "husky": "^9.1.7",
     "lint-staged": "^16.0.0"
   },
-  "keywords": ["gatsby", "react", "typescript"],
+  "keywords": [
+    "gatsby",
+    "react",
+    "typescript"
+  ],
   "license": "MIT",
   "scripts": {
     "build": "gatsby build",
@@ -69,6 +73,8 @@
     "url": "https://github.com/otttooming/otttooming.github.io/issues"
   },
   "lint-staged": {
-    "*": ["npm run lint"]
+    "*": [
+      "npm run lint"
+    ]
   }
 }
