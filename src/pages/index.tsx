@@ -13,11 +13,31 @@ import Coop from '../components/Coop/Coop';
 import Gallery from '../components/Gallery/Gallery';
 import HexGrid from '../components/HexGrid/HexGrid';
 import SEO from '../components/SEO';
-import Image from '../components/Image';
 import Layout from '../components/layout';
 import { theme } from '../utils/theme';
 import { useColorMode } from '../components/ui/color-mode';
 import { Provider } from '../components/ui/provider';
+import { graphql, useStaticQuery } from 'gatsby';
+import { GatsbyImage } from 'gatsby-plugin-image';
+
+const Portrait = ({ ...restProps }) => {
+  const data = useStaticQuery(graphql`
+    {
+      placeholderImage: file(relativePath: { eq: "portrait-ott.jpg" }) {
+        childImageSharp {
+          gatsbyImageData(width: 466, layout: CONSTRAINED)
+        }
+      }
+    }
+  `);
+
+  return (
+    <GatsbyImage
+      image={data.placeholderImage.childImageSharp.gatsbyImageData}
+      {...restProps}
+    />
+  );
+};
 
 const Grid: React.FC<BoxProps> = ({ ...restProps }) => {
   const { colorMode } = useColorMode();
@@ -180,7 +200,7 @@ const IndexPage: React.FC = () => (
         </Box>
 
         <Box
-          as={Image}
+          as={Portrait}
           borderRadius="70% 30% 30% 70% / 60% 40% 60% 40%"
           boxShadow="5px 25px 40px rgba(0, 0, 0, 0.2)"
         />
