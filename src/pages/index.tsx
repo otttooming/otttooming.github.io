@@ -33,6 +33,7 @@ const Portrait = ({ ...restProps }) => {
 
   return (
     <GatsbyImage
+      alt="Ott Tooming"
       image={data.placeholderImage.childImageSharp.gatsbyImageData}
       {...restProps}
     />
