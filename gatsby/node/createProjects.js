@@ -1,4 +1,4 @@
-const path = require('path');
+const path = require('node:path');
 
 const templates = {
   about: path.resolve('./src/templates/About.tsx'),
