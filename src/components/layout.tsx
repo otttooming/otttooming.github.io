@@ -7,7 +7,7 @@ import Header from './Header';
 import { useColorMode } from './ui/color-mode';
 import { Provider } from './ui/provider';
 
-const Layout: React.FC = ({ children }) => {
+const Layout = ({ children }: React.PropsWithChildren) => {
   const { colorMode } = useColorMode();
 
   const backgroundColor = {
@@ -62,7 +62,7 @@ const Layout: React.FC = ({ children }) => {
   );
 };
 
-export default ({ children }) => {
+export default ({ children }: React.PropsWithChildren) => {
   return (
     <Provider>
       <Layout>{children}</Layout>
