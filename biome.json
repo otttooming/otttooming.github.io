@@ -4,6 +4,9 @@
   },
   "linter": {
     "rules": {
+      "complexity": {
+        "noForEach": "off"
+      },
       "style": {
         "useImportType": "off"
       },
