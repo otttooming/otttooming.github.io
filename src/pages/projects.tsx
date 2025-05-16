@@ -133,6 +133,7 @@ query ProjectsListQuery {
       excerpt(pruneLength: 72)
       frontmatter {
         title
+        slug
         company
         git
         link
@@ -146,9 +147,6 @@ query ProjectsListQuery {
           background
           fit
         }
-      }
-      frontmatter {
-        slug
       }
     }
   }
