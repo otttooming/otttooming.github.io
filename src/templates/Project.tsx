@@ -12,13 +12,9 @@ import TagList from '../components/TagList/TagList';
 import { getMappedTags } from '../components/TagList/tagMap';
 import Layout from '../components/layout';
 import { techTags } from '../constants/tech';
-import type { ProjectPostQueryQuery } from '../types';
+import { ProjectPostQueryQuery } from '../types';
 import { projectTexts, textMap } from '../utils/textMap';
 import { theme } from '../utils/theme';
-
-export interface PostProps {
-  data: ProjectPostQueryQuery;
-}
 
 const Wrapper = styled.div`
   margin-top: 80px;
@@ -33,7 +29,7 @@ const Wrapper = styled.div`
   }
 `;
 
-const Project: React.FC<PostProps> = ({ data: { mdx } }) => {
+const Project = ({ children, data: { mdx } }) => {
   const { image, background, fit } = mdx.frontmatter.featured;
 
   return (
@@ -83,7 +79,7 @@ const Project: React.FC<PostProps> = ({ data: { mdx } }) => {
       </Box>
 
       <Wrapper>
-        <MDXProvider components={MDXComponents}>{mdx.body}</MDXProvider>
+        <MDXProvider components={MDXComponents}>{children}</MDXProvider>
       </Wrapper>
     </Layout>
   );
