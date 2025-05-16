@@ -40,7 +40,7 @@ module.exports = async function createProjects(graphql, reporter, createPage) {
     createPage({
       // This is the slug we created before
       // (or 'node.frontmatter.slug')
-      path: directory + '/' + node.frontmatter.slug,
+      path: `${directory}/${node.frontmatter.slug}`,
       // This component will wrap our MDX content
       component: `${templates[directory]}?__contentFilePath=${node.internal.contentFilePath}`,
       // We can use the values in this context in
