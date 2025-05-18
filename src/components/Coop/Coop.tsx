@@ -5,10 +5,6 @@ import {
   type LinkProps,
 } from '@chakra-ui/react';
 import * as React from 'react';
-import Gtap from '../../assets/logo-gtap.svg';
-import Iglu from '../../assets/logo-iglu.svg';
-import Pipedrive from '../../assets/logo-pipedrive.svg';
-import Voog from '../../assets/logo-voog.svg';
 
 const Company: React.FC<BoxProps> = ({ ...restProps }) => {
   return <Box as="li" {...restProps} />;
@@ -32,6 +28,30 @@ const Link: React.FC<LinkProps> = ({ ...restProps }) => {
 const Card: React.FC<BoxProps> = ({ ...restProps }) => {
   return <Box width="200px" maxHeight="100%" {...restProps} />;
 };
+
+const Voog = ({ ...rest }: React.ComponentProps<'svg'>) => (
+  <svg {...rest}>
+    <use href="./logo-voog.svg#logo-voog" />
+  </svg>
+);
+
+const Pipedrive = ({ ...rest }: React.ComponentProps<'svg'>) => (
+  <svg {...rest}>
+    <use href="./logo-pipedrive.svg#logo-pipedrive" />
+  </svg>
+);
+
+const Iglu = ({ ...rest }: React.ComponentProps<'svg'>) => (
+  <svg {...rest}>
+    <use href="./logo-iglu.svg#logo-iglu" />
+  </svg>
+);
+
+const Gtap = ({ ...rest }: React.ComponentProps<'svg'>) => (
+  <svg {...rest}>
+    <use href="./logo-gtap.svg#logo-gtap" />
+  </svg>
+);
 
 const Coop: React.FC = () => {
   return (
