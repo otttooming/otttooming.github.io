@@ -27,3 +27,9 @@ export const Pethealth = ({ ...rest }: React.ComponentProps<'svg'>) => (
     <use href="./logo-pethealth.svg#logo-pethealth" />
   </svg>
 );
+
+export const Khk = ({ ...rest }: React.ComponentProps<'svg'>) => (
+  <svg role="img" aria-label="Tartu KHK" {...rest}>
+    <use href="./logo-khk.svg#logo-khk" />
+  </svg>
+);
