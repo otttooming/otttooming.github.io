@@ -140,62 +140,26 @@ const Gallery: React.FC = () => {
     }
   `);
 
-  const gridMap = {
-    bella: {
-      type: 'landscape',
-      gallery: [],
-    },
-    ossu: {
-      type: 'portrait',
-      gallery: [],
-    },
-    gustav: {
-      type: 'landscape',
-      gallery: [],
-    },
-    bobby: {
-      type: 'portrait',
-      gallery: [],
-    },
-    max: {
-      type: 'landscape',
-      gallery: [],
-    },
-    tondu: {
-      type: 'landscape',
-      gallery: [],
-    },
-  };
-
-  const mapImagesToGrid = (
-    acc,
-    {
-      node: {
-        frontmatter: {
-          slug,
-          featured: { image },
-        },
-      },
-    },
-  ) => {
-    acc[slug].gallery = [image];
-
-    return acc;
-  };
-
-  const grid = data.images.edges.reduce(mapImagesToGrid, gridMap);
-
   return (
     <Wrapper>
-      {Object.values(grid).map(({ gallery }, index) => {
-        return (
-          <Item key={index}>
-            <ItemContainer>
-              <GatsbyImage image={gallery[0].childImageSharp.gatsbyImageData} />
-            </ItemContainer>
-          </Item>
-        );
-      })}
+      {data.images.edges.map(
+        ({
+          node: {
+            frontmatter: {
+              slug,
+              featured: { image },
+            },
+          },
+        }) => {
+          return (
+            <Item key={slug}>
+              <ItemContainer>
+                <GatsbyImage image={image.childImageSharp.gatsbyImageData} />
+              </ItemContainer>
+            </Item>
+          );
+        },
+      )}
     </Wrapper>
   );
 };
