@@ -31,8 +31,9 @@ const Tag: React.FC<TagProps> = ({ title, url }) => {
 
   return (
     <Box as="li" listStyleType="none" display="inline-flex">
-      <Button as={link(url)} mr={theme.space.s} size="xs" rightIcon={rightIcon}>
+      <Button as={link(url)} mr={theme.space.s} size="xs">
         {title}
+        {rightIcon}
       </Button>
     </Box>
   );
