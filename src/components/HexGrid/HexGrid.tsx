@@ -6,11 +6,6 @@ import {
 } from '@chakra-ui/react';
 import styled from '@emotion/styled';
 import * as React from 'react';
-import GatsbyIcon from '../../assets/tech-gatsby.svg';
-import GraphQLIcon from '../../assets/tech-graphql.svg';
-import ReactIcon from '../../assets/tech-react.svg';
-import ReduxIcon from '../../assets/tech-redux.svg';
-import TSIcon from '../../assets/tech-typescript.svg';
 
 const Wrapper = styled.div`
   margin: 128px auto;
@@ -150,6 +145,34 @@ const Icon = styled.span`
 const Content: React.FC<BoxProps> = ({ ...restProps }) => {
   return <Box as={StyledContent} display="block" {...restProps} />;
 };
+
+const GatsbyIcon = ({ ...rest }: React.ComponentProps<'svg'>) => (
+  <svg role="img" aria-label="Gatsby" {...rest}>
+    <use href="./tech-gatsby.svg#tech-gatsby" />
+  </svg>
+);
+
+const GraphQLIcon = ({ ...rest }: React.ComponentProps<'svg'>) => (
+  <svg role="img" aria-label="GraphQL" {...rest}>
+    <use href="./tech-graphql.svg#tech-graphql" />
+  </svg>
+);
+
+const ReactIcon = ({ ...rest }: React.ComponentProps<'svg'>) => (
+  <svg role="img" aria-label="React" {...rest}>
+    <use href="./tech-react.svg#tech-react" />
+  </svg>
+);
+const ReduxIcon = ({ ...rest }: React.ComponentProps<'svg'>) => (
+  <svg role="img" aria-label="Redux" {...rest}>
+    <use href="./tech-redux.svg#tech-redux" />
+  </svg>
+);
+const TSIcon = ({ ...rest }: React.ComponentProps<'svg'>) => (
+  <svg role="img" aria-label="TypeScript" {...rest}>
+    <use href="./tech-typescript.svg#tech-typescript" />
+  </svg>
+);
 
 const HexGrid: React.FC = () => {
   return (
