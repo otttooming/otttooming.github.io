@@ -30,25 +30,25 @@ const Card: React.FC<BoxProps> = ({ ...restProps }) => {
 };
 
 const Voog = ({ ...rest }: React.ComponentProps<'svg'>) => (
-  <svg {...rest}>
+  <svg role="img" aria-label="Voog" {...rest}>
     <use href="./logo-voog.svg#logo-voog" />
   </svg>
 );
 
 const Pipedrive = ({ ...rest }: React.ComponentProps<'svg'>) => (
-  <svg {...rest}>
+  <svg role="img" aria-label="Pipedrive" {...rest}>
     <use href="./logo-pipedrive.svg#logo-pipedrive" />
   </svg>
 );
 
 const Iglu = ({ ...rest }: React.ComponentProps<'svg'>) => (
-  <svg {...rest}>
+  <svg role="img" aria-label="Iglu" {...rest}>
     <use href="./logo-iglu.svg#logo-iglu" />
   </svg>
 );
 
 const Gtap = ({ ...rest }: React.ComponentProps<'svg'>) => (
-  <svg {...rest}>
+  <svg role="img" aria-label="gotoAndPlay" {...rest}>
     <use href="./logo-gtap.svg#logo-gtap" />
   </svg>
 );
