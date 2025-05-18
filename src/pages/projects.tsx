@@ -141,7 +141,7 @@ query ProjectsListQuery {
         featured {
           image {
             childImageSharp {
-              gatsbyImageData(width: 476, layout: CONSTRAINED)
+              gatsbyImageData(width: 500, layout: CONSTRAINED)
             }
           }
           background
