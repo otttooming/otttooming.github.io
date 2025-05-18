@@ -21,3 +21,9 @@ export const Gtap = ({ ...rest }: React.ComponentProps<'svg'>) => (
     <use href="./logo-gtap.svg#logo-gtap" />
   </svg>
 );
+
+export const Pethealth = ({ ...rest }: React.ComponentProps<'svg'>) => (
+  <svg role="img" aria-label="Pethealth" {...rest}>
+    <use href="./logo-pethealth.svg#logo-pethealth" />
+  </svg>
+);
