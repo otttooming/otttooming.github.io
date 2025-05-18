@@ -79,20 +79,6 @@ const config: GatsbyConfig = {
         legacy: false,
       },
     },
-    {
-      resolve: 'gatsby-plugin-svgr-loader',
-      options: {
-        rule: {
-          include: `${__dirname}/src/assets`,
-          options: {
-            /**
-             * Disable SVGO optimization to prevent removing the viewBox attribute
-             */
-            svgo: false,
-          },
-        },
-      },
-    },
   ],
 };
 
