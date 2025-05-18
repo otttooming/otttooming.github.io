@@ -154,7 +154,10 @@ const Gallery: React.FC = () => {
           return (
             <Item key={slug}>
               <ItemContainer>
-                <GatsbyImage image={image.childImageSharp.gatsbyImageData} />
+                <GatsbyImage
+                  image={image.childImageSharp.gatsbyImageData}
+                  alt={slug}
+                />
               </ItemContainer>
             </Item>
           );
