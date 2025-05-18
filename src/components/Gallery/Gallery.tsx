@@ -2,7 +2,7 @@ import styled from '@emotion/styled';
 import { graphql, useStaticQuery } from 'gatsby';
 import * as React from 'react';
 import { theme } from '../../utils/theme';
-import GalleryImage from './GalleryImage';
+import { GatsbyImage } from 'gatsby-plugin-image';
 
 const Wrapper = styled.div`
   display: grid;
@@ -191,7 +191,7 @@ const Gallery: React.FC = () => {
         return (
           <Item key={index}>
             <ItemContainer>
-              <GalleryImage image={gallery[0]} />
+              <GatsbyImage image={gallery[0].childImageSharp.gatsbyImageData} />
             </ItemContainer>
           </Item>
         );
