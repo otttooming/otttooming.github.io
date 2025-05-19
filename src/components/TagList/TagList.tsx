@@ -1,10 +1,11 @@
-import { Box, Button } from '@chakra-ui/react';
+import { Box } from '@chakra-ui/react';
 import { Link as GatsbyLink } from 'gatsby';
 import * as React from 'react';
 import { ExternalLink } from 'react-feather';
 import { getIsExternalLink } from '../../utils/getIsExternalLink';
 import { theme } from '../../utils/theme';
 import type { Tag as TagProps } from './tagMap';
+import { Button } from '../Button/Button';
 
 export interface TagListProps {
   tags: TagProps[];
@@ -26,12 +27,14 @@ const link =
 
 const Tag: React.FC<TagProps> = ({ title, url }) => {
   const rightIcon = getIsExternalLink(url) ? (
-    <ExternalLink width="14px" height="14px" />
+    <Box ml={theme.space.s}>
+      <ExternalLink width="14px" height="14px" />
+    </Box>
   ) : null;
 
   return (
     <Box as="li" listStyleType="none" display="inline-flex">
-      <Button as={link(url)} mr={theme.space.s} size="xs">
+      <Button as={link(url)}>
         {title}
         {rightIcon}
       </Button>
