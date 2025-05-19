@@ -1,10 +1,4 @@
-import {
-  AspectRatio,
-  Box,
-  type BoxProps,
-  Heading,
-  Image,
-} from '@chakra-ui/react';
+import { AspectRatio, Box, Heading, Image } from '@chakra-ui/react';
 import { MDXProvider } from '@mdx-js/react';
 import { graphql } from 'gatsby';
 import * as React from 'react';
@@ -15,17 +9,10 @@ import TagList from '../components/TagList/TagList';
 import { getMappedTags } from '../components/TagList/tagMap';
 import Layout from '../components/layout';
 import { socialTags } from '../constants/social';
-import type { AboutPostQueryQuery } from '../types';
+import { About } from './About.components';
 
-export interface PostProps {
-  data: AboutPostQueryQuery;
-}
-
-const Wrapper: React.FC<BoxProps> = ({ ...restProps }) => (
-  <Box maxWidth="960px" m="80px auto" px="16px" {...restProps} />
-);
-
-const About: React.FC<PostProps> = ({
+const AboutTemplate = ({
+  children,
   data: {
     mdx: {
       frontmatter: {
@@ -33,7 +20,6 @@ const About: React.FC<PostProps> = ({
         title,
         tags: tagList,
       },
-      body,
     },
   },
 }) => {
@@ -63,20 +49,20 @@ const About: React.FC<PostProps> = ({
         </AspectRatio>
       </CoverImageWrapper>
 
-      <Wrapper>
+      <About.Wrapper>
         <Heading as="h1">{title}</Heading>
 
         <TagList tags={tags} />
-      </Wrapper>
+      </About.Wrapper>
 
-      <Wrapper>
-        <MDXProvider components={MDXComponents}>{body}</MDXProvider>
-      </Wrapper>
+      <About.Wrapper>
+        <MDXProvider components={MDXComponents}>{children}</MDXProvider>
+      </About.Wrapper>
     </Layout>
   );
 };
 
-export default About;
+export default AboutTemplate;
 
 export const pageQuery = graphql`
   query AboutPostQuery($id: String) {
