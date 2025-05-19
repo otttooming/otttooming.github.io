@@ -5,7 +5,7 @@
   "version": "0.1.0",
   "author": "Ott Tooming <otttooming@gmail.com>",
   "dependencies": {
-    "@chakra-ui/react": "^3.17.0",
+    "@chakra-ui/react": "^3.19.1",
     "@emotion/react": "^11.14.0",
     "@emotion/styled": "^11.14.0",
     "@mdx-js/react": "^2.3.0",
