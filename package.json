@@ -41,6 +41,9 @@
     "@types/react-helmet": "^6.1.11",
     "gh-pages": "^3.2.3"
   },
+  "overrides": {
+    "react": "$react"
+  },
   "keywords": ["gatsby", "react", "typescript"],
   "license": "MIT",
   "scripts": {
