@@ -7,7 +7,6 @@ const config: GatsbyConfig = {
     author: '@OttTooming',
   },
   plugins: [
-    'gatsby-plugin-emotion',
     'gatsby-plugin-typescript',
     'gatsby-plugin-react-helmet',
     {
