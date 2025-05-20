@@ -34,7 +34,7 @@ export function onCreateNode({ node, actions, getNode }) {
   }
 }
 
-export async function createPages({ graphql, actions, reporter }) {
+export async function createPages({ graphql, actions }) {
   // Destructure the createPage function from the actions object
   const { createPage } = actions;
 
@@ -53,10 +53,6 @@ export async function createPages({ graphql, actions, reporter }) {
       }
     }
   `);
-
-  if (result.errors) {
-    reporter.panicOnBuild('🚨  ERROR: Loading "createPages" query');
-  }
 
   const posts = result.data.allMdx.nodes;
 
