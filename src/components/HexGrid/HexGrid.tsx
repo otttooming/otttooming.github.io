@@ -5,7 +5,6 @@ import {
   type LinkProps,
 } from '@chakra-ui/react';
 import styled from '@emotion/styled';
-import * as React from 'react';
 
 const Wrapper = styled.div`
   margin: 128px auto;

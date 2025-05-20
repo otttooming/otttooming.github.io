@@ -1,6 +1,5 @@
 import { Box, Heading, Text } from '@chakra-ui/react';
 import { graphql } from 'gatsby';
-import * as React from 'react';
 import Card from '../components/Card/Card';
 import SEO from '../components/SEO';
 import Layout from '../components/layout';

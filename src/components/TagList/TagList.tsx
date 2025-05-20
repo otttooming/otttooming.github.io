@@ -1,6 +1,5 @@
 import { Box } from '@chakra-ui/react';
 import { Link as GatsbyLink } from 'gatsby';
-import * as React from 'react';
 import { ExternalLink } from 'react-feather';
 import { getIsExternalLink } from '../../utils/getIsExternalLink';
 import { theme } from '../../utils/theme';

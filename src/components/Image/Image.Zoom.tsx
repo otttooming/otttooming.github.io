@@ -1,4 +1,3 @@
-import * as React from 'react';
 import ImageWithZoom from 'react-medium-image-zoom';
 import 'react-medium-image-zoom/dist/styles.css';
 

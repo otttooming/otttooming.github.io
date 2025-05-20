@@ -1,5 +1,4 @@
 import { Box, type BoxProps } from '@chakra-ui/react';
-import * as React from 'react';
 import { theme } from '../../utils/theme';
 
 const CoverImageWrapper: React.FC<BoxProps> = ({ children, ...restProps }) => {

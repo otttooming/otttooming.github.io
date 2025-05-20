@@ -4,7 +4,6 @@ import {
   Link as ChakraLink,
   type LinkProps,
 } from '@chakra-ui/react';
-import * as React from 'react';
 import { Gtap, Iglu, Pipedrive, Voog } from '../Logo/CompanyLogos';
 
 const Company: React.FC<BoxProps> = ({ ...restProps }) => {

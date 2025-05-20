@@ -2,7 +2,6 @@ import { Box, Heading, Link } from '@chakra-ui/react';
 import styled from '@emotion/styled';
 import { MDXProvider } from '@mdx-js/react';
 import { graphql } from 'gatsby';
-import * as React from 'react';
 import { ExternalLink } from 'react-feather';
 import CoverImage from '../components/CoverImage/CoverImage';
 import Logo from '../components/Logo/Logo';

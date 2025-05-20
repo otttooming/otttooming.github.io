@@ -1,6 +1,5 @@
 import styled from '@emotion/styled';
 import { graphql, useStaticQuery } from 'gatsby';
-import * as React from 'react';
 import { theme } from '../../utils/theme';
 import { GatsbyImage } from 'gatsby-plugin-image';
 

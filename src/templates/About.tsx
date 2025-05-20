@@ -1,7 +1,6 @@
 import { AspectRatio, Box, Heading, Image } from '@chakra-ui/react';
 import { MDXProvider } from '@mdx-js/react';
 import { graphql } from 'gatsby';
-import * as React from 'react';
 import CoverImageWrapper from '../components/CoverImage/CoverImageWrapper';
 import MDXComponents from '../components/MDXComponents/MDXComponents';
 import SEO from '../components/SEO';

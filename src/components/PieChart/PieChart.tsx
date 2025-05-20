@@ -1,5 +1,5 @@
+import React from 'react';
 import styled from '@emotion/styled';
-import * as React from 'react';
 import { Cell, Pie, PieChart } from 'recharts';
 import { theme } from '../../utils/theme';
 

@@ -1,5 +1,4 @@
 import { Box, type BoxProps } from '@chakra-ui/react';
-import * as React from 'react';
 import { Gtap, Iglu, Khk, Pethealth, Pipedrive, Voog } from './CompanyLogos';
 
 export type LogoProps = {

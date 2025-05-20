@@ -7,7 +7,6 @@ import {
   IconButton,
   Link,
 } from '@chakra-ui/react';
-import * as React from 'react';
 import { GitHub, Linkedin, Twitter } from 'react-feather';
 import Coop from '../components/Coop/Coop';
 import Gallery from '../components/Gallery/Gallery';

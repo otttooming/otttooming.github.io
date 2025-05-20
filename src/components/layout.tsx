@@ -1,5 +1,4 @@
 import { Global, css } from '@emotion/react';
-import * as React from 'react';
 import { customProperties } from '../utils/customProperties';
 import { theme } from '../utils/theme';
 import Footer from './Footer/Footer';

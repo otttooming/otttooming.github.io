@@ -1,7 +1,7 @@
 import styled from '@emotion/styled';
-import * as React from 'react';
 import { theme } from '../../utils/theme';
 import ImageZoom from '../Image/Image.Zoom';
+import { Children, useEffect, useRef, useState } from 'react';
 
 const Wrapper = styled.div`
   display: grid;
@@ -24,12 +24,12 @@ const Item = styled.div`
 `;
 
 const MasonryGallery: React.FC = ({ children }) => {
-  const childrenCount = React.Children.count(children);
+  const childrenCount = Children.count(children);
 
   const minWidth = 300;
   const cols = [];
-  const ref = React.useRef(null);
-  const [numCols, setNumCols] = React.useState(3);
+  const ref = useRef(null);
+  const [numCols, setNumCols] = useState(3);
 
   const calcNumCols = () => {
     const possibleColumns = Math.floor(ref.current.offsetWidth / minWidth) || 1;
@@ -42,7 +42,7 @@ const MasonryGallery: React.FC = ({ children }) => {
   const createCols = () => {
     for (let i = 0; i < numCols; i++) cols[i] = [];
 
-    React.Children.forEach(children, (child, i) =>
+    Children.forEach(children, (child, i) =>
       cols[i % numCols].push(
         <Item key={i}>
           <ImageZoom>{child} </ImageZoom>
@@ -51,7 +51,7 @@ const MasonryGallery: React.FC = ({ children }) => {
     );
   };
 
-  React.useEffect(() => {
+  useEffect(() => {
     calcNumCols();
     window.addEventListener('resize', calcNumCols);
     return () => window.removeEventListener('resize', calcNumCols);

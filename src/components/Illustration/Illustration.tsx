@@ -1,5 +1,4 @@
 import { Box } from '@chakra-ui/react';
-import * as React from 'react';
 
 const Illustration: React.FC = ({ children }) => {
   return (
