@@ -2,16 +2,14 @@ import type { BoxProps } from '@chakra-ui/react';
 import { GatsbyImage } from 'gatsby-plugin-image';
 import CoverImageWrapper from './CoverImageWrapper';
 
-const CoverImage: React.FC<
-  BoxProps & { maxHeight: string; fit: string; fluid: any; alt: string }
-> = ({
+const CoverImage = ({
   maxHeight: passedMaxHeight,
   fit: passedFit,
   fluid,
   background: passedBackground,
   alt,
   ...restProps
-}) => {
+}: BoxProps & { maxHeight: string; fit: string; fluid: any; alt: string }) => {
   const fit = passedFit ? passedFit : 'cover';
 
   const isObjectFitCover = fit === 'cover';

@@ -38,7 +38,7 @@ const Portrait = ({ ...restProps }) => {
   );
 };
 
-const Grid: React.FC<BoxProps> = ({ ...restProps }) => {
+const Grid = ({ ...restProps }: BoxProps) => {
   const { colorMode } = useColorMode();
 
   const backgroundColor = colorMode === 'light' ? ' #edf2f7' : '#2c3442';
@@ -65,7 +65,7 @@ const Grid: React.FC<BoxProps> = ({ ...restProps }) => {
   );
 };
 
-const AltGrid: React.FC<BoxProps> = ({ ...restProps }) => (
+const AltGrid = ({ ...restProps }: BoxProps) => (
   <Box
     display="grid"
     gridGap="var(--space-l)"
@@ -78,7 +78,7 @@ const AltGrid: React.FC<BoxProps> = ({ ...restProps }) => (
   />
 );
 
-const PlainGrid: React.FC<BoxProps> = ({ ...restProps }) => (
+const PlainGrid = ({ ...restProps }: BoxProps) => (
   <Box
     width="100%"
     maxWidth="960px"
@@ -87,7 +87,7 @@ const PlainGrid: React.FC<BoxProps> = ({ ...restProps }) => (
   />
 );
 
-const Subheading: React.FC<HeadingProps> = ({ ...restProps }) => (
+const Subheading = ({ ...restProps }: HeadingProps) => (
   <Heading
     as="h2"
     size="md"
@@ -96,7 +96,7 @@ const Subheading: React.FC<HeadingProps> = ({ ...restProps }) => (
   />
 );
 
-const Segment: React.FC<BoxProps> = ({ ...restProps }) => (
+const Segment = ({ ...restProps }: BoxProps) => (
   <Box
     as="section"
     px={[0, '16px', '16px']}
@@ -125,7 +125,7 @@ const SmallType = ({ children }) => {
   );
 };
 
-const Text: React.FC<BoxProps> = ({ ...restProps }) => (
+const Text = ({ ...restProps }: BoxProps) => (
   <ChakraText mt="8px" {...restProps} />
 );
 
@@ -149,7 +149,7 @@ const SocialIcon = ({ ...restProps }) => (
   />
 );
 
-const IndexPage: React.FC = () => (
+const IndexPage = () => (
   <Layout>
     <SEO title="Home" description="" />
     <Segment

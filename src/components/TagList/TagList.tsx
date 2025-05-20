@@ -24,7 +24,7 @@ const link =
     return <GatsbyLink to={to} {...restProps} />;
   };
 
-const Tag: React.FC<TagProps> = ({ title, url }) => {
+const Tag = ({ title, url }: TagProps) => {
   const rightIcon = getIsExternalLink(url) ? (
     <Box ml={theme.space.s}>
       <ExternalLink width="14px" height="14px" />
@@ -41,7 +41,7 @@ const Tag: React.FC<TagProps> = ({ title, url }) => {
   );
 };
 
-const TagList: React.FC<TagListProps> = ({ tags }) => {
+const TagList = ({ tags }: TagListProps) => {
   return (
     <Box as="ul" my={theme.space.m} mx="auto" p="0">
       {tags.map((item) => (

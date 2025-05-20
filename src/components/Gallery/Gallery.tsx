@@ -114,7 +114,7 @@ const ItemContainer = styled.div`
   }
 `;
 
-const Gallery: React.FC = () => {
+const Gallery = () => {
   const data = useStaticQuery(graphql`
     {
       images: allMdx(

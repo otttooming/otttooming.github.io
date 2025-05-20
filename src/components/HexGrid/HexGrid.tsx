@@ -43,15 +43,11 @@ const Item = styled.div`
   }
 `;
 
-const Link: React.FC<LinkProps> = ({ ...restProps }) => (
+const Link = ({ ...restProps }: LinkProps) => (
   <ChakraLink display="block" target="blank" {...restProps} />
 );
 
-const Hex: React.FC<BoxProps & { href: string }> = ({
-  children,
-  href,
-  ...restProps
-}) => (
+const Hex = ({ children, href, ...restProps }: BoxProps & { href: string }) => (
   <Link href={href}>
     <Content {...restProps}>{children}</Content>
   </Link>
@@ -141,7 +137,7 @@ const Icon = styled.span`
   }
 `;
 
-const Content: React.FC<BoxProps> = ({ ...restProps }) => {
+const Content = ({ ...restProps }: BoxProps) => {
   return <Box as={StyledContent} display="block" {...restProps} />;
 };
 
@@ -173,7 +169,7 @@ const TSIcon = ({ ...rest }: React.ComponentProps<'svg'>) => (
   </svg>
 );
 
-const HexGrid: React.FC = () => {
+const HexGrid = () => {
   return (
     <Wrapper>
       <Item>

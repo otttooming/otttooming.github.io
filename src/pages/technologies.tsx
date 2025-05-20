@@ -10,12 +10,12 @@ interface TechnologiesProps {
   data: TechnologiesListQueryQuery;
 }
 
-const Technologies: React.FC<TechnologiesProps> = ({
+const Technologies = ({
   data: {
     allMdx: { nodes },
     projects,
   },
-}) => {
+}: TechnologiesProps) => {
   const posts = nodes;
 
   return (

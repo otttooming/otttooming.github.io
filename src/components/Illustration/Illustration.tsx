@@ -1,6 +1,7 @@
 import { Box } from '@chakra-ui/react';
+import { PropsWithChildren } from 'react';
 
-const Illustration: React.FC = ({ children }) => {
+const Illustration = ({ children }: PropsWithChildren) => {
   return (
     <Box
       mt="160px"

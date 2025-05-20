@@ -5,11 +5,11 @@ export type LogoProps = {
   name: string;
 } & BoxProps;
 
-const Icon: React.FC<BoxProps> = ({ ...restProps }) => {
+const Icon = ({ ...restProps }: BoxProps) => {
   return <Box height="16px" maxWidth="100%" {...restProps} />;
 };
 
-const Logo: React.FC<LogoProps> = ({ name, ...restProps }) => {
+const Logo = ({ name, ...restProps }: LogoProps) => {
   if (name === 'voog') {
     return <Icon as={Voog} {...restProps} />;
   }

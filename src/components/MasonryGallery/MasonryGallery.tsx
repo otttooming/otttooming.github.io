@@ -1,7 +1,13 @@
 import styled from '@emotion/styled';
 import { theme } from '../../utils/theme';
 import ImageZoom from '../Image/Image.Zoom';
-import { Children, useEffect, useRef, useState } from 'react';
+import {
+  Children,
+  PropsWithChildren,
+  useEffect,
+  useRef,
+  useState,
+} from 'react';
 
 const Wrapper = styled.div`
   display: grid;
@@ -23,7 +29,7 @@ const Item = styled.div`
   border-radius: ${theme.borderRadius.s};
 `;
 
-const MasonryGallery: React.FC = ({ children }) => {
+const MasonryGallery = ({ children }: PropsWithChildren) => {
   const childrenCount = Children.count(children);
 
   const minWidth = 300;

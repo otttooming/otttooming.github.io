@@ -31,7 +31,7 @@ const Item = ({ id, frontmatter: { featured, title } }) => {
   );
 };
 
-const Card: React.FC<CardProps> = ({ title, body, featured, projects }) => {
+const Card = ({ title, body, featured, projects }: CardProps) => {
   const {
     illustration,
     height: htmlHeight,

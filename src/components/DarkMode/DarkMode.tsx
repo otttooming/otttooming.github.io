@@ -91,7 +91,7 @@ const MoonOrSun = () => {
   );
 };
 
-const DarkMode: React.FC = () => {
+const DarkMode = () => {
   const { toggleColorMode } = useColorMode();
 
   return (

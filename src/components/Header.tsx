@@ -4,8 +4,9 @@ import { Link as GatsbyLink } from 'gatsby';
 import { BookOpen, Tool, User, Wind } from 'react-feather';
 import { theme } from '../utils/theme';
 import DarkMode from './DarkMode/DarkMode';
+import { PropsWithChildren } from 'react';
 
-const Item: React.FC<BoxProps> = ({ ...restProps }) => (
+const Item = ({ ...restProps }: PropsWithChildren<BoxProps>) => (
   <Box
     as="li"
     display="flex"
@@ -20,7 +21,7 @@ const link =
   (to: string) =>
   ({ ...restProps }) => <GatsbyLink to={to} {...restProps} />;
 
-const Header: React.FC = () => (
+const Header = () => (
   <Box
     as="header"
     display="flex"

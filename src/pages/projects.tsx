@@ -20,7 +20,7 @@ export interface ProjectsProps {
   data: ProjectsListQueryQuery;
 }
 
-const Item: React.FC<BoxProps> = ({ ...restProps }) => {
+const Item = ({ ...restProps }: BoxProps) => {
   const { colorMode } = useColorMode();
 
   const backgroundColor = colorMode === 'light' ? ' #edf2f7' : '#2c3442';
@@ -50,11 +50,11 @@ const Item: React.FC<BoxProps> = ({ ...restProps }) => {
   );
 };
 
-const Projects: React.FC<ProjectsProps> = ({
+const Projects = ({
   data: {
     allMdx: { nodes: posts },
   },
-}) => {
+}: ProjectsProps) => {
   return (
     <Layout>
       <SEO title="Projects" description="" />

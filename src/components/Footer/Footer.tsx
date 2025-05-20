@@ -3,11 +3,11 @@ import { Social, socialTags } from '../../constants/social';
 import TagList from '../TagList/TagList';
 import { getMappedTags } from '../TagList/tagMap';
 
-const Container: React.FC<BoxProps> = ({ ...restProps }) => (
+const Container = ({ ...restProps }: BoxProps) => (
   <Box display="flex" justifyContent="center" {...restProps} />
 );
 
-const Footer: React.FC<BoxProps> = () => {
+const Footer = () => {
   return (
     <Box
       as="footer"

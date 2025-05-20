@@ -6,11 +6,11 @@ import {
 } from '@chakra-ui/react';
 import { Gtap, Iglu, Pipedrive, Voog } from '../Logo/CompanyLogos';
 
-const Company: React.FC<BoxProps> = ({ ...restProps }) => {
+const Company = ({ ...restProps }: BoxProps) => {
   return <Box as="li" {...restProps} />;
 };
 
-const Link: React.FC<LinkProps> = ({ ...restProps }) => {
+const Link = ({ ...restProps }: LinkProps) => {
   return (
     <ChakraLink
       height="128px"
@@ -25,11 +25,11 @@ const Link: React.FC<LinkProps> = ({ ...restProps }) => {
   );
 };
 
-const Card: React.FC<BoxProps> = ({ ...restProps }) => {
+const Card = ({ ...restProps }: BoxProps) => {
   return <Box width="200px" maxHeight="100%" {...restProps} />;
 };
 
-const Coop: React.FC = () => {
+const Coop = () => {
   return (
     <Box
       as="ol"

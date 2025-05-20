@@ -1,7 +1,7 @@
 import { Box, type BoxProps } from '@chakra-ui/react';
 import { theme } from '../../utils/theme';
 
-const CoverImageWrapper: React.FC<BoxProps> = ({ children, ...restProps }) => {
+const CoverImageWrapper = ({ children, ...restProps }: BoxProps) => {
   return (
     <Box
       borderRadius={theme.borderRadius.m}
