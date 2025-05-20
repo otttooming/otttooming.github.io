@@ -34,10 +34,7 @@ export function onCreateNode({ node, actions, getNode }) {
   }
 }
 
-export async function createPages({ graphql, actions }) {
-  // Destructure the createPage function from the actions object
-  const { createPage } = actions;
-
+export async function createPages({ graphql, actions: { createPage } }) {
   const result = await graphql(`
     query {
       allMdx {
