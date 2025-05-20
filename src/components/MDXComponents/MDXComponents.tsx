@@ -14,7 +14,7 @@ import { getURISafeString } from '../../utils/text';
 import { theme } from '../../utils/theme';
 import Illustration from '../Illustration/';
 import MasonryGallery from '../MasonryGallery/MasonryGallery';
-import PieChart from '../PieChart';
+import { PieChart } from '../PieChart/PieChart';
 
 export const HeadingH2: React.FC = ({ children, ...restProps }) => (
   <Heading

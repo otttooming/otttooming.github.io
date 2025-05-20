@@ -1,6 +1,5 @@
-import React from 'react';
 import styled from '@emotion/styled';
-import { Cell, Pie, PieChart } from 'recharts';
+import { Cell, Pie, PieChart as RechartsPie } from 'recharts';
 import { theme } from '../../utils/theme';
 
 interface DataProps {
@@ -117,44 +116,40 @@ const InfoWrapper = styled.div`
   color: #808080;
 `;
 
-export default class Example extends React.PureComponent<Props> {
-  render() {
-    const { data, info } = this.props;
+export const PieChart = ({ data, info }: Props) => {
+  return (
+    <Wrapper>
+      <List>
+        {data.map(({ name }, index) => (
+          <ListItem key={index} index={index}>
+            {name}
+          </ListItem>
+        ))}
+      </List>
+      <PieWrapper>
+        <RechartsPie width={260} height={220}>
+          <Pie
+            data={data}
+            cx={110}
+            cy={100}
+            labelLine={false}
+            label={renderCustomizedLabel}
+            outerRadius={96}
+            innerRadius={64}
+            stroke={'none'}
+            fill="#8884d8"
+            dataKey="value"
+            paddingAngle={4}
+            cornerRadius={4}
+          >
+            {data.map(({ name }, index) => (
+              <Cell key={name} fill={COLORS[index % COLORS.length]} />
+            ))}
+          </Pie>
+        </RechartsPie>
+      </PieWrapper>
 
-    return (
-      <Wrapper>
-        <List>
-          {data.map(({ name }, index) => (
-            <ListItem key={index} index={index}>
-              {name}
-            </ListItem>
-          ))}
-        </List>
-        <PieWrapper>
-          <PieChart width={260} height={220}>
-            <Pie
-              data={data}
-              cx={110}
-              cy={100}
-              labelLine={false}
-              label={renderCustomizedLabel}
-              outerRadius={96}
-              innerRadius={64}
-              stroke={'none'}
-              fill="#8884d8"
-              dataKey="value"
-              paddingAngle={4}
-              cornerRadius={4}
-            >
-              {data.map(({ name }, index) => (
-                <Cell key={name} fill={COLORS[index % COLORS.length]} />
-              ))}
-            </Pie>
-          </PieChart>
-        </PieWrapper>
-
-        {info && <InfoWrapper>{info}</InfoWrapper>}
-      </Wrapper>
-    );
-  }
-}
+      {info && <InfoWrapper>{info}</InfoWrapper>}
+    </Wrapper>
+  );
+};
