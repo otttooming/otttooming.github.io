@@ -1,5 +1,5 @@
-const { createFilePath } = require('gatsby-source-filesystem');
-const path = require('node:path');
+import { createFilePath } from 'gatsby-source-filesystem';
+import path from 'node:path';
 
 const templates = {
   about: path.resolve('./src/templates/About.tsx'),
@@ -51,7 +51,7 @@ async function createProjects(graphql, reporter, createPage) {
   });
 }
 
-exports.onCreateNode = ({ node, actions, getNode }) => {
+export function onCreateNode({ node, actions, getNode }) {
   const { createNodeField } = actions;
   // We only want to operate on `Mdx` nodes. If we had content from a
   // remote CMS we could also check to see if the parent node was a
@@ -71,10 +71,10 @@ exports.onCreateNode = ({ node, actions, getNode }) => {
       value: `/${directory}${value}`,
     });
   }
-};
+}
 
-exports.createPages = async ({ graphql, actions, reporter }) => {
+export async function createPages({ graphql, actions, reporter }) {
   // Destructure the createPage function from the actions object
   const { createPage } = actions;
   await createProjects(graphql, reporter, createPage);
-};
+}
