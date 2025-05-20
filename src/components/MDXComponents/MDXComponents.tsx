@@ -15,8 +15,9 @@ import { theme } from '../../utils/theme';
 import Illustration from '../Illustration/';
 import MasonryGallery from '../MasonryGallery/MasonryGallery';
 import { PieChart } from '../PieChart/PieChart';
+import { ComponentProps, PropsWithChildren } from 'react';
 
-export const HeadingH2: React.FC = ({ children, ...restProps }) => (
+export const HeadingH2 = ({ children, ...restProps }: PropsWithChildren) => (
   <Heading
     {...restProps}
     as="h2"
@@ -29,7 +30,7 @@ export const HeadingH2: React.FC = ({ children, ...restProps }) => (
   </Heading>
 );
 
-export const HeadingH3: React.FC = ({ children, ...restProps }) => (
+export const HeadingH3 = ({ children, ...restProps }: PropsWithChildren) => (
   <Heading
     {...restProps}
     as="h3"
@@ -43,7 +44,7 @@ export const HeadingH3: React.FC = ({ children, ...restProps }) => (
 );
 
 const internalOrExternalLink =
-  (isPlainHrefTag: boolean): React.FC<LinkProps> =>
+  (isPlainHrefTag: boolean) =>
   ({ href, ...restProps }) => {
     if (isPlainHrefTag) {
       return <a href={href} {...restProps} />;
@@ -52,11 +53,11 @@ const internalOrExternalLink =
     return <GatsbyLink to={href} {...restProps} />;
   };
 
-export const Link: React.FC<LinkProps> = ({
+export const Link = ({
   children,
   href = '',
   ...restProps
-}) => {
+}: PropsWithChildren<LinkProps>) => {
   const isExternal = getIsExternalLink(href);
   const isPlainHrefTag = [getIsDocument(href), isExternal].some(Boolean);
 
@@ -79,7 +80,7 @@ export const Link: React.FC<LinkProps> = ({
   );
 };
 
-export const List: React.FC = (props) => (
+export const List = (props: ComponentProps<typeof ChakraList.Root>) => (
   <ChakraList.Root
     {...props}
     listStyleType="disc"
@@ -88,11 +89,13 @@ export const List: React.FC = (props) => (
   />
 );
 
-export const ListItem: React.FC = (props) => (
+export const ListItem = (props: ComponentProps<typeof ChakraList.Item>) => (
   <ChakraList.Item {...props} mt="8px" />
 );
 
-export const Text: React.FC = (props) => <ChakraText {...props} mt="24px" />;
+export const Text = (props: ComponentProps<typeof ChakraText>) => (
+  <ChakraText {...props} mt="24px" />
+);
 
 const MDXComponents = {
   MasonryGallery,
