@@ -31,9 +31,9 @@
   },
   "devDependencies": {
     "@biomejs/biome": "1.9.4",
-    "@graphql-codegen/cli": "^2.16.5",
-    "@graphql-codegen/typescript": "^2.8.8",
-    "@graphql-codegen/typescript-operations": "^2.5.13",
+    "@graphql-codegen/cli": "^5.0.6",
+    "@graphql-codegen/typescript": "^4.1.6",
+    "@graphql-codegen/typescript-operations": "^4.6.1",
     "@types/gh-pages": "^3.2.3",
     "@types/react": "^19.1.4",
     "@types/react-dom": "^19.1.5",
