@@ -116,7 +116,7 @@ const ItemContainer = styled.div`
 
 const Gallery = () => {
   const data = useStaticQuery(graphql`
-    {
+    query GalleryQuery {
       images: allMdx(
         filter: {internal: {contentFilePath: { regex: "/persons/" }}}
         limit: 6

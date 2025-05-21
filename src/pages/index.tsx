@@ -20,7 +20,7 @@ import { GatsbyImage } from 'gatsby-plugin-image';
 
 const Portrait = ({ ...restProps }) => {
   const data = useStaticQuery(graphql`
-    {
+   query PortraitImageQuery {
       placeholderImage: file(relativePath: { eq: "portrait-ott.jpg" }) {
         childImageSharp {
           gatsbyImageData(width: 466, layout: CONSTRAINED)

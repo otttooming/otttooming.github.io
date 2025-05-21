@@ -22,7 +22,7 @@ export interface SEOProps {
 
 const SEO = ({ description = '', lang = 'en', meta = [], title }: SEOProps) => {
   const { site } = useStaticQuery(graphql`
-    query {
+    query SEOQuery {
       site {
         siteMetadata {
           title
