@@ -80,7 +80,7 @@ const Projects = ({
       </Text>
 
       <Box as="ol" m="80px auto" p={0} maxWidth="1080px" px={[0, 0, '16px']}>
-        {posts.map(({ id, fields, excerpt, frontmatter }) => {
+        {posts.map(({ id, excerpt, frontmatter }) => {
           const { image, background, fit } = frontmatter.featured;
 
           return (
