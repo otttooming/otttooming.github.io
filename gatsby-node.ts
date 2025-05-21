@@ -5,11 +5,6 @@ const templates = {
   about: path.resolve('./src/templates/About.tsx'),
   persons: path.resolve('./src/templates/Project.tsx'),
   projects: path.resolve('./src/templates/Project.tsx'),
-  /**
-   * We don't need individual pages for technologies listing.
-   * Only listing is shown.
-   */
-  technologies: path.resolve('./src/pages/Route404.tsx'),
 };
 
 export function onCreateNode({ node, actions, getNode }) {
@@ -47,10 +42,15 @@ export async function createPages({ graphql, actions: { createPage } }) {
 
   posts.forEach((node) => {
     const directory = node.internal.contentFilePath.split('/').reverse()[2];
+    const template = templates[directory];
+
+    if (!template) {
+      return;
+    }
 
     createPage({
       path: `${directory}/${node.frontmatter.slug}`,
-      component: `${templates[directory]}?__contentFilePath=${node.internal.contentFilePath}`,
+      component: `${template}?__contentFilePath=${node.internal.contentFilePath}`,
       context: { id: node.id },
     });
   });
