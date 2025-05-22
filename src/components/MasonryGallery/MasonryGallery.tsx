@@ -29,21 +29,14 @@ const Item = styled.div`
   border-radius: ${theme.borderRadius.s};
 `;
 
+const MIN_WIDTH = 300;
+
 const MasonryGallery = ({ children }: PropsWithChildren) => {
   const childrenCount = Children.count(children);
 
-  const minWidth = 300;
   const cols = [];
   const ref = useRef(null);
   const [numCols, setNumCols] = useState(3);
-
-  const calcNumCols = () => {
-    const possibleColumns = Math.floor(ref.current.offsetWidth / minWidth) || 1;
-    const optimalColumns =
-      possibleColumns > childrenCount ? childrenCount : possibleColumns;
-
-    setNumCols(optimalColumns);
-  };
 
   const createCols = () => {
     for (let i = 0; i < numCols; i++) cols[i] = [];
@@ -58,10 +51,22 @@ const MasonryGallery = ({ children }: PropsWithChildren) => {
   };
 
   useEffect(() => {
+    const calcNumCols = () => {
+      const possibleColumns =
+        Math.floor(ref.current.offsetWidth / MIN_WIDTH) || 1;
+      const optimalColumns =
+        possibleColumns > childrenCount ? childrenCount : possibleColumns;
+
+      setNumCols(optimalColumns);
+    };
+
     calcNumCols();
+
     window.addEventListener('resize', calcNumCols);
+
     return () => window.removeEventListener('resize', calcNumCols);
-  });
+  }, [childrenCount]);
+
   createCols();
 
   return (
