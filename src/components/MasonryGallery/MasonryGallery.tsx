@@ -62,9 +62,13 @@ const MasonryGallery = ({ children }: PropsWithChildren) => {
 
     calcNumCols();
 
-    window.addEventListener('resize', calcNumCols);
+    const controller = new AbortController();
 
-    return () => window.removeEventListener('resize', calcNumCols);
+    window.addEventListener('resize', calcNumCols, {
+      signal: controller.signal,
+    });
+
+    return () => controller.abort();
   }, [childrenCount]);
 
   createCols();
