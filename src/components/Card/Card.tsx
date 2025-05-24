@@ -1,7 +1,10 @@
 import { AspectRatio, Box, Heading, Image } from '@chakra-ui/react';
 import { css } from '@emotion/react';
 import { MDXProvider } from '@mdx-js/react';
-import type { TechnologiesFrontmatterFragmentFragment } from '../../types';
+import type {
+  TechnologiesFrontmatterFragmentFragment,
+  TechnologiesListQueryQuery,
+} from '../../types';
 import CoverImage from '../CoverImage/CoverImage';
 import MDXComponents from '../MDXComponents/MDXComponents';
 import { getMatchingProjects } from './Card.helpers';
@@ -11,10 +14,13 @@ export interface CardProps {
   title: string;
   body: any;
   featured: TechnologiesFrontmatterFragmentFragment['featured'];
-  projects: any;
+  projects: TechnologiesListQueryQuery['projects'];
 }
 
-const Item = ({ id, frontmatter: { featured, title } }) => {
+const Item = ({
+  id,
+  frontmatter: { featured, title },
+}: TechnologiesListQueryQuery['projects']['nodes'][0]) => {
   const { image, background, fit } = featured;
 
   return (
