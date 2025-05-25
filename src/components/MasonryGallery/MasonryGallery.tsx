@@ -18,7 +18,7 @@ const Wrapper = styled.div`
   max-width: 1280px !important;
 `;
 
-const Column = styled.div`
+const ColumnWrapper = styled.div`
   display: grid;
   grid-gap: 16px;
   grid-auto-rows: max-content;
@@ -31,24 +31,26 @@ const Item = styled.div`
 
 const MIN_WIDTH = 300;
 
+const Column = ({ children }: PropsWithChildren) => (
+  <ColumnWrapper>
+    {Children.map(children, (child) => (
+      <Item>
+        <ImageZoom>{child}</ImageZoom>
+      </Item>
+    ))}
+  </ColumnWrapper>
+);
+
 const MasonryGallery = ({ children }: PropsWithChildren) => {
   const childrenCount = Children.count(children);
-
-  const cols = [];
   const ref = useRef(null);
   const [numCols, setNumCols] = useState(3);
 
-  const createCols = () => {
-    for (let i = 0; i < numCols; i++) cols[i] = [];
+  const columns = Array.from(Array(numCols), () => []);
 
-    Children.forEach(children, (child, i) =>
-      cols[i % numCols].push(
-        <Item key={i}>
-          <ImageZoom>{child} </ImageZoom>
-        </Item>,
-      ),
-    );
-  };
+  Children.toArray(children).forEach((child, index) => {
+    columns[index % numCols].push(child);
+  });
 
   useEffect(() => {
     const calcNumCols = () => {
@@ -71,15 +73,11 @@ const MasonryGallery = ({ children }: PropsWithChildren) => {
     return () => controller.abort();
   }, [childrenCount]);
 
-  createCols();
-
   return (
     <Wrapper ref={ref}>
-      {Array(numCols)
-        .fill(null)
-        .map((el, i) => (
-          <Column key={i}>{cols[i]}</Column>
-        ))}
+      {columns.map((child, i) => (
+        <Column key={i}>{child}</Column>
+      ))}
     </Wrapper>
   );
 };
