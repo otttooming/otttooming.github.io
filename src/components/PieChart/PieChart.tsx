@@ -1,6 +1,5 @@
-import styled from '@emotion/styled';
 import { Cell, Pie, PieChart as RechartsPie } from 'recharts';
-import { theme } from '../../utils/theme';
+import * as styles from './PieChart.css';
 
 interface DataProps {
   name: string;
@@ -12,15 +11,7 @@ interface Props {
   info?: React.ReactNode;
 }
 
-// const data = [
-//   { name: "Group A", value: 400 },
-//   { name: "Group B", value: 300 },
-//   { name: "Group C", value: 300 },
-//   { name: "Group D", value: 200 },
-// ]
-
 const COLORS = ['#80CC8E', '#686AF6', '#C5C7F0', '#CFD2F0', '#DADDEF'];
-// const COLORS = ["#686AF6", "#C5C7F0", "#CFD2F0", "#DADDEF"]
 
 const RADIAN = Math.PI / 180;
 const renderCustomizedLabel = ({
@@ -62,71 +53,22 @@ const renderCustomizedLabel = ({
   );
 };
 
-const Wrapper = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  margin-bottom: 64px;
-  margin-top: 64px;
-  background: #fff;
-  border-radius: 8px;
-  padding: 32px;
-  max-width: 1024px !important;
-`;
-
-const PieWrapper = styled.div`
-  display: inline-flex;
-  border-radius: 8px;
-  margin-top: 24px;
-`;
-
-const List = styled.ul`
-  text-align: center;
-  padding: 0;
-  margin: 0;
-`;
-
-const ListItem = styled.li<{ index: number }>`
-  display: inline-flex;
-  margin-left: 24px;
-  margin-top: 16px;
-  padding-left: 24px;
-  position: relative;
-  color: #000;
-
-  &:first-of-type {
-    margin-left: 0;
-  }
-
-  &:before {
-    content: "";
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    left: 0;
-    width: 16px;
-    height: 16px;
-    background-color: ${(props) => COLORS[props.index % COLORS.length]};
-  }
-`;
-
-const InfoWrapper = styled.div`
-  font-size: ${theme.fontSize.xs};
-  margin-top: 24px;
-  color: #808080;
-`;
-
 export const PieChart = ({ data, info }: Props) => {
   return (
-    <Wrapper>
-      <List>
+    <div className={styles.wrapper}>
+      <ul className={styles.list}>
         {data.map(({ name }, index) => (
-          <ListItem key={index} index={index}>
+          <li
+            key={index}
+            className={styles.listItem({
+              colorIndex: index as 0 | 1 | 2 | 3 | 4,
+            })}
+          >
             {name}
-          </ListItem>
+          </li>
         ))}
-      </List>
-      <PieWrapper>
+      </ul>
+      <div className={styles.pieWrapper}>
         <RechartsPie width={260} height={220}>
           <Pie
             data={data}
@@ -147,9 +89,9 @@ export const PieChart = ({ data, info }: Props) => {
             ))}
           </Pie>
         </RechartsPie>
-      </PieWrapper>
+      </div>
 
-      {info && <InfoWrapper>{info}</InfoWrapper>}
-    </Wrapper>
+      {info && <div className={styles.infoWrapper}>{info}</div>}
+    </div>
   );
 };
