@@ -1,6 +1,3 @@
-import styled from '@emotion/styled';
-import { theme } from '../../utils/theme';
-import ImageZoom from '../Image/Image.Zoom';
 import {
   Children,
   PropsWithChildren,
@@ -8,37 +5,19 @@ import {
   useRef,
   useState,
 } from 'react';
-
-const Wrapper = styled.div`
-  display: grid;
-  grid-auto-flow: column;
-  grid-gap: 16px;
-  margin-top: 80px;
-  margin-bottom: 80px;
-  max-width: 1280px !important;
-`;
-
-const ColumnWrapper = styled.div`
-  display: grid;
-  grid-gap: 16px;
-  grid-auto-rows: max-content;
-`;
-
-const Item = styled.div`
-  overflow: hidden;
-  border-radius: ${theme.borderRadius.s};
-`;
+import ImageZoom from '../Image/Image.Zoom';
+import * as styles from './MasonryGallery.css';
 
 const MIN_WIDTH = 300;
 
 const Column = ({ children }: PropsWithChildren) => (
-  <ColumnWrapper>
+  <div className={styles.columnWrapper}>
     {Children.map(children, (child) => (
-      <Item>
+      <div className={styles.item}>
         <ImageZoom>{child}</ImageZoom>
-      </Item>
+      </div>
     ))}
-  </ColumnWrapper>
+  </div>
 );
 
 const MasonryGallery = ({ children }: PropsWithChildren) => {
@@ -74,11 +53,11 @@ const MasonryGallery = ({ children }: PropsWithChildren) => {
   }, [childrenCount]);
 
   return (
-    <Wrapper ref={ref}>
+    <div ref={ref} className={styles.wrapper}>
       {columns.map((child, i) => (
         <Column key={i}>{child}</Column>
       ))}
-    </Wrapper>
+    </div>
   );
 };
 
