@@ -1,5 +1,4 @@
 import { Box, Heading, Link } from '@chakra-ui/react';
-import styled from '@emotion/styled';
 import { MDXProvider } from '@mdx-js/react';
 import { graphql } from 'gatsby';
 import { ExternalLink } from 'react-feather';
@@ -14,19 +13,7 @@ import { techTags } from '../constants/tech';
 import { ProjectPostQueryQuery } from '../types';
 import { projectTexts, textMap } from '../utils/textMap';
 import { theme } from '../utils/theme';
-
-const Wrapper = styled.div`
-  margin-top: 80px;
-  margin-bottom: 80px;
-
-  > * {
-    max-width: 960px;
-    margin-left: auto;
-    margin-right: auto;
-    padding-left: 16px;
-    padding-right: 16px;
-  }
-`;
+import { wrapper } from './Project.css';
 
 const Project = ({ children, data: { mdx } }) => {
   const { image, background, fit } = mdx.frontmatter.featured;
@@ -77,9 +64,9 @@ const Project = ({ children, data: { mdx } }) => {
         <TagList tags={getMappedTags(mdx.frontmatter.tech, techTags)} />
       </Box>
 
-      <Wrapper>
+      <div className={wrapper}>
         <MDXProvider components={MDXComponents}>{children}</MDXProvider>
-      </Wrapper>
+      </div>
     </Layout>
   );
 };
