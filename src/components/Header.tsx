@@ -1,10 +1,9 @@
 import { Box, type BoxProps, Button } from '@chakra-ui/react';
-import { css } from '@emotion/react';
 import { Link as GatsbyLink } from 'gatsby';
 import { BookOpen, Tool, User, Wind } from 'react-feather';
-import { theme } from '../utils/theme';
 import DarkMode from './DarkMode/DarkMode';
 import { PropsWithChildren } from 'react';
+import * as styles from './Header.css';
 
 const Item = ({ ...restProps }: PropsWithChildren<BoxProps>) => (
   <Box
@@ -22,24 +21,7 @@ const link =
   ({ ...restProps }) => <GatsbyLink to={to} {...restProps} />;
 
 const Header = () => (
-  <Box
-    as="header"
-    display="flex"
-    alignSelf="center"
-    justifyContent="space-between"
-    maxWidth="1024px"
-    m="0 auto"
-    paddingY={theme.space.l}
-    paddingX={[theme.space.s, theme.space.s, theme.space.l]}
-    overflow="scroll hidden"
-    css={css`
-      scrollbar-width: none;
-
-      &::-webkit-scrollbar {
-        width: 0px;
-      }
-    `}
-  >
+  <Box as="header" className={styles.header}>
     <p>
       <Button as={link('/')} variant="ghost">
         <Wind />
