@@ -22,7 +22,7 @@ const Column = ({ children }: PropsWithChildren) => (
 
 const MasonryGallery = ({ children }: PropsWithChildren) => {
   const childrenCount = Children.count(children);
-  const ref = useRef(null);
+  const ref = useRef<HTMLDivElement>(null);
   const [numCols, setNumCols] = useState(3);
 
   const columns = Array.from(Array(numCols), () => []);
