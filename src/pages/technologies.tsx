@@ -4,7 +4,7 @@ import Card from '../components/Card/Card';
 import SEO from '../components/SEO';
 import Layout from '../components/layout';
 import type { TechnologiesListQueryQuery } from '../types';
-import { theme } from '../utils/theme';
+import { theme } from '../utils/theme.css';
 
 interface TechnologiesProps {
   data: TechnologiesListQueryQuery;
