@@ -13,7 +13,7 @@ import Gallery from '../components/Gallery/Gallery';
 import HexGrid from '../components/HexGrid/HexGrid';
 import SEO from '../components/SEO';
 import Layout from '../components/layout';
-import { theme } from '../utils/theme';
+import { theme } from '../utils/theme.css';
 import { useColorMode } from '../components/ui/color-mode';
 import { graphql, useStaticQuery } from 'gatsby';
 import { GatsbyImage } from 'gatsby-plugin-image';
@@ -47,7 +47,7 @@ const Grid = ({ ...restProps }: BoxProps) => {
     <Box
       as="section"
       display="grid"
-      gridGap="var(--space-l)"
+      gridGap={theme.space.l}
       gridTemplateColumns={[
         'repeat(auto-fit, minmax(260, 1fr))',
         'repeat(auto-fit, minmax(320px, 1fr))',
@@ -68,7 +68,7 @@ const Grid = ({ ...restProps }: BoxProps) => {
 const AltGrid = ({ ...restProps }: BoxProps) => (
   <Box
     display="grid"
-    gridGap="var(--space-l)"
+    gridGap={theme.space.l}
     gridTemplateColumns="repeat(auto-fit, minmax(64px, auto))"
     alignItems="center"
     maxWidth="1280px"
@@ -82,7 +82,7 @@ const PlainGrid = ({ ...restProps }: BoxProps) => (
   <Box
     width="100%"
     maxWidth="960px"
-    margin="var(--space-xl) auto"
+    margin={`${theme.space.xl} auto`}
     {...restProps}
   />
 );
@@ -134,7 +134,8 @@ const OutLink = ({ ...restProps }) => (
     display="flex"
     alignItems="center"
     fontSize="16px"
-    isExternal={true}
+    target="_blank"
+    rel="noopener noreferrer"
     {...restProps}
   />
 );
