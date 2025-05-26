@@ -1,5 +1,4 @@
 import { AspectRatio, Box, Heading, Image } from '@chakra-ui/react';
-import { css } from '@emotion/react';
 import { MDXProvider } from '@mdx-js/react';
 import type {
   TechnologiesFrontmatterFragmentFragment,
@@ -9,6 +8,7 @@ import CoverImage from '../CoverImage/CoverImage';
 import MDXComponents from '../MDXComponents/MDXComponents';
 import { getMatchingProjects } from './Card.helpers';
 import { useColorMode } from '../ui/color-mode';
+import * as styles from './Card.css';
 
 export interface CardProps {
   title: string;
@@ -77,13 +77,7 @@ const Card = ({ title, body, featured, projects }: CardProps) => {
         display="flex"
         alignItems="center"
         overflow="scroll hidden"
-        css={css`
-          scrollbar-width: none;
-
-          &::-webkit-scrollbar {
-            width: 0px;
-          }
-        `}
+        className={styles.scrollContainer}
       >
         <AspectRatio
           ratio={ratio}
