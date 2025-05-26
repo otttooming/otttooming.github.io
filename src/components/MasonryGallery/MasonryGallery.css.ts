@@ -1,5 +1,5 @@
 import { style } from '@vanilla-extract/css';
-import { theme } from '../../utils/theme';
+import { theme } from '../../utils/theme.css';
 
 export const wrapper = style({
   display: 'grid',

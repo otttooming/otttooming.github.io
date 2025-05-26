@@ -13,7 +13,7 @@ import SEO from '../components/SEO';
 import Layout from '../components/layout';
 import type { ProjectsListQueryQuery } from '../types';
 import { projectTexts, textMap } from '../utils/textMap';
-import { theme } from '../utils/theme';
+import { theme } from '../utils/theme.css';
 import { useColorMode } from '../components/ui/color-mode';
 
 export interface ProjectsProps {

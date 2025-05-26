@@ -9,7 +9,7 @@ import {
   setThemeVariable,
   space,
   textColor,
-} from './customProperties';
+} from './customProperties.css';
 
 export const theme = {
   color: setThemeVariable(color),

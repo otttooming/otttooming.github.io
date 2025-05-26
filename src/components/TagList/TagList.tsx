@@ -2,7 +2,7 @@ import { Box } from '@chakra-ui/react';
 import { Link as GatsbyLink } from 'gatsby';
 import { ExternalLink } from 'react-feather';
 import { getIsExternalLink } from '../../utils/getIsExternalLink';
-import { theme } from '../../utils/theme';
+import { theme } from '../../utils/theme.css';
 import type { Tag as TagProps } from './tagMap';
 import { Button } from '../Button/Button';
 
