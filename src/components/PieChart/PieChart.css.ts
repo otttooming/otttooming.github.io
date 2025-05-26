@@ -1,6 +1,6 @@
 import { style } from '@vanilla-extract/css';
 import { recipe } from '@vanilla-extract/recipes';
-import { theme } from '../../utils/theme';
+import { theme } from '../../utils/theme.css';
 
 export const wrapper = style({
   display: 'flex',
@@ -8,15 +8,15 @@ export const wrapper = style({
   alignItems: 'center',
   marginBottom: '64px',
   marginTop: '64px',
-  background: '#fff',
-  borderRadius: '8px',
+  background: theme.backgroundColor.secondary,
+  borderRadius: theme.borderRadius.m,
   padding: '32px',
   maxWidth: '1024px',
 });
 
 export const pieWrapper = style({
   display: 'inline-flex',
-  borderRadius: '8px',
+  borderRadius: theme.borderRadius.m,
   marginTop: '24px',
 });
 
@@ -33,7 +33,7 @@ export const listItem = recipe({
     marginTop: '16px',
     paddingLeft: '24px',
     position: 'relative',
-    color: '#000',
+    color: theme.textColor.primary,
     selectors: {
       '&:first-of-type': {
         marginLeft: 0,
