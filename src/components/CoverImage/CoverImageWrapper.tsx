@@ -1,15 +1,9 @@
 import { Box, type BoxProps } from '@chakra-ui/react';
-import { theme } from '../../utils/theme';
+import * as styles from './CoverImageWrapper.css';
 
 const CoverImageWrapper = ({ children, ...restProps }: BoxProps) => {
   return (
-    <Box
-      borderRadius={theme.borderRadius.m}
-      overflow="hidden"
-      boxShadow="5px 25px 40px rgba(0, 0, 0, 0.2)"
-      background="#EDF2F7"
-      {...restProps}
-    >
+    <Box className={styles.wrapper} {...restProps}>
       {children}
     </Box>
   );
