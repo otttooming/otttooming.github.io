@@ -1,4 +1,4 @@
-import { css } from '@emotion/react';
+import { globalStyle } from '@vanilla-extract/css';
 
 type CustomPropertySizeValues = 'xs' | 's' | 'm' | 'l' | 'xl' | 'xxl' | 'xxxl';
 
@@ -7,7 +7,10 @@ function setCustomProperties<K extends string>(
 ) {
   const values: CustomPropertyGeneratorReturn<K>[] = Object.values(obj);
 
-  return values.map(({ property, value }) => `${property}: ${value};`);
+  return values.reduce<Record<string, string>>((acc, { property, value }) => {
+    acc[property] = value;
+    return acc;
+  }, {});
 }
 
 interface CustomPropertyGenerator<K extends string> {
@@ -225,16 +228,16 @@ export const backgroundColor =
     ],
   );
 
-export const customProperties = css`
-  :root {
-    ${setCustomProperties(fontSize)}
-    ${setCustomProperties(fontFamily)}
-    ${setCustomProperties(fontWeight)}
-    ${setCustomProperties(lineHeight)}
-    ${setCustomProperties(borderRadius)}
-    ${setCustomProperties(space)}
-    ${setCustomProperties(color)}
-    ${setCustomProperties(textColor)}
-    ${setCustomProperties(backgroundColor)}
-  }
-`;
+globalStyle(':root', {
+  vars: {
+    ...setCustomProperties(fontSize),
+    ...setCustomProperties(fontFamily),
+    ...setCustomProperties(fontWeight),
+    ...setCustomProperties(lineHeight),
+    ...setCustomProperties(borderRadius),
+    ...setCustomProperties(space),
+    ...setCustomProperties(color),
+    ...setCustomProperties(textColor),
+    ...setCustomProperties(backgroundColor),
+  },
+});
