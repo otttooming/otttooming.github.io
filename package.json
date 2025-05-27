@@ -6,8 +6,6 @@
   "author": "Ott Tooming <otttooming@gmail.com>",
   "dependencies": {
     "@chakra-ui/react": "^3.19.1",
-    "@emotion/react": "^11.14.0",
-    "@emotion/styled": "^11.14.0",
     "@mdx-js/react": "^2.3.0",
     "@vanilla-extract/css": "^1.17.2",
     "@vanilla-extract/recipes": "^0.5.5",
