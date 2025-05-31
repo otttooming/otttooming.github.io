@@ -4,19 +4,16 @@ import { Gtap, Iglu, Khk, Pethealth, Pipedrive, Voog } from './CompanyLogos';
 
 export type LogoProps = {
   name: string;
-  className?: string;
 };
 
-const Logo = ({ name, className }: LogoProps) => {
-  const getLogoClasses = (size?: 'medium' | 'large') => {
-    return clsx(
-      styles.icon,
-      size === 'medium' && styles.mediumIcon,
-      size === 'large' && styles.largeIcon,
-      className,
-    );
-  };
+const getLogoClasses = (size?: 'medium' | 'large') =>
+  clsx(
+    styles.icon,
+    size === 'medium' && styles.mediumIcon,
+    size === 'large' && styles.largeIcon,
+  );
 
+const Logo = ({ name }: LogoProps) => {
   if (name === 'voog') {
     return <Voog className={getLogoClasses()} />;
   }
