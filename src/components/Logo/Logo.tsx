@@ -1,37 +1,36 @@
-import { Box, type BoxProps } from '@chakra-ui/react';
+import * as styles from './Logo.css';
 import { Gtap, Iglu, Khk, Pethealth, Pipedrive, Voog } from './CompanyLogos';
 
 export type LogoProps = {
   name: string;
-} & BoxProps;
-
-const Icon = ({ ...restProps }: BoxProps) => {
-  return <Box height="16px" maxWidth="100%" {...restProps} />;
+  className?: string;
 };
 
-const Logo = ({ name, ...restProps }: LogoProps) => {
+const Logo = ({ name, className }: LogoProps) => {
+  const baseClassName = `${styles.icon} ${className || ''}`;
+
   if (name === 'voog') {
-    return <Icon as={Voog} {...restProps} />;
+    return <Voog className={baseClassName} />;
   }
 
   if (name === 'iglu') {
-    return <Icon as={Iglu} height="32px" {...restProps} />;
+    return <Iglu className={`${styles.largeIcon} ${className || ''}`} />;
   }
 
   if (name === 'gtap') {
-    return <Icon as={Gtap} {...restProps} />;
+    return <Gtap className={baseClassName} />;
   }
 
   if (name === 'pipedrive') {
-    return <Icon as={Pipedrive} {...restProps} />;
+    return <Pipedrive className={baseClassName} />;
   }
 
   if (name === 'pethealth') {
-    return <Icon as={Pethealth} height="32px" {...restProps} />;
+    return <Pethealth className={`${styles.largeIcon} ${className || ''}`} />;
   }
 
   if (name === 'khk') {
-    return <Icon as={Khk} height="24px" {...restProps} />;
+    return <Khk className={`${styles.mediumIcon} ${className || ''}`} />;
   }
 
   return null;
