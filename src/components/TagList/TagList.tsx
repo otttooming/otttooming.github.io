@@ -1,7 +1,6 @@
-import { Box } from '@chakra-ui/react';
-import { theme } from '../../utils/theme.css';
 import type { Tag as TagProps } from './tagMap';
 import { Link } from '../Link/Link';
+import { tagList, tagListItem } from './TagList.css';
 
 export interface TagListProps {
   tags: TagProps[];
@@ -9,13 +8,13 @@ export interface TagListProps {
 
 const TagList = ({ tags }: TagListProps) => {
   return (
-    <Box as="ul" my={theme.space.m} mx="auto" p="0">
+    <ul className={tagList}>
       {tags.map(({ title, url }) => (
-        <Box key={title} as="li" listStyleType="none" display="inline-flex">
+        <li key={title} className={tagListItem}>
           <Link href={url}>{title}</Link>
-        </Box>
+        </li>
       ))}
-    </Box>
+    </ul>
   );
 };
 
