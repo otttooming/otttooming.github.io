@@ -10,7 +10,6 @@ import TagList from '../components/TagList/TagList';
 import { getMappedTags } from '../components/TagList/tagMap';
 import Layout from '../components/layout';
 import { techTags } from '../constants/tech';
-import { ProjectPostQueryQuery } from '../types';
 import { projectTexts, textMap } from '../utils/textMap';
 import { theme } from '../utils/theme.css';
 import { wrapper } from './Project.css';
