@@ -3,7 +3,7 @@
     "module": "esnext",
     "target": "ES2023",
     "moduleResolution": "bundler",
-    "lib": ["dom", "ES2023"],
+    "lib": ["dom", "ESNext"],
     "jsx": "react-jsx",
     "esModuleInterop": true,
     "noImplicitAny": false,
