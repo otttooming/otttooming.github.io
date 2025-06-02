@@ -5,7 +5,6 @@ import CoverImageWrapper from '../components/CoverImage/CoverImageWrapper';
 import MDXComponents from '../components/MDXComponents/MDXComponents';
 import SEO from '../components/SEO';
 import TagList from '../components/TagList/TagList';
-import { getMappedTags } from '../components/TagList/tagMap';
 import Layout from '../components/layout';
 import { socialTags } from '../constants/social';
 import { About } from './About.components';
@@ -22,7 +21,6 @@ const AboutTemplate = ({
     },
   },
 }) => {
-  const tags = getMappedTags(tagList, socialTags);
   const ratio = htmlWidth / htmlHeight;
 
   return (
@@ -51,7 +49,7 @@ const AboutTemplate = ({
       <About.Wrapper>
         <Heading as="h1">{title}</Heading>
 
-        <TagList tags={tags} />
+        <TagList tags={tagList} mapping={socialTags} />
       </About.Wrapper>
 
       <About.Wrapper>

@@ -1,5 +1,3 @@
-import type { TagMap } from '../components/TagList/tagMap';
-
 export enum Tech {
   ESNEXT = 'esnext',
   TYPESCRIPT = 'typescript',
@@ -23,7 +21,7 @@ export enum Tech {
   PHOTOSHOP = 'photoshop',
 }
 
-export const techTags: TagMap = {
+export const techTags = {
   [Tech.ESNEXT]: {
     title: 'ESNext',
     url: '/',
@@ -104,4 +102,4 @@ export const techTags: TagMap = {
     title: 'Adobe Photoshop',
     url: '/',
   },
-};
+} as const;

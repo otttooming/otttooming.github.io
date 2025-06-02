@@ -1,12 +1,10 @@
-import type { TagMap } from '../components/TagList/tagMap';
-
 export enum Social {
   GITHUB = 'github',
   LINKEDIN = 'linkedin',
   TWITTER = 'twitter',
 }
 
-export const socialTags: TagMap = {
+export const socialTags = {
   [Social.GITHUB]: {
     title: 'GitHub',
     url: 'https://github.com/otttooming',
@@ -19,4 +17,4 @@ export const socialTags: TagMap = {
     title: 'Twitter',
     url: 'https://twitter.com/otttooming',
   },
-};
+} as const;

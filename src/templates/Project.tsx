@@ -7,7 +7,6 @@ import Logo from '../components/Logo/Logo';
 import MDXComponents from '../components/MDXComponents/MDXComponents';
 import SEO from '../components/SEO';
 import TagList from '../components/TagList/TagList';
-import { getMappedTags } from '../components/TagList/tagMap';
 import Layout from '../components/layout';
 import { techTags } from '../constants/tech';
 import { projectTexts, textMap } from '../utils/textMap';
@@ -60,7 +59,7 @@ const Project = ({ children, data: { mdx } }) => {
           {textMap(mdx.frontmatter.kind, projectTexts)}
         </Heading>
 
-        <TagList tags={getMappedTags(mdx.frontmatter.tech, techTags)} />
+        <TagList tags={mdx.frontmatter.tech} mapping={techTags} />
       </Box>
 
       <div className={wrapper}>
