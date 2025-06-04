@@ -1,9 +1,23 @@
 import clsx from 'clsx';
 import { useColorMode } from '../ui/color-mode';
-import { moonSun, darkModeButton, lightModeButton } from './DarkMode.css';
+import {
+  lightMoonSun,
+  darkMoonSun,
+  darkModeButton,
+  lightModeButton,
+} from './DarkMode.css';
 
 const MoonOrSun = () => {
-  return <span className={moonSun} />;
+  const { colorMode } = useColorMode();
+
+  return (
+    <span
+      className={clsx(
+        colorMode === 'dark' && darkMoonSun,
+        colorMode === 'light' && lightMoonSun,
+      )}
+    />
+  );
 };
 
 const DarkMode = () => {
