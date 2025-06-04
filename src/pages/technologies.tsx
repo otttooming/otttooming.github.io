@@ -1,10 +1,9 @@
-import { Box, Heading, Text } from '@chakra-ui/react';
 import { graphql } from 'gatsby';
 import Card from '../components/Card/Card';
 import SEO from '../components/SEO';
 import Layout from '../components/layout';
 import type { TechnologiesListQueryQuery } from '../types';
-import { theme } from '../utils/theme.css';
+import * as styles from './technologies.css';
 
 interface TechnologiesProps {
   data: TechnologiesListQueryQuery;
@@ -22,23 +21,16 @@ const Technologies = ({
     <Layout>
       <SEO title="Technologies" description="Tech stack that I currently use" />
 
-      <Heading
-        as="h1"
-        mt="80px"
-        marginX="auto"
-        maxWidth="960px"
-        px="16px"
-        fontWeight={400}
-      >
+      <h1 className={styles.heading}>
         <strong>Tech stack</strong> that I currently use
-      </Heading>
+      </h1>
 
-      <Text mt={theme.space.l} marginX="auto" maxWidth="960px" px="16px">
+      <p className={styles.description}>
         Passionate about TypeScript, React, NodeJS, GraphQL and statically typed
         languages in general.
-      </Text>
+      </p>
 
-      <Box as="ol" m="80px auto" p={0} maxWidth="1080px" px={[0, 0, '16px']}>
+      <ol className={styles.cardList}>
         {posts.map(({ body, frontmatter }) => {
           const { title, featured } = frontmatter;
 
@@ -52,7 +44,7 @@ const Technologies = ({
             />
           );
         })}
-      </Box>
+      </ol>
     </Layout>
   );
 };
