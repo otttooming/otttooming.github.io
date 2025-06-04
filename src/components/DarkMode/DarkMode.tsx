@@ -1,17 +1,21 @@
+import clsx from 'clsx';
 import { useColorMode } from '../ui/color-mode';
-import { moonSun, darkModeButton } from './DarkMode.css';
+import { moonSun, darkModeButton, lightModeButton } from './DarkMode.css';
 
 const MoonOrSun = () => {
   return <span className={moonSun} />;
 };
 
 const DarkMode = () => {
-  const { toggleColorMode } = useColorMode();
+  const { toggleColorMode, colorMode } = useColorMode();
 
   return (
     <button
       type="button"
-      className={darkModeButton}
+      className={clsx(
+        colorMode === 'dark' && darkModeButton,
+        colorMode === 'light' && lightModeButton,
+      )}
       onClick={toggleColorMode}
       aria-label="Toggle dark mode"
     >

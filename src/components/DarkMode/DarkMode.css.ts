@@ -46,7 +46,7 @@ export const moonSun = style({
   },
 });
 
-export const darkModeButton = style({
+export const baseButton = style({
   display: 'inline-flex',
   appearance: 'none',
   alignItems: 'center',
@@ -64,9 +64,6 @@ export const darkModeButton = style({
   height: '2.5rem',
   minWidth: '2.5rem',
   fontSize: '1rem',
-  paddingLeft: '1rem',
-  paddingRight: '1rem',
-  background: 'rgba(255, 255, 255, 0.08)',
   padding: 0,
 
   selectors: {
@@ -80,18 +77,39 @@ export const darkModeButton = style({
         cursor: 'not-allowed',
         boxShadow: 'none',
       },
-
-    '&:hover, &[data-hover]': {
-      background: 'rgba(255, 255, 255, 0.16)',
-    },
-
-    '&:hover[disabled], &[data-hover][disabled], &:hover[disabled]:focus, &[data-hover][disabled]:focus, &:hover[disabled]:hover, &[data-hover][disabled]:hover, &:hover[aria-disabled=true], &[data-hover][aria-disabled=true], &:hover[aria-disabled=true]:focus, &[data-hover][aria-disabled=true]:focus, &:hover[aria-disabled=true]:hover, &[data-hover][aria-disabled=true]:hover, &:hover[data-disabled], &[data-hover][data-disabled], &:hover[data-disabled]:focus, &[data-hover][data-disabled]:focus, &:hover[data-disabled]:hover, &[data-hover][data-disabled]:hover':
-      {
-        background: 'rgba(255, 255, 255, 0.08)',
-      },
-
-    '&:active, &[data-active]': {
-      background: 'rgba(255, 255, 255, 0.24)',
-    },
   },
 });
+
+export const darkModeButton = style([
+  baseButton,
+  {
+    background: 'rgba(255, 255, 255, 0.08)',
+    selectors: {
+      '&:hover, &[data-hover]': {
+        background: 'rgba(255, 255, 255, 0.16)',
+      },
+      '&:hover[disabled], &[data-hover][disabled], &:hover[disabled]:focus, &[data-hover][disabled]:focus, &:hover[disabled]:hover, &[data-hover][disabled]:hover, &:hover[aria-disabled=true], &[data-hover][aria-disabled=true], &:hover[aria-disabled=true]:focus, &[data-hover][aria-disabled=true]:focus, &:hover[aria-disabled=true]:hover, &[data-hover][aria-disabled=true]:hover, &:hover[data-disabled], &[data-hover][data-disabled], &:hover[data-disabled]:focus, &[data-hover][data-disabled]:focus, &:hover[data-disabled]:hover, &[data-hover][data-disabled]:hover':
+        {
+          background: 'rgba(255, 255, 255, 0.08)',
+        },
+      '&:active, &[data-active]': {
+        background: 'rgba(255, 255, 255, 0.24)',
+      },
+    },
+  },
+]);
+
+export const lightModeButton = style([
+  baseButton,
+  {
+    background: 'rgb(237, 242, 247)',
+    selectors: {
+      '&:hover, &[data-hover]': {
+        background: 'rgb(226, 232, 240)',
+      },
+      '&:active, &[data-active]': {
+        background: 'rgb(203, 213, 224)',
+      },
+    },
+  },
+]);
