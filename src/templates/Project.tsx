@@ -1,4 +1,3 @@
-import { Box, Heading, Link } from '@chakra-ui/react';
 import { MDXProvider } from '@mdx-js/react';
 import { graphql } from 'gatsby';
 import { ExternalLink } from 'react-feather';
@@ -10,8 +9,7 @@ import TagList from '../components/TagList/TagList';
 import Layout from '../components/layout';
 import { techTags } from '../constants/tech';
 import { projectTexts, textMap } from '../utils/textMap';
-import { theme } from '../utils/theme.css';
-import { wrapper } from './Project.css';
+import * as styles from './Project.css';
 
 const Project = ({ children, data: { mdx } }) => {
   const { image, background, fit } = mdx.frontmatter.featured;
@@ -20,7 +18,7 @@ const Project = ({ children, data: { mdx } }) => {
     <Layout>
       <SEO title={mdx.frontmatter.title} description="" />
 
-      <Box maxWidth="1024px" m="80px auto 0" px="16px" position="relative">
+      <div className={styles.coverContainer}>
         <CoverImage
           alt={mdx.frontmatter.title}
           maxHeight="70vh"
@@ -29,40 +27,29 @@ const Project = ({ children, data: { mdx } }) => {
           fluid={image.childImageSharp.gatsbyImageData}
         />
 
-        <Link
-          position="absolute"
-          bottom="-16px"
-          left="32px"
-          display="inline-flex"
-          background="#edf2f7"
-          color="rgb(26, 32, 44)"
-          p="8px 16px"
-          borderWidth="1px"
-          flex="1"
-          rounded="md"
-          fontSize="14px"
-          alignItems="center"
+        <a
+          className={styles.projectLink}
           href={mdx.frontmatter.link}
           target="_blank"
+          rel="noopener noreferrer"
         >
           <p>Link to project</p>
+          <ExternalLink className={styles.externalLinkIcon} />
+        </a>
+      </div>
 
-          <Box as={ExternalLink} ml="8px" width="16px" />
-        </Link>
-      </Box>
-
-      <Box as="header" mt="80px" mx="auto" px="16px" maxWidth="960px">
+      <header className={styles.header}>
         <Logo name={mdx.frontmatter.company} />
 
-        <Heading as="h1" fontWeight={400} mt={theme.space.s}>
+        <h1 className={styles.heading}>
           <strong>{mdx.frontmatter.title}</strong>{' '}
           {textMap(mdx.frontmatter.kind, projectTexts)}
-        </Heading>
+        </h1>
 
         <TagList tags={mdx.frontmatter.tech} mapping={techTags} />
-      </Box>
+      </header>
 
-      <div className={wrapper}>
+      <div className={styles.wrapper}>
         <MDXProvider components={MDXComponents}>{children}</MDXProvider>
       </div>
     </Layout>
