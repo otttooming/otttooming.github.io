@@ -1,35 +1,38 @@
-import {
-  Box,
-  type BoxProps,
-  Link as ChakraLink,
-  type LinkProps,
-} from '@chakra-ui/react';
 import * as styles from './HexGrid.css';
 
-const Link = ({ ...restProps }: LinkProps) => (
-  <ChakraLink display="block" target="blank" {...restProps} />
+interface HexProps {
+  children: React.ReactNode;
+  href: string;
+  variant: 'typescript' | 'redux' | 'gatsby' | 'react' | 'graphql';
+}
+
+const Link = ({
+  href,
+  children,
+}: { href: string; children: React.ReactNode }) => (
+  <a
+    href={href}
+    className={styles.link}
+    target="_blank"
+    rel="noopener noreferrer"
+  >
+    {children}
+  </a>
 );
 
-const Hex = ({ children, href, ...restProps }: BoxProps & { href: string }) => (
+const Hex = ({ children, href, variant }: HexProps) => (
   <Link href={href}>
-    <Content {...restProps}>{children}</Content>
+    <span
+      className={`${styles.styledContent} ${styles.hex({ backgroundColor: variant })}`}
+    >
+      {children}
+    </span>
   </Link>
 );
 
 const Icon = ({ children }: { children: React.ReactNode }) => (
   <span className={styles.icon}>{children}</span>
 );
-
-const Content = ({ ...restProps }: BoxProps) => {
-  return (
-    <Box
-      as="span"
-      className={styles.styledContent}
-      display="block"
-      {...restProps}
-    />
-  );
-};
 
 const GatsbyIcon = ({ ...rest }: React.ComponentProps<'svg'>) => (
   <svg role="img" aria-label="Gatsby" {...rest}>
@@ -63,38 +66,35 @@ const HexGrid = () => {
   return (
     <div className={styles.wrapper}>
       <div className={styles.item}>
-        <Hex backgroundColor="#007acc" href="https://www.typescriptlang.org/">
+        <Hex variant="typescript" href="https://www.typescriptlang.org/">
           <Icon>
             <TSIcon />
           </Icon>
         </Hex>
       </div>
       <div className={styles.item}>
-        <Hex backgroundColor="#764abc" href="https://redux.js.org/">
+        <Hex variant="redux" href="https://redux.js.org/">
           <Icon>
             <ReduxIcon />
           </Icon>
         </Hex>
       </div>
       <div className={styles.item}>
-        <Hex backgroundColor="#663399" href="https://www.gatsbyjs.org/">
+        <Hex variant="gatsby" href="https://www.gatsbyjs.org/">
           <Icon>
             <GatsbyIcon />
           </Icon>
         </Hex>
       </div>
       <div className={styles.item}>
-        <Hex backgroundColor="#20232a" href="https://reactjs.org/">
+        <Hex variant="react" href="https://reactjs.org/">
           <Icon>
             <ReactIcon />
           </Icon>
         </Hex>
       </div>
       <div className={styles.item}>
-        <Hex
-          backgroundColor="rgba(221,23,151,0.75)"
-          href="https://graphql.org/"
-        >
+        <Hex variant="graphql" href="https://graphql.org/">
           <Icon>
             <GraphQLIcon />
           </Icon>

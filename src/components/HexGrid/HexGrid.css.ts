@@ -1,4 +1,25 @@
-import { style, globalStyle } from '@vanilla-extract/css';
+import { style, globalStyle, styleVariants } from '@vanilla-extract/css';
+import { recipe } from '@vanilla-extract/recipes';
+
+export const link = style({
+  display: 'block',
+  textDecoration: 'none',
+});
+
+export const hex = recipe({
+  base: {
+    display: 'block',
+  },
+  variants: {
+    backgroundColor: {
+      typescript: { backgroundColor: '#007acc' },
+      redux: { backgroundColor: '#764abc' },
+      gatsby: { backgroundColor: '#663399' },
+      react: { backgroundColor: '#20232a' },
+      graphql: { backgroundColor: 'rgba(221,23,151,0.75)' },
+    },
+  },
+});
 
 export const wrapper = style({
   margin: '128px auto',
