@@ -1,0 +1,97 @@
+import { style } from '@vanilla-extract/css';
+
+export const moonSun = style({
+  position: 'relative',
+  width: '24px',
+  height: '24px',
+  boxShadow: 'inset 32px -32px .1px 0 #000',
+  borderRadius: '50%',
+  WebkitTransition: '-webkit-transform .3s ease .1s,box-shadow .2s ease 0s',
+  transition: 'transform .3s ease .1s,box-shadow .2s ease 0s',
+  WebkitTransform: 'scale(0.5) rotate(0deg)',
+  MozTransform: 'scale(0.5) rotate(0deg)',
+  msTransform: 'scale(0.5) rotate(0deg)',
+  transform: 'scale(0.5) rotate(0deg)',
+
+  '::after': {
+    content: '""',
+    width: '8px',
+    height: '8px',
+    borderRadius: 'inherit',
+    margin: '-4px 0 0 -4px',
+    position: 'absolute',
+    top: '50%',
+    left: '50%',
+    boxShadow:
+      '0 -23px 0 #fff,0 23px 0 #fff,23px 0 0 #fff,-23px 0 0 #fff,15px 15px 0 #fff,-15px 15px 0 #fff,15px -15px 0 #fff,-15px -15px 0 #fff',
+    WebkitTransform: 'scale(1)',
+    MozTransform: 'scale(1)',
+    msTransform: 'scale(1)',
+    transform: 'scale(1)',
+    WebkitTransition: '-webkit-transform .5s ease .15s',
+    transition: 'transform .5s ease .15s',
+  },
+
+  '::before': {
+    content: '""',
+    position: 'absolute',
+    left: 0,
+    top: 0,
+    height: 'inherit',
+    width: 'inherit',
+    borderRadius: 'inherit',
+    background: '#fff',
+    WebkitTransition: 'background .3s ease .1s',
+    transition: 'background .3s ease .1s',
+  },
+});
+
+export const darkModeButton = style({
+  display: 'inline-flex',
+  appearance: 'none',
+  alignItems: 'center',
+  justifyContent: 'center',
+  transition: 'all 250ms',
+  userSelect: 'none',
+  position: 'relative',
+  whiteSpace: 'nowrap',
+  verticalAlign: 'middle',
+  outline: 'none',
+  width: 'auto',
+  lineHeight: 1.2,
+  borderRadius: '0.375rem',
+  fontWeight: 600,
+  height: '2.5rem',
+  minWidth: '2.5rem',
+  fontSize: '1rem',
+  paddingLeft: '1rem',
+  paddingRight: '1rem',
+  background: 'rgba(255, 255, 255, 0.08)',
+  padding: 0,
+
+  selectors: {
+    '&:focus, &[data-focus]': {
+      boxShadow: '0 0 0 3px rgba(66, 153, 225, 0.6)',
+    },
+
+    '&[disabled], &[disabled]:focus, &[disabled]:hover, &[aria-disabled=true], &[aria-disabled=true]:focus, &[aria-disabled=true]:hover, &[data-disabled], &[data-disabled]:focus, &[data-disabled]:hover':
+      {
+        opacity: 0.4,
+        cursor: 'not-allowed',
+        boxShadow: 'none',
+      },
+
+    '&:hover, &[data-hover]': {
+      background: 'rgba(255, 255, 255, 0.16)',
+    },
+
+    '&:hover[disabled], &[data-hover][disabled], &:hover[disabled]:focus, &[data-hover][disabled]:focus, &:hover[disabled]:hover, &[data-hover][disabled]:hover, &:hover[aria-disabled=true], &[data-hover][aria-disabled=true], &:hover[aria-disabled=true]:focus, &[data-hover][aria-disabled=true]:focus, &:hover[aria-disabled=true]:hover, &[data-hover][aria-disabled=true]:hover, &:hover[data-disabled], &[data-hover][data-disabled], &:hover[data-disabled]:focus, &[data-hover][data-disabled]:focus, &:hover[data-disabled]:hover, &[data-hover][data-disabled]:hover':
+      {
+        background: 'rgba(255, 255, 255, 0.08)',
+      },
+
+    '&:active, &[data-active]': {
+      background: 'rgba(255, 255, 255, 0.24)',
+    },
+  },
+});
