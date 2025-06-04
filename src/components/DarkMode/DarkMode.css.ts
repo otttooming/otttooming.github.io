@@ -6,11 +6,7 @@ export const darkMoonSun = style({
   height: '24px',
   boxShadow: 'inset 32px -32px .1px 0 #000',
   borderRadius: '50%',
-  WebkitTransition: '-webkit-transform .3s ease .1s,box-shadow .2s ease 0s',
-  transition: 'transform .3s ease .1s,box-shadow .2s ease 0s',
-  WebkitTransform: 'scale(0.5) rotate(0deg)',
-  MozTransform: 'scale(0.5) rotate(0deg)',
-  msTransform: 'scale(0.5) rotate(0deg)',
+  transition: 'transform .3s ease .1s, box-shadow .2s ease 0s',
   transform: 'scale(0.5) rotate(0deg)',
 
   '::after': {
@@ -24,11 +20,7 @@ export const darkMoonSun = style({
     left: '50%',
     boxShadow:
       '0 -23px 0 #fff,0 23px 0 #fff,23px 0 0 #fff,-23px 0 0 #fff,15px 15px 0 #fff,-15px 15px 0 #fff,15px -15px 0 #fff,-15px -15px 0 #fff',
-    WebkitTransform: 'scale(1)',
-    MozTransform: 'scale(1)',
-    msTransform: 'scale(1)',
     transform: 'scale(1)',
-    WebkitTransition: '-webkit-transform .5s ease .15s',
     transition: 'transform .5s ease .15s',
   },
 
@@ -41,7 +33,6 @@ export const darkMoonSun = style({
     width: 'inherit',
     borderRadius: 'inherit',
     background: '#fff',
-    WebkitTransition: 'background .3s ease .1s',
     transition: 'background .3s ease .1s',
   },
 });
