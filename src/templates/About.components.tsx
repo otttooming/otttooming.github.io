@@ -1,7 +1,8 @@
-import { Box, type BoxProps } from '@chakra-ui/react';
+import { PropsWithChildren } from 'react';
+import * as styles from './About.css';
 
-const Wrapper = ({ ...restProps }: React.PropsWithChildren<BoxProps>) => (
-  <Box maxWidth="960px" m="80px auto" px="16px" {...restProps} />
+const Wrapper = ({ children }: PropsWithChildren) => (
+  <div className={styles.wrapper}>{children}</div>
 );
 
 export const About = {
