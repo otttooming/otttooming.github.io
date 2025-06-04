@@ -1,63 +1,46 @@
-import { Box, type BoxProps, Button } from '@chakra-ui/react';
 import { Link as GatsbyLink } from 'gatsby';
 import { BookOpen, Tool, User, Wind } from 'react-feather';
 import DarkMode from './DarkMode/DarkMode';
-import { PropsWithChildren } from 'react';
 import * as styles from './Header.css';
 
-const Item = ({ ...restProps }: PropsWithChildren<BoxProps>) => (
-  <Box
-    as="li"
-    display="flex"
-    alignSelf="center"
-    listStyleType="none"
-    ml="24px"
-    {...restProps}
-  />
-);
-
-const link =
-  (to: string) =>
-  ({ ...restProps }) => <GatsbyLink to={to} {...restProps} />;
-
 const Header = () => (
-  <Box as="header" className={styles.header}>
+  <header className={styles.header}>
     <p>
-      <Button as={link('/')} variant="ghost">
+      <GatsbyLink to="/" className={styles.button}>
         <Wind />
         Ott
-      </Button>
+      </GatsbyLink>
     </p>
 
     <nav>
-      <Box as="ol" display="flex" m="0" p="0">
-        <Item>
-          <Button as={link('/about/me')} variant="ghost">
+      <ol className={styles.navList}>
+        <li className={styles.navItem}>
+          <GatsbyLink to="/about/me" className={styles.button}>
             <User />
             About
-          </Button>
-        </Item>
+          </GatsbyLink>
+        </li>
 
-        <Item>
-          <Button as={link('/technologies')} variant="ghost">
+        <li className={styles.navItem}>
+          <GatsbyLink to="/technologies" className={styles.button}>
             <Tool />
             Tech
-          </Button>
-        </Item>
+          </GatsbyLink>
+        </li>
 
-        <Item>
-          <Button as={link('/projects')} variant="ghost">
+        <li className={styles.navItem}>
+          <GatsbyLink to="/projects" className={styles.button}>
             <BookOpen />
             Projects
-          </Button>
-        </Item>
+          </GatsbyLink>
+        </li>
 
-        <Item>
+        <li className={styles.navItem}>
           <DarkMode />
-        </Item>
-      </Box>
+        </li>
+      </ol>
     </nav>
-  </Box>
+  </header>
 );
 
 export default Header;
