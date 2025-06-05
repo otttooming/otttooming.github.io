@@ -1,4 +1,3 @@
-import { clsx } from 'clsx/lite';
 import * as styles from './Logo.css';
 import { Gtap, Iglu, Khk, Pethealth, Pipedrive, Voog } from './CompanyLogos';
 
@@ -7,11 +6,9 @@ export type LogoProps = {
 };
 
 const getLogoClasses = (size?: 'medium' | 'large') =>
-  clsx(
-    styles.icon,
-    size === 'medium' && styles.mediumIcon,
-    size === 'large' && styles.largeIcon,
-  );
+  styles.icon({
+    size: size || 'default',
+  });
 
 const Logo = ({ name }: LogoProps) => {
   if (name === 'voog') {
