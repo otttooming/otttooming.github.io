@@ -1,4 +1,4 @@
-import { AspectRatio, Box, Heading, Image } from '@chakra-ui/react';
+import { Heading, Image } from '@chakra-ui/react';
 import { MDXProvider } from '@mdx-js/react';
 import { graphql } from 'gatsby';
 import CoverImageWrapper from '../components/CoverImage/CoverImageWrapper';
@@ -21,8 +21,6 @@ const AboutTemplate = ({
     },
   },
 }) => {
-  const ratio = htmlWidth / htmlHeight;
-
   return (
     <Layout>
       <SEO title={title} description="" />
@@ -34,16 +32,14 @@ const AboutTemplate = ({
         display="flex"
         justifyContent="center"
       >
-        <AspectRatio ratio={ratio} maxWidth={htmlWidth} width="100%">
-          <Image
-            maxHeight="100%"
-            src={illustration.publicURL}
-            alt={alt}
-            htmlHeight={htmlHeight}
-            htmlWidth={htmlWidth}
-            loading="lazy"
-          />
-        </AspectRatio>
+        <Image
+          maxHeight="100%"
+          src={illustration.publicURL}
+          alt={alt}
+          htmlHeight={htmlHeight}
+          htmlWidth={htmlWidth}
+          loading="lazy"
+        />
       </CoverImageWrapper>
 
       <About.Wrapper>
