@@ -1,13 +1,13 @@
 import { Heading, Image } from '@chakra-ui/react';
 import { MDXProvider } from '@mdx-js/react';
 import { graphql } from 'gatsby';
-import CoverImageWrapper from '../components/CoverImage/CoverImageWrapper';
 import MDXComponents from '../components/MDXComponents/MDXComponents';
 import SEO from '../components/SEO';
 import TagList from '../components/TagList/TagList';
 import Layout from '../components/layout';
 import { socialTags } from '../constants/social';
 import { About } from './About.components';
+import * as styles from './About.css';
 
 const AboutTemplate = ({
   children,
@@ -25,22 +25,16 @@ const AboutTemplate = ({
     <Layout>
       <SEO title={title} description="" />
 
-      <CoverImageWrapper
-        maxWidth="1024px"
-        m="80px auto 0"
-        p="32px"
-        display="flex"
-        justifyContent="center"
-      >
+      <div className={styles.coverWrapper}>
         <Image
-          maxHeight="100%"
+          className={styles.coverImage}
           src={illustration.publicURL}
           alt={alt}
           htmlHeight={htmlHeight}
           htmlWidth={htmlWidth}
           loading="lazy"
         />
-      </CoverImageWrapper>
+      </div>
 
       <About.Wrapper>
         <Heading as="h1">{title}</Heading>
