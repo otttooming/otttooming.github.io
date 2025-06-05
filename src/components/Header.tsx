@@ -5,12 +5,10 @@ import * as styles from './Header.css';
 
 const Header = () => (
   <header className={styles.header}>
-    <p>
-      <GatsbyLink to="/" className={styles.button}>
-        <Wind />
-        Ott
-      </GatsbyLink>
-    </p>
+    <GatsbyLink to="/" className={styles.button}>
+      <Wind />
+      Ott
+    </GatsbyLink>
 
     <nav>
       <ol className={styles.navList}>
