@@ -1,100 +1,96 @@
-import {
-  Box,
-  Link as ChakraLink,
-  List as ChakraList,
-  Text as ChakraText,
-  Heading,
-  type LinkProps,
-} from '@chakra-ui/react';
 import { Link as GatsbyLink } from 'gatsby';
 import { ExternalLink } from 'react-feather';
 import { getIsExternalLink } from '../../utils/getIsExternalLink';
 import { getIsDocument } from '../../utils/getLinkType';
 import { getURISafeString } from '../../utils/text';
-import { theme } from '../../utils/theme.css';
 import Illustration from '../Illustration/';
 import MasonryGallery from '../MasonryGallery/MasonryGallery';
 import { PieChart } from '../PieChart/PieChart';
-import { ComponentProps, PropsWithChildren } from 'react';
+import { AnchorHTMLAttributes, HTMLAttributes, PropsWithChildren } from 'react';
+import * as styles from './MDXComponents.css';
 
-export const HeadingH2 = ({ children, ...restProps }: PropsWithChildren) => (
-  <Heading
+export const HeadingH2 = ({
+  children,
+  ...restProps
+}: PropsWithChildren<HTMLAttributes<HTMLHeadingElement>>) => (
+  <h2
     {...restProps}
-    as="h2"
     id={getURISafeString(children)}
-    size="xl"
-    mt="32px"
-    fontWeight={theme.fontWeight.semiBold}
+    className={styles.heading2}
   >
     {children}
-  </Heading>
+  </h2>
 );
 
-export const HeadingH3 = ({ children, ...restProps }: PropsWithChildren) => (
-  <Heading
+export const HeadingH3 = ({
+  children,
+  ...restProps
+}: PropsWithChildren<HTMLAttributes<HTMLHeadingElement>>) => (
+  <h3
     {...restProps}
-    as="h3"
     id={getURISafeString(children)}
-    size="lg"
-    mt="32px"
-    fontWeight={theme.fontWeight.semiBold}
+    className={styles.heading3}
   >
     {children}
-  </Heading>
+  </h3>
 );
 
 const internalOrExternalLink =
   (isPlainHrefTag: boolean) =>
-  ({ href, ...restProps }) => {
+  ({
+    href,
+    className,
+    ...restProps
+  }: AnchorHTMLAttributes<HTMLAnchorElement>) => {
     if (isPlainHrefTag) {
-      return <a href={href} {...restProps} />;
+      return <a href={href} className={className} {...restProps} />;
     }
 
-    return <GatsbyLink to={href} {...restProps} />;
+    return <GatsbyLink to={href || ''} className={className} {...restProps} />;
   };
 
 export const Link = ({
   children,
   href = '',
+  className,
   ...restProps
-}: PropsWithChildren<LinkProps>) => {
+}: PropsWithChildren<AnchorHTMLAttributes<HTMLAnchorElement>>) => {
   const isExternal = getIsExternalLink(href);
   const isPlainHrefTag = [getIsDocument(href), isExternal].some(Boolean);
 
+  const CustomLink = internalOrExternalLink(isPlainHrefTag);
+
   return (
-    <ChakraLink
-      as={internalOrExternalLink(isPlainHrefTag)}
-      display="inline-flex"
-      alignItems="center"
-      verticalAlign="middle"
-      href={href}
-      {...restProps}
-    >
+    <CustomLink href={href} className={styles.link} {...restProps}>
       {children}
       {isExternal && (
-        <Box as="span" mx="2px" ml="4px">
+        <span className={styles.externalIcon}>
           <ExternalLink width="14px" height="14px" />
-        </Box>
+        </span>
       )}
-    </ChakraLink>
+    </CustomLink>
   );
 };
 
-export const List = (props: ComponentProps<typeof ChakraList.Root>) => (
-  <ChakraList.Root
-    {...props}
-    listStyleType="disc"
-    paddingLeft="32px"
-    mt="16px"
-  />
+export const List = ({
+  className,
+  ...props
+}: HTMLAttributes<HTMLUListElement>) => (
+  <ul className={`${styles.list} ${className || ''}`} {...props} />
 );
 
-export const ListItem = (props: ComponentProps<typeof ChakraList.Item>) => (
-  <ChakraList.Item {...props} mt="8px" />
+export const ListItem = ({
+  className,
+  ...props
+}: HTMLAttributes<HTMLLIElement>) => (
+  <li className={`${styles.listItem} ${className || ''}`} {...props} />
 );
 
-export const Text = (props: ComponentProps<typeof ChakraText>) => (
-  <ChakraText {...props} mt="24px" />
+export const Text = ({
+  className,
+  ...props
+}: HTMLAttributes<HTMLParagraphElement>) => (
+  <p className={`${styles.text} ${className || ''}`} {...props} />
 );
 
 const MDXComponents = {
