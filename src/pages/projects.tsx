@@ -1,12 +1,8 @@
 import { graphql } from 'gatsby';
-import CoverImage from '../components/CoverImage/CoverImage';
-import Logo from '../components/Logo/Logo';
-import { Link as MDXLink } from '../components/MDXComponents/MDXComponents';
 import SEO from '../components/SEO';
 import Layout from '../components/layout';
 import type { ProjectsListQueryQuery } from '../types';
-import { projectTexts, textMap } from '../utils/textMap';
-import { useColorMode } from '../components/ui/color-mode';
+import ProjectItem from '../components/ProjectItem/ProjectItem';
 import * as styles from './projects.css';
 
 export interface ProjectsProps {
@@ -18,8 +14,6 @@ const Projects = ({
     allMdx: { nodes: posts },
   },
 }: ProjectsProps) => {
-  const { colorMode } = useColorMode();
-
   return (
     <Layout>
       <SEO title="Projects" description="" />
@@ -38,43 +32,14 @@ const Projects = ({
       </p>
 
       <ol className={styles.projectList}>
-        {posts.map(({ id, excerpt, frontmatter }) => {
-          const { image, background, fit } = frontmatter.featured;
-
-          return (
-            <li
-              key={id}
-              className={styles.projectItem({
-                mode: colorMode as 'light' | 'dark',
-              })}
-            >
-              <MDXLink href={frontmatter.slug} className={styles.projectLink}>
-                <CoverImage
-                  maxHeight="360px"
-                  fluid={image.childImageSharp.gatsbyImageData}
-                  background={background}
-                  fit={fit}
-                  alt={frontmatter.title}
-                />
-              </MDXLink>
-
-              <div className={styles.projectContent}>
-                <a href={frontmatter.link} className={styles.companyLink}>
-                  <Logo name={frontmatter.company} />
-                </a>
-
-                <MDXLink href={frontmatter.slug}>
-                  <h2 className={styles.projectTitle}>
-                    <strong>{frontmatter.title}</strong>{' '}
-                    {textMap(frontmatter.kind, projectTexts)}
-                  </h2>
-                </MDXLink>
-
-                <p className={styles.description}>{excerpt}</p>
-              </div>
-            </li>
-          );
-        })}
+        {posts.map(({ id, excerpt, frontmatter }) => (
+          <ProjectItem
+            key={id}
+            id={id}
+            excerpt={excerpt}
+            frontmatter={frontmatter}
+          />
+        ))}
       </ol>
     </Layout>
   );
