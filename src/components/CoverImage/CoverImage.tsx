@@ -1,46 +1,47 @@
-import { Box, type BoxProps } from '@chakra-ui/react';
 import { GatsbyImage } from 'gatsby-plugin-image';
 import * as styles from './CoverImage.css';
+
+type Props = {
+  maxHeight: string;
+  fit: 'contain' | null;
+  fluid: any;
+  alt: string;
+  background?: string;
+  boxShadow?: string;
+};
 
 const CoverImage = ({
   maxHeight: passedMaxHeight,
   fit: passedFit,
   fluid,
-  background: passedBackground,
   alt,
-  ...restProps
-}: BoxProps & { maxHeight: string; fit: string; fluid: any; alt: string }) => {
-  const fit = passedFit ? passedFit : 'cover';
-
-  const isObjectFitCover = fit === 'cover';
-  const background = passedBackground ?? '#EDF2F7';
-
-  const fitProps: BoxProps = {
-    display: 'flex',
-    alignItems: 'center',
-  };
-
-  const width = isObjectFitCover ? '100%' : undefined;
-  const objectFitmaxHeight = isObjectFitCover ? undefined : passedMaxHeight;
+  background = '#EDF2F7',
+}: Props) => {
+  const fit = passedFit ?? 'cover';
+  const objectFitmaxHeight = fit === 'cover' ? undefined : passedMaxHeight;
 
   return (
-    <Box
+    <div
       className={styles.wrapper}
-      background={background}
-      maxHeight={passedMaxHeight}
-      {...(isObjectFitCover && fitProps)}
-      {...restProps}
+      style={{
+        maxHeight: passedMaxHeight,
+        background,
+      }}
     >
-      <GatsbyImage
-        alt={alt}
-        image={fluid}
-        style={{ width }}
-        imgStyle={{
-          objectFit: fit,
-          maxHeight: objectFitmaxHeight,
-        }}
-      />
-    </Box>
+      <div
+        className={styles.imageContainer({ fit: fit as 'cover' | 'contain' })}
+      >
+        <GatsbyImage
+          alt={alt}
+          image={fluid}
+          style={{ width: fit === 'cover' ? '100%' : undefined }}
+          imgStyle={{
+            objectFit: fit,
+            maxHeight: objectFitmaxHeight,
+          }}
+        />
+      </div>
+    </div>
   );
 };
 
