@@ -1,6 +1,6 @@
-import type { BoxProps } from '@chakra-ui/react';
+import { Box, type BoxProps } from '@chakra-ui/react';
 import { GatsbyImage } from 'gatsby-plugin-image';
-import CoverImageWrapper from './CoverImageWrapper';
+import * as styles from './CoverImage.css';
 
 const CoverImage = ({
   maxHeight: passedMaxHeight,
@@ -24,7 +24,8 @@ const CoverImage = ({
   const objectFitmaxHeight = isObjectFitCover ? undefined : passedMaxHeight;
 
   return (
-    <CoverImageWrapper
+    <Box
+      className={styles.wrapper}
       background={background}
       maxHeight={passedMaxHeight}
       {...(isObjectFitCover && fitProps)}
@@ -39,7 +40,7 @@ const CoverImage = ({
           maxHeight: objectFitmaxHeight,
         }}
       />
-    </CoverImageWrapper>
+    </Box>
   );
 };
 
