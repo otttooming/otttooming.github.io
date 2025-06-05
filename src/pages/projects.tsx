@@ -1,10 +1,3 @@
-import {
-  Box,
-  type BoxProps,
-  Link as ExternalLink,
-  Heading,
-  Text,
-} from '@chakra-ui/react';
 import { graphql } from 'gatsby';
 import CoverImage from '../components/CoverImage/CoverImage';
 import Logo from '../components/Logo/Logo';
@@ -13,84 +6,49 @@ import SEO from '../components/SEO';
 import Layout from '../components/layout';
 import type { ProjectsListQueryQuery } from '../types';
 import { projectTexts, textMap } from '../utils/textMap';
-import { theme } from '../utils/theme.css';
 import { useColorMode } from '../components/ui/color-mode';
+import * as styles from './projects.css';
 
 export interface ProjectsProps {
   data: ProjectsListQueryQuery;
 }
-
-const Item = ({ ...restProps }: BoxProps) => {
-  const { colorMode } = useColorMode();
-
-  const backgroundColor = colorMode === 'light' ? ' #edf2f7' : '#2c3442';
-
-  return (
-    <Box
-      as="li"
-      display="grid"
-      listStyleType="none"
-      gridGap="var(--space-l)"
-      gridTemplateColumns={[
-        'repeat(auto-fit, minmax(260, 1fr))',
-        'repeat(auto-fit, minmax(320px, 1fr))',
-        'repeat(auto-fit, minmax(320px, 1fr))',
-      ]}
-      gridTemplateAreas={[null, null, `"illustration content"`]}
-      alignItems="center"
-      backgroundColor={backgroundColor}
-      padding={['16px', '32px', '48px']}
-      borderRadius={[0, 0, '16px']}
-      mb={['32px', '64px', '128px']}
-      _even={{
-        gridTemplateAreas: [null, null, `"content illustration"`],
-      }}
-      {...restProps}
-    />
-  );
-};
 
 const Projects = ({
   data: {
     allMdx: { nodes: posts },
   },
 }: ProjectsProps) => {
+  const { colorMode } = useColorMode();
+
   return (
     <Layout>
       <SEO title="Projects" description="" />
 
-      <Heading
-        as="h1"
-        mt="80px"
-        marginX="auto"
-        maxWidth="960px"
-        px="16px"
-        fontWeight={400}
-      >
+      <h1 className={styles.heading}>
         <strong>Some projects</strong> I have been involved in
-      </Heading>
+      </h1>
 
-      <Text mt={theme.space.l} marginX="auto" maxWidth="960px" px="16px">
+      <p className={styles.descriptionWithMargin}>
         All of the projects have been a team collaboration and effort.
-      </Text>
+      </p>
 
-      <Text marginX="auto" maxWidth="960px" px="16px">
+      <p className={styles.description}>
         I have been thoroughly fortunate to have been given the opportunity to
         work with some amazing people.
-      </Text>
+      </p>
 
-      <Box as="ol" m="80px auto" p={0} maxWidth="1080px" px={[0, 0, '16px']}>
+      <ol className={styles.projectList}>
         {posts.map(({ id, excerpt, frontmatter }) => {
           const { image, background, fit } = frontmatter.featured;
 
           return (
-            <Item key={id}>
-              <MDXLink
-                href={frontmatter.slug}
-                display="block"
-                minWidth="320px"
-                gridArea={[null, null, 'illustration']}
-              >
+            <li
+              key={id}
+              className={styles.projectItem({
+                mode: colorMode as 'light' | 'dark',
+              })}
+            >
+              <MDXLink href={frontmatter.slug} className={styles.projectLink}>
                 <CoverImage
                   maxHeight="360px"
                   fluid={image.childImageSharp.gatsbyImageData}
@@ -100,24 +58,24 @@ const Projects = ({
                 />
               </MDXLink>
 
-              <Box gridArea={[null, null, 'content']}>
-                <ExternalLink href={frontmatter.link} display="block">
+              <div className={styles.projectContent}>
+                <a href={frontmatter.link} className={styles.companyLink}>
                   <Logo name={frontmatter.company} />
-                </ExternalLink>
+                </a>
 
                 <MDXLink href={frontmatter.slug}>
-                  <Heading mt={theme.space.s} fontWeight={400}>
+                  <h2 className={styles.projectTitle}>
                     <strong>{frontmatter.title}</strong>{' '}
                     {textMap(frontmatter.kind, projectTexts)}
-                  </Heading>
+                  </h2>
                 </MDXLink>
 
-                <Text mt={theme.space.s}>{excerpt}</Text>
-              </Box>
-            </Item>
+                <p className={styles.description}>{excerpt}</p>
+              </div>
+            </li>
           );
         })}
-      </Box>
+      </ol>
     </Layout>
   );
 };
