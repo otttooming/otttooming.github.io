@@ -1,4 +1,3 @@
-import { Heading, Image } from '@chakra-ui/react';
 import { MDXProvider } from '@mdx-js/react';
 import { graphql } from 'gatsby';
 import MDXComponents from '../components/MDXComponents/MDXComponents';
@@ -26,18 +25,18 @@ const AboutTemplate = ({
       <SEO title={title} description="" />
 
       <div className={styles.coverWrapper}>
-        <Image
+        <img
           className={styles.coverImage}
           src={illustration.publicURL}
           alt={alt}
-          htmlHeight={htmlHeight}
-          htmlWidth={htmlWidth}
+          height={htmlHeight}
+          width={htmlWidth}
           loading="lazy"
         />
       </div>
 
       <About.Wrapper>
-        <Heading as="h1">{title}</Heading>
+        <h1>{title}</h1>
 
         <TagList tags={tagList} mapping={socialTags} />
       </About.Wrapper>
