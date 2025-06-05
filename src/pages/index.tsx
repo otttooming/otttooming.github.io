@@ -1,24 +1,15 @@
-import {
-  Box,
-  type BoxProps,
-  Text as ChakraText,
-  Heading,
-  type HeadingProps,
-  IconButton,
-  Link,
-} from '@chakra-ui/react';
 import { GitHub, Linkedin, Twitter } from 'react-feather';
 import Coop from '../components/Coop/Coop';
 import Gallery from '../components/Gallery/Gallery';
 import HexGrid from '../components/HexGrid/HexGrid';
 import SEO from '../components/SEO';
 import Layout from '../components/layout';
-import { theme } from '../utils/theme.css';
 import { useColorMode } from '../components/ui/color-mode';
 import { graphql, useStaticQuery } from 'gatsby';
 import { GatsbyImage } from 'gatsby-plugin-image';
+import * as styles from './index.css';
 
-const Portrait = ({ ...restProps }) => {
+const Portrait = () => {
   const data = useStaticQuery(graphql`
    query PortraitImageQuery {
       placeholderImage: file(relativePath: { eq: "portrait-ott.jpg" }) {
@@ -31,220 +22,152 @@ const Portrait = ({ ...restProps }) => {
 
   return (
     <GatsbyImage
+      className={styles.portrait}
       alt="Ott Tooming"
       image={data.placeholderImage.childImageSharp.gatsbyImageData}
-      {...restProps}
     />
   );
 };
 
-const Grid = ({ ...restProps }: BoxProps) => {
+const Grid = ({ children }: React.PropsWithChildren) => {
   const { colorMode } = useColorMode();
-
-  const backgroundColor = colorMode === 'light' ? ' #edf2f7' : '#2c3442';
+  const style = {
+    backgroundColor: colorMode === 'light' ? '#edf2f7' : '#2c3442',
+  };
 
   return (
-    <Box
-      as="section"
-      display="grid"
-      gridGap={theme.space.l}
-      gridTemplateColumns={[
-        'repeat(auto-fit, minmax(260, 1fr))',
-        'repeat(auto-fit, minmax(320px, 1fr))',
-        'repeat(auto-fit, minmax(320px, 1fr))',
-      ]}
-      alignItems="center"
-      width="100%"
-      backgroundColor={backgroundColor}
-      paddingY="32px"
-      paddingX={['16px', '32px', '48px']}
-      borderRadius={[0, '16px', '16px']}
-      mb={['32px', '64px', '128px']}
-      {...restProps}
-    />
-  );
-};
-
-const AltGrid = ({ ...restProps }: BoxProps) => (
-  <Box
-    display="grid"
-    gridGap={theme.space.l}
-    gridTemplateColumns="repeat(auto-fit, minmax(64px, auto))"
-    alignItems="center"
-    maxWidth="1280px"
-    margin="0 auto"
-    padding={theme.space.xl}
-    {...restProps}
-  />
-);
-
-const PlainGrid = ({ ...restProps }: BoxProps) => (
-  <Box
-    width="100%"
-    maxWidth="960px"
-    margin={`${theme.space.xl} auto`}
-    {...restProps}
-  />
-);
-
-const Subheading = ({ ...restProps }: HeadingProps) => (
-  <Heading
-    as="h2"
-    size="md"
-    fontWeight={theme.fontWeight.normal}
-    {...restProps}
-  />
-);
-
-const Segment = ({ ...restProps }: BoxProps) => (
-  <Box
-    as="section"
-    px={[0, '16px', '16px']}
-    display="flex"
-    flexDirection="column"
-    justifyContent="center"
-    minHeight="min(100vh, 768px)"
-    {...restProps}
-  />
-);
-
-const SmallType = ({ children }) => {
-  const { colorMode } = useColorMode();
-
-  const color = colorMode === 'light' ? '#243343' : '';
-
-  return (
-    <ChakraText
-      mb="8px"
-      color={color}
-      textTransform="uppercase"
-      fontSize="14px"
-    >
+    <section className={styles.grid} style={style}>
       {children}
-    </ChakraText>
+    </section>
   );
 };
 
-const Text = ({ ...restProps }: BoxProps) => (
-  <ChakraText mt="8px" {...restProps} />
+const AltGrid = ({ children }: React.PropsWithChildren) => (
+  <div className={styles.altGrid}>{children}</div>
 );
 
-const OutLink = ({ ...restProps }) => (
-  <Link
-    display="flex"
-    alignItems="center"
-    fontSize="16px"
+const PlainGrid = ({ children }: React.PropsWithChildren) => (
+  <div className={styles.plainGrid}>{children}</div>
+);
+
+const SmallType = ({ children }: React.PropsWithChildren) => {
+  const { colorMode } = useColorMode();
+  return (
+    <p className={styles.smallText({ mode: colorMode as 'light' | 'dark' })}>
+      {children}
+    </p>
+  );
+};
+
+const Text = ({ children }: React.PropsWithChildren) => (
+  <p className={styles.text}>{children}</p>
+);
+
+const OutLink = ({
+  children,
+  ...props
+}: React.ComponentPropsWithoutRef<'a'>) => (
+  <a
+    className={styles.outLink}
     target="_blank"
     rel="noopener noreferrer"
-    {...restProps}
-  />
+    {...props}
+  >
+    {children}
+  </a>
 );
 
-const SocialIcon = ({ ...restProps }) => (
-  <IconButton
-    as="span"
-    aria-label="button"
-    size="sm"
-    mr={theme.space.s}
-    {...restProps}
-  />
+const SocialIcon = ({ children }: React.PropsWithChildren) => (
+  <span className={styles.socialIcon}>{children}</span>
 );
 
 const IndexPage = () => (
   <Layout>
     <SEO title="Home" description="" />
-    <Segment
-      minHeight="calc(100vh - 72px)"
-      pb="72px"
-      display="flex"
-      alignItems="center"
-      maxWidth="960px"
-      margin="0 auto"
-    >
+    <section className={styles.mainSegment}>
       <Grid>
-        <Box>
-          <Heading as="h1" fontWeight={400}>
+        <div>
+          <h1 className={styles.heading}>
             👋 Hi, I am <strong>Ott</strong>
-          </Heading>
+          </h1>
 
-          <Subheading>
+          <h2 className={styles.heading}>
             Front-end developer/<strong>student</strong>
-          </Subheading>
+          </h2>
 
-          <Text mt="24px">
+          <div style={{ marginTop: '24px' }}>
             <OutLink href="https://github.com/otttooming">
               <SocialIcon>
                 <GitHub size="20" />
               </SocialIcon>
               <strong>github.com</strong>/otttooming
             </OutLink>
-          </Text>
+          </div>
 
-          <Text mt="4px">
+          <div style={{ marginTop: '4px' }}>
             <OutLink href="https://www.linkedin.com/in/otttooming/">
               <SocialIcon>
                 <Linkedin size="16" />
               </SocialIcon>
               <strong>linkedin.com</strong>/in/otttooming
             </OutLink>
-          </Text>
+          </div>
 
-          <Text mt="4px">
+          <div style={{ marginTop: '4px' }}>
             <OutLink href="https://twitter.com/otttooming">
               <SocialIcon>
                 <Twitter size="16" />
               </SocialIcon>
               <strong>twitter.com</strong>/otttooming
             </OutLink>
-          </Text>
-        </Box>
+          </div>
+        </div>
 
-        <Box
-          as={Portrait}
-          borderRadius="70% 30% 30% 70% / 60% 40% 60% 40%"
-          boxShadow="5px 25px 40px rgba(0, 0, 0, 0.2)"
-        />
+        <Portrait />
       </Grid>
-    </Segment>
+    </section>
 
-    <Segment>
+    <section className={styles.segment}>
       <PlainGrid>
         <SmallType>Passions</SmallType>
-        <Subheading>
+        <h2 className={styles.heading}>
           <strong>Animal welfare</strong> and my cats and dogs specifically
-        </Subheading>
+        </h2>
       </PlainGrid>
 
       <Gallery />
-    </Segment>
-    <Segment>
+    </section>
+
+    <section className={styles.segment}>
       <AltGrid>
         <HexGrid />
 
-        <Box>
+        <div>
           <SmallType>Experience</SmallType>
-          <Subheading>
+          <h2 className={styles.heading}>
             <strong>Tech stack</strong> that I currently use
-          </Subheading>
+          </h2>
 
-          <Text mt="16px">
+          <Text>
             Passionate about TypeScript, React, NodeJS, GraphQL and statically
             typed languages in general.
           </Text>
-        </Box>
+        </div>
       </AltGrid>
-    </Segment>
+    </section>
 
-    <Segment>
-      <PlainGrid textAlign="center">
-        <SmallType>Industry</SmallType>
-        <Subheading>
-          Some <strong>amazing companies </strong> I&apos;ve worked with
-        </Subheading>
+    <section className={styles.segment}>
+      <PlainGrid>
+        <div style={{ textAlign: 'center' }}>
+          <SmallType>Industry</SmallType>
+          <h2 className={styles.heading}>
+            Some <strong>amazing companies </strong> I&apos;ve worked with
+          </h2>
 
-        <Coop />
+          <Coop />
+        </div>
       </PlainGrid>
-    </Segment>
+    </section>
   </Layout>
 );
 
