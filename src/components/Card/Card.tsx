@@ -1,4 +1,3 @@
-import { AspectRatio, Box, Heading, Image } from '@chakra-ui/react';
 import { MDXProvider } from '@mdx-js/react';
 import type {
   TechnologiesFrontmatterFragmentFragment,
@@ -24,7 +23,7 @@ const Item = ({
   const { image, background, fit } = featured;
 
   return (
-    <Box key={id} minWidth="320px" mr="16px">
+    <div key={id} className={styles.projectItem}>
       <CoverImage
         maxHeight="260px"
         fit={fit}
@@ -33,7 +32,7 @@ const Item = ({
         boxShadow="none"
         alt={title}
       />
-    </Box>
+    </div>
   );
 };
 
@@ -47,86 +46,41 @@ const Card = ({ title, body, featured, projects }: CardProps) => {
   } = featured;
 
   const { colorMode } = useColorMode();
-
-  const backgroundColor = colorMode === 'light' ? ' #edf2f7' : '#2c3442';
-
   const ratio = htmlWidth / htmlHeight;
 
   const matchingProjects = getMatchingProjects(projects, title);
 
   return (
-    <Box
-      as="li"
-      display="grid"
-      gridTemplateColumns={['0 1fr 0', '0 1fr 0', '64px 1fr 64px']}
-      gridTemplateRows="auto 8em 1fr auto"
-      _before={{
-        content: `""`,
-        gridColumn: '1/-1',
-        gridRow: '1/3',
-        background,
-        borderRadius: [0, 0, 8],
-      }}
-      marginBottom="80px"
+    <li
+      className={styles.card}
+      style={{ '--card-background': background } as React.CSSProperties}
     >
-      <Box
-        gridColumn="1 / 4"
-        gridRow="1 / 2"
-        color="#fff"
-        height="320px"
-        display="flex"
-        alignItems="center"
-        overflow="scroll hidden"
-        className={styles.scrollContainer}
-      >
-        <AspectRatio
-          ratio={ratio}
-          maxWidth="96px"
-          width="100%"
-          ml="96px"
-          mr="64px"
-        >
-          <div>
-            <Image
-              maxHeight="100%"
-              src={illustration.publicURL}
-              alt={alt}
-              htmlHeight={htmlHeight}
-              htmlWidth={htmlWidth}
-              loading="lazy"
-            />
+      <header className={`${styles.header} ${styles.scrollContainer}`}>
+        <div className={styles.illustration} style={{ aspectRatio: ratio }}>
+          <img
+            src={illustration.publicURL}
+            alt={alt}
+            height={htmlHeight}
+            width={htmlWidth}
+            loading="lazy"
+            style={{ maxHeight: '100%' }}
+          />
+        </div>
+
+        <div className={styles.projectsContainer}>
+          <div className={styles.projectsList}>
+            {matchingProjects.map((item) => (
+              <Item key={item.id} {...item} />
+            ))}
           </div>
-        </AspectRatio>
+        </div>
+      </header>
 
-        <Box width="100%" height="100%" position="relative">
-          <Box
-            display="flex"
-            alignItems="center"
-            position="absolute"
-            left="0"
-            right="0"
-            top="0"
-            bottom="0"
-          >
-            {matchingProjects.map((item) => {
-              return <Item key={item.id} {...item} />;
-            })}
-          </Box>
-        </Box>
-      </Box>
-      <Box
-        gridRow="2 / 4"
-        gridColumn="2 / 3"
-        paddingY="32px"
-        paddingX={['16px', '32px', '32px']}
-        backgroundColor={backgroundColor}
-        borderRadius={['0 0 8px 8px', '0 0 8px 8px', 8]}
-      >
-        <Heading>{title}</Heading>
-
+      <div className={styles.content({ mode: colorMode as 'light' | 'dark' })}>
+        <h2>{title}</h2>
         <MDXProvider components={MDXComponents}>{body}</MDXProvider>
-      </Box>
-    </Box>
+      </div>
+    </li>
   );
 };
 
