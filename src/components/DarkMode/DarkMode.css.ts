@@ -68,6 +68,7 @@ export const moonSun = recipe({
 });
 
 export const baseButton = style({
+  all: 'unset',
   display: 'inline-flex',
   appearance: 'none',
   alignItems: 'center',
