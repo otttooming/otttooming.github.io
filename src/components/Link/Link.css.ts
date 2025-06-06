@@ -2,6 +2,7 @@ import { style } from '@vanilla-extract/css';
 import { theme } from '../../utils/theme.css';
 
 export const link = style({
+  all: 'unset',
   display: 'inline-flex',
   appearance: 'none',
   alignItems: 'center',
