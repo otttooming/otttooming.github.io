@@ -3,6 +3,7 @@ import { theme } from '../../utils/theme.css';
 
 export const link = style({
   all: 'unset',
+  cursor: 'pointer',
   display: 'inline-flex',
   appearance: 'none',
   alignItems: 'center',
