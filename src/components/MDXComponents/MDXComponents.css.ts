@@ -8,7 +8,7 @@ export const heading2 = style({
 });
 
 export const heading3 = style({
-  fontSize: theme.fontSize.lg,
+  fontSize: theme.fontSize.xxl,
   marginTop: '32px',
   fontWeight: theme.fontWeight.semiBold,
 });
