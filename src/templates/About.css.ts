@@ -22,4 +22,6 @@ export const coverWrapper = style({
 
 export const coverImage = style({
   maxHeight: '100%',
+  width: '100%',
+  height: 'auto',
 });
