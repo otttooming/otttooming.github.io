@@ -1,35 +1,30 @@
 import { ThemeProvider, useTheme } from 'next-themes';
-import type { ThemeProviderProps } from 'next-themes';
+import { PropsWithChildren, useCallback, useMemo } from 'react';
 
-export interface ColorModeProviderProps extends ThemeProviderProps {}
-
-export function ColorModeProvider(props: ColorModeProviderProps) {
+export function ColorModeProvider({ children }: PropsWithChildren) {
   return (
-    <ThemeProvider attribute="class" disableTransitionOnChange {...props} />
+    <ThemeProvider attribute="class" disableTransitionOnChange>
+      {children}
+    </ThemeProvider>
   );
 }
 
-export type ColorMode = 'light' | 'dark';
-
-export interface UseColorModeReturn {
-  colorMode: ColorMode;
-  setColorMode: (colorMode: ColorMode) => void;
-  toggleColorMode: () => void;
-}
-
-export function useColorMode(): UseColorModeReturn {
+export function useColorMode() {
   const { resolvedTheme, setTheme } = useTheme();
-  const toggleColorMode = () => {
-    setTheme(resolvedTheme === 'dark' ? 'light' : 'dark');
-  };
+
+  const toggleColorMode = useCallback(
+    () => setTheme((prevTheme) => (prevTheme === 'dark' ? 'light' : 'dark')),
+    [setTheme],
+  );
+
+  const colorMode = useMemo<'dark' | 'light'>(
+    () => (resolvedTheme === 'dark' ? 'dark' : 'light'),
+    [resolvedTheme],
+  );
+
   return {
-    colorMode: resolvedTheme as ColorMode,
+    colorMode,
     setColorMode: setTheme,
     toggleColorMode,
   };
-}
-
-export function useColorModeValue<T>(light: T, dark: T) {
-  const { colorMode } = useColorMode();
-  return colorMode === 'dark' ? dark : light;
 }

@@ -1,11 +1,10 @@
 import Footer from './Footer/Footer';
 import Header from './Header';
-import { useColorMode } from './ui/color-mode';
-import { Provider } from './ui/provider';
+import { ColorModeProvider, useColorMode } from './ui/color-mode';
 import { root } from '../utils/root.css';
 import './layout.css';
 
-const Layout = ({ children }: React.PropsWithChildren) => {
+const Root = ({ children }: React.PropsWithChildren) => {
   const { colorMode } = useColorMode();
 
   return (
@@ -19,10 +18,12 @@ const Layout = ({ children }: React.PropsWithChildren) => {
   );
 };
 
-export default ({ children }: React.PropsWithChildren) => {
+const Layout = ({ children }: React.PropsWithChildren) => {
   return (
-    <Provider>
-      <Layout>{children}</Layout>
-    </Provider>
+    <ColorModeProvider>
+      <Root>{children}</Root>
+    </ColorModeProvider>
   );
 };
+
+export default Layout;

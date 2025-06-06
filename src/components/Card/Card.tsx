@@ -76,7 +76,7 @@ const Card = ({ title, body, featured, projects }: CardProps) => {
         </div>
       </header>
 
-      <div className={styles.content({ mode: colorMode as 'light' | 'dark' })}>
+      <div className={styles.content({ mode: colorMode })}>
         <h2>{title}</h2>
         <MDXProvider components={MDXComponents}>{body}</MDXProvider>
       </div>
