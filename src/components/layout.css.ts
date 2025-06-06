@@ -9,6 +9,8 @@ globalStyle('html', {
   fontSize: '18px',
   WebkitTextSizeAdjust: 'none',
   textSizeAdjust: '100%',
+  WebkitFontSmoothing: 'antialiased',
+  textRendering: 'optimizeLegibility',
 });
 
 globalStyle('body', {
