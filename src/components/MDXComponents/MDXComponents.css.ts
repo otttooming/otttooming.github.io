@@ -14,10 +14,10 @@ export const heading3 = style({
 });
 
 export const link = style({
+  all: 'unset',
   display: 'inline-flex',
   alignItems: 'center',
   verticalAlign: 'middle',
-  color: theme.color.primary,
   textDecoration: 'none',
   ':hover': {
     textDecoration: 'underline',
