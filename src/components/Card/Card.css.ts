@@ -42,11 +42,16 @@ export const scrollContainer = style({
   },
 });
 
-export const illustration = style({
+export const illustrationWrapper = style({
   maxWidth: '96px',
   width: '100%',
   marginLeft: '96px',
   marginRight: '64px',
+});
+
+export const illustration = style({
+  width: '100%',
+  height: 'auto',
 });
 
 export const projectsContainer = style({

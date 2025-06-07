@@ -56,14 +56,17 @@ const Card = ({ title, body, featured, projects }: CardProps) => {
       style={{ '--card-background': background } as React.CSSProperties}
     >
       <header className={`${styles.header} ${styles.scrollContainer}`}>
-        <div className={styles.illustration} style={{ aspectRatio: ratio }}>
+        <div
+          className={styles.illustrationWrapper}
+          style={{ aspectRatio: ratio }}
+        >
           <img
+            className={styles.illustration}
             src={illustration.publicURL}
             alt={alt}
             height={htmlHeight}
             width={htmlWidth}
             loading="lazy"
-            style={{ maxHeight: '100%' }}
           />
         </div>
 
