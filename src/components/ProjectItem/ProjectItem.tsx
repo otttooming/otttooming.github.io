@@ -4,6 +4,7 @@ import Logo from '../Logo/Logo';
 import type { ProjectsListQueryQuery } from '../../types';
 import * as styles from './ProjectItem.css';
 import { useColorMode } from '../ui/color-mode';
+import { projectTexts, textMap } from '../../utils/textMap';
 
 interface ProjectItemProps {
   id: string;
@@ -39,7 +40,8 @@ export const ProjectItem = ({ id, excerpt, frontmatter }: ProjectItemProps) => {
 
         <MDXLink href={frontmatter.slug}>
           <h2 className={styles.projectTitle}>
-            <strong>{frontmatter.title}</strong> {frontmatter.kind}
+            <strong>{frontmatter.title}</strong>{' '}
+            {textMap(frontmatter.kind, projectTexts)}
           </h2>
         </MDXLink>
 
