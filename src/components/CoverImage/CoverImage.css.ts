@@ -28,3 +28,8 @@ export const imageContainer = recipe({
     },
   },
 });
+
+export const image = style({
+  width: '100%',
+  height: 'auto',
+});

@@ -32,6 +32,7 @@ const CoverImage = ({
         className={styles.imageContainer({ fit: fit as 'cover' | 'contain' })}
       >
         <GatsbyImage
+          className={styles.image}
           alt={alt}
           image={fluid}
           style={{ width: fit === 'cover' ? '100%' : undefined }}
