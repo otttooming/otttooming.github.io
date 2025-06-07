@@ -10,6 +10,7 @@ export const companyList = style({
 });
 
 export const companyLink = style({
+  all: 'unset',
   height: '128px',
   margin: '0 16px',
   display: 'flex',
