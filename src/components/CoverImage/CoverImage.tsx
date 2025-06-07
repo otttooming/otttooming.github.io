@@ -28,9 +28,7 @@ const CoverImage = ({
         background,
       }}
     >
-      <div
-        className={styles.imageContainer({ fit: fit as 'cover' | 'contain' })}
-      >
+      <div className={styles.imageContainer({ fit })}>
         <GatsbyImage
           className={styles.image}
           alt={alt}
