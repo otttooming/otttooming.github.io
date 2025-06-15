@@ -36,29 +36,29 @@ const Icon = ({ children }: { children: React.ReactNode }) => (
 
 const GatsbyIcon = ({ ...rest }: React.ComponentProps<'svg'>) => (
   <svg role="img" aria-label="Gatsby" {...rest}>
-    <use href="./tech-gatsby.svg#tech-gatsby" />
+    <use href="static/tech-gatsby.svg#tech-gatsby" />
   </svg>
 );
 
 const GraphQLIcon = ({ ...rest }: React.ComponentProps<'svg'>) => (
   <svg role="img" aria-label="GraphQL" {...rest}>
-    <use href="./tech-graphql.svg#tech-graphql" />
+    <use href="static/tech-graphql.svg#tech-graphql" />
   </svg>
 );
 
 const ReactIcon = ({ ...rest }: React.ComponentProps<'svg'>) => (
   <svg role="img" aria-label="React" {...rest}>
-    <use href="./tech-react.svg#tech-react" />
+    <use href="static/tech-react.svg#tech-react" />
   </svg>
 );
 const ReduxIcon = ({ ...rest }: React.ComponentProps<'svg'>) => (
   <svg role="img" aria-label="Redux" {...rest}>
-    <use href="./tech-redux.svg#tech-redux" />
+    <use href="static/tech-redux.svg#tech-redux" />
   </svg>
 );
 const TSIcon = ({ ...rest }: React.ComponentProps<'svg'>) => (
   <svg role="img" aria-label="TypeScript" {...rest}>
-    <use href="./tech-typescript.svg#tech-typescript" />
+    <use href="static/tech-typescript.svg#tech-typescript" />
   </svg>
 );
 
