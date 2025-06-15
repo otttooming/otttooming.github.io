@@ -1,6 +1,6 @@
 import { PropsWithChildren } from 'react';
-import { Link as GatsbyLink } from 'gatsby';
 import { ExternalLink } from 'react-feather';
+import NextLink from 'next/link';
 import { getIsExternalLink } from '../../utils/getIsExternalLink';
 import { link, rightIcon } from './Link.css';
 
@@ -22,8 +22,8 @@ export const Link = ({ children, href }: PropsWithChildren<Props>) => {
   }
 
   return (
-    <GatsbyLink className={link} to={href}>
-      {children}
-    </GatsbyLink>
+    <NextLink href={href}>
+      <a className={link}>{children}</a>
+    </NextLink>
   );
 };
