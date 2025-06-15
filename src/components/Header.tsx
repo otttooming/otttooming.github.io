@@ -1,36 +1,36 @@
-import { Link as GatsbyLink } from 'gatsby';
+import NextLink from 'next/link';
 import { BookOpen, Tool, User, Wind } from 'react-feather';
 import DarkMode from './DarkMode/DarkMode';
 import * as styles from './Header.css';
 
 const Header = () => (
   <header className={styles.header}>
-    <GatsbyLink to="/" className={styles.button}>
+    <NextLink href="/" className={styles.button}>
       <Wind />
       Ott
-    </GatsbyLink>
+    </NextLink>
 
     <nav>
       <ol className={styles.navList}>
         <li className={styles.navItem}>
-          <GatsbyLink to="/about/me" className={styles.button}>
+          <NextLink href="/about/me" className={styles.button}>
             <User />
             About
-          </GatsbyLink>
+          </NextLink>
         </li>
 
         <li className={styles.navItem}>
-          <GatsbyLink to="/technologies" className={styles.button}>
+          <NextLink href="/technologies" className={styles.button}>
             <Tool />
             Tech
-          </GatsbyLink>
+          </NextLink>
         </li>
 
         <li className={styles.navItem}>
-          <GatsbyLink to="/projects" className={styles.button}>
+          <NextLink href="/projects" className={styles.button}>
             <BookOpen />
             Projects
-          </GatsbyLink>
+          </NextLink>
         </li>
 
         <li className={styles.navItem}>
