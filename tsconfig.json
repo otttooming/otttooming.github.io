@@ -3,10 +3,34 @@
     "module": "esnext",
     "target": "ES2023",
     "moduleResolution": "bundler",
-    "lib": ["dom", "ESNext"],
-    "jsx": "react-jsx",
+    "lib": [
+      "dom",
+      "ESNext"
+    ],
+    "jsx": "preserve",
     "esModuleInterop": true,
     "noImplicitAny": false,
-    "strictNullChecks": false
-  }
+    "strictNullChecks": false,
+    "allowJs": true,
+    "skipLibCheck": true,
+    "strict": false,
+    "noEmit": true,
+    "incremental": true,
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "plugins": [
+      {
+        "name": "next"
+      }
+    ]
+  },
+  "include": [
+    "**/*.ts",
+    "**/*.tsx",
+    "next-env.d.ts",
+    ".next/types/**/*.ts"
+  ],
+  "exclude": [
+    "node_modules"
+  ]
 }
