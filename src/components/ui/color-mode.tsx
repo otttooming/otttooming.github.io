@@ -1,9 +1,17 @@
+'use client';
+
 import { ThemeProvider, useTheme } from 'next-themes';
 import { PropsWithChildren, useCallback, useMemo } from 'react';
 
 export function ColorModeProvider({ children }: PropsWithChildren) {
   return (
-    <ThemeProvider attribute="class" disableTransitionOnChange>
+    <ThemeProvider
+      attribute="class"
+      defaultTheme="system"
+      disableTransitionOnChange
+      enableSystem
+      enableColorScheme
+    >
       {children}
     </ThemeProvider>
   );
