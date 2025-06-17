@@ -25,6 +25,14 @@ export const grid = style({
       marginBottom: '128px',
     },
   },
+  selectors: {
+    '.dark &': {
+      backgroundColor: '#2c3442',
+    },
+    '.light &': {
+      backgroundColor: '#edf2f7',
+    },
+  },
 });
 
 export const altGrid = style({

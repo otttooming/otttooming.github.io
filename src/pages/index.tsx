@@ -30,16 +30,7 @@ const Portrait = () => {
 };
 
 const Grid = ({ children }: React.PropsWithChildren) => {
-  const { colorMode } = useColorMode();
-  const style = {
-    backgroundColor: colorMode === 'light' ? '#edf2f7' : '#2c3442',
-  };
-
-  return (
-    <section className={styles.grid} style={style}>
-      {children}
-    </section>
-  );
+  return <section className={styles.grid}>{children}</section>;
 };
 
 const AltGrid = ({ children }: React.PropsWithChildren) => (
