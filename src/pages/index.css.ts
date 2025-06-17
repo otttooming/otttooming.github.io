@@ -79,17 +79,13 @@ export const heading = style({
   fontWeight: theme.fontWeight.normal,
 });
 
-export const smallText = recipe({
-  base: {
-    marginBottom: '8px',
-    textTransform: 'uppercase',
-    fontSize: '14px',
-  },
-  variants: {
-    mode: {
-      light: { color: '#243343' },
-      dark: { color: 'inherit' },
-    },
+export const smallText = style({
+  marginBottom: '8px',
+  textTransform: 'uppercase',
+  fontSize: '14px',
+  selectors: {
+    '.light &': { color: '#243343' },
+    '.dark &': { color: 'inherit' },
   },
 });
 

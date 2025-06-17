@@ -4,7 +4,6 @@ import Gallery from '../components/Gallery/Gallery';
 import HexGrid from '../components/HexGrid/HexGrid';
 import SEO from '../components/SEO';
 import Layout from '../components/layout';
-import { useColorMode } from '../components/ui/color-mode';
 import * as styles from './index.css';
 import Image from 'next/image';
 import portrait from '../images/portrait-ott.jpg';
@@ -34,12 +33,7 @@ const PlainGrid = ({ children }: React.PropsWithChildren) => (
 );
 
 const SmallType = ({ children }: React.PropsWithChildren) => {
-  const { colorMode } = useColorMode();
-  return (
-    <p className={styles.smallText({ mode: colorMode as 'light' | 'dark' })}>
-      {children}
-    </p>
-  );
+  return <p className={styles.smallText}>{children}</p>;
 };
 
 const Text = ({ children }: React.PropsWithChildren) => (
