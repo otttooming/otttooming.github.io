@@ -5,26 +5,18 @@ import HexGrid from '../components/HexGrid/HexGrid';
 import SEO from '../components/SEO';
 import Layout from '../components/layout';
 import { useColorMode } from '../components/ui/color-mode';
-import { graphql, useStaticQuery } from 'gatsby';
-import { GatsbyImage } from 'gatsby-plugin-image';
 import * as styles from './index.css';
+import Image from 'next/image';
+import portrait from '../images/portrait-ott.jpg';
 
 const Portrait = () => {
-  const data = useStaticQuery(graphql`
-   query PortraitImageQuery {
-      placeholderImage: file(relativePath: { eq: "portrait-ott.jpg" }) {
-        childImageSharp {
-          gatsbyImageData(width: 466, layout: CONSTRAINED)
-        }
-      }
-    }
-  `);
-
   return (
-    <GatsbyImage
+    <Image
+      width={466}
+      height={466}
+      src={portrait}
       className={styles.portrait}
       alt="Ott Tooming"
-      image={data.placeholderImage.childImageSharp.gatsbyImageData}
     />
   );
 };
