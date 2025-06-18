@@ -2,8 +2,6 @@ import { GitHub, Linkedin, Twitter } from 'react-feather';
 import Coop from '../components/Coop/Coop';
 import Gallery from '../components/Gallery/Gallery';
 import HexGrid from '../components/HexGrid/HexGrid';
-import SEO from '../components/SEO';
-import Layout from '../components/layout';
 import * as styles from './index.css';
 import Image from 'next/image';
 import portrait from '../images/portrait-ott.jpg';
@@ -59,8 +57,7 @@ const SocialIcon = ({ children }: React.PropsWithChildren) => (
 );
 
 const IndexPage = () => (
-  <Layout>
-    <SEO title="Home" description="" />
+  <>
     <section className={styles.mainSegment}>
       <Grid>
         <div>
@@ -145,7 +142,7 @@ const IndexPage = () => (
         </div>
       </PlainGrid>
     </section>
-  </Layout>
+  </>
 );
 
 export default IndexPage;
