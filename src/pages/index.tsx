@@ -14,6 +14,7 @@ const Portrait = () => {
       src={portrait}
       className={styles.portrait}
       alt="Ott Tooming"
+      priority={true}
     />
   );
 };
