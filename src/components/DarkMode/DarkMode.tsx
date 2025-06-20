@@ -1,3 +1,4 @@
+'use client';
 import { useColorMode } from '../ui/color-mode';
 import { moonSun, modeButton } from './DarkMode.css';
 
