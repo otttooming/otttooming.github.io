@@ -7,6 +7,8 @@ const withMDX = createMDX({
 });
 
 /** @type {import('next').NextConfig} */
-const nextConfig = {};
+const nextConfig = {
+  pageExtensions: ['mdx', 'ts', 'tsx'],
+};
 
 export default withVanillaExtract(withMDX(nextConfig));
