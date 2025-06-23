@@ -1,11 +1,12 @@
-const { createVanillaExtractPlugin } = require('@vanilla-extract/next-plugin');
+import { createVanillaExtractPlugin } from '@vanilla-extract/next-plugin';
 const withVanillaExtract = createVanillaExtractPlugin();
 
-const withMDX = require('@next/mdx')({
+import createMDX from '@next/mdx';
+const withMDX = createMDX({
   extension: /\.mdx$/,
 });
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {};
 
-module.exports = withVanillaExtract(withMDX(nextConfig));
+export default withVanillaExtract(withMDX(nextConfig));
