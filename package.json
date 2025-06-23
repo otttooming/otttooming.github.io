@@ -9,9 +9,9 @@
     "@mdx-js/react": "^2.3.0",
     "@next/mdx": "^15.3.4",
     "@types/mdx": "^2.0.13",
-    "@vanilla-extract/css": "^1.17.2",
-    "@vanilla-extract/recipes": "^0.5.5",
-    "@vanilla-extract/webpack-plugin": "^2.3.19",
+    "@vanilla-extract/css": "^1.17.4",
+    "@vanilla-extract/recipes": "^0.5.7",
+    "@vanilla-extract/webpack-plugin": "^2.3.22",
     "next": "latest",
     "next-themes": "^0.4.6",
     "react": "^19.1.0",
@@ -28,7 +28,7 @@
     "@types/gh-pages": "^3.2.3",
     "@types/react": "^19.1.4",
     "@types/react-dom": "^19.1.5",
-    "@vanilla-extract/next-plugin": "^2.4.12",
+    "@vanilla-extract/next-plugin": "^2.4.14",
     "gh-pages": "^3.2.3"
   },
   "overrides": {
