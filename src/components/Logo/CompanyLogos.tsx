@@ -1,35 +1,37 @@
+type AssetProps = React.ComponentProps<'svg'> & {
+  name: string;
+};
+
+const Asset = async ({ name, ...rest }: AssetProps) => {
+  const asset = (await import(`../../../static/logo-${name}.svg`)).default;
+
+  return (
+    <svg role="img" aria-label="Logo" {...rest}>
+      <use href={`${asset.src}#logo-${name}`} />
+    </svg>
+  );
+};
+
 export const Voog = ({ ...rest }: React.ComponentProps<'svg'>) => (
-  <svg role="img" aria-label="Voog" {...rest}>
-    <use href="static/logo-voog.svg#logo-voog" />
-  </svg>
+  <Asset name="voog" aria-label="Voog" {...rest} />
 );
 
 export const Pipedrive = ({ ...rest }: React.ComponentProps<'svg'>) => (
-  <svg role="img" aria-label="Pipedrive" {...rest}>
-    <use href="static/logo-pipedrive.svg#logo-pipedrive" />
-  </svg>
+  <Asset name="pipedrive" aria-label="Pipedrive" {...rest} />
 );
 
 export const Iglu = ({ ...rest }: React.ComponentProps<'svg'>) => (
-  <svg role="img" aria-label="Iglu" {...rest}>
-    <use href="static/logo-iglu.svg#logo-iglu" />
-  </svg>
+  <Asset name="iglu" aria-label="Iglu" {...rest} />
 );
 
 export const Gtap = ({ ...rest }: React.ComponentProps<'svg'>) => (
-  <svg role="img" aria-label="gotoAndPlay" {...rest}>
-    <use href="static/logo-gtap.svg#logo-gtap" />
-  </svg>
+  <Asset name="gtap" aria-label="gotoAndPlay" {...rest} />
 );
 
 export const Pethealth = ({ ...rest }: React.ComponentProps<'svg'>) => (
-  <svg role="img" aria-label="Pethealth" {...rest}>
-    <use href="static/logo-pethealth.svg#logo-pethealth" />
-  </svg>
+  <Asset name="pethealth" aria-label="Pethealth" {...rest} />
 );
 
 export const Khk = ({ ...rest }: React.ComponentProps<'svg'>) => (
-  <svg role="img" aria-label="Tartu KHK" {...rest}>
-    <use href="static/logo-khk.svg#logo-khk" />
-  </svg>
+  <Asset name="khk" aria-label="Tartu KHK" {...rest} />
 );
