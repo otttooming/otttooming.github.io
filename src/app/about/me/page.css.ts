@@ -1,5 +1,5 @@
 import { style } from '@vanilla-extract/css';
-import { theme } from '../utils/theme.css';
+import { theme } from '../../../utils/theme.css';
 
 export const wrapper = style({
   maxWidth: '960px',
