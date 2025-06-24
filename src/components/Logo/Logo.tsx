@@ -1,41 +1,33 @@
 import * as styles from './Logo.css';
 import { Gtap, Iglu, Khk, Pethealth, Pipedrive, Voog } from './CompanyLogos';
 
-export type LogoProps = {
-  name: string;
-};
-
 const getLogoClasses = (size?: 'medium' | 'large') =>
   styles.icon({
     size: size || 'default',
   });
 
+const logoMap: Record<
+  string,
+  [React.ComponentType<{ className?: string }>, 'medium' | 'large' | undefined]
+> = {
+  voog: [Voog, undefined],
+  iglu: [Iglu, 'large'],
+  gtap: [Gtap, undefined],
+  pipedrive: [Pipedrive, undefined],
+  pethealth: [Pethealth, 'large'],
+  khk: [Khk, 'medium'],
+};
+
+type LogoProps = {
+  name: keyof typeof logoMap;
+};
+
 const Logo = ({ name }: LogoProps) => {
-  if (name === 'voog') {
-    return <Voog className={getLogoClasses()} />;
-  }
+  const logo = logoMap[name];
 
-  if (name === 'iglu') {
-    return <Iglu className={getLogoClasses('large')} />;
-  }
+  const [Component, size] = logo;
 
-  if (name === 'gtap') {
-    return <Gtap className={getLogoClasses()} />;
-  }
-
-  if (name === 'pipedrive') {
-    return <Pipedrive className={getLogoClasses()} />;
-  }
-
-  if (name === 'pethealth') {
-    return <Pethealth className={getLogoClasses('large')} />;
-  }
-
-  if (name === 'khk') {
-    return <Khk className={getLogoClasses('medium')} />;
-  }
-
-  return null;
+  return <Component className={getLogoClasses(size)} />;
 };
 
 export default Logo;
