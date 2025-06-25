@@ -27,8 +27,8 @@
   "devDependencies": {
     "@biomejs/biome": "1.9.4",
     "@types/gh-pages": "^3.2.3",
-    "@types/react": "^19.1.4",
-    "@types/react-dom": "^19.1.5",
+    "@types/react": "^19.1.8",
+    "@types/react-dom": "^19.1.6",
     "@vanilla-extract/next-plugin": "^2.4.14",
     "gh-pages": "^3.2.3"
   },
