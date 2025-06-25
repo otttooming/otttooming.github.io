@@ -21,6 +21,10 @@ globalStyle('body', {
   fontFamily: theme.fontFamily.primary,
 });
 
+globalStyle('h1', {
+  fontSize: theme.fontSize.xxxl,
+});
+
 globalStyle('h1, h2, h3, h4, h5, p', {
   fontFamily: theme.fontFamily.primary,
   margin: 0,
