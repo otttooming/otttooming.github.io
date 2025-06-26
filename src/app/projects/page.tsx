@@ -1,7 +1,38 @@
 import ProjectItem from '../../components/ProjectItem/ProjectItem';
 import * as styles from './page.css';
+import { compileMDX, MDXRemote } from 'next-mdx-remote/rsc';
+import * as fs from 'node:fs/promises';
+import path from 'node:path';
 
-export default function Projects() {
+type Frontmatter = {
+  title: string;
+};
+
+export default async function Projects() {
+  const pathNames = await fs.readdir(
+    path.join(process.cwd(), 'content/projects'),
+  );
+
+  const projects = await Promise.all(
+    pathNames.map(async (slug) => {
+      const content = await fs.readFile(
+        path.join(process.cwd(), `content/projects/${slug}`, 'index.mdx'),
+        'utf-8',
+      );
+      const { frontmatter } = await compileMDX<Frontmatter>({
+        source: content,
+        options: {
+          parseFrontmatter: true,
+        },
+      });
+      return {
+        slug,
+        excerpt: '',
+        frontmatter,
+      };
+    }),
+  );
+
   return (
     <>
       <h1 className={styles.heading}>
@@ -18,10 +49,10 @@ export default function Projects() {
       </p>
 
       <ol className={styles.projectList}>
-        {[].map(({ id, excerpt, frontmatter }) => (
+        {projects.map(({ slug, excerpt, frontmatter }) => (
           <ProjectItem
-            key={id}
-            id={id}
+            key={slug}
+            id={slug}
             excerpt={excerpt}
             frontmatter={frontmatter}
           />
