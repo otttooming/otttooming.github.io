@@ -1,7 +1,13 @@
 import { style } from '@vanilla-extract/css';
+import { recipe } from '@vanilla-extract/recipes';
 import { theme } from '../../utils/theme.css';
 
-export const link = style({
+const base = style({
+  all: 'unset',
+  cursor: 'pointer',
+});
+
+const button = style({
   all: 'unset',
   cursor: 'pointer',
   display: 'inline-flex',
@@ -45,6 +51,18 @@ export const link = style({
     '&:active, &[data-active]': {
       background: 'rgba(255, 255, 255, 0.24)',
     },
+  },
+});
+
+export const linkRecipe = recipe({
+  variants: {
+    variant: {
+      base,
+      button,
+    },
+  },
+  defaultVariants: {
+    variant: 'base',
   },
 });
 

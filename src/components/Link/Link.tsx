@@ -2,18 +2,29 @@ import { PropsWithChildren } from 'react';
 import { ExternalLink } from 'react-feather';
 import NextLink from 'next/link';
 import { getIsExternalLink } from '../../utils/getIsExternalLink';
-import { link, rightIcon } from './Link.css';
+import { linkRecipe, rightIcon } from './Link.css';
 
 type Props = {
   href: string;
+  variant?: 'base' | 'button';
 };
 
-export const Link = ({ children, href }: PropsWithChildren<Props>) => {
+export const Link = ({
+  children,
+  href,
+  variant = 'base',
+}: PropsWithChildren<Props>) => {
   const isExternal = getIsExternalLink(href);
+  const className = linkRecipe({ variant });
 
   if (isExternal) {
     return (
-      <a className={link} href={href} target="_blank" rel="noopener noreferrer">
+      <a
+        className={className}
+        href={href}
+        target="_blank"
+        rel="noopener noreferrer"
+      >
         {children}
 
         <ExternalLink className={rightIcon} />
@@ -22,7 +33,7 @@ export const Link = ({ children, href }: PropsWithChildren<Props>) => {
   }
 
   return (
-    <NextLink href={href} className={link}>
+    <NextLink href={href} className={className}>
       {children}
     </NextLink>
   );
