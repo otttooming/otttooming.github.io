@@ -22,8 +22,8 @@ export const Link = ({ children, href }: PropsWithChildren<Props>) => {
   }
 
   return (
-    <NextLink href={href}>
-      <a className={link}>{children}</a>
+    <NextLink href={href} className={link}>
+      {children}
     </NextLink>
   );
 };
