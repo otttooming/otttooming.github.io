@@ -13,7 +13,9 @@ const TagList = ({ tags, mapping }: TagListProps) => {
     <ul className={tagList}>
       {Array.from(items).map((key) => (
         <li key={key} className={tagListItem}>
-          <Link href={mapping[key].url}>{mapping[key].title}</Link>
+          <Link href={mapping[key].url} variant="button">
+            {mapping[key].title}
+          </Link>
         </li>
       ))}
     </ul>
