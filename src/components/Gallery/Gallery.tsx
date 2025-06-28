@@ -1,10 +1,10 @@
 import * as styles from './Gallery.css';
-import bella from '../../../content/persons/bella/featured.jpeg';
-import bobby from '../../../content/persons/bobby/featured.jpeg';
-import gustav from '../../../content/persons/gustav/featured.jpeg';
-import max from '../../../content/persons/max/featured.jpeg';
-import ossu from '../../../content/persons/ossu/featured.jpeg';
-import tondu from '../../../content/persons/tondu/featured.jpeg';
+import bella from '/public/content/persons/bella/featured.jpeg';
+import bobby from '/public/content/persons/bobby/featured.jpeg';
+import gustav from '/public/content/persons/gustav/featured.jpeg';
+import max from '/public/content/persons/max/featured.jpeg';
+import ossu from '/public/content/persons/ossu/featured.jpeg';
+import tondu from '/public/content/persons/tondu/featured.jpeg';
 
 import Image from 'next/image';
 
