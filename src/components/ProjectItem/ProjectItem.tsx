@@ -1,7 +1,6 @@
 import CoverImage from '../CoverImage/CoverImage';
 import Logo from '../Logo/Logo';
 import * as styles from './ProjectItem.css';
-import { useColorMode } from '../ui/color-mode';
 import { projectTexts, textMap } from '../../utils/textMap';
 import { Link } from '../Link/Link';
 
@@ -28,14 +27,8 @@ export const ProjectItem = async ({
   background,
   fit,
 }: ProjectItemProps) => {
-  const { colorMode } = useColorMode();
-
   return (
-    <li
-      className={styles.projectItem({
-        mode: 'dark',
-      })}
-    >
+    <li className={styles.projectItem}>
       <div className={styles.projectLink}>
         <Link href={`projects/${slug}`}>
           <CoverImage
