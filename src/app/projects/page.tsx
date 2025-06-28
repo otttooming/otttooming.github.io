@@ -6,7 +6,7 @@ import path from 'node:path';
 
 type Frontmatter = {
   title: string;
-  data: string;
+  date: string;
   slug: string;
   featured: {
     image: string;
@@ -24,29 +24,31 @@ export default async function Projects() {
     path.join(process.cwd(), 'public/content/projects'),
   );
 
-  const projects = await Promise.all(
-    pathNames.map(async (slug) => {
-      const content = await fs.readFile(
-        path.join(
-          process.cwd(),
-          `public/content/projects/${slug}`,
-          'index.mdx',
-        ),
-        'utf-8',
-      );
-      const { frontmatter } = await compileMDX<Frontmatter>({
-        source: content,
-        options: {
-          parseFrontmatter: true,
-        },
-      });
-      return {
-        slug,
-        excerpt: '',
-        frontmatter,
-      };
-    }),
-  );
+  const projects = (
+    await Promise.all(
+      pathNames.map(async (slug) => {
+        const content = await fs.readFile(
+          path.join(
+            process.cwd(),
+            `public/content/projects/${slug}`,
+            'index.mdx',
+          ),
+          'utf-8',
+        );
+        const { frontmatter } = await compileMDX<Frontmatter>({
+          source: content,
+          options: {
+            parseFrontmatter: true,
+          },
+        });
+        return {
+          slug,
+          excerpt: '',
+          frontmatter,
+        };
+      }),
+    )
+  ).toSorted((a, b) => b.frontmatter.date.localeCompare(a.frontmatter.date));
 
   return (
     <>
