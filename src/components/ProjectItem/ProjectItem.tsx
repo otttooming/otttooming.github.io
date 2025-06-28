@@ -1,49 +1,63 @@
-import { Link as MDXLink } from '../MDXComponents/MDXComponents';
 import CoverImage from '../CoverImage/CoverImage';
 import Logo from '../Logo/Logo';
-import type { ProjectsListQueryQuery } from '../../types';
 import * as styles from './ProjectItem.css';
 import { useColorMode } from '../ui/color-mode';
 import { projectTexts, textMap } from '../../utils/textMap';
+import { Link } from '../Link/Link';
 
 interface ProjectItemProps {
-  id: string;
+  title: string;
+  slug: string;
   excerpt: string;
-  frontmatter: ProjectsListQueryQuery['allMdx']['nodes'][number]['frontmatter'];
+  company?: string;
+  link?: string;
+  kind?: string;
+  image: string;
+  background?: string;
+  fit?: 'contain' | 'cover';
 }
 
-export const ProjectItem = ({ id, excerpt, frontmatter }: ProjectItemProps) => {
+export const ProjectItem = async ({
+  title,
+  slug,
+  excerpt,
+  company,
+  link,
+  kind,
+  image,
+  background,
+  fit,
+}: ProjectItemProps) => {
   const { colorMode } = useColorMode();
-
-  const { image, background, fit } = frontmatter.featured;
 
   return (
     <li
       className={styles.projectItem({
-        mode: colorMode,
+        mode: 'dark',
       })}
     >
-      <MDXLink href={frontmatter.slug} className={styles.projectLink}>
-        <CoverImage
-          maxHeight="360px"
-          fluid={image.childImageSharp.gatsbyImageData}
-          background={background}
-          fit={fit}
-          alt={frontmatter.title}
-        />
-      </MDXLink>
+      <div className={styles.projectLink}>
+        <Link href={`projects/${slug}`}>
+          <CoverImage
+            src={`/content/projects/${slug}/${image}`}
+            maxHeight="360px"
+            background={background}
+            fit={fit}
+            alt={title}
+          />
+        </Link>
+      </div>
 
       <div className={styles.projectContent}>
-        <a href={frontmatter.link} className={styles.companyLink}>
-          <Logo name={frontmatter.company} />
+        <a href={link} className={styles.companyLink}>
+          <Logo name={company} />
         </a>
 
-        <MDXLink href={frontmatter.slug}>
+        <Link href={`projects/${slug}`}>
           <h2 className={styles.projectTitle}>
-            <strong>{frontmatter.title}</strong>{' '}
-            {textMap(frontmatter.kind, projectTexts)}
+            <strong>{title}</strong> {textMap(kind, projectTexts)}
           </h2>
-        </MDXLink>
+        </Link>
 
         <p className={styles.description}>{excerpt}</p>
       </div>
