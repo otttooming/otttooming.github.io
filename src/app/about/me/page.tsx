@@ -2,8 +2,8 @@ import TagList from '../../../components/TagList/TagList';
 import { socialTags } from '../../../constants/social';
 import { About } from './page.components';
 import * as styles from './page.css';
-import desk from '../../../../content/about/me/desk.svg';
-import Document, { frontmatter } from '../../../../content/about/me/index.mdx';
+import desk from '/public/content/about/me/desk.svg';
+import Document, { frontmatter } from '/public/content/about/me/index.mdx';
 import Image from 'next/image';
 
 export default function AboutPage() {
