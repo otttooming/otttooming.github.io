@@ -6,17 +6,32 @@ import path from 'node:path';
 
 type Frontmatter = {
   title: string;
+  data: string;
+  slug: string;
+  featured: {
+    image: string;
+    background?: string;
+    fit?: 'contain' | 'cover';
+  };
+  link: string;
+  company: string;
+  kind: string;
+  tech: string[];
 };
 
 export default async function Projects() {
   const pathNames = await fs.readdir(
-    path.join(process.cwd(), 'content/projects'),
+    path.join(process.cwd(), 'public/content/projects'),
   );
 
   const projects = await Promise.all(
     pathNames.map(async (slug) => {
       const content = await fs.readFile(
-        path.join(process.cwd(), `content/projects/${slug}`, 'index.mdx'),
+        path.join(
+          process.cwd(),
+          `public/content/projects/${slug}`,
+          'index.mdx',
+        ),
         'utf-8',
       );
       const { frontmatter } = await compileMDX<Frontmatter>({
@@ -52,9 +67,15 @@ export default async function Projects() {
         {projects.map(({ slug, excerpt, frontmatter }) => (
           <ProjectItem
             key={slug}
-            id={slug}
+            slug={slug}
             excerpt={excerpt}
-            frontmatter={frontmatter}
+            title={frontmatter.title}
+            kind={frontmatter.kind}
+            company={frontmatter.company}
+            link={frontmatter.link}
+            image={frontmatter.featured.image}
+            background={frontmatter.featured.background}
+            fit={frontmatter.featured.fit}
           />
         ))}
       </ol>
