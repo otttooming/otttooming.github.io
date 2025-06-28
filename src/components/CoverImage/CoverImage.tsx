@@ -1,10 +1,10 @@
-import { GatsbyImage } from 'gatsby-plugin-image';
+import Image from 'next/image';
 import * as styles from './CoverImage.css';
 
 type Props = {
   maxHeight: string;
-  fit: 'contain' | null;
-  fluid: any;
+  fit: 'contain' | 'cover' | null;
+  src: string;
   alt: string;
   background?: string;
   boxShadow?: string;
@@ -13,12 +13,13 @@ type Props = {
 const CoverImage = ({
   maxHeight: passedMaxHeight,
   fit: passedFit,
-  fluid,
+  src,
   alt,
   background = '#EDF2F7',
 }: Props) => {
-  const fit = passedFit ?? 'cover';
-  const objectFitmaxHeight = fit === 'cover' ? undefined : passedMaxHeight;
+  const objectFit = passedFit ?? 'cover';
+  const maxHeight = objectFit === 'cover' ? undefined : passedMaxHeight;
+  const width = objectFit === 'cover' ? '100%' : undefined;
 
   return (
     <div
@@ -28,15 +29,16 @@ const CoverImage = ({
         background,
       }}
     >
-      <div className={styles.imageContainer({ fit })}>
-        <GatsbyImage
+      <div className={styles.imageContainer({ fit: objectFit })}>
+        <Image
           className={styles.image}
           alt={alt}
-          image={fluid}
-          style={{ width: fit === 'cover' ? '100%' : undefined }}
-          imgStyle={{
-            objectFit: fit,
-            maxHeight: objectFitmaxHeight,
+          src={src}
+          fill={true}
+          style={{
+            width,
+            objectFit,
+            maxHeight,
           }}
         />
       </div>
