@@ -1,11 +1,11 @@
-import { evaluate } from 'next-mdx-remote-client/rsc';
+import { evaluate, MDXRemote } from 'next-mdx-remote-client/rsc';
 import * as fs from 'node:fs/promises';
 import path from 'node:path';
 import { MDXProvider } from '@mdx-js/react';
 import { ExternalLink } from 'react-feather';
 import CoverImage from '../../../components/CoverImage/CoverImage';
 import Logo from '../../../components/Logo/Logo';
-// import MDXComponents from '../components/MDXComponents/MDXComponents';
+import MDXComponents from '../../../components/MDXComponents/MDXComponents';
 // import SEO from '../components/SEO';
 import TagList from '../../../components/TagList/TagList';
 // import Layout from '../components/layout';
@@ -33,14 +33,14 @@ async function getPost(slug: string) {
     path.join(process.cwd(), `public/content/projects/${slug}`, 'index.mdx'),
     'utf-8',
   );
-  const { frontmatter, content } = await evaluate<Frontmatter>({
+  const { frontmatter } = await evaluate<Frontmatter>({
     source,
     options: {
       parseFrontmatter: true,
     },
   });
   return {
-    content,
+    source,
     slug,
     excerpt: '',
     frontmatter,
@@ -53,7 +53,7 @@ export default async function ProjectPostPage({
   params: Promise<{ slug: string }>;
 }) {
   const { slug } = await params;
-  const { frontmatter } = await getPost(slug);
+  const { source, frontmatter } = await getPost(slug);
   const {
     title,
     link,
@@ -98,7 +98,11 @@ export default async function ProjectPostPage({
       </header>
 
       <div className={styles.wrapper}>
-        {/* <MDXProvider components={MDXComponents}>{children}</MDXProvider> */}
+        <MDXRemote
+          options={{ parseFrontmatter: true }}
+          components={MDXComponents}
+          source={source}
+        />
       </div>
     </>
   );
