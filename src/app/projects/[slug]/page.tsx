@@ -1,4 +1,4 @@
-import { compileMDX } from 'next-mdx-remote/rsc';
+import { evaluate } from 'next-mdx-remote-client/rsc';
 import * as fs from 'node:fs/promises';
 import path from 'node:path';
 import { MDXProvider } from '@mdx-js/react';
@@ -33,7 +33,7 @@ async function getPost(slug: string) {
     path.join(process.cwd(), `public/content/projects/${slug}`, 'index.mdx'),
     'utf-8',
   );
-  const { frontmatter, content } = await compileMDX<Frontmatter>({
+  const { frontmatter, content } = await evaluate<Frontmatter>({
     source,
     options: {
       parseFrontmatter: true,

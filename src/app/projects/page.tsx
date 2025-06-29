@@ -1,6 +1,6 @@
 import ProjectItem from '../../components/ProjectItem/ProjectItem';
 import * as styles from './page.css';
-import { compileMDX, MDXRemote } from 'next-mdx-remote/rsc';
+import { evaluate } from 'next-mdx-remote-client/rsc';
 import * as fs from 'node:fs/promises';
 import path from 'node:path';
 
@@ -35,7 +35,7 @@ export default async function Projects() {
           ),
           'utf-8',
         );
-        const { frontmatter } = await compileMDX<Frontmatter>({
+        const { frontmatter } = await evaluate<Frontmatter>({
           source: content,
           options: {
             parseFrontmatter: true,
