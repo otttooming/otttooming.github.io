@@ -1,5 +1,5 @@
 import { style, globalStyle } from '@vanilla-extract/css';
-import { theme } from '../utils/theme.css';
+import { theme } from '../../../utils/theme.css';
 
 export const coverContainer = style({
   maxWidth: '1024px',
