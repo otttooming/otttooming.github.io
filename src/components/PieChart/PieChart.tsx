@@ -1,3 +1,5 @@
+'use client';
+
 import { Cell, Pie, PieChart as RechartsPie } from 'recharts';
 import * as styles from './PieChart.css';
 
