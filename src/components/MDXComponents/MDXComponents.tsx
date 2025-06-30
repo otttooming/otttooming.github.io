@@ -1,4 +1,4 @@
-import { Link as GatsbyLink } from 'gatsby';
+import NextLink from 'next/link';
 import { ExternalLink } from 'react-feather';
 import { getIsExternalLink } from '../../utils/getIsExternalLink';
 import { getIsDocument } from '../../utils/getLinkType';
@@ -46,7 +46,7 @@ const internalOrExternalLink =
       return <a href={href} className={className} {...restProps} />;
     }
 
-    return <GatsbyLink to={href || ''} className={className} {...restProps} />;
+    return <NextLink href={href || ''} className={className} {...restProps} />;
   };
 
 export const Link = ({
