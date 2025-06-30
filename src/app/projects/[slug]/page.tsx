@@ -12,6 +12,7 @@ import TagList from '../../../components/TagList/TagList';
 import { techTags } from '../../../constants/tech';
 import { projectTexts, textMap } from '../../../utils/textMap';
 import * as styles from './page.css';
+import Image from 'next/image';
 
 type Frontmatter = {
   title: string;
@@ -100,7 +101,18 @@ export default async function ProjectPostPage({
       <div className={styles.wrapper}>
         <MDXRemote
           options={{ parseFrontmatter: true }}
-          components={MDXComponents}
+          components={{
+            ...MDXComponents,
+            img: ({ src, alt }) => (
+              <MDXComponents.Illustration>
+                <Image
+                  alt={alt}
+                  src={`/content/projects/${slug}/${src}`}
+                  fill={true}
+                />
+              </MDXComponents.Illustration>
+            ),
+          }}
           source={source}
         />
       </div>
