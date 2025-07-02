@@ -10,10 +10,10 @@ import Image from 'next/image';
 
 const images = [
   ['Bella', bella],
-  ['Bobby', bobby],
+  ['Ossu', ossu],
   ['Gustav', gustav],
   ['Max', max],
-  ['Ossu', ossu],
+  ['Bobby', bobby],
   ['Tondu', tondu],
 ] as const;
 
