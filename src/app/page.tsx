@@ -62,11 +62,11 @@ const IndexPage = () => (
     <section className={styles.mainSegment}>
       <Grid>
         <div>
-          <h1 className={styles.heading}>
+          <h1>
             👋 Hi, I am <strong>Ott</strong>
           </h1>
 
-          <h2 className={styles.heading}>
+          <h2>
             Front-end developer/<strong>student</strong>
           </h2>
 
@@ -105,7 +105,7 @@ const IndexPage = () => (
     <section className={styles.segment}>
       <PlainGrid>
         <SmallType>Passions</SmallType>
-        <h2 className={styles.heading}>
+        <h2>
           <strong>Animal welfare</strong> and my cats and dogs specifically
         </h2>
       </PlainGrid>
@@ -119,7 +119,7 @@ const IndexPage = () => (
 
         <div>
           <SmallType>Experience</SmallType>
-          <h2 className={styles.heading}>
+          <h2>
             <strong>Tech stack</strong> that I currently use
           </h2>
 
@@ -135,7 +135,7 @@ const IndexPage = () => (
       <PlainGrid>
         <div style={{ textAlign: 'center' }}>
           <SmallType>Industry</SmallType>
-          <h2 className={styles.heading}>
+          <h2>
             Some <strong>amazing companies </strong> I&apos;ve worked with
           </h2>
 

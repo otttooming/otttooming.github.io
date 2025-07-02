@@ -75,10 +75,6 @@ export const mainSegment = style([
   },
 ]);
 
-export const heading = style({
-  fontWeight: theme.fontWeight.normal,
-});
-
 export const smallText = style({
   marginBottom: '8px',
   textTransform: 'uppercase',
