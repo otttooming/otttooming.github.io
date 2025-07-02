@@ -17,6 +17,8 @@ export const columnWrapper = style({
 });
 
 export const item = style({
+  position: 'relative',
+  aspectRatio: '3 / 2',
   overflow: 'hidden',
   borderRadius: theme.borderRadius.s,
   transition: 'all 250ms',
