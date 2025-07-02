@@ -104,13 +104,11 @@ export default async function ProjectPostPage({
           components={{
             ...MDXComponents,
             img: ({ src, alt }) => (
-              <MDXComponents.Illustration>
-                <Image
-                  alt={alt}
-                  src={`/content/projects/${slug}/${src}`}
-                  fill={true}
-                />
-              </MDXComponents.Illustration>
+              <Image
+                alt={alt}
+                src={`/content/projects/${slug}/${src}`}
+                fill={true}
+              />
             ),
           }}
           source={source}
