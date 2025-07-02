@@ -13,5 +13,6 @@ export const wrapper = style({
 });
 
 export const content = style({
+  position: 'relative',
   maxWidth: '480px',
 });
