@@ -84,7 +84,7 @@ export default async function ProjectPostPage({
           rel="noopener noreferrer"
         >
           <p>Link to project</p>
-          {/* <ExternalLink className={styles.externalLinkIcon} /> */}
+          <ExternalLink className={styles.externalLinkIcon} />
         </a>
       </div>
 
