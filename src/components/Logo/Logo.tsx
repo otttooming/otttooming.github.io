@@ -1,5 +1,5 @@
 import * as styles from './Logo.css';
-import { Gtap, Iglu, Khk, Pethealth, Pipedrive, Voog } from './CompanyLogos';
+import { Gtap, Iglu, Khk, Pethealth, Pipedrive, Voog } from './Logos';
 
 const getLogoClasses = (size?: 'medium' | 'large') =>
   styles.icon({

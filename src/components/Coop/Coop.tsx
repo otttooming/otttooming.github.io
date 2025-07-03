@@ -1,4 +1,4 @@
-import { Gtap, Iglu, Pipedrive, Voog } from '../Logo/CompanyLogos';
+import { Gtap, Iglu, Pipedrive, Voog } from '../Logo/Logos';
 import * as styles from './Coop.css';
 
 interface CompanyLogoProps {
