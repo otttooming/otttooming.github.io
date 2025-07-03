@@ -3,7 +3,7 @@ type AssetProps = React.ComponentProps<'svg'> & {
 };
 
 const Asset = async ({ name, ...rest }: AssetProps) => {
-  const asset = (await import(`../../../static/logo-${name}.svg`)).default;
+  const asset = (await import(`./static/${name}.svg`)).default;
 
   return (
     <svg role="img" aria-label="Logo" {...rest}>
