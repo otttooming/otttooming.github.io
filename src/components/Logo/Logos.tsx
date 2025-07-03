@@ -35,3 +35,21 @@ export const Pethealth = ({ ...rest }: React.ComponentProps<'svg'>) => (
 export const Khk = ({ ...rest }: React.ComponentProps<'svg'>) => (
   <Asset name="khk" aria-label="Tartu KHK" {...rest} />
 );
+
+export const Gatsby = ({ ...rest }: React.ComponentProps<'svg'>) => (
+  <Asset name="gatsby" aria-label="Gatsby" {...rest} />
+);
+
+export const GraphQL = ({ ...rest }: React.ComponentProps<'svg'>) => (
+  <Asset name="graphql" aria-label="GraphQL" {...rest} />
+);
+
+export const React = ({ ...rest }: React.ComponentProps<'svg'>) => (
+  <Asset name="react" aria-label="React" {...rest} />
+);
+export const Redux = ({ ...rest }: React.ComponentProps<'svg'>) => (
+  <Asset name="redux" aria-label="Redux" {...rest} />
+);
+export const TypeScript = ({ ...rest }: React.ComponentProps<'svg'>) => (
+  <Asset name="typescript" aria-label="TypeScript" {...rest} />
+);

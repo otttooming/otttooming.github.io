@@ -1,3 +1,4 @@
+import * as Logos from '../Logo/Logos';
 import * as styles from './HexGrid.css';
 
 interface HexProps {
@@ -34,69 +35,41 @@ const Icon = ({ children }: { children: React.ReactNode }) => (
   <span className={styles.icon}>{children}</span>
 );
 
-const GatsbyIcon = ({ ...rest }: React.ComponentProps<'svg'>) => (
-  <svg role="img" aria-label="Gatsby" {...rest}>
-    <use href="/static/tech-gatsby.svg#tech-gatsby" />
-  </svg>
-);
-
-const GraphQLIcon = ({ ...rest }: React.ComponentProps<'svg'>) => (
-  <svg role="img" aria-label="GraphQL" {...rest}>
-    <use href="/static/tech-graphql.svg#tech-graphql" />
-  </svg>
-);
-
-const ReactIcon = ({ ...rest }: React.ComponentProps<'svg'>) => (
-  <svg role="img" aria-label="React" {...rest}>
-    <use href="/static/tech-react.svg#tech-react" />
-  </svg>
-);
-const ReduxIcon = ({ ...rest }: React.ComponentProps<'svg'>) => (
-  <svg role="img" aria-label="Redux" {...rest}>
-    <use href="/static/tech-redux.svg#tech-redux" />
-  </svg>
-);
-const TSIcon = ({ ...rest }: React.ComponentProps<'svg'>) => (
-  <svg role="img" aria-label="TypeScript" {...rest}>
-    <use href="/static/tech-typescript.svg#tech-typescript" />
-  </svg>
-);
-
 const HexGrid = () => {
   return (
     <div className={styles.wrapper}>
       <div className={styles.item}>
         <Hex variant="typescript" href="https://www.typescriptlang.org/">
           <Icon>
-            <TSIcon />
+            <Logos.TypeScript />
           </Icon>
         </Hex>
       </div>
       <div className={styles.item}>
         <Hex variant="redux" href="https://redux.js.org/">
           <Icon>
-            <ReduxIcon />
+            <Logos.Redux />
           </Icon>
         </Hex>
       </div>
       <div className={styles.item}>
         <Hex variant="gatsby" href="https://www.gatsbyjs.org/">
           <Icon>
-            <GatsbyIcon />
+            <Logos.Gatsby />
           </Icon>
         </Hex>
       </div>
       <div className={styles.item}>
         <Hex variant="react" href="https://reactjs.org/">
           <Icon>
-            <ReactIcon />
+            <Logos.React />
           </Icon>
         </Hex>
       </div>
       <div className={styles.item}>
         <Hex variant="graphql" href="https://graphql.org/">
           <Icon>
-            <GraphQLIcon />
+            <Logos.GraphQL />
           </Icon>
         </Hex>
       </div>
