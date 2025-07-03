@@ -1,55 +1,45 @@
-type AssetProps = React.ComponentProps<'svg'> & {
-  name: string;
-};
+import VoogAsset from './assets/Voog';
+import PipedriveAsset from './assets/Pipedrive';
+import IgluAsset from './assets/Iglu';
+import GtapAsset from './assets/Gtap';
+import PethealthAsset from './assets/Pethealth';
+import KhkAsset from './assets/Khk';
+import GatsbyAsset from './assets/Gatsby';
+import GraphqlAsset from './assets/Graphql';
+import ReactLogoAsset from './assets/ReactLogo';
+import ReduxAsset from './assets/Redux';
+import TypescriptAsset from './assets/Typescript';
 
-const Asset = async ({ name, ...rest }: AssetProps) => {
-  const asset = (await import(`./static/${name}.svg`)).default;
-
-  return (
-    <svg role="img" aria-label="Logo" {...rest}>
-      <use href={`${asset.src}#logo-${name}`} />
-    </svg>
-  );
-};
-
-export const Voog = ({ ...rest }: React.ComponentProps<'svg'>) => (
-  <Asset name="voog" aria-label="Voog" {...rest} />
+export const Voog = (props: React.ComponentProps<'svg'>) => (
+  <VoogAsset {...props} />
 );
-
-export const Pipedrive = ({ ...rest }: React.ComponentProps<'svg'>) => (
-  <Asset name="pipedrive" aria-label="Pipedrive" {...rest} />
+export const Pipedrive = (props: React.ComponentProps<'svg'>) => (
+  <PipedriveAsset {...props} />
 );
-
-export const Iglu = ({ ...rest }: React.ComponentProps<'svg'>) => (
-  <Asset name="iglu" aria-label="Iglu" {...rest} />
+export const Iglu = (props: React.ComponentProps<'svg'>) => (
+  <IgluAsset {...props} />
 );
-
-export const Gtap = ({ ...rest }: React.ComponentProps<'svg'>) => (
-  <Asset name="gtap" aria-label="gotoAndPlay" {...rest} />
+export const Gtap = (props: React.ComponentProps<'svg'>) => (
+  <GtapAsset {...props} />
 );
-
-export const Pethealth = ({ ...rest }: React.ComponentProps<'svg'>) => (
-  <Asset name="pethealth" aria-label="Pethealth" {...rest} />
+export const Pethealth = (props: React.ComponentProps<'svg'>) => (
+  <PethealthAsset {...props} />
 );
-
-export const Khk = ({ ...rest }: React.ComponentProps<'svg'>) => (
-  <Asset name="khk" aria-label="Tartu KHK" {...rest} />
+export const Khk = (props: React.ComponentProps<'svg'>) => (
+  <KhkAsset {...props} />
 );
-
-export const Gatsby = ({ ...rest }: React.ComponentProps<'svg'>) => (
-  <Asset name="gatsby" aria-label="Gatsby" {...rest} />
+export const Gatsby = (props: React.ComponentProps<'svg'>) => (
+  <GatsbyAsset {...props} />
 );
-
-export const GraphQL = ({ ...rest }: React.ComponentProps<'svg'>) => (
-  <Asset name="graphql" aria-label="GraphQL" {...rest} />
+export const GraphQL = (props: React.ComponentProps<'svg'>) => (
+  <GraphqlAsset {...props} />
 );
-
-export const React = ({ ...rest }: React.ComponentProps<'svg'>) => (
-  <Asset name="react" aria-label="React" {...rest} />
+export const ReactLogoComponent = (props: React.ComponentProps<'svg'>) => (
+  <ReactLogoAsset {...props} />
 );
-export const Redux = ({ ...rest }: React.ComponentProps<'svg'>) => (
-  <Asset name="redux" aria-label="Redux" {...rest} />
+export const Redux = (props: React.ComponentProps<'svg'>) => (
+  <ReduxAsset {...props} />
 );
-export const TypeScript = ({ ...rest }: React.ComponentProps<'svg'>) => (
-  <Asset name="typescript" aria-label="TypeScript" {...rest} />
+export const TypeScript = (props: React.ComponentProps<'svg'>) => (
+  <TypescriptAsset {...props} />
 );
