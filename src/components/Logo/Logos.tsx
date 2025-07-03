@@ -11,35 +11,35 @@ import ReduxAsset from './assets/Redux';
 import TypescriptAsset from './assets/Typescript';
 
 export const Voog = (props: React.ComponentProps<'svg'>) => (
-  <VoogAsset {...props} />
+  <VoogAsset aria-label="Voog" {...props} />
 );
 export const Pipedrive = (props: React.ComponentProps<'svg'>) => (
-  <PipedriveAsset {...props} />
+  <PipedriveAsset aria-label="Pipedrive" {...props} />
 );
 export const Iglu = (props: React.ComponentProps<'svg'>) => (
-  <IgluAsset {...props} />
+  <IgluAsset aria-label="Iglu" {...props} />
 );
 export const Gtap = (props: React.ComponentProps<'svg'>) => (
-  <GtapAsset {...props} />
+  <GtapAsset aria-label="gotoAndPlay" {...props} />
 );
 export const Pethealth = (props: React.ComponentProps<'svg'>) => (
-  <PethealthAsset {...props} />
+  <PethealthAsset aria-label="Pethealth" {...props} />
 );
 export const Khk = (props: React.ComponentProps<'svg'>) => (
-  <KhkAsset {...props} />
+  <KhkAsset aria-label="Tartu KHK" {...props} />
 );
 export const Gatsby = (props: React.ComponentProps<'svg'>) => (
-  <GatsbyAsset {...props} />
+  <GatsbyAsset aria-label="Gatsby" {...props} />
 );
 export const GraphQL = (props: React.ComponentProps<'svg'>) => (
-  <GraphqlAsset {...props} />
+  <GraphqlAsset aria-label="GraphQL" {...props} />
 );
 export const ReactLogoComponent = (props: React.ComponentProps<'svg'>) => (
-  <ReactLogoAsset {...props} />
+  <ReactLogoAsset aria-label="React" {...props} />
 );
 export const Redux = (props: React.ComponentProps<'svg'>) => (
-  <ReduxAsset {...props} />
+  <ReduxAsset aria-label="Redux" {...props} />
 );
 export const TypeScript = (props: React.ComponentProps<'svg'>) => (
-  <TypescriptAsset {...props} />
+  <TypescriptAsset aria-label="TypeScript" {...props} />
 );
