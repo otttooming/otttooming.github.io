@@ -14,6 +14,8 @@ export const imageContainer = recipe({
     position: 'relative',
     width: '100%',
     minHeight: 360,
+    maxHeight: '70vh',
+    aspectRatio: '3 /2',
     display: 'flex',
     alignItems: 'center',
   },
