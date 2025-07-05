@@ -1,42 +1,40 @@
-import { MDXProvider } from '@mdx-js/react';
-import type {
-  TechnologiesFrontmatterFragmentFragment,
-  TechnologiesListQueryQuery,
-} from '../../types';
+'use client';
 import CoverImage from '../CoverImage/CoverImage';
 import MDXComponents from '../MDXComponents/MDXComponents';
 import { getMatchingProjects } from './Card.helpers';
 import { useColorMode } from '../ui/color-mode';
 import * as styles from './Card.css';
+import { getProjects } from '../../app/projects/page';
+import { MDXRemote } from 'next-mdx-remote-client/rsc';
 
 export interface CardProps {
   title: string;
-  body: any;
-  featured: TechnologiesFrontmatterFragmentFragment['featured'];
-  projects: TechnologiesListQueryQuery['projects'];
+  content: string;
+  featured: any;
+  projects: Awaited<ReturnType<typeof getProjects>>;
 }
 
 const Item = ({
-  id,
+  slug,
   frontmatter: { featured, title },
-}: TechnologiesListQueryQuery['projects']['nodes'][0]) => {
+}: CardProps['projects'][number]) => {
   const { image, background, fit } = featured;
 
   return (
-    <div key={id} className={styles.projectItem}>
+    <div className={styles.projectItem}>
       <CoverImage
-        maxHeight="260px"
-        fit={fit}
-        background={background}
-        fluid={image.childImageSharp.gatsbyImageData}
-        boxShadow="none"
         alt={title}
+        src={`/content/projects/${slug}/${image}`}
+        maxHeight="260px"
+        background={background}
+        boxShadow="none"
+        fit={fit}
       />
     </div>
   );
 };
 
-const Card = ({ title, body, featured, projects }: CardProps) => {
+const Card = ({ title, slug, featured, source, projects }: CardProps) => {
   const {
     illustration,
     height: htmlHeight,
@@ -62,7 +60,7 @@ const Card = ({ title, body, featured, projects }: CardProps) => {
         >
           <img
             className={styles.illustration}
-            src={illustration.publicURL}
+            src={`public/content/technologies/${slug}/${illustration}`}
             alt={alt}
             height={htmlHeight}
             width={htmlWidth}
@@ -81,7 +79,15 @@ const Card = ({ title, body, featured, projects }: CardProps) => {
 
       <div className={styles.content({ mode: colorMode })}>
         <h2>{title}</h2>
-        <MDXProvider components={MDXComponents}>{body}</MDXProvider>
+
+        <MDXRemote
+          options={{ parseFrontmatter: true }}
+          components={{
+            ...MDXComponents,
+          }}
+          source={source}
+        />
+        {/* <MDXProvider components={MDXComponents}>{body}</MDXProvider> */}
       </div>
     </li>
   );
