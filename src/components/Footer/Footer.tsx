@@ -1,20 +1,18 @@
 import { Social, socialTags } from '../../constants/social';
 import TagList from '../TagList/TagList';
-import { footer, container, copyright } from './Footer.css';
+import { footer, copyright } from './Footer.css';
 
 const SOCIAL_PROFILES = [Social.GITHUB, Social.LINKEDIN, Social.TWITTER];
 
 const Footer = () => {
   return (
     <footer className={footer}>
-      <div className={container}>
-        <TagList tags={SOCIAL_PROFILES} mapping={socialTags} />
-      </div>
+      <TagList tags={SOCIAL_PROFILES} mapping={socialTags} />
 
-      <div className={container}>
+      <small>
         <span className={copyright}>©</span>
         Ott Tooming
-      </div>
+      </small>
     </footer>
   );
 };

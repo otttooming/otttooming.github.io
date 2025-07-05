@@ -6,11 +6,7 @@ export const footer = style({
   marginBottom: '40px',
   marginLeft: 'auto',
   marginRight: 'auto',
-});
-
-export const container = style({
-  display: 'flex',
-  justifyContent: 'center',
+  textAlign: 'center',
 });
 
 export const copyright = style({
