@@ -7,6 +7,8 @@ import { MDXRemote } from 'next-mdx-remote-client/rsc';
 
 export interface CardProps {
   title: string;
+  slug: string;
+  source: string;
   content: string;
   featured: any;
   projects: Awaited<ReturnType<typeof getProjects>>;
@@ -79,12 +81,9 @@ const Card = ({ title, slug, featured, source, projects }: CardProps) => {
 
         <MDXRemote
           options={{ parseFrontmatter: true }}
-          components={{
-            ...MDXComponents,
-          }}
+          components={MDXComponents}
           source={source}
         />
-        {/* <MDXProvider components={MDXComponents}>{body}</MDXProvider> */}
       </div>
     </li>
   );
