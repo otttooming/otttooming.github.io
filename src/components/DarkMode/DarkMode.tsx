@@ -3,7 +3,7 @@ import { useColorMode } from '../ui/color-mode';
 import { moonSun, modeButton } from './DarkMode.css';
 
 const DarkMode = () => {
-  const { toggleColorMode } = useColorMode();
+  const toggleColorMode = useColorMode();
 
   return (
     <button
