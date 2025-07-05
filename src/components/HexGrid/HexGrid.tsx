@@ -62,7 +62,7 @@ const HexGrid = () => {
       <div className={styles.item}>
         <Hex variant="react" href="https://reactjs.org/">
           <Icon>
-            <Logos.ReactLogoComponent />
+            <Logos.React />
           </Icon>
         </Hex>
       </div>
