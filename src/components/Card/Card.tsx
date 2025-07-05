@@ -4,12 +4,16 @@ import { getMatchingProjects } from './Card.helpers';
 import * as styles from './Card.css';
 import { getProjects } from '../../app/projects/page';
 import { MDXRemote } from 'next-mdx-remote-client/rsc';
+import * as logosImport from '../Logo/Logos';
+
+const LOGOS = Object.fromEntries(
+  Object.entries(logosImport).map(([key, value]) => [key.toLowerCase(), value]),
+);
 
 export interface CardProps {
   title: string;
   slug: string;
   source: string;
-  content: string;
   featured: any;
   projects: Awaited<ReturnType<typeof getProjects>>;
 }
@@ -47,6 +51,7 @@ const Card = ({ title, slug, featured, source, projects }: CardProps) => {
 
   const matchingProjects = getMatchingProjects(projects, title);
 
+  const Logo = LOGOS[slug];
   return (
     <li
       className={styles.card}
@@ -57,14 +62,7 @@ const Card = ({ title, slug, featured, source, projects }: CardProps) => {
           className={styles.illustrationWrapper}
           style={{ aspectRatio: ratio }}
         >
-          <img
-            className={styles.illustration}
-            src={`public/content/technologies/${slug}/${illustration}`}
-            alt={alt}
-            height={htmlHeight}
-            width={htmlWidth}
-            loading="lazy"
-          />
+          {Logo && <Logo />}
         </div>
 
         <div className={styles.projectsContainer}>
