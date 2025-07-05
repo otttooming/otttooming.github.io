@@ -1,8 +1,56 @@
-// import Card from '../../components/Card/Card';
+import Card from '../../components/Card/Card';
 import * as styles from './page.css';
+import { evaluate } from 'next-mdx-remote-client/rsc';
+import * as fs from 'node:fs/promises';
+import path from 'node:path';
+import { getProjects } from '../projects/page';
 
-export default function Technologies() {
-  // const posts = nodes;
+type Frontmatter = {
+  title: string;
+  order: string;
+  slug: string;
+  link: string;
+  featured: {
+    illustration: string;
+    width: number;
+    height: number;
+    alt: string;
+    background?: string;
+  };
+};
+
+export default async function Technologies() {
+  const pathNames = await fs.readdir(
+    path.join(process.cwd(), 'public/content/technologies'),
+  );
+
+  const technologies = (
+    await Promise.all(
+      pathNames.map(async (slug) => {
+        const source = await fs.readFile(
+          path.join(
+            process.cwd(),
+            `public/content/technologies/${slug}`,
+            'index.mdx',
+          ),
+          'utf-8',
+        );
+        const { frontmatter } = await evaluate<Frontmatter>({
+          source,
+          options: {
+            parseFrontmatter: true,
+          },
+        });
+        return {
+          source,
+          slug,
+          frontmatter,
+        };
+      }),
+    )
+  ).toSorted((a, b) => b.frontmatter.order.localeCompare(a.frontmatter.order));
+
+  const projects = await getProjects();
 
   return (
     <>
@@ -18,16 +66,15 @@ export default function Technologies() {
       </p>
 
       <ol className={styles.cardList}>
-        {[].map(({ body, frontmatter }) => {
-          const { title, featured } = frontmatter;
-
-          return null;
+        {technologies.map(({ source, frontmatter }) => {
+          const { title, slug, featured } = frontmatter;
 
           return (
             <Card
-              key={title}
+              key={slug}
               title={title}
-              body={body}
+              slug={slug}
+              source={source}
               featured={featured}
               projects={projects}
             />
