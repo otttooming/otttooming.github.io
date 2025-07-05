@@ -48,7 +48,9 @@ export default async function Technologies() {
         };
       }),
     )
-  ).toSorted((a, b) => b.frontmatter.order.localeCompare(a.frontmatter.order));
+  ).toSorted(
+    (a, b) => Number(a.frontmatter.order) - Number(b.frontmatter.order),
+  );
 
   const projects = await getProjects();
 
