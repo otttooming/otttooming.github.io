@@ -68,7 +68,7 @@ const Card = ({ title, slug, featured, source, projects }: CardProps) => {
         <div className={styles.projectsContainer}>
           <div className={styles.projectsList}>
             {matchingProjects.map((item) => (
-              <Item key={item.id} {...item} />
+              <Item key={item.slug} {...item} />
             ))}
           </div>
         </div>
