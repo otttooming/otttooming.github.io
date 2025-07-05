@@ -19,12 +19,12 @@ type Frontmatter = {
   tech: string[];
 };
 
-export default async function Projects() {
+export const getProjects = async () => {
   const pathNames = await fs.readdir(
     path.join(process.cwd(), 'public/content/projects'),
   );
 
-  const projects = (
+  return (
     await Promise.all(
       pathNames.map(async (slug) => {
         const content = await fs.readFile(
@@ -49,6 +49,10 @@ export default async function Projects() {
       }),
     )
   ).toSorted((a, b) => b.frontmatter.date.localeCompare(a.frontmatter.date));
+};
+
+export default async function Projects() {
+  const projects = await getProjects();
 
   return (
     <>
