@@ -34,7 +34,7 @@ export const Gatsby = (props: React.ComponentProps<'svg'>) => (
 export const GraphQL = (props: React.ComponentProps<'svg'>) => (
   <GraphqlAsset aria-label="GraphQL" {...props} />
 );
-export const ReactLogoComponent = (props: React.ComponentProps<'svg'>) => (
+export const React = (props: React.ComponentProps<'svg'>) => (
   <ReactLogoAsset aria-label="React" {...props} />
 );
 export const Redux = (props: React.ComponentProps<'svg'>) => (
