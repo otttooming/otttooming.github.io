@@ -75,29 +75,29 @@ export const projectItem = style({
   marginRight: '16px',
 });
 
-export const content = recipe({
-  base: {
-    gridRow: '2 / 4',
-    gridColumn: '2 / 3',
-    paddingTop: '32px',
-    paddingBottom: '32px',
-    paddingLeft: '16px',
-    paddingRight: '16px',
-    borderRadius: '0 0 8px 8px',
-    '@media': {
-      '(min-width: 768px)': {
-        paddingLeft: '32px',
-        paddingRight: '32px',
-      },
-      '(min-width: 1024px)': {
-        borderRadius: '8px',
-      },
+export const content = style({
+  gridRow: '2 / 4',
+  gridColumn: '2 / 3',
+  paddingTop: '32px',
+  paddingBottom: '32px',
+  paddingLeft: '16px',
+  paddingRight: '16px',
+  borderRadius: '0 0 8px 8px',
+  '@media': {
+    '(min-width: 768px)': {
+      paddingLeft: '32px',
+      paddingRight: '32px',
+    },
+    '(min-width: 1024px)': {
+      borderRadius: '8px',
     },
   },
-  variants: {
-    mode: {
-      light: { backgroundColor: '#edf2f7' },
-      dark: { backgroundColor: '#2c3442' },
+  selectors: {
+    '.light &': {
+      backgroundColor: '#edf2f7',
+    },
+    '.dark &': {
+      backgroundColor: '#2c3442',
     },
   },
 });

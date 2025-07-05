@@ -1,8 +1,6 @@
-'use client';
 import CoverImage from '../CoverImage/CoverImage';
 import MDXComponents from '../MDXComponents/MDXComponents';
 import { getMatchingProjects } from './Card.helpers';
-import { useColorMode } from '../ui/color-mode';
 import * as styles from './Card.css';
 import { getProjects } from '../../app/projects/page';
 import { MDXRemote } from 'next-mdx-remote-client/rsc';
@@ -43,7 +41,6 @@ const Card = ({ title, slug, featured, source, projects }: CardProps) => {
     background,
   } = featured;
 
-  const { colorMode } = useColorMode();
   const ratio = htmlWidth / htmlHeight;
 
   const matchingProjects = getMatchingProjects(projects, title);
@@ -77,7 +74,7 @@ const Card = ({ title, slug, featured, source, projects }: CardProps) => {
         </div>
       </header>
 
-      <div className={styles.content({ mode: colorMode })}>
+      <div className={styles.content}>
         <h2>{title}</h2>
 
         <MDXRemote
