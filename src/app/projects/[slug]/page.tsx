@@ -103,13 +103,15 @@ export default async function ProjectPostPage({
           options={{ parseFrontmatter: true }}
           components={{
             ...MDXComponents,
-            img: ({ src, alt }) => (
-              <Image
-                alt={alt}
-                src={`/content/projects/${slug}/${src}`}
-                fill={true}
-              />
-            ),
+            img: ({ src, alt }) => {
+              return (
+                <Image
+                  alt={alt}
+                  src={`/content/projects/${slug}/${src}`}
+                  fill={true}
+                />
+              );
+            },
           }}
           source={source}
         />
