@@ -4,7 +4,7 @@ import { evaluate } from 'next-mdx-remote-client/rsc';
 import * as fs from 'node:fs/promises';
 import path from 'node:path';
 import { getProjects } from '../projects/page';
-import { readDirNames } from '../../utils/fs';
+import { readDirNames, readSourceFile } from '../../utils/fs';
 
 type Frontmatter = {
   title: string;
@@ -26,14 +26,11 @@ export default async function Technologies() {
   const technologies = (
     await Promise.all(
       directories.map(async (slug) => {
-        const source = await fs.readFile(
-          path.join(
-            process.cwd(),
-            `public/content/technologies/${slug}`,
-            'index.mdx',
-          ),
-          'utf-8',
+        const source = await readSourceFile(
+          `public/content/technologies/${slug}`,
+          'index.mdx',
         );
+
         const { frontmatter } = await evaluate<Frontmatter>({
           source,
           options: {

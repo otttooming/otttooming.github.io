@@ -1,7 +1,4 @@
 import { evaluate, MDXRemote } from 'next-mdx-remote-client/rsc';
-import * as fs from 'node:fs/promises';
-import path from 'node:path';
-import { MDXProvider } from '@mdx-js/react';
 import { ExternalLink } from 'react-feather';
 import CoverImage from '../../../components/CoverImage/CoverImage';
 import Logo from '../../../components/Logo/Logo';
@@ -13,6 +10,7 @@ import { techTags } from '../../../constants/tech';
 import { projectTexts, textMap } from '../../../utils/textMap';
 import * as styles from './page.css';
 import Image from 'next/image';
+import { readSourceFile } from '../../../utils/fs';
 
 type Frontmatter = {
   title: string;
@@ -30,10 +28,11 @@ type Frontmatter = {
 };
 
 async function getPost(slug: string) {
-  const source = await fs.readFile(
-    path.join(process.cwd(), `public/content/projects/${slug}`, 'index.mdx'),
-    'utf-8',
+  const source = await readSourceFile(
+    `public/content/projects/${slug}`,
+    'index.mdx',
   );
+
   const { frontmatter } = await evaluate<Frontmatter>({
     source,
     options: {
