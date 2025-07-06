@@ -39,15 +39,7 @@ const Item = ({
 };
 
 const Card = ({ title, slug, featured, source, projects }: CardProps) => {
-  const {
-    illustration,
-    height: htmlHeight,
-    width: htmlWidth,
-    alt,
-    background,
-  } = featured;
-
-  const ratio = htmlWidth / htmlHeight;
+  const { background } = featured;
 
   const matchingProjects = getMatchingProjects(projects, title);
 
@@ -58,12 +50,7 @@ const Card = ({ title, slug, featured, source, projects }: CardProps) => {
       style={{ '--card-background': background } as React.CSSProperties}
     >
       <header className={`${styles.header} ${styles.scrollContainer}`}>
-        <div
-          className={styles.illustrationWrapper}
-          style={{ aspectRatio: ratio }}
-        >
-          {Logo && <Logo />}
-        </div>
+        <div className={styles.illustrationWrapper}>{Logo && <Logo />}</div>
 
         <div className={styles.projectsContainer}>
           <div className={styles.projectsList}>
