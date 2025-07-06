@@ -3,6 +3,7 @@ import * as styles from './page.css';
 import { evaluate } from 'next-mdx-remote-client/rsc';
 import * as fs from 'node:fs/promises';
 import path from 'node:path';
+import { readDirNames } from '../../utils/fs';
 
 type Frontmatter = {
   title: string;
@@ -20,13 +21,11 @@ type Frontmatter = {
 };
 
 export const getProjects = async () => {
-  const pathNames = await fs.readdir(
-    path.join(process.cwd(), 'public/content/projects'),
-  );
+  const directories = await readDirNames('public/content/projects');
 
   return (
     await Promise.all(
-      pathNames.map(async (slug) => {
+      directories.map(async (slug) => {
         const content = await fs.readFile(
           path.join(
             process.cwd(),
