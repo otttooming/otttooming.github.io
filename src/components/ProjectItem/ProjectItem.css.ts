@@ -68,7 +68,3 @@ export const projectTitle = style({
   lineHeight: theme.lineHeight.xs,
   marginBottom: theme.space.m,
 });
-
-export const description = style({
-  lineHeight: theme.lineHeight.m,
-});

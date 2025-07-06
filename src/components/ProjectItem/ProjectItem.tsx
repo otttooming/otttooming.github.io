@@ -7,7 +7,6 @@ import { Link } from '../Link/Link';
 interface ProjectItemProps {
   title: string;
   slug: string;
-  excerpt: string;
   company?: string;
   link?: string;
   kind?: string;
@@ -19,7 +18,6 @@ interface ProjectItemProps {
 export const ProjectItem = async ({
   title,
   slug,
-  excerpt,
   company,
   link,
   kind,
@@ -51,8 +49,6 @@ export const ProjectItem = async ({
             <strong>{title}</strong> {textMap(kind, projectTexts)}
           </h2>
         </Link>
-
-        <p className={styles.description}>{excerpt}</p>
       </div>
     </li>
   );

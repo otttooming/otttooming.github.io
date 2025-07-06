@@ -42,7 +42,6 @@ async function getPost(slug: string) {
   return {
     source,
     slug,
-    excerpt: '',
     frontmatter,
   };
 }

@@ -42,7 +42,6 @@ export const getProjects = async () => {
         });
         return {
           slug,
-          excerpt: '',
           frontmatter,
         };
       }),
@@ -69,11 +68,10 @@ export default async function Projects() {
       </p>
 
       <ol className={styles.projectList}>
-        {projects.map(({ slug, excerpt, frontmatter }) => (
+        {projects.map(({ slug, frontmatter }) => (
           <ProjectItem
             key={slug}
             slug={slug}
-            excerpt={excerpt}
             title={frontmatter.title}
             kind={frontmatter.kind}
             company={frontmatter.company}
