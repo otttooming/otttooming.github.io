@@ -55,7 +55,7 @@ const renderCustomizedLabel = ({
   );
 };
 
-export const PieChart = ({ data, info }: Props) => {
+export default function PieChart({ data, info }: Props) {
   return (
     <div className={styles.wrapper}>
       <ul className={styles.list}>
@@ -96,4 +96,4 @@ export const PieChart = ({ data, info }: Props) => {
       {info && <div className={styles.infoWrapper}>{info}</div>}
     </div>
   );
-};
+}

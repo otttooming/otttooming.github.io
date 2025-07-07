@@ -5,7 +5,7 @@ import { getIsDocument } from '../../utils/getLinkType';
 import { getURISafeString } from '../../utils/text';
 import Illustration from '../Illustration/';
 import MasonryGallery from '../MasonryGallery/MasonryGallery';
-import { PieChart } from '../PieChart/PieChart';
+import { PieChart } from '../PieChart';
 import { AnchorHTMLAttributes, HTMLAttributes, PropsWithChildren } from 'react';
 import * as styles from './MDXComponents.css';
 
