@@ -1,4 +1,4 @@
-import { style } from '@vanilla-extract/css';
+import { globalStyle, style } from '@vanilla-extract/css';
 import { theme } from '../../utils/theme.css';
 
 export const wrapper = style({
@@ -14,5 +14,10 @@ export const wrapper = style({
 
 export const content = style({
   position: 'relative',
-  maxWidth: '480px',
+  width: '100%',
+  height: 340,
+});
+
+globalStyle(`${content} img`, {
+  objectFit: 'contain',
 });
