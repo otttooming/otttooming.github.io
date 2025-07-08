@@ -32,6 +32,7 @@ export const ProjectItem = async ({
           <CoverImage
             src={`/content/projects/${slug}/${image}`}
             maxHeight="360px"
+            sizes="(max-width: 480px) 100vw, 33vw"
             background={background}
             fit={fit}
             alt={title}

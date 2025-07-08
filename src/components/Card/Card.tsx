@@ -30,6 +30,7 @@ const Item = ({
         alt={title}
         src={`/content/projects/${slug}/${image}`}
         maxHeight="260px"
+        sizes="(max-width: 320px) 100vw, 33vw"
         background={background}
         boxShadow="none"
         fit={fit}
