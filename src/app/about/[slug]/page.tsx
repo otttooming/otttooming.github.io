@@ -61,7 +61,7 @@ export default async function AboutPage({
           width={width}
           height={height}
           alt={alt}
-          loading="lazy"
+          priority={true}
         />
       </div>
 
