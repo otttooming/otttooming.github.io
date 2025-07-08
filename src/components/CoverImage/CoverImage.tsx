@@ -5,6 +5,7 @@ type Props = {
   maxHeight: string;
   fit: 'contain' | 'cover' | null;
   src: string;
+  sizes?: string;
   alt: string;
   background?: string;
   boxShadow?: string;
@@ -14,6 +15,7 @@ const CoverImage = ({
   maxHeight: passedMaxHeight,
   fit: passedFit,
   src,
+  sizes,
   alt,
   background = '#EDF2F7',
 }: Props) => {
@@ -35,6 +37,7 @@ const CoverImage = ({
           alt={alt}
           src={src}
           fill={true}
+          sizes={sizes}
           style={{
             width,
             objectFit,
