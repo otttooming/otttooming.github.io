@@ -1,8 +1,6 @@
 import Card from '../../components/Card/Card';
 import * as styles from './page.css';
 import { evaluate } from 'next-mdx-remote-client/rsc';
-import * as fs from 'node:fs/promises';
-import path from 'node:path';
 import { getProjects } from '../projects/page';
 import { readDirNames, readSourceFile } from '../../utils/fs';
 

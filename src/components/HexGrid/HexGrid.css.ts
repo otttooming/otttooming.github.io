@@ -1,4 +1,4 @@
-import { style, globalStyle, styleVariants } from '@vanilla-extract/css';
+import { style, globalStyle } from '@vanilla-extract/css';
 import { recipe } from '@vanilla-extract/recipes';
 
 export const link = style({

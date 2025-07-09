@@ -47,7 +47,6 @@ export default async function AboutPage({
   const { slug } = await params;
   const { source, frontmatter } = await getPost(slug);
   const {
-    title,
     tags,
     featured: { illustration, width, height, alt },
   } = frontmatter;
