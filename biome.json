@@ -1,6 +1,6 @@
 {
   "files": {
-    "ignore": ["src/types.d.ts"]
+    "includes": ["**", "!**/src/types.d.ts"]
   },
   "linter": {
     "rules": {
