@@ -58,7 +58,8 @@ export const segment = style({
   minHeight: 'min(100vh, 768px)',
   '@media': {
     '(min-width: 768px)': {
-      padding: '0 16px',
+      paddingLeft: '16px',
+      paddingRight: '16px',
     },
   },
 });
