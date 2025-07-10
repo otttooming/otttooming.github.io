@@ -2,6 +2,13 @@
   "files": {
     "includes": ["**", "!**/src/types.d.ts"]
   },
+  "assist": {
+    "actions": {
+      "source": {
+        "organizeImports": "off"
+      }
+    }
+  },
   "linter": {
     "rules": {
       "a11y": {
