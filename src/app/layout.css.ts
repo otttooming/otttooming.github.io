@@ -25,9 +25,14 @@ globalStyle('h1', {
   fontSize: theme.fontSize.xxxl,
 });
 
+globalStyle('h2', {
+  fontSize: theme.fontSize.xl,
+});
+
 globalStyle('h1, h2, h3, h4, h5, p', {
   fontFamily: theme.fontFamily.primary,
   fontWeight: theme.fontWeight.normal,
+  lineHeight: theme.lineHeight.s,
   margin: 0,
 });
 

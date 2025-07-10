@@ -20,7 +20,7 @@ const Portrait = () => {
 };
 
 const Grid = ({ children }: React.PropsWithChildren) => {
-  return <section className={styles.grid}>{children}</section>;
+  return <div className={styles.grid}>{children}</div>;
 };
 
 const AltGrid = ({ children }: React.PropsWithChildren) => (

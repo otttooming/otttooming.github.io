@@ -101,9 +101,11 @@ export const socialIcon = style({
   display: 'inline-flex',
   alignItems: 'center',
   justifyContent: 'center',
+  width: '2rem',
+  height: '2rem',
   marginRight: theme.space.s,
-  padding: '0.5rem',
-  borderRadius: '0.375rem',
+  padding: theme.space.s,
+  borderRadius: theme.borderRadius.m,
   backgroundColor: 'rgba(0, 0, 0, 0.04)',
 });
 
