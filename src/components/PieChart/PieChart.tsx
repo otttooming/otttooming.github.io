@@ -1,6 +1,7 @@
 'use client';
 
 import { Cell, Pie, PieChart as RechartsPie } from 'recharts';
+import type { PieLabelProps } from 'recharts/types/polar/Pie';
 import * as styles from './PieChart.css';
 
 interface DataProps {
@@ -16,7 +17,15 @@ interface Props {
 const COLORS = ['#80CC8E', '#686AF6', '#C5C7F0', '#CFD2F0', '#DADDEF'];
 
 const RADIAN = Math.PI / 180;
-const Label = ({ cx, cy, midAngle, innerRadius, outerRadius, percent }) => {
+
+const Label = ({
+  cx,
+  cy,
+  midAngle,
+  innerRadius,
+  outerRadius,
+  percent,
+}: PieLabelProps) => {
   const radius = innerRadius + (outerRadius - innerRadius) * 0.5;
   const x = cx + radius * Math.cos(-midAngle * RADIAN);
   const y = cy + radius * Math.sin(-midAngle * RADIAN);
@@ -70,23 +79,7 @@ export default function PieChart({ data, info }: Props) {
             cx={110}
             cy={100}
             labelLine={false}
-            label={({
-              cx,
-              cy,
-              midAngle,
-              innerRadius,
-              outerRadius,
-              percent,
-            }) => (
-              <Label
-                cx={cx}
-                cy={cy}
-                midAngle={midAngle}
-                innerRadius={innerRadius}
-                outerRadius={outerRadius}
-                percent={percent}
-              />
-            )}
+            label={Label}
             outerRadius={96}
             innerRadius={64}
             stroke={'none'}
