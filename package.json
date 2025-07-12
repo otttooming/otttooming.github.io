@@ -19,7 +19,7 @@
     "react-dom": "^19.1.0",
     "react-feather": "^2.0.10",
     "react-medium-image-zoom": "^5.2.14",
-    "recharts": "^2.15.3",
+    "recharts": "^3.1.0",
     "remark-frontmatter": "^5.0.0",
     "remark-mdx-frontmatter": "^5.2.0",
     "typescript": "^5.8.3"

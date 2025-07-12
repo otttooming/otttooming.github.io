@@ -16,14 +16,7 @@ interface Props {
 const COLORS = ['#80CC8E', '#686AF6', '#C5C7F0', '#CFD2F0', '#DADDEF'];
 
 const RADIAN = Math.PI / 180;
-const renderCustomizedLabel = ({
-  cx,
-  cy,
-  midAngle,
-  innerRadius,
-  outerRadius,
-  percent,
-}) => {
+const Label = ({ cx, cy, midAngle, innerRadius, outerRadius, percent }) => {
   const radius = innerRadius + (outerRadius - innerRadius) * 0.5;
   const x = cx + radius * Math.cos(-midAngle * RADIAN);
   const y = cy + radius * Math.sin(-midAngle * RADIAN);
@@ -77,7 +70,23 @@ export default function PieChart({ data, info }: Props) {
             cx={110}
             cy={100}
             labelLine={false}
-            label={renderCustomizedLabel}
+            label={({
+              cx,
+              cy,
+              midAngle,
+              innerRadius,
+              outerRadius,
+              percent,
+            }) => (
+              <Label
+                cx={cx}
+                cy={cy}
+                midAngle={midAngle}
+                innerRadius={innerRadius}
+                outerRadius={outerRadius}
+                percent={percent}
+              />
+            )}
             outerRadius={96}
             innerRadius={64}
             stroke={'none'}
