@@ -3,17 +3,11 @@ import { theme } from '../../utils/theme.css';
 
 export const wrapper = style({
   display: 'grid',
-  gridAutoFlow: 'column',
+  gridTemplateColumns: 'repeat(auto-fill, minmax(min(300px, 100%), 1fr))',
   gap: theme.space.s,
   marginTop: theme.space.xl,
   marginBottom: theme.space.xl,
   maxWidth: '1280px',
-});
-
-export const columnWrapper = style({
-  display: 'grid',
-  gap: theme.space.s,
-  gridAutoRows: 'max-content',
 });
 
 export const item = style({
