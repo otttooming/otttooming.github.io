@@ -1,16 +1,11 @@
 import { style } from '@vanilla-extract/css';
-import { theme } from '../../utils/theme.css';
 
 export const heading2 = style({
-  fontSize: theme.fontSize.xl,
   marginTop: '32px',
-  fontWeight: theme.fontWeight.semiBold,
 });
 
 export const heading3 = style({
-  fontSize: theme.fontSize.xxl,
   marginTop: '32px',
-  fontWeight: theme.fontWeight.semiBold,
 });
 
 export const link = style({

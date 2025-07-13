@@ -79,7 +79,6 @@ export const baseButton = style({
   width: 'auto',
   lineHeight: 1.2,
   borderRadius: '0.375rem',
-  fontWeight: 600,
   height: '2.5rem',
   minWidth: '2.5rem',
   fontSize: '1rem',

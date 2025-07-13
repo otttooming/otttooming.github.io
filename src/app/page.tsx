@@ -66,9 +66,9 @@ const IndexPage = () => (
             👋 Hi, I am <strong>Ott</strong>
           </h1>
 
-          <h2>
+          <h3>
             Front-end developer/<strong>student</strong>
-          </h2>
+          </h3>
 
           <div style={{ marginTop: '24px' }}>
             <OutLink href="https://github.com/otttooming">

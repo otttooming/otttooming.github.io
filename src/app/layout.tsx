@@ -4,7 +4,10 @@ import Footer from '../components/Footer/Footer';
 import { ColorModeProvider } from '../components/ui/color-mode';
 import { Montserrat } from 'next/font/google';
 
-const montserrat = Montserrat({ subsets: ['latin'] });
+const montserrat = Montserrat({
+  weight: ['400', '600', '700'],
+  subsets: ['latin'],
+});
 
 export default function RootLayout({
   children,

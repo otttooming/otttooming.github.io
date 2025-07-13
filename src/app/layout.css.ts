@@ -6,7 +6,6 @@ globalStyle('*', {
 });
 
 globalStyle('html', {
-  fontSize: '18px',
   WebkitTextSizeAdjust: 'none',
   textSizeAdjust: '100%',
   WebkitFontSmoothing: 'antialiased',
@@ -19,6 +18,8 @@ globalStyle('body', {
   margin: 0,
   lineHeight: theme.lineHeight.m,
   fontFamily: theme.fontFamily.primary,
+  fontWeight: theme.fontWeight.normal,
+  fontSize: theme.fontSize.m,
 });
 
 globalStyle('h1', {
@@ -26,11 +27,14 @@ globalStyle('h1', {
 });
 
 globalStyle('h2', {
+  fontSize: theme.fontSize.xxl,
+});
+
+globalStyle('h3', {
   fontSize: theme.fontSize.xl,
 });
 
 globalStyle('h1, h2, h3, h4, h5, p', {
-  fontFamily: theme.fontFamily.primary,
   fontWeight: theme.fontWeight.normal,
   lineHeight: theme.lineHeight.s,
   margin: 0,

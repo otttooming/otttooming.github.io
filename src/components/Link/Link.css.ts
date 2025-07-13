@@ -23,7 +23,7 @@ const button = style({
   width: 'auto',
   lineHeight: '1.2',
   borderRadius: '0.375rem',
-  fontWeight: 600,
+  fontWeight: theme.fontWeight.semiBold,
   height: '1.5rem',
   minWidth: '1.5rem',
   fontSize: '0.75rem',

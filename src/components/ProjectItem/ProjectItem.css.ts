@@ -64,7 +64,6 @@ export const companyLink = style({
 });
 
 export const projectTitle = style({
-  fontSize: theme.fontSize.xxxl,
   lineHeight: theme.lineHeight.xs,
   marginBottom: theme.space.m,
 });

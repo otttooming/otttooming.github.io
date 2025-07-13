@@ -19,7 +19,6 @@ export const projectLink = style({
   borderWidth: '1px',
   flex: '1',
   borderRadius: theme.borderRadius.m,
-  fontSize: '14px',
   alignItems: 'center',
   textDecoration: 'none',
 });
@@ -38,7 +37,6 @@ export const header = style({
 });
 
 export const heading = style({
-  fontWeight: theme.fontWeight.normal,
   marginTop: theme.space.s,
 });
 

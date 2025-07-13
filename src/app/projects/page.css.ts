@@ -7,7 +7,6 @@ export const heading = style({
   marginRight: 'auto',
   maxWidth: '960px',
   padding: '0 16px',
-  fontWeight: theme.fontWeight.normal,
 });
 
 export const description = style({
@@ -38,5 +37,4 @@ export const projectList = style({
 
 export const projectTitle = style({
   marginTop: theme.space.s,
-  fontWeight: theme.fontWeight.normal,
 });

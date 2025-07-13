@@ -100,36 +100,38 @@ export const lineHeight = setCustomPropertyGenerator<
   { key: 'm', value: '1.625' },
 ]);
 
+const remCalculator = (value: number) => `${value / 16}rem`;
+
 export const fontSize = setCustomPropertyGenerator<CustomPropertySizeValues>(
   'font-size',
   [
     {
       key: 'xs',
-      value: '0.75rem',
+      value: remCalculator(14),
     },
     {
       key: 's',
-      value: '0.875rem',
+      value: remCalculator(16),
     },
     {
       key: 'm',
-      value: '1rem',
+      value: remCalculator(18),
     },
     {
       key: 'l',
-      value: '1.125rem',
+      value: remCalculator(20),
     },
     {
       key: 'xl',
-      value: '1.375rem',
+      value: remCalculator(24),
     },
     {
       key: 'xxl',
-      value: '1.75rem',
+      value: remCalculator(32),
     },
     {
       key: 'xxxl',
-      value: '2.5rem',
+      value: remCalculator(40),
     },
   ],
 );

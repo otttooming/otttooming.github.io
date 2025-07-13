@@ -63,7 +63,9 @@ const Card = ({ title, slug, featured, source, projects }: CardProps) => {
       </header>
 
       <div className={styles.content}>
-        <h2>{title}</h2>
+        <h2>
+          <strong>{title}</strong>
+        </h2>
 
         <MDXRemote
           options={{ parseFrontmatter: true }}
