@@ -6,6 +6,7 @@ import * as styles from './page.css';
 import Image from 'next/image';
 import MDXComponents from '../../../components/MDXComponents/MDXComponents';
 import { readSourceFile } from '../../../utils/fs';
+import { Metadata } from 'next';
 
 type Frontmatter = {
   title: string;
@@ -38,6 +39,10 @@ async function getPost(slug: string) {
     frontmatter,
   };
 }
+
+export const metadata: Metadata = {
+  title: 'About me | Personal portfolio - Ott',
+};
 
 export default async function AboutPage({
   params,

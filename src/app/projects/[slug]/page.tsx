@@ -3,7 +3,6 @@ import { ExternalLink } from 'react-feather';
 import CoverImage from '../../../components/CoverImage/CoverImage';
 import Logo from '../../../components/Logo/Logo';
 import MDXComponents from '../../../components/MDXComponents/MDXComponents';
-// import SEO from '../components/SEO';
 import TagList from '../../../components/TagList/TagList';
 // import Layout from '../components/layout';
 import { techTags } from '../../../constants/tech';
@@ -11,6 +10,7 @@ import { projectTexts, textMap } from '../../../utils/textMap';
 import * as styles from './page.css';
 import Image from 'next/image';
 import { readSourceFile } from '../../../utils/fs';
+import { Metadata } from 'next';
 
 type Frontmatter = {
   title: string;
@@ -46,6 +46,10 @@ async function getPost(slug: string) {
   };
 }
 
+export const metadata: Metadata = {
+  title: 'Projects | Personal portfolio - Ott',
+};
+
 export default async function ProjectPostPage({
   params,
 }: {
@@ -64,8 +68,6 @@ export default async function ProjectPostPage({
 
   return (
     <>
-      {/* <SEO title={title} description="" /> */}
-
       <div className={styles.coverContainer}>
         <CoverImage
           alt={title}

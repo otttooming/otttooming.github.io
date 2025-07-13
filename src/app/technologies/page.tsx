@@ -3,6 +3,7 @@ import * as styles from './page.css';
 import { evaluate } from 'next-mdx-remote-client/rsc';
 import { getProjects } from '../projects/page';
 import { readDirNames, readSourceFile } from '../../utils/fs';
+import { Metadata } from 'next';
 
 type Frontmatter = {
   title: string;
@@ -16,6 +17,11 @@ type Frontmatter = {
     alt: string;
     background?: string;
   };
+};
+
+export const metadata: Metadata = {
+  title: 'Technologies | Personal portfolio - Ott',
+  description: 'Tech stack that I currently use',
 };
 
 export default async function Technologies() {
@@ -50,8 +56,6 @@ export default async function Technologies() {
 
   return (
     <>
-      {/* <SEO title="Technologies" description="Tech stack that I currently use" /> */}
-
       <h1 className={styles.heading}>
         <strong>Tech stack</strong> that I currently use
       </h1>

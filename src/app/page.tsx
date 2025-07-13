@@ -5,6 +5,7 @@ import HexGrid from '../components/HexGrid/HexGrid';
 import * as styles from './page.css';
 import Image from 'next/image';
 import portrait from '../images/portrait-ott.jpg';
+import { Metadata } from 'next';
 
 const Portrait = () => {
   return (
@@ -56,6 +57,10 @@ const OutLink = ({
 const SocialIcon = ({ children }: React.PropsWithChildren) => (
   <span className={styles.socialIcon}>{children}</span>
 );
+
+export const metadata: Metadata = {
+  title: 'Home | Personal portfolio - Ott',
+};
 
 const IndexPage = () => (
   <>

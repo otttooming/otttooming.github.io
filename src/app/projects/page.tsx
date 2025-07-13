@@ -4,6 +4,7 @@ import { evaluate } from 'next-mdx-remote-client/rsc';
 import * as fs from 'node:fs/promises';
 import path from 'node:path';
 import { readDirNames } from '../../utils/fs';
+import { Metadata } from 'next';
 
 type Frontmatter = {
   title: string;
@@ -47,6 +48,10 @@ export const getProjects = async () => {
       }),
     )
   ).toSorted((a, b) => b.frontmatter.date.localeCompare(a.frontmatter.date));
+};
+
+export const metadata: Metadata = {
+  title: 'Projects | Personal portfolio - Ott',
 };
 
 export default async function Projects() {
