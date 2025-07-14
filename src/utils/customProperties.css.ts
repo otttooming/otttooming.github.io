@@ -143,10 +143,6 @@ export const fontFamily = setCustomPropertyGenerator<'primary' | 'secondary'>(
       key: 'primary',
       value: `'Montserrat', 'Helvetica Neue', Arial, sans-serif`,
     },
-    {
-      key: 'secondary',
-      value: `'Helvetica Neue', Arial, sans-serif`,
-    },
   ],
 );
 
