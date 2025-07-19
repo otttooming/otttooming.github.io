@@ -1,4 +1,4 @@
-import ProjectItem from '../../components/ProjectItem/ProjectItem';
+import { ProjectItem } from './_components/ProjectItem';
 import * as styles from './page.css';
 import { evaluate } from 'next-mdx-remote-client/rsc';
 import * as fs from 'node:fs/promises';

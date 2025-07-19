@@ -1,8 +1,8 @@
-import CoverImage from '../CoverImage/CoverImage';
-import Logo from '../Logo/Logo';
+import CoverImage from '../../../components/CoverImage/CoverImage';
+import { Link } from '../../../components/Link/Link';
+import Logo from '../../../components/Logo/Logo';
+import { textMap } from '../../../utils/textMap';
 import * as styles from './ProjectItem.css';
-import { textMap } from '../../utils/textMap';
-import { Link } from '../Link/Link';
 
 interface ProjectItemProps {
   title: string;
@@ -54,5 +54,3 @@ export const ProjectItem = async ({
     </li>
   );
 };
-
-export default ProjectItem;
