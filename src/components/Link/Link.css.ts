@@ -30,7 +30,7 @@ const button = style({
   paddingLeft: '0.5rem',
   paddingRight: '0.5rem',
   background: 'rgba(255, 255, 255, 0.08)',
-  marginRight: 'var(--space-s)',
+  marginRight: theme.space.s,
   selectors: {
     '&:focus, &[data-focus]': {
       boxShadow: '0 0 0 3px rgba(66, 153, 225, 0.6)',
