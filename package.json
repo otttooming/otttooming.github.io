@@ -32,7 +32,6 @@
     "react": "$react"
   },
   "keywords": [
-    "gatsby",
     "react",
     "typescript"
   ],
