@@ -6,11 +6,11 @@ import MDXComponents from '../../../components/MDXComponents/MDXComponents';
 import TagList from '../../../components/TagList/TagList';
 // import Layout from '../components/layout';
 import { techTags } from '../../../constants/tech';
-import { textMap } from '../../../utils/textMap';
 import * as styles from './page.css';
 import Image from 'next/image';
 import { readSourceFile } from '../../../utils/fs';
 import { Metadata } from 'next';
+import { ProjectHeader } from '../_components/ProjectHeader';
 
 type Frontmatter = {
   title: string;
@@ -91,9 +91,12 @@ export default async function ProjectPostPage({
       <header className={styles.header}>
         <Logo name={company} />
 
-        <h1 className={styles.heading}>
-          <strong>{title}</strong> {textMap(kind)}
-        </h1>
+        <ProjectHeader
+          as="h1"
+          title={title}
+          kind={kind}
+          className={styles.heading}
+        />
 
         <TagList tags={tech} mapping={techTags} />
       </header>
