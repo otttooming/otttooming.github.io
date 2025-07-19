@@ -6,7 +6,7 @@ import MDXComponents from '../../../components/MDXComponents/MDXComponents';
 import TagList from '../../../components/TagList/TagList';
 // import Layout from '../components/layout';
 import { techTags } from '../../../constants/tech';
-import { projectTexts, textMap } from '../../../utils/textMap';
+import { textMap } from '../../../utils/textMap';
 import * as styles from './page.css';
 import Image from 'next/image';
 import { readSourceFile } from '../../../utils/fs';
@@ -92,7 +92,7 @@ export default async function ProjectPostPage({
         <Logo name={company} />
 
         <h1 className={styles.heading}>
-          <strong>{title}</strong> {textMap(kind, projectTexts)}
+          <strong>{title}</strong> {textMap(kind)}
         </h1>
 
         <TagList tags={tech} mapping={techTags} />

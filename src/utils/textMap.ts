@@ -1,23 +1,21 @@
-export type Text = 'client' | 'crm' | 'cms' | 'pms' | 'template' | 'poster';
-
 /**
  * Available matched texts.
- * All shorthands should be strictly collected.
+ * All slugs should be strictly collected.
  */
-export const projectTexts: { [K in Text]: string } = {
+const projectSlugs = {
   client: 'client project',
   crm: 'CRM',
   cms: 'content management system',
   pms: 'patient management software',
   template: 'template',
   poster: 'poster',
-};
+} as const;
 
 /**
- * Match existing shorthands with expanded equivalents
+ * Match existing slugs with expanded equivalents
  */
-export function textMap<T>(text: string, items: T): T[keyof T] {
-  const value = items[text];
+export function textMap(slug: string) {
+  const value = projectSlugs[slug];
 
   return value;
 }

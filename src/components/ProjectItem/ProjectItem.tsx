@@ -1,7 +1,7 @@
 import CoverImage from '../CoverImage/CoverImage';
 import Logo from '../Logo/Logo';
 import * as styles from './ProjectItem.css';
-import { projectTexts, textMap } from '../../utils/textMap';
+import { textMap } from '../../utils/textMap';
 import { Link } from '../Link/Link';
 
 interface ProjectItemProps {
@@ -47,7 +47,7 @@ export const ProjectItem = async ({
 
         <Link href={`projects/${slug}`}>
           <h2 className={styles.projectTitle}>
-            <strong>{title}</strong> {textMap(kind, projectTexts)}
+            <strong>{title}</strong> {textMap(kind)}
           </h2>
         </Link>
       </div>
