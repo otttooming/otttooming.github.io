@@ -2,7 +2,7 @@ import NextLink from 'next/link';
 import { ExternalLink } from 'react-feather';
 import { getIsExternalLink } from '../../utils/getIsExternalLink';
 import { getIsDocument } from '../../utils/getLinkType';
-import { getURISafeString } from '../../utils/text';
+import { getURISafeString } from '../../utils/getURISafeString';
 import Illustration from '../Illustration/';
 import MasonryGallery from '../MasonryGallery/MasonryGallery';
 import { PieChart } from '../PieChart';
