@@ -40,7 +40,7 @@
     "build": "next build",
     "dev": "next dev",
     "deploy": "npm run build && gh-pages -d public -b master",
-    "lint": "npx @biomejs/biome lint --write ./src",
+    "lint": "npx @biomejs/biome lint --write ./src && npx tsc",
     "start": "next start"
   },
   "repository": {
