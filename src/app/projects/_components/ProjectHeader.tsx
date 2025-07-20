@@ -8,14 +8,14 @@ type Props = {
  * Available matched texts.
  * All slugs should be strictly collected.
  */
-const projectSlugs = {
+const projectSlugs: Record<string, string> = {
   client: 'client project',
   crm: 'CRM',
   cms: 'content management system',
   pms: 'patient management software',
   template: 'template',
   poster: 'poster',
-} as const;
+};
 
 /**
  * Match existing slugs with expanded equivalents
