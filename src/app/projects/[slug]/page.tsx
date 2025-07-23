@@ -1,4 +1,4 @@
-import { evaluate, MDXRemote } from 'next-mdx-remote-client/rsc';
+import { MDXRemote } from 'next-mdx-remote-client/rsc';
 import { ExternalLink } from 'react-feather';
 import CoverImage from '../../../components/CoverImage/CoverImage';
 import Logo from '../../../components/Logo/Logo';
@@ -8,9 +8,9 @@ import TagList from '../../../components/TagList/TagList';
 import { techTags } from '../../../constants/tech';
 import * as styles from './page.css';
 import Image from 'next/image';
-import { readSourceFile } from '../../../utils/fs';
 import { Metadata } from 'next';
 import { ProjectHeader } from '../_components/ProjectHeader';
+import { readPost } from '../../../services/readPost';
 
 type Frontmatter = {
   title: string;
@@ -27,25 +27,6 @@ type Frontmatter = {
   tech: string[];
 };
 
-async function getPost(slug: string) {
-  const source = await readSourceFile(
-    `public/content/projects/${slug}`,
-    'index.mdx',
-  );
-
-  const { frontmatter } = await evaluate<Frontmatter>({
-    source,
-    options: {
-      parseFrontmatter: true,
-    },
-  });
-  return {
-    source,
-    slug,
-    frontmatter,
-  };
-}
-
 export const metadata: Metadata = {
   title: 'Projects | Personal portfolio - Ott',
 };
@@ -56,7 +37,9 @@ export default async function ProjectPostPage({
   params: Promise<{ slug: string }>;
 }) {
   const { slug } = await params;
-  const { source, frontmatter } = await getPost(slug);
+  const { source, frontmatter } = await readPost<Frontmatter>(
+    `public/content/projects/${slug}`,
+  );
   const {
     title,
     link,
