@@ -37,17 +37,15 @@ export default async function ProjectPostPage({
   params: Promise<{ slug: string }>;
 }) {
   const { slug } = await params;
-  const { source, frontmatter } = await readPost<Frontmatter>(
-    `public/content/projects/${slug}`,
-  );
   const {
+    source,
     title,
     link,
     company,
     kind,
     tech,
     featured: { image, fit, background },
-  } = frontmatter;
+  } = await readPost<Frontmatter>(`public/content/projects/${slug}`);
 
   return (
     <>

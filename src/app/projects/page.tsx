@@ -25,17 +25,17 @@ export const getProjects = async () => {
   return (
     await Promise.all(
       directories.map(async (slug) => {
-        const { frontmatter } = await readPost<Frontmatter>(
+        const post = await readPost<Frontmatter>(
           `public/content/projects/${slug}`,
         );
 
         return {
           slug,
-          frontmatter,
+          ...post,
         };
       }),
     )
-  ).toSorted((a, b) => b.frontmatter.date.localeCompare(a.frontmatter.date));
+  ).toSorted((a, b) => b.date.localeCompare(a.date));
 };
 
 export const metadata: Metadata = {
@@ -61,17 +61,17 @@ export default async function Projects() {
       </p>
 
       <ol className={styles.projectList}>
-        {projects.map(({ slug, frontmatter }) => (
+        {projects.map(({ slug, title, kind, company, link, featured }) => (
           <ProjectItem
             key={slug}
             slug={slug}
-            title={frontmatter.title}
-            kind={frontmatter.kind}
-            company={frontmatter.company}
-            link={frontmatter.link}
-            image={frontmatter.featured.image}
-            background={frontmatter.featured.background}
-            fit={frontmatter.featured.fit}
+            title={title}
+            kind={kind}
+            company={company}
+            link={link}
+            image={featured.image}
+            background={featured.background}
+            fit={featured.fit}
           />
         ))}
       </ol>

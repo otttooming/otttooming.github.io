@@ -31,13 +31,12 @@ export default async function AboutPage({
   params: Promise<{ slug: string }>;
 }) {
   const { slug } = await params;
-  const { source, frontmatter } = await readPost<Frontmatter>(
-    `public/content/about/${slug}`,
-  );
   const {
+    source,
+    title,
     tags,
     featured: { illustration, width, height, alt },
-  } = frontmatter;
+  } = await readPost<Frontmatter>(`public/content/about/${slug}`);
 
   return (
     <>
@@ -53,7 +52,7 @@ export default async function AboutPage({
       </div>
 
       <About.Wrapper>
-        <h1>{frontmatter.title}</h1>
+        <h1>{title}</h1>
 
         <TagList tags={tags} mapping={socialTags} />
       </About.Wrapper>

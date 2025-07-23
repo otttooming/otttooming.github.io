@@ -30,20 +30,17 @@ export default async function Technologies() {
   const technologies = (
     await Promise.all(
       directories.map(async (slug) => {
-        const { source, frontmatter } = await readPost<Frontmatter>(
+        const post = await readPost<Frontmatter>(
           `public/content/technologies/${slug}`,
         );
 
         return {
-          source,
           slug,
-          frontmatter,
+          ...post,
         };
       }),
     )
-  ).toSorted(
-    (a, b) => Number(a.frontmatter.order) - Number(b.frontmatter.order),
-  );
+  ).toSorted((a, b) => Number(a.order) - Number(b.order));
 
   const projects = await getProjects();
 
@@ -59,9 +56,7 @@ export default async function Technologies() {
       </p>
 
       <ol className={styles.cardList}>
-        {technologies.map(({ source, frontmatter }) => {
-          const { title, slug, featured } = frontmatter;
-
+        {technologies.map(({ source, title, slug, featured }) => {
           return (
             <Card
               key={slug}

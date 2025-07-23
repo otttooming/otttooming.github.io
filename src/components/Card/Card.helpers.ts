@@ -5,7 +5,7 @@ export const getMatchingProjects = (
   title: string,
 ) => {
   const getMatchedProject = (item: CardProps['projects'][number]) =>
-    item.frontmatter.tech.includes(title.toLowerCase());
+    item.tech.includes(title.toLowerCase());
 
   return projects.filter(getMatchedProject);
 };

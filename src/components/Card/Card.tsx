@@ -18,10 +18,7 @@ export interface CardProps {
   projects: Awaited<ReturnType<typeof getProjects>>;
 }
 
-const Item = ({
-  slug,
-  frontmatter: { featured, title },
-}: CardProps['projects'][number]) => {
+const Item = ({ slug, featured, title }: CardProps['projects'][number]) => {
   const { image, background, fit } = featured;
 
   return (

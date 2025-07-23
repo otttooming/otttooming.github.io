@@ -15,6 +15,6 @@ export async function readPost<Frontmatter extends Record<string, unknown>>(
 
   return {
     source,
-    frontmatter,
+    ...frontmatter,
   };
 }
