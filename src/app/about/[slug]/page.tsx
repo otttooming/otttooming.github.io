@@ -1,12 +1,12 @@
-import { evaluate, MDXRemote } from 'next-mdx-remote-client/rsc';
+import { MDXRemote } from 'next-mdx-remote-client/rsc';
 import TagList from '../../../components/TagList/TagList';
 import { socialTags } from '../../../constants/social';
 import { About } from './page.components';
 import * as styles from './page.css';
 import Image from 'next/image';
 import MDXComponents from '../../../components/MDXComponents/MDXComponents';
-import { readSourceFile } from '../../../utils/fs';
 import { Metadata } from 'next';
+import { readPost } from '../../../services/readPost';
 
 type Frontmatter = {
   title: string;
@@ -21,25 +21,6 @@ type Frontmatter = {
   tags: string[];
 };
 
-async function getPost(slug: string) {
-  const source = await readSourceFile(
-    `public/content/about/${slug}`,
-    'index.mdx',
-  );
-
-  const { frontmatter } = await evaluate<Frontmatter>({
-    source,
-    options: {
-      parseFrontmatter: true,
-    },
-  });
-  return {
-    source,
-    slug,
-    frontmatter,
-  };
-}
-
 export const metadata: Metadata = {
   title: 'About me | Personal portfolio - Ott',
 };
@@ -50,7 +31,9 @@ export default async function AboutPage({
   params: Promise<{ slug: string }>;
 }) {
   const { slug } = await params;
-  const { source, frontmatter } = await getPost(slug);
+  const { source, frontmatter } = await readPost<Frontmatter>(
+    `public/content/about/${slug}`,
+  );
   const {
     tags,
     featured: { illustration, width, height, alt },
