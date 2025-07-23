@@ -1,10 +1,8 @@
 import { ProjectItem } from './_components/ProjectItem';
 import * as styles from './page.css';
-import { evaluate } from 'next-mdx-remote-client/rsc';
-import * as fs from 'node:fs/promises';
-import path from 'node:path';
 import { readDirNames } from '../../utils/fs';
 import { Metadata } from 'next';
+import { readPost } from '../../services/readPost';
 
 type Frontmatter = {
   title: string;
@@ -27,20 +25,10 @@ export const getProjects = async () => {
   return (
     await Promise.all(
       directories.map(async (slug) => {
-        const content = await fs.readFile(
-          path.join(
-            process.cwd(),
-            `public/content/projects/${slug}`,
-            'index.mdx',
-          ),
-          'utf-8',
+        const { frontmatter } = await readPost<Frontmatter>(
+          `public/content/projects/${slug}`,
         );
-        const { frontmatter } = await evaluate<Frontmatter>({
-          source: content,
-          options: {
-            parseFrontmatter: true,
-          },
-        });
+
         return {
           slug,
           frontmatter,
