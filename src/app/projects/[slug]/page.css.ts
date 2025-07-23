@@ -45,7 +45,7 @@ export const wrapper = style({
   marginBottom: '80px',
 });
 
-globalStyle(`${wrapper} > *`, {
+globalStyle(`:where(${wrapper}) > *`, {
   maxWidth: '960px',
   marginLeft: 'auto',
   marginRight: 'auto',
