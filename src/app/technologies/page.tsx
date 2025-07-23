@@ -1,9 +1,9 @@
 import Card from '../../components/Card/Card';
 import * as styles from './page.css';
-import { evaluate } from 'next-mdx-remote-client/rsc';
 import { getProjects } from '../projects/page';
-import { readDirNames, readSourceFile } from '../../utils/fs';
+import { readDirNames } from '../../utils/fs';
 import { Metadata } from 'next';
+import { readPost } from '../../services/readPost';
 
 type Frontmatter = {
   title: string;
@@ -30,17 +30,10 @@ export default async function Technologies() {
   const technologies = (
     await Promise.all(
       directories.map(async (slug) => {
-        const source = await readSourceFile(
+        const { source, frontmatter } = await readPost<Frontmatter>(
           `public/content/technologies/${slug}`,
-          'index.mdx',
         );
 
-        const { frontmatter } = await evaluate<Frontmatter>({
-          source,
-          options: {
-            parseFrontmatter: true,
-          },
-        });
         return {
           source,
           slug,
