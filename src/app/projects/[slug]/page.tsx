@@ -27,15 +27,23 @@ type Frontmatter = {
   tech: string[];
 };
 
-export const metadata: Metadata = {
-  title: 'Projects | Personal portfolio - Ott',
+type Props = {
+  params: Promise<{ slug: string }>;
 };
 
-export default async function ProjectPostPage({
-  params,
-}: {
-  params: Promise<{ slug: string }>;
-}) {
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
+  const { slug } = await params;
+
+  const { title } = await readPost<Frontmatter>(
+    `public/content/projects/${slug}`,
+  );
+
+  return {
+    title: `${title} | Personal portfolio - Ott`,
+  };
+}
+
+export default async function ProjectPostPage({ params }: Props) {
   const { slug } = await params;
   const {
     source,
