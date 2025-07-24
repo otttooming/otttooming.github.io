@@ -6,9 +6,9 @@ const MasonryGallery = ({ children }: PropsWithChildren) => {
   return (
     <div className={styles.wrapper}>
       {Children.map(children, (child) => (
-        <div className={styles.item}>
-          <ImageZoom>{child}</ImageZoom>
-        </div>
+        <ImageZoom>
+          <div className={styles.item}>{child}</div>
+        </ImageZoom>
       ))}
     </div>
   );
