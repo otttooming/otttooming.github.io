@@ -19,15 +19,10 @@ type Frontmatter = {
   };
 };
 
-export const metadata: Metadata = {
-  title: 'Technologies | Personal portfolio - Ott',
-  description: 'Tech stack that I currently use',
-};
-
-export default async function Technologies() {
+async function getTechnologies() {
   const directories = await readDirNames('public/content/technologies');
 
-  const technologies = (
+  return (
     await Promise.all(
       directories.map(async (slug) => {
         const post = await readPost<Frontmatter>(
@@ -41,7 +36,15 @@ export default async function Technologies() {
       }),
     )
   ).toSorted((a, b) => Number(a.order) - Number(b.order));
+}
 
+export const metadata: Metadata = {
+  title: 'Technologies | Personal portfolio - Ott',
+  description: 'Tech stack that I currently use',
+};
+
+export default async function Technologies() {
+  const technologies = await getTechnologies();
   const projects = await getProjects();
 
   return (
