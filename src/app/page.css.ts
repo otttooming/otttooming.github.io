@@ -12,6 +12,7 @@ export const grid = style({
   paddingLeft: '16px',
   paddingRight: '16px',
   marginBottom: '32px',
+  backgroundColor: 'light-dark(#edf2f7, #2c3442)',
   '@media': {
     '(min-width: 768px)': {
       gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))',
@@ -22,14 +23,6 @@ export const grid = style({
     },
     '(min-width: 1024px)': {
       marginBottom: '128px',
-    },
-  },
-  selectors: {
-    '.dark &': {
-      backgroundColor: '#2c3442',
-    },
-    '.light &': {
-      backgroundColor: '#edf2f7',
     },
   },
 });
@@ -79,10 +72,7 @@ export const smallText = style({
   marginBottom: '8px',
   textTransform: 'uppercase',
   fontSize: '14px',
-  selectors: {
-    '.light &': { color: '#243343' },
-    '.dark &': { color: 'inherit' },
-  },
+  color: 'light-dark(#243343, #fff)',
 });
 
 export const text = style({

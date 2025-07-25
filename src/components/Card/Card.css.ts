@@ -82,6 +82,7 @@ export const content = style({
   paddingLeft: '16px',
   paddingRight: '16px',
   borderRadius: '0 0 8px 8px',
+  backgroundColor: 'light-dark(#edf2f7, #2c3442)',
   '@media': {
     '(min-width: 768px)': {
       paddingLeft: '32px',
@@ -89,14 +90,6 @@ export const content = style({
     },
     '(min-width: 1024px)': {
       borderRadius: '8px',
-    },
-  },
-  selectors: {
-    '.light &': {
-      backgroundColor: '#edf2f7',
-    },
-    '.dark &': {
-      backgroundColor: '#2c3442',
     },
   },
 });

@@ -1,4 +1,4 @@
-import { createVar, globalStyle } from '@vanilla-extract/css';
+import { globalStyle } from '@vanilla-extract/css';
 import { theme } from '../utils/theme.css';
 
 globalStyle('*', {
@@ -13,7 +13,7 @@ globalStyle('html', {
 });
 
 globalStyle('body', {
-  background: 'none',
+  backgroundColor: 'light-dark(#e8eaee, #1a2332)',
   overflowX: 'hidden',
   margin: 0,
   lineHeight: theme.lineHeight.m,
@@ -43,20 +43,4 @@ globalStyle('h1, h2, h3, h4, h5, p', {
 
 globalStyle('strong', {
   fontWeight: theme.fontWeight.bold,
-});
-
-const backgroundColorVar = createVar();
-
-globalStyle('.dark body', {
-  vars: {
-    [backgroundColorVar]: '#1a2332',
-  },
-  background: backgroundColorVar,
-});
-
-globalStyle('.light body', {
-  vars: {
-    [backgroundColorVar]: '#e8eaee',
-  },
-  background: backgroundColorVar,
 });

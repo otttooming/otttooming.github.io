@@ -9,6 +9,7 @@ export const projectItem = style({
   alignItems: 'center',
   padding: '16px',
   marginBottom: '32px',
+  backgroundColor: 'light-dark(#edf2f7, #2c3442)',
   '@media': {
     '(min-width: 768px)': {
       gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))',
@@ -29,12 +30,6 @@ export const projectItem = style({
           gridTemplateAreas: '"content illustration"',
         },
       },
-    },
-    '.dark &': {
-      backgroundColor: '#2c3442',
-    },
-    '.light &': {
-      backgroundColor: '#edf2f7',
     },
   },
 });
