@@ -85,16 +85,9 @@ export const baseButton = style({
   padding: 0,
 
   selectors: {
-    '&:focus, &[data-focus]': {
+    '&:focus': {
       boxShadow: '0 0 0 3px rgba(66, 153, 225, 0.6)',
     },
-
-    '&[disabled], &[disabled]:focus, &[disabled]:hover, &[aria-disabled=true], &[aria-disabled=true]:focus, &[aria-disabled=true]:hover, &[data-disabled], &[data-disabled]:focus, &[data-disabled]:hover':
-      {
-        opacity: 0.4,
-        cursor: 'not-allowed',
-        boxShadow: 'none',
-      },
   },
 });
 
@@ -103,25 +96,15 @@ export const modeButton = style([baseButton]);
 globalStyle(`.dark ${modeButton}`, {
   background: 'rgba(255, 255, 255, 0.08)',
 });
-globalStyle(`.dark ${modeButton}:hover, .dark ${modeButton}[data-hover]`, {
+
+globalStyle(`.dark ${modeButton}:hover`, {
   background: 'rgba(255, 255, 255, 0.16)',
-});
-globalStyle(
-  `.dark ${modeButton}:hover[disabled], .dark ${modeButton}[data-hover][disabled], .dark ${modeButton}:hover[disabled]:focus, .dark ${modeButton}[data-hover][disabled]:focus, .dark ${modeButton}:hover[disabled]:hover, .dark ${modeButton}[data-hover][disabled]:hover, .dark ${modeButton}:hover[aria-disabled=true], .dark ${modeButton}[data-hover][aria-disabled=true], .dark ${modeButton}:hover[aria-disabled=true]:focus, .dark ${modeButton}[data-hover][aria-disabled=true]:focus, .dark ${modeButton}:hover[aria-disabled=true]:hover, .dark ${modeButton}[data-hover][aria-disabled=true]:hover, .dark ${modeButton}:hover[data-disabled], .dark ${modeButton}[data-hover][data-disabled], .dark ${modeButton}:hover[data-disabled]:focus, .dark ${modeButton}[data-hover][data-disabled]:focus, .dark ${modeButton}:hover[data-disabled]:hover, .dark ${modeButton}[data-hover][data-disabled]:hover`,
-  {
-    background: 'rgba(255, 255, 255, 0.08)',
-  },
-);
-globalStyle(`.dark ${modeButton}:active, .dark ${modeButton}[data-active]`, {
-  background: 'rgba(255, 255, 255, 0.24)',
 });
 
 globalStyle(`.light ${modeButton}`, {
   background: 'rgb(237, 242, 247)',
 });
-globalStyle(`.light ${modeButton}:hover, .light ${modeButton}[data-hover]`, {
+
+globalStyle(`.light ${modeButton}:hover`, {
   background: 'rgb(226, 232, 240)',
-});
-globalStyle(`.light ${modeButton}:active, .light ${modeButton}[data-active]`, {
-  background: 'rgb(203, 213, 224)',
 });
