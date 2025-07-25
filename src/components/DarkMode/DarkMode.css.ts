@@ -83,26 +83,14 @@ export const baseButton = style({
   minWidth: '2.5rem',
   fontSize: '1rem',
   padding: 0,
+  background: 'light-dark( rgb(237, 242, 247), rgba(255, 255, 255, 0.08))',
 
   selectors: {
     '&:focus': {
       boxShadow: '0 0 0 3px rgba(66, 153, 225, 0.6)',
     },
+    '&:hover': {
+      background: 'light-dark(rgb(226, 232, 240), rgba(255, 255, 255, 0.16))',
+    },
   },
-});
-
-globalStyle(`.dark ${baseButton}`, {
-  background: 'rgba(255, 255, 255, 0.08)',
-});
-
-globalStyle(`.dark ${baseButton}:hover`, {
-  background: 'rgba(255, 255, 255, 0.16)',
-});
-
-globalStyle(`.light ${baseButton}`, {
-  background: 'rgb(237, 242, 247)',
-});
-
-globalStyle(`.light ${baseButton}:hover`, {
-  background: 'rgb(226, 232, 240)',
 });
