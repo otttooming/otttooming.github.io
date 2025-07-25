@@ -91,20 +91,18 @@ export const baseButton = style({
   },
 });
 
-export const modeButton = style([baseButton]);
-
-globalStyle(`.dark ${modeButton}`, {
+globalStyle(`.dark ${baseButton}`, {
   background: 'rgba(255, 255, 255, 0.08)',
 });
 
-globalStyle(`.dark ${modeButton}:hover`, {
+globalStyle(`.dark ${baseButton}:hover`, {
   background: 'rgba(255, 255, 255, 0.16)',
 });
 
-globalStyle(`.light ${modeButton}`, {
+globalStyle(`.light ${baseButton}`, {
   background: 'rgb(237, 242, 247)',
 });
 
-globalStyle(`.light ${modeButton}:hover`, {
+globalStyle(`.light ${baseButton}:hover`, {
   background: 'rgb(226, 232, 240)',
 });

@@ -1,6 +1,6 @@
 'use client';
 import { useColorMode } from '../ui/color-mode';
-import { moonSun, modeButton } from './DarkMode.css';
+import { moonSun, baseButton } from './DarkMode.css';
 
 const DarkMode = () => {
   const toggleColorMode = useColorMode();
@@ -8,7 +8,7 @@ const DarkMode = () => {
   return (
     <button
       type="button"
-      className={modeButton}
+      className={baseButton}
       onClick={toggleColorMode}
       aria-label="Toggle dark mode"
     >
