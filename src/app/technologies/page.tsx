@@ -44,8 +44,10 @@ export const metadata: Metadata = {
 };
 
 export default async function Technologies() {
-  const technologies = await getTechnologies();
-  const projects = await getProjects();
+  const [technologies, projects] = await Promise.all([
+    getTechnologies(),
+    getProjects(),
+  ]);
 
   return (
     <>
