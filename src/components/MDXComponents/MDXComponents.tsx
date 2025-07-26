@@ -6,7 +6,12 @@ import { getURISafeString } from '../../utils/getURISafeString';
 import Illustration from '../Illustration/';
 import MasonryGallery from '../MasonryGallery/MasonryGallery';
 import { PieChart } from '../PieChart';
-import { AnchorHTMLAttributes, HTMLAttributes, PropsWithChildren } from 'react';
+import {
+  AnchorHTMLAttributes,
+  HTMLAttributes,
+  isValidElement,
+  PropsWithChildren,
+} from 'react';
 import * as styles from './MDXComponents.css';
 
 export const HeadingH2 = ({
@@ -86,12 +91,25 @@ export const ListItem = ({
   <li className={`${styles.listItem} ${className || ''}`} {...props} />
 );
 
+function isImageTag(props: unknown) {
+  return typeof props === 'object' && props !== null && 'src' in props;
+}
+
 export const Text = ({
   className,
+  children,
   ...props
-}: HTMLAttributes<HTMLParagraphElement>) => (
-  <p className={`${styles.text} ${className || ''}`} {...props} />
-);
+}: HTMLAttributes<HTMLParagraphElement>) => {
+  if (isValidElement(children) && isImageTag(children.props)) {
+    return children;
+  }
+
+  return (
+    <p className={`${styles.text} ${className || ''}`} {...props}>
+      {children}
+    </p>
+  );
+};
 
 const MDXComponents = {
   MasonryGallery,
