@@ -7,17 +7,15 @@ export const grid = style({
   gridTemplateColumns: 'repeat(auto-fit, minmax(260px, 1fr))',
   alignItems: 'center',
   width: '100%',
-  paddingTop: '32px',
-  paddingBottom: '32px',
-  paddingLeft: '16px',
-  paddingRight: '16px',
+  paddingTop: '2rem',
+  paddingBottom: '2rem',
+  paddingLeft: 'clamp(1rem, 1rem + 4vw, 3rem)',
+  paddingRight: 'clamp(1rem, 1rem + 4vw, 3rem)',
   marginBottom: '32px',
   backgroundColor: 'light-dark(#edf2f7, #2c3442)',
   '@media': {
-    '(min-width: 768px)': {
+    '(min-width: 960px)': {
       gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))',
-      paddingLeft: '32px',
-      paddingRight: '32px',
       borderRadius: '16px',
       marginBottom: '64px',
     },
@@ -43,22 +41,23 @@ export const plainGrid = style({
   margin: `${theme.space.xl} auto`,
 });
 
-export const segment = style({
-  padding: '0',
+const segmentCommon = style({
   display: 'flex',
   flexDirection: 'column',
   justifyContent: 'center',
   minHeight: 'min(100vh, 768px)',
-  '@media': {
-    '(min-width: 768px)': {
-      paddingLeft: '16px',
-      paddingRight: '16px',
-    },
-  },
 });
 
+export const segment = style([
+  segmentCommon,
+  {
+    paddingLeft: '16px',
+    paddingRight: '16px',
+  },
+]);
+
 export const mainSegment = style([
-  segment,
+  segmentCommon,
   {
     minHeight: 'calc(100vh - 72px)',
     paddingBottom: '72px',
