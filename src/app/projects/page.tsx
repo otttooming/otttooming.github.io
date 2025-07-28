@@ -25,9 +25,8 @@ export const getProjects = async () => {
   return (
     await Promise.all(
       directories.map(async (slug) => {
-        const post = await readPost<Frontmatter>(
-          `public/content/projects/${slug}`,
-        );
+        const post =
+          await readPost<Frontmatter>`public/content/projects/${slug}`;
 
         return {
           slug,

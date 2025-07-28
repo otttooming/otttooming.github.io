@@ -25,9 +25,8 @@ async function getTechnologies() {
   return (
     await Promise.all(
       directories.map(async (slug) => {
-        const post = await readPost<Frontmatter>(
-          `public/content/technologies/${slug}`,
-        );
+        const post =
+          await readPost<Frontmatter>`public/content/technologies/${slug}`;
 
         return {
           slug,

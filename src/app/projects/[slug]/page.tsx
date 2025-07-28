@@ -34,9 +34,8 @@ type Props = {
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug } = await params;
 
-  const { title } = await readPost<Frontmatter>(
-    `public/content/projects/${slug}`,
-  );
+  const { title } =
+    await readPost<Frontmatter>`public/content/projects/${slug}`;
 
   return {
     title: `${title} | Personal portfolio - Ott`,
@@ -53,7 +52,7 @@ export default async function ProjectPostPage({ params }: Props) {
     kind,
     tech,
     featured: { image, fit, background },
-  } = await readPost<Frontmatter>(`public/content/projects/${slug}`);
+  } = await readPost<Frontmatter>`public/content/projects/${slug}`;
 
   return (
     <>

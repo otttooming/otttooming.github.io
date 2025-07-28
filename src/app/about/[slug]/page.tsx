@@ -36,7 +36,7 @@ export default async function AboutPage({
     title,
     tags,
     featured: { illustration, width, height, alt },
-  } = await readPost<Frontmatter>(`public/content/about/${slug}`);
+  } = await readPost<Frontmatter>`public/content/about/${slug}`;
 
   return (
     <>
