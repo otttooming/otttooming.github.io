@@ -15,7 +15,6 @@ export const item = style({
   aspectRatio: '3 / 2',
   overflow: 'hidden',
   borderRadius: theme.borderRadius.s,
-  transition: 'all 250ms',
   selectors: {
     '&:hover': {
       boxShadow: '0 0 0 3px rgba(66, 153, 225, 0.6)',
