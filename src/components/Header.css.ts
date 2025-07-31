@@ -5,7 +5,7 @@ export const header = style({
   display: 'flex',
   alignSelf: 'center',
   justifyContent: 'space-between',
-  maxWidth: '1024px',
+  maxWidth: '960px',
   margin: '0 auto',
   paddingTop: theme.space.l,
   paddingBottom: theme.space.l,
@@ -26,22 +26,22 @@ export const header = style({
 
 export const navList = style({
   display: 'flex',
+  gap: theme.space.l,
   margin: 0,
   padding: 0,
 });
 
 export const navItem = style({
-  display: 'flex',
-  alignSelf: 'center',
   listStyleType: 'none',
-  marginLeft: '24px',
 });
 
 export const button = style({
   display: 'inline-flex',
   alignItems: 'center',
+  height: theme.space.xxl,
+  lineHeight: theme.space.xxl,
   gap: '8px',
-  padding: '8px 16px',
+  padding: '0 16px',
   border: 'none',
   backgroundColor: 'transparent',
   color: 'inherit',

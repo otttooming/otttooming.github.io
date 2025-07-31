@@ -34,7 +34,7 @@ const Header = () => (
         </li>
 
         <li className={styles.navItem}>
-          <DarkMode />
+          <DarkMode className={styles.button} />
         </li>
       </ol>
     </nav>
