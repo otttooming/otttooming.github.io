@@ -1,6 +1,7 @@
 import { globalStyle, style } from '@vanilla-extract/css';
 
 export const moonSun = style({
+  display: 'block',
   position: 'relative',
   width: '24px',
   height: '24px',
@@ -64,33 +65,7 @@ globalStyle(`.light ${moonSun}::after`, {
   transition: '0.3ms',
 });
 
-export const baseButton = style({
-  all: 'unset',
-  display: 'inline-flex',
-  appearance: 'none',
-  alignItems: 'center',
-  justifyContent: 'center',
-  transition: 'all 250ms',
-  userSelect: 'none',
+export const moonSunWrapper = style({
   position: 'relative',
-  whiteSpace: 'nowrap',
-  verticalAlign: 'middle',
-  outline: 'none',
-  width: 'auto',
-  lineHeight: 1.2,
-  borderRadius: '0.375rem',
-  height: '2.5rem',
-  minWidth: '2.5rem',
-  fontSize: '1rem',
-  padding: 0,
-  background: 'light-dark( rgb(237, 242, 247), rgba(255, 255, 255, 0.08))',
-
-  selectors: {
-    '&:focus': {
-      boxShadow: '0 0 0 3px rgba(66, 153, 225, 0.6)',
-    },
-    '&:hover': {
-      background: 'light-dark(rgb(226, 232, 240), rgba(255, 255, 255, 0.16))',
-    },
-  },
+  transition: 'all 250ms',
 });

@@ -1,18 +1,22 @@
 'use client';
 import { useColorMode } from '../ui/color-mode';
-import { moonSun, baseButton } from './DarkMode.css';
+import { moonSun, moonSunWrapper } from './DarkMode.css';
 
-const DarkMode = () => {
+const DarkMode = ({
+  className,
+}: Pick<React.ComponentProps<'button'>, 'className'>) => {
   const toggleColorMode = useColorMode();
 
   return (
     <button
       type="button"
-      className={baseButton}
+      className={className}
       onClick={toggleColorMode}
       aria-label="Toggle dark mode"
     >
-      <span className={moonSun} />
+      <span className={moonSunWrapper}>
+        <span className={moonSun} />
+      </span>
     </button>
   );
 };
