@@ -9,11 +9,9 @@ export const heading3 = style({
 });
 
 export const link = style({
-  all: 'unset',
   display: 'inline-flex',
   alignItems: 'center',
   verticalAlign: 'middle',
-  textDecoration: 'none',
   ':hover': {
     textDecoration: 'underline',
   },

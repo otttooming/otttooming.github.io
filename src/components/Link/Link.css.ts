@@ -2,16 +2,10 @@ import { style } from '@vanilla-extract/css';
 import { recipe } from '@vanilla-extract/recipes';
 import { theme } from '../../utils/theme.css';
 
-const base = style({
-  all: 'unset',
-  cursor: 'pointer',
-});
+const base = style({});
 
 const button = style({
-  all: 'unset',
-  cursor: 'pointer',
   display: 'inline-flex',
-  appearance: 'none',
   alignItems: 'center',
   justifyContent: 'center',
   transition: 'all 250ms',
@@ -19,7 +13,6 @@ const button = style({
   position: 'relative',
   whiteSpace: 'nowrap',
   verticalAlign: 'middle',
-  outline: 'none',
   width: 'auto',
   lineHeight: '1.2',
   borderRadius: '0.375rem',

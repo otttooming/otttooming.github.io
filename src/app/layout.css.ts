@@ -44,3 +44,14 @@ globalStyle('h1, h2, h3, h4, h5, p', {
 globalStyle('strong', {
   fontWeight: theme.fontWeight.bold,
 });
+
+globalStyle('a, button', {
+  all: 'unset',
+  display: 'block',
+  cursor: 'pointer',
+});
+
+globalStyle('a:focus, button:focus', {
+  outline: 'none',
+  boxShadow: '0 0 0 3px rgba(66, 153, 225, 0.6)',
+});

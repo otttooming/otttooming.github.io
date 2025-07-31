@@ -42,19 +42,11 @@ export const button = style({
   lineHeight: theme.space.xxl,
   gap: '8px',
   padding: '0 16px',
-  border: 'none',
   backgroundColor: 'transparent',
-  color: 'inherit',
-  cursor: 'pointer',
-  textDecoration: 'none',
   borderRadius: '8px',
   fontSize: theme.fontSize.m,
   fontWeight: theme.fontWeight.semiBold,
   ':hover': {
     backgroundColor: 'rgba(255, 255, 255, 0.08)',
-  },
-  ':focus': {
-    outline: 'none',
-    boxShadow: '0 0 0 3px rgba(66, 153, 225, 0.6)',
   },
 });

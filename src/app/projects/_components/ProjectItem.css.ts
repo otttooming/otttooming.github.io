@@ -53,9 +53,7 @@ export const projectContent = style({
 });
 
 export const companyLink = style({
-  all: 'unset',
-  cursor: 'pointer',
-  display: 'block',
+  verticalAlign: 'middle',
 });
 
 export const projectTitle = style({
