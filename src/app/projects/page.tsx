@@ -60,14 +60,13 @@ export default async function Projects() {
       </p>
 
       <ol className={styles.projectList}>
-        {projects.map(({ slug, title, kind, company, link, featured }) => (
+        {projects.map(({ slug, title, kind, company, featured }) => (
           <ProjectItem
             key={slug}
             slug={slug}
             title={title}
             kind={kind}
             company={company}
-            link={link}
             image={featured.image}
             background={featured.background}
             fit={featured.fit}

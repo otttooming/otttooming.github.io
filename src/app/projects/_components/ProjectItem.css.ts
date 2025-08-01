@@ -52,10 +52,6 @@ export const projectContent = style({
   },
 });
 
-export const companyLink = style({
-  verticalAlign: 'middle',
-});
-
 export const projectTitle = style({
   lineHeight: theme.lineHeight.xs,
   marginBottom: theme.space.m,

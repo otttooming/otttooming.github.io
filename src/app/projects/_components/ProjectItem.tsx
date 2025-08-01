@@ -8,7 +8,6 @@ interface ProjectItemProps {
   title: string;
   slug: string;
   company?: string;
-  link?: string;
   kind?: string;
   image: string;
   background?: string;
@@ -19,7 +18,6 @@ export const ProjectItem = async ({
   title,
   slug,
   company,
-  link,
   kind,
   image,
   background,
@@ -41,9 +39,7 @@ export const ProjectItem = async ({
       </div>
 
       <div className={styles.projectContent}>
-        <a href={link} className={styles.companyLink}>
-          <Logo name={company} />
-        </a>
+        <Logo name={company} />
 
         <Link href={`projects/${slug}`}>
           <ProjectHeader
