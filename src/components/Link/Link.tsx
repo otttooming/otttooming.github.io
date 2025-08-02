@@ -6,7 +6,18 @@ import { linkRecipe, rightIcon } from './Link.css';
 
 type Props = {
   href: string;
-  variant?: 'base' | 'button';
+  variant?: 'base' | 'plainExternal' | 'button';
+};
+
+const External = ({
+  children,
+  ...restProps
+}: PropsWithChildren<React.ComponentProps<'a'>>) => {
+  return (
+    <a {...restProps} target="_blank" rel="noopener noreferrer">
+      {children}
+    </a>
+  );
 };
 
 export const Link = ({
@@ -14,26 +25,26 @@ export const Link = ({
   href,
   variant = 'base',
 }: PropsWithChildren<Props>) => {
-  const isExternal = getIsExternalLink(href);
-  const className = linkRecipe({ variant });
-
-  if (isExternal) {
+  if (variant === 'plainExternal') {
     return (
-      <a
-        className={className}
-        href={href}
-        target="_blank"
-        rel="noopener noreferrer"
-      >
+      <External className={linkRecipe({ variant: 'base' })} href={href}>
+        {children}
+      </External>
+    );
+  }
+
+  if (getIsExternalLink(href)) {
+    return (
+      <External className={linkRecipe({ variant })} href={href}>
         {children}
 
         <ExternalLink className={rightIcon} />
-      </a>
+      </External>
     );
   }
 
   return (
-    <NextLink href={href} className={className}>
+    <NextLink href={href} className={linkRecipe({ variant })}>
       {children}
     </NextLink>
   );
