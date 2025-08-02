@@ -1,3 +1,4 @@
+import { Link } from '../Link/Link';
 import * as Logos from '../Logo/Logos';
 import * as styles from './HexGrid.css';
 
@@ -7,25 +8,8 @@ interface HexProps {
   variant: 'typescript' | 'redux' | 'gatsby' | 'react' | 'graphql';
 }
 
-const Link = ({
-  href,
-  children,
-}: {
-  href: string;
-  children: React.ReactNode;
-}) => (
-  <a
-    href={href}
-    className={styles.link}
-    target="_blank"
-    rel="noopener noreferrer"
-  >
-    {children}
-  </a>
-);
-
 const Hex = ({ children, href, variant }: HexProps) => (
-  <Link href={href}>
+  <Link href={href} variant="plainExternal">
     <span className={styles.hex({ variant })}>{children}</span>
   </Link>
 );

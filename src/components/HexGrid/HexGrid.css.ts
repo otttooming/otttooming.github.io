@@ -1,11 +1,6 @@
 import { style, globalStyle } from '@vanilla-extract/css';
 import { recipe } from '@vanilla-extract/recipes';
 
-export const link = style({
-  display: 'block',
-  textDecoration: 'none',
-});
-
 export const hex = recipe({
   base: {
     display: 'block',
@@ -68,17 +63,9 @@ export const item = style({
 
 export const icon = style({
   position: 'absolute',
-  display: 'flex',
-  alignItems: 'center',
-  justifyContent: 'center',
-  top: 0,
-  bottom: 0,
-  right: 0,
-  left: 0,
-});
-
-// Use globalStyle for targeting SVG elements
-globalStyle(`${icon} svg`, {
+  inset: 0,
+  alignContent: 'center',
+  margin: 'auto',
   width: '50%',
   height: '100%',
   color: '#fff',
