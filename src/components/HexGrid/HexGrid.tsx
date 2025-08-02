@@ -10,7 +10,10 @@ interface HexProps {
 const Link = ({
   href,
   children,
-}: { href: string; children: React.ReactNode }) => (
+}: {
+  href: string;
+  children: React.ReactNode;
+}) => (
   <a
     href={href}
     className={styles.link}
@@ -23,11 +26,7 @@ const Link = ({
 
 const Hex = ({ children, href, variant }: HexProps) => (
   <Link href={href}>
-    <span
-      className={`${styles.styledContent} ${styles.hex({ backgroundColor: variant })}`}
-    >
-      {children}
-    </span>
+    <span className={styles.hex({ variant })}>{children}</span>
   </Link>
 );
 
