@@ -1,10 +1,11 @@
-import { style, globalStyle } from '@vanilla-extract/css';
+import { style } from '@vanilla-extract/css';
 import { recipe } from '@vanilla-extract/recipes';
 
 export const hex = recipe({
   base: {
-    display: 'block',
-    position: 'relative',
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center',
     width: '16vw',
     height: '16vw',
     maxWidth: '8rem',
@@ -62,10 +63,6 @@ export const item = style({
 });
 
 export const icon = style({
-  position: 'absolute',
-  inset: 0,
-  alignContent: 'center',
-  margin: 'auto',
   width: '50%',
   height: '100%',
   color: '#fff',

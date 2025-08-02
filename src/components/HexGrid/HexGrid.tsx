@@ -14,46 +14,32 @@ const Hex = ({ children, href, variant }: HexProps) => (
   </Link>
 );
 
-const Icon = ({ children }: { children: React.ReactNode }) => (
-  <span className={styles.icon}>{children}</span>
-);
-
 const HexGrid = () => {
   return (
     <div className={styles.wrapper}>
       <div className={styles.item}>
         <Hex variant="typescript" href="https://www.typescriptlang.org/">
-          <Icon>
-            <Logos.TypeScript />
-          </Icon>
+          <Logos.TypeScript className={styles.icon} />
         </Hex>
       </div>
       <div className={styles.item}>
         <Hex variant="redux" href="https://redux.js.org/">
-          <Icon>
-            <Logos.Redux />
-          </Icon>
+          <Logos.Redux className={styles.icon} />
         </Hex>
       </div>
       <div className={styles.item}>
         <Hex variant="gatsby" href="https://www.gatsbyjs.org/">
-          <Icon>
-            <Logos.Gatsby />
-          </Icon>
+          <Logos.Gatsby className={styles.icon} />
         </Hex>
       </div>
       <div className={styles.item}>
         <Hex variant="react" href="https://reactjs.org/">
-          <Icon>
-            <Logos.React />
-          </Icon>
+          <Logos.React className={styles.icon} />
         </Hex>
       </div>
       <div className={styles.item}>
         <Hex variant="graphql" href="https://graphql.org/">
-          <Icon>
-            <Logos.GraphQL />
-          </Icon>
+          <Logos.GraphQL className={styles.icon} />
         </Hex>
       </div>
     </div>
