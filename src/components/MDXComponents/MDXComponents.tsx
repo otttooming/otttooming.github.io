@@ -81,14 +81,14 @@ export const List = ({
   className,
   ...props
 }: HTMLAttributes<HTMLUListElement>) => (
-  <ul className={`${styles.list} ${className || ''}`} {...props} />
+  <ul className={styles.list} {...props} />
 );
 
 export const ListItem = ({
   className,
   ...props
 }: HTMLAttributes<HTMLLIElement>) => (
-  <li className={`${styles.listItem} ${className || ''}`} {...props} />
+  <li className={styles.listItem} {...props} />
 );
 
 function isImageTag(props: unknown) {
@@ -105,7 +105,7 @@ export const Text = ({
   }
 
   return (
-    <p className={`${styles.text} ${className || ''}`} {...props}>
+    <p className={styles.text} {...props}>
       {children}
     </p>
   );
