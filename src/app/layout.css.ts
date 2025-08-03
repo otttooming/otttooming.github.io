@@ -1,6 +1,10 @@
 import { globalStyle } from '@vanilla-extract/css';
 import { theme } from '../utils/theme.css';
 
+globalStyle('a, button, figure, li, ol, ul', {
+  all: 'unset',
+});
+
 globalStyle('*', {
   boxSizing: 'border-box',
 });
@@ -46,7 +50,6 @@ globalStyle('strong', {
 });
 
 globalStyle('a, button', {
-  all: 'unset',
   display: 'block',
   cursor: 'pointer',
 });
@@ -54,8 +57,4 @@ globalStyle('a, button', {
 globalStyle('a:focus, button:focus', {
   outline: 'none',
   boxShadow: '0 0 0 3px rgba(66, 153, 225, 0.6)',
-});
-
-globalStyle('figure', {
-  all: 'unset',
 });
