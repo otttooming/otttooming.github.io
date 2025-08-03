@@ -5,6 +5,10 @@ globalStyle(':where(a, button, figure, li, ol, ul)', {
   all: 'unset',
 });
 
+globalStyle('ol, ul', {
+  display: 'block',
+});
+
 globalStyle('*', {
   boxSizing: 'border-box',
 });
