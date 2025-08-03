@@ -12,28 +12,28 @@ const Header = () => (
 
     <nav>
       <ol className={styles.navList}>
-        <li className={styles.navItem}>
+        <li>
           <NextLink href="/about/me" className={styles.button}>
             <User />
             About
           </NextLink>
         </li>
 
-        <li className={styles.navItem}>
+        <li>
           <NextLink href="/technologies" className={styles.button}>
             <Tool />
             Tech
           </NextLink>
         </li>
 
-        <li className={styles.navItem}>
+        <li>
           <NextLink href="/projects" className={styles.button}>
             <BookOpen />
             Projects
           </NextLink>
         </li>
 
-        <li className={styles.navItem}>
+        <li>
           <DarkMode className={styles.button} />
         </li>
       </ol>

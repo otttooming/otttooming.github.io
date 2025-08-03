@@ -27,12 +27,6 @@ export const header = style({
 export const navList = style({
   display: 'flex',
   gap: theme.space.l,
-  margin: 0,
-  padding: 0,
-});
-
-export const navItem = style({
-  listStyleType: 'none',
 });
 
 export const button = style({
