@@ -24,27 +24,6 @@ const button = style({
   paddingRight: '0.5rem',
   background: 'rgba(255, 255, 255, 0.08)',
   marginRight: theme.space.s,
-  selectors: {
-    '&:focus, &[data-focus]': {
-      boxShadow: '0 0 0 3px rgba(66, 153, 225, 0.6)',
-    },
-    '&[disabled], &[disabled]:focus, &[disabled]:hover, &[aria-disabled=true], &[aria-disabled=true]:focus, &[aria-disabled=true]:hover, &[data-disabled], &[data-disabled]:focus, &[data-disabled]:hover':
-      {
-        opacity: 0.4,
-        cursor: 'not-allowed',
-        boxShadow: 'none',
-      },
-    '&:hover, &[data-hover]': {
-      background: 'rgba(255, 255, 255, 0.16)',
-    },
-    '&:hover[disabled], &[data-hover][disabled], &:hover[disabled]:focus, &[data-hover][disabled]:focus, &:hover[disabled]:hover, &[data-hover][disabled]:hover, &:hover[aria-disabled=true], &[data-hover][aria-disabled=true], &:hover[aria-disabled=true]:focus, &[data-hover][aria-disabled=true]:focus, &:hover[aria-disabled=true]:hover, &[data-hover][aria-disabled=true]:hover, &:hover[data-disabled], &[data-hover][data-disabled], &:hover[data-disabled]:focus, &[data-hover][data-disabled]:focus, &:hover[data-disabled]:hover, &[data-hover][data-disabled]:hover':
-      {
-        background: 'rgba(255, 255, 255, 0.08)',
-      },
-    '&:active, &[data-active]': {
-      background: 'rgba(255, 255, 255, 0.24)',
-    },
-  },
 });
 
 export const linkRecipe = recipe({
