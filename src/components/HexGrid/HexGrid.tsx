@@ -12,17 +12,17 @@ const Tech = [
 
 const HexGrid = () => {
   return (
-    <div className={styles.wrapper}>
+    <ul className={styles.wrapper}>
       {Tech.map(([href, Icon]) => (
-        <div className={styles.item} key={Icon.name}>
+        <li className={styles.item} key={Icon.name}>
           <Link href={href} variant="plainExternal">
-            <span className={styles.hex[Icon.name.toLowerCase()]}>
+            <figure className={styles.hex[Icon.name.toLowerCase()]}>
               <Icon className={styles.icon} />
-            </span>
+            </figure>
           </Link>
-        </div>
+        </li>
       ))}
-    </div>
+    </ul>
   );
 };
 
