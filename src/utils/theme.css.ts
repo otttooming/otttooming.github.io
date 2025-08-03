@@ -11,6 +11,7 @@ const space = {
 const borderRadius = {
   s: '0.25rem',
   m: '0.5rem',
+  l: '1rem',
 } as const;
 
 const lineHeight = {
