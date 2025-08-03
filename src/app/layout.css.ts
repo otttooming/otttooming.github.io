@@ -1,7 +1,7 @@
 import { globalStyle } from '@vanilla-extract/css';
 import { theme } from '../utils/theme.css';
 
-globalStyle('a, button, figure, li, ol, ul', {
+globalStyle(':where(a, button, figure, li, ol, ul)', {
   all: 'unset',
 });
 
