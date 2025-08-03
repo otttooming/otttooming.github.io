@@ -16,7 +16,7 @@ const HexGrid = () => {
       {Tech.map(([href, Icon]) => (
         <div className={styles.item} key={Icon.name}>
           <Link href={href} variant="plainExternal">
-            <span className={styles.hex({ variant: Icon.name })}>
+            <span className={styles.hex[Icon.name.toLowerCase()]}>
               <Icon className={styles.icon} />
             </span>
           </Link>
