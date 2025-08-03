@@ -1,4 +1,5 @@
 import { style } from '@vanilla-extract/css';
+import { theme } from '../../utils/theme.css';
 
 export const card = style({
   display: 'grid',
@@ -18,7 +19,7 @@ export const card = style({
     '(min-width: 768px)': {
       gridTemplateColumns: '64px 1fr 64px',
       '::before': {
-        borderRadius: '8px',
+        borderRadius: theme.borderRadius.m,
       },
     },
   },
@@ -81,15 +82,12 @@ export const content = style({
   paddingBottom: '32px',
   paddingLeft: '16px',
   paddingRight: '16px',
-  borderRadius: '0 0 8px 8px',
   backgroundColor: 'light-dark(#edf2f7, #2c3442)',
   '@media': {
     '(min-width: 768px)': {
       paddingLeft: '32px',
       paddingRight: '32px',
-    },
-    '(min-width: 1024px)': {
-      borderRadius: '8px',
+      borderRadius: theme.borderRadius.m,
     },
   },
 });

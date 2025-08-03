@@ -15,7 +15,7 @@ const button = style({
   verticalAlign: 'middle',
   width: 'auto',
   lineHeight: '1.2',
-  borderRadius: '0.375rem',
+  borderRadius: theme.borderRadius.s,
   fontWeight: theme.fontWeight.semiBold,
   height: '1.5rem',
   minWidth: '1.5rem',

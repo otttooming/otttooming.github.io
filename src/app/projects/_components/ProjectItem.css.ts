@@ -15,7 +15,7 @@ export const projectItem = style({
       gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))',
       padding: '32px',
       marginBottom: '64px',
-      borderRadius: '16px',
+      borderRadius: theme.borderRadius.l,
     },
     '(min-width: 1024px)': {
       padding: '48px',

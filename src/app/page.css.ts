@@ -16,7 +16,7 @@ export const grid = style({
   '@media': {
     '(min-width: 960px)': {
       gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))',
-      borderRadius: '16px',
+      borderRadius: theme.borderRadius.l,
       marginBottom: '64px',
     },
     '(min-width: 1024px)': {

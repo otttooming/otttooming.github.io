@@ -37,7 +37,7 @@ export const button = style({
   gap: '8px',
   padding: '0 16px',
   backgroundColor: 'transparent',
-  borderRadius: '8px',
+  borderRadius: theme.borderRadius.s,
   fontSize: theme.fontSize.m,
   fontWeight: theme.fontWeight.semiBold,
   ':hover': {
