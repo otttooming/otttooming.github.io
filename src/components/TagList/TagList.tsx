@@ -1,5 +1,5 @@
 import { Link } from '../Link/Link';
-import { tagList, tagListItem } from './TagList.css';
+import * as styles from './TagList.css';
 
 export interface TagListProps {
   tags: string[];
@@ -10,9 +10,9 @@ const TagList = ({ tags, mapping }: TagListProps) => {
   const items = new Set(tags).intersection(new Set(Object.keys(mapping)));
 
   return (
-    <ul className={tagList}>
+    <ul className={styles.wrapper}>
       {Array.from(items).map((key) => (
-        <li key={key} className={tagListItem}>
+        <li key={key}>
           <Link href={mapping[key].url} variant="button">
             {mapping[key].title}
           </Link>
