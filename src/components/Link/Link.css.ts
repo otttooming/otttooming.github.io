@@ -8,22 +8,17 @@ const button = style({
   display: 'inline-flex',
   alignItems: 'center',
   justifyContent: 'center',
-  transition: 'all 250ms',
+  gap: theme.space.s,
   userSelect: 'none',
-  position: 'relative',
   whiteSpace: 'nowrap',
-  verticalAlign: 'middle',
-  width: 'auto',
-  lineHeight: '1.2',
+  lineHeight: theme.lineHeight.l,
+  height: theme.lineHeight.l,
   borderRadius: theme.borderRadius.s,
   fontWeight: theme.fontWeight.semiBold,
-  height: '1.5rem',
-  minWidth: '1.5rem',
-  fontSize: '0.75rem',
-  paddingLeft: '0.5rem',
-  paddingRight: '0.5rem',
+  fontSize: theme.fontSize.s,
+  paddingLeft: theme.space.s,
+  paddingRight: theme.space.s,
   background: 'rgba(255, 255, 255, 0.08)',
-  marginRight: theme.space.s,
 });
 
 export const linkRecipe = recipe({
@@ -39,7 +34,6 @@ export const linkRecipe = recipe({
 });
 
 export const rightIcon = style({
-  marginLeft: theme.space.s,
   width: '14px',
   height: '14px',
 });
