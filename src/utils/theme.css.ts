@@ -18,6 +18,7 @@ const lineHeight = {
   xs: '1.25',
   s: '1.375',
   m: '1.625',
+  l: '2',
 } as const;
 
 const remCalculator = (value: number) => `${value / 16}rem`;
