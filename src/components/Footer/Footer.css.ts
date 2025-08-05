@@ -1,12 +1,13 @@
 import { style } from '@vanilla-extract/css';
+import { theme } from '../../utils/theme.css';
 
 export const footer = style({
-  maxWidth: '960px',
+  display: 'grid',
+  justifyContent: 'center',
+  textAlign: 'center',
+  gap: theme.space.m,
   marginTop: '80px',
   marginBottom: '40px',
-  marginLeft: 'auto',
-  marginRight: 'auto',
-  textAlign: 'center',
 });
 
 export const copyright = style({
