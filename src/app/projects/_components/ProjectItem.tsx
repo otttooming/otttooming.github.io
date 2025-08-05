@@ -24,7 +24,7 @@ export const ProjectItem = async ({
   fit,
 }: ProjectItemProps) => {
   return (
-    <li className={styles.projectItem}>
+    <article className={styles.projectItem}>
       <div className={styles.projectLink}>
         <Link href={`projects/${slug}`}>
           <CoverImage
@@ -50,6 +50,6 @@ export const ProjectItem = async ({
           />
         </Link>
       </div>
-    </li>
+    </article>
   );
 };

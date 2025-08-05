@@ -45,21 +45,23 @@ export default async function Projects() {
   const projects = await getProjects();
 
   return (
-    <>
-      <h1 className={styles.heading}>
-        <strong>Some projects</strong> I have been involved in
-      </h1>
+    <main>
+      <header>
+        <h1 className={styles.heading}>
+          <strong>Some projects</strong> I have been involved in
+        </h1>
 
-      <p className={styles.descriptionWithMargin}>
-        All of the projects have been a team collaboration and effort.
-      </p>
+        <p className={styles.descriptionWithMargin}>
+          All of the projects have been a team collaboration and effort.
+        </p>
 
-      <p className={styles.description}>
-        I have been thoroughly fortunate to have been given the opportunity to
-        work with some amazing people.
-      </p>
+        <p className={styles.description}>
+          I have been thoroughly fortunate to have been given the opportunity to
+          work with some amazing people.
+        </p>
+      </header>
 
-      <ol className={styles.projectList}>
+      <section className={styles.projectList}>
         {projects.map(({ slug, title, kind, company, featured }) => (
           <ProjectItem
             key={slug}
@@ -72,7 +74,7 @@ export default async function Projects() {
             fit={featured.fit}
           />
         ))}
-      </ol>
-    </>
+      </section>
+    </main>
   );
 }
