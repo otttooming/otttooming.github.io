@@ -1,22 +1,14 @@
 import { globalStyle, style } from '@vanilla-extract/css';
 import { theme } from '../utils/theme.css';
 
-export const header = style({
+export const navList = style({
   maxWidth: '960px',
   margin: '0 auto',
   paddingTop: theme.space.l,
   paddingBottom: theme.space.l,
   paddingLeft: theme.space.s,
   paddingRight: theme.space.s,
-  '@media': {
-    '(min-width: 768px)': {
-      paddingLeft: theme.space.l,
-      paddingRight: theme.space.l,
-    },
-  },
-});
 
-export const navList = style({
   display: 'flex',
   gap: theme.space.l,
   justifyContent: 'flex-end',

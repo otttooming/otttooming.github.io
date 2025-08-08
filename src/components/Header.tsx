@@ -8,7 +8,7 @@ const Text = ({ children }: React.PropsWithChildren) => (
 );
 
 const Header = () => (
-  <header className={styles.header}>
+  <header>
     <nav>
       <ol className={styles.navList}>
         <li>
