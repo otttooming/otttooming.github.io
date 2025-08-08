@@ -3,6 +3,10 @@ import { BookOpen, Tool, User, Wind } from 'react-feather';
 import DarkMode from './DarkMode/DarkMode';
 import * as styles from './Header.css';
 
+const Text = ({ children }: React.PropsWithChildren) => (
+  <span className={styles.text}>{children}</span>
+);
+
 const Header = () => (
   <header className={styles.header}>
     <NextLink href="/" className={styles.button}>
@@ -15,21 +19,21 @@ const Header = () => (
         <li>
           <NextLink href="/about/me" className={styles.button}>
             <User />
-            About
+            <Text>About</Text>
           </NextLink>
         </li>
 
         <li>
           <NextLink href="/technologies" className={styles.button}>
             <Tool />
-            Tech
+            <Text>Technologies</Text>
           </NextLink>
         </li>
 
         <li>
           <NextLink href="/projects" className={styles.button}>
             <BookOpen />
-            Projects
+            <Text>Projects</Text>
           </NextLink>
         </li>
 

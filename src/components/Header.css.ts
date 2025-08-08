@@ -44,3 +44,11 @@ export const button = style({
     backgroundColor: 'rgba(255, 255, 255, 0.08)',
   },
 });
+
+export const text = style({
+    '@media': {
+      '(width <= 960px)': {
+        display: 'none',
+      }
+    },
+})
