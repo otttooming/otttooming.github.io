@@ -6,6 +6,7 @@ const space = {
   l: '1.5rem',
   xl: '2.5rem',
   xxl: '3rem',
+  xxxl: '5rem',
 } as const;
 
 const borderRadius = {
