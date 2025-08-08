@@ -3,6 +3,14 @@ import Header from '../components/Header';
 import Footer from '../components/Footer/Footer';
 import { ColorModeProvider } from '../components/ui/color-mode';
 import { Montserrat } from 'next/font/google';
+import { Viewport } from 'next';
+
+export const viewport: Viewport = {
+  width: 'device-width',
+  initialScale: 1,
+  maximumScale: 1,
+  userScalable: false,
+};
 
 const montserrat = Montserrat({
   weight: ['400', '600', '700'],
