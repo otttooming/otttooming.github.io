@@ -28,7 +28,7 @@ const Header = () => (
         <li>
           <NextLink href="/technologies" className={styles.button}>
             <Tool />
-            <Text>Technologies</Text>
+            <Text>Tech</Text>
           </NextLink>
         </li>
 
