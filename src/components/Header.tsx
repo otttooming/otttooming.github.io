@@ -9,13 +9,15 @@ const Text = ({ children }: React.PropsWithChildren) => (
 
 const Header = () => (
   <header className={styles.header}>
-    <NextLink href="/" className={styles.button}>
-      <Wind />
-      Ott
-    </NextLink>
-
     <nav>
       <ol className={styles.navList}>
+        <li>
+          <NextLink href="/" className={styles.button}>
+            <Wind />
+            Ott
+          </NextLink>
+        </li>
+
         <li>
           <NextLink href="/about/me" className={styles.button}>
             <User />

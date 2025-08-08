@@ -1,10 +1,7 @@
-import { style } from '@vanilla-extract/css';
+import { globalStyle, style } from '@vanilla-extract/css';
 import { theme } from '../utils/theme.css';
 
 export const header = style({
-  display: 'flex',
-  alignSelf: 'center',
-  justifyContent: 'space-between',
   maxWidth: '960px',
   margin: '0 auto',
   paddingTop: theme.space.l,
@@ -17,16 +14,16 @@ export const header = style({
       paddingRight: theme.space.l,
     },
   },
-  overflow: 'scroll hidden',
-  scrollbarWidth: 'none',
-  '::-webkit-scrollbar': {
-    width: '0px',
-  },
 });
 
 export const navList = style({
   display: 'flex',
   gap: theme.space.l,
+  justifyContent: 'flex-end',
+});
+
+globalStyle(`${navList} > :first-child`, {
+  marginRight: 'auto',
 });
 
 export const button = style({
@@ -46,9 +43,9 @@ export const button = style({
 });
 
 export const text = style({
-    '@media': {
-      '(width <= 960px)': {
-        display: 'none',
-      }
+  '@media': {
+    '(width <= 960px)': {
+      display: 'none',
     },
-})
+  },
+});
