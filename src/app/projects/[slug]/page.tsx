@@ -56,7 +56,7 @@ export default async function ProjectPostPage({ params }: Props) {
 
   return (
     <main>
-      <Layout.Cover>
+      <Layout.Hero>
         <CoverImage
           alt={title}
           src={`/content/projects/${slug}/${image}`}
@@ -74,7 +74,7 @@ export default async function ProjectPostPage({ params }: Props) {
           <p>Link to project</p>
           <ExternalLink className={styles.externalLinkIcon} />
         </a>
-      </Layout.Cover>
+      </Layout.Hero>
 
       <Layout.DetailHeader>
         <Logo name={company} />

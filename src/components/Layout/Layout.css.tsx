@@ -41,7 +41,7 @@ globalStyle(`:where(${detailSection}) > *`, {
   paddingRight: theme.space.m,
 });
 
-export const cover = style({
+export const hero = style({
   display: 'block',
   maxWidth: '1024px',
   margin: 'auto',

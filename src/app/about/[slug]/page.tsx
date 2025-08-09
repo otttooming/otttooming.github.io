@@ -39,7 +39,7 @@ export default async function AboutPage({
 
   return (
     <main>
-      <Layout.Cover>
+      <Layout.Hero>
         <CoverImage
           alt={alt}
           src={`/content/about/${slug}/${illustration}`}
@@ -47,7 +47,7 @@ export default async function AboutPage({
           background="#fff"
           fit="contain"
         />
-      </Layout.Cover>
+      </Layout.Hero>
 
       <Layout.DetailHeader>
         <h1>{title}</h1>

@@ -17,8 +17,8 @@ const ListSection = ({ children }: PropsWithChildren) => (
   <section className={styles.listSection}>{children}</section>
 );
 
-const Cover = ({ children }: PropsWithChildren) => (
-  <figure className={styles.cover}>{children}</figure>
+const Hero = ({ children }: PropsWithChildren) => (
+  <section className={styles.hero}>{children}</section>
 );
 
 export default {
@@ -26,5 +26,5 @@ export default {
   DetailSection,
   ListHeader,
   ListSection,
-  Cover,
+  Hero,
 };
