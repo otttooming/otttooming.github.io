@@ -1,9 +1,9 @@
 import Card from '../../components/Card/Card';
-import * as styles from './page.css';
 import { getProjects } from '../projects/page';
 import { readDirNames } from '../../utils/fs';
 import { Metadata } from 'next';
 import { readPost } from '../../services/readPost';
+import Layout from '../../components/Layout/Layout';
 
 type Frontmatter = {
   title: string;
@@ -49,17 +49,19 @@ export default async function Technologies() {
   ]);
 
   return (
-    <>
-      <h1 className={styles.heading}>
-        <strong>Tech stack</strong> that I currently use
-      </h1>
+    <main>
+      <Layout.DetailHeader>
+        <h1>
+          <strong>Tech stack</strong> that I currently use
+        </h1>
 
-      <p className={styles.description}>
-        Passionate about TypeScript, React, NodeJS, GraphQL and statically typed
-        languages in general.
-      </p>
+        <p>
+          Passionate about TypeScript, React, NodeJS, GraphQL and statically
+          typed languages in general.
+        </p>
+      </Layout.DetailHeader>
 
-      <ol className={styles.cardList}>
+      <Layout.ListSection>
         {technologies.map(({ source, title, slug, featured }) => {
           return (
             <Card
@@ -72,7 +74,7 @@ export default async function Technologies() {
             />
           );
         })}
-      </ol>
-    </>
+      </Layout.ListSection>
+    </main>
   );
 }
