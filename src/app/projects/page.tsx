@@ -1,8 +1,8 @@
 import { ProjectItem } from './_components/ProjectItem';
-import * as styles from './page.css';
 import { readDirNames } from '../../utils/fs';
 import { Metadata } from 'next';
 import { readPost } from '../../services/readPost';
+import Layout from '../../components/Layout/Layout';
 
 type Frontmatter = {
   title: string;
@@ -46,22 +46,22 @@ export default async function Projects() {
 
   return (
     <main>
-      <header>
-        <h1 className={styles.heading}>
+      <Layout.DetailHeader>
+        <h1>
           <strong>Some projects</strong> I have been involved in
         </h1>
 
-        <p className={styles.descriptionWithMargin}>
-          All of the projects have been a team collaboration and effort.
-        </p>
+        <div>
+          <p>All of the projects have been a team collaboration and effort.</p>
 
-        <p className={styles.description}>
-          I have been thoroughly fortunate to have been given the opportunity to
-          work with some amazing people.
-        </p>
-      </header>
+          <p>
+            I have been thoroughly fortunate to have been given the opportunity
+            to work with some amazing people.
+          </p>
+        </div>
+      </Layout.DetailHeader>
 
-      <section className={styles.projectList}>
+      <Layout.ListSection>
         {projects.map(({ slug, title, kind, company, featured }) => (
           <ProjectItem
             key={slug}
@@ -74,7 +74,7 @@ export default async function Projects() {
             fit={featured.fit}
           />
         ))}
-      </section>
+      </Layout.ListSection>
     </main>
   );
 }
