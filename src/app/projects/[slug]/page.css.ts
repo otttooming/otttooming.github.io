@@ -1,12 +1,5 @@
-import { style, globalStyle } from '@vanilla-extract/css';
+import { style } from '@vanilla-extract/css';
 import { theme } from '../../../utils/theme.css';
-
-export const coverContainer = style({
-  maxWidth: '1024px',
-  margin: '80px auto 0',
-  padding: '0 16px',
-  position: 'relative',
-});
 
 export const projectLink = style({
   position: 'absolute',
@@ -26,29 +19,4 @@ export const projectLink = style({
 export const externalLinkIcon = style({
   marginLeft: '8px',
   width: '16px',
-});
-
-export const header = style({
-  marginTop: '80px',
-  marginLeft: 'auto',
-  marginRight: 'auto',
-  padding: '0 16px',
-  maxWidth: '960px',
-});
-
-export const heading = style({
-  marginTop: theme.space.s,
-});
-
-export const wrapper = style({
-  marginTop: '80px',
-  marginBottom: '80px',
-});
-
-globalStyle(`:where(${wrapper}) > *`, {
-  maxWidth: '960px',
-  marginLeft: 'auto',
-  marginRight: 'auto',
-  paddingLeft: '16px',
-  paddingRight: '16px',
 });

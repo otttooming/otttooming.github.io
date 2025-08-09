@@ -4,13 +4,13 @@ import CoverImage from '../../../components/CoverImage/CoverImage';
 import Logo from '../../../components/Logo/Logo';
 import MDXComponents from '../../../components/MDXComponents/MDXComponents';
 import TagList from '../../../components/TagList/TagList';
-// import Layout from '../components/layout';
 import { techTags } from '../../../constants/tech';
 import * as styles from './page.css';
 import Image from 'next/image';
 import { Metadata } from 'next';
 import { ProjectHeader } from '../_components/ProjectHeader';
 import { readPost } from '../../../services/readPost';
+import Layout from '../../../components/Layout/Layout';
 
 type Frontmatter = {
   title: string;
@@ -55,8 +55,8 @@ export default async function ProjectPostPage({ params }: Props) {
   } = await readPost<Frontmatter>`public/content/projects/${slug}`;
 
   return (
-    <>
-      <div className={styles.coverContainer}>
+    <main>
+      <Layout.Cover>
         <CoverImage
           alt={title}
           src={`/content/projects/${slug}/${image}`}
@@ -74,22 +74,17 @@ export default async function ProjectPostPage({ params }: Props) {
           <p>Link to project</p>
           <ExternalLink className={styles.externalLinkIcon} />
         </a>
-      </div>
+      </Layout.Cover>
 
-      <header className={styles.header}>
+      <Layout.DetailHeader>
         <Logo name={company} />
 
-        <ProjectHeader
-          as="h1"
-          title={title}
-          kind={kind}
-          className={styles.heading}
-        />
+        <ProjectHeader as="h1" title={title} kind={kind} />
 
         <TagList tags={tech} mapping={techTags} />
-      </header>
+      </Layout.DetailHeader>
 
-      <div className={styles.wrapper}>
+      <Layout.DetailSection>
         <MDXRemote
           options={{ parseFrontmatter: true }}
           components={{
@@ -106,7 +101,7 @@ export default async function ProjectPostPage({ params }: Props) {
           }}
           source={source}
         />
-      </div>
-    </>
+      </Layout.DetailSection>
+    </main>
   );
 }
