@@ -1,12 +1,11 @@
 import { MDXRemote } from 'next-mdx-remote-client/rsc';
 import TagList from '../../../components/TagList/TagList';
 import { socialTags } from '../../../constants/social';
-import { About } from './page.components';
-import * as styles from './page.css';
-import Image from 'next/image';
 import MDXComponents from '../../../components/MDXComponents/MDXComponents';
 import { Metadata } from 'next';
 import { readPost } from '../../../services/readPost';
+import Layout from '../../../components/Layout/Layout';
+import CoverImage from '../../../components/CoverImage/CoverImage';
 
 type Frontmatter = {
   title: string;
@@ -35,35 +34,34 @@ export default async function AboutPage({
     source,
     title,
     tags,
-    featured: { illustration, width, height, alt },
+    featured: { illustration, height, alt },
   } = await readPost<Frontmatter>`public/content/about/${slug}`;
 
   return (
-    <>
-      <div className={styles.coverWrapper}>
-        <Image
-          className={styles.coverImage}
-          src={`/content/about/${slug}/${illustration}`}
-          width={width}
-          height={height}
+    <main>
+      <Layout.Cover>
+        <CoverImage
           alt={alt}
-          priority={true}
+          src={`/content/about/${slug}/${illustration}`}
+          maxHeight={height}
+          background="#fff"
+          fit="contain"
         />
-      </div>
+      </Layout.Cover>
 
-      <About.Wrapper>
+      <Layout.DetailHeader>
         <h1>{title}</h1>
 
         <TagList tags={tags} mapping={socialTags} />
-      </About.Wrapper>
+      </Layout.DetailHeader>
 
-      <About.Wrapper>
+      <Layout.DetailSection>
         <MDXRemote
           options={{ parseFrontmatter: true }}
           components={MDXComponents}
           source={source}
         />
-      </About.Wrapper>
-    </>
+      </Layout.DetailSection>
+    </main>
   );
 }
