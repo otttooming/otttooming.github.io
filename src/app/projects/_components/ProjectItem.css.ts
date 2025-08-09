@@ -8,18 +8,15 @@ export const projectItem = style({
   gridTemplateColumns: 'repeat(auto-fit, minmax(260px, 1fr))',
   alignItems: 'center',
   padding: '16px',
-  marginBottom: '32px',
   backgroundColor: 'light-dark(#edf2f7, #2c3442)',
   '@media': {
     '(min-width: 768px)': {
       gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))',
       padding: '32px',
-      marginBottom: '64px',
       borderRadius: theme.borderRadius.l,
     },
     '(min-width: 1024px)': {
       padding: '48px',
-      marginBottom: '128px',
       gridTemplateAreas: '"illustration content"',
     },
   },
