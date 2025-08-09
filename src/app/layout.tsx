@@ -4,6 +4,7 @@ import Footer from '../components/Footer/Footer';
 import { ColorModeProvider } from '../components/ui/color-mode';
 import { Montserrat } from 'next/font/google';
 import { Viewport } from 'next';
+import { PropsWithChildren } from 'react';
 
 export const viewport: Viewport = {
   width: 'device-width',
@@ -17,11 +18,7 @@ const montserrat = Montserrat({
   subsets: ['latin'],
 });
 
-export default function RootLayout({
-  children,
-}: {
-  children: React.ReactNode;
-}) {
+export default function RootLayout({ children }: PropsWithChildren) {
   return (
     <html lang="en" suppressHydrationWarning>
       <body className={montserrat.className}>
