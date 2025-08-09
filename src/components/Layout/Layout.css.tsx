@@ -40,3 +40,11 @@ globalStyle(`:where(${detailSection}) > *`, {
   paddingLeft: theme.space.m,
   paddingRight: theme.space.m,
 });
+
+export const cover = style({
+  display: 'block',
+  maxWidth: '1024px',
+  margin: 'auto',
+  padding: '0 16px',
+  position: 'relative',
+});

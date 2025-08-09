@@ -17,9 +17,14 @@ const ListSection = ({ children }: PropsWithChildren) => (
   <section className={styles.listSection}>{children}</section>
 );
 
+const Cover = ({ children }: PropsWithChildren) => (
+  <figure className={styles.cover}>{children}</figure>
+);
+
 export default {
   DetailHeader,
   DetailSection,
   ListHeader,
   ListSection,
+  Cover,
 };
