@@ -20,8 +20,8 @@ const Portrait = () => {
   );
 };
 
-const Grid = ({ children }: React.PropsWithChildren) => {
-  return <div className={styles.grid}>{children}</div>;
+const Hero = ({ children }: React.PropsWithChildren) => {
+  return <div className={styles.hero}>{children}</div>;
 };
 
 const AltGrid = ({ children }: React.PropsWithChildren) => (
@@ -63,9 +63,9 @@ export const metadata: Metadata = {
 };
 
 const IndexPage = () => (
-  <>
+  <main>
     <section className={styles.mainSegment}>
-      <Grid>
+      <Hero>
         <div>
           <h1>
             👋 Hi, I am <strong>Ott</strong>
@@ -104,7 +104,7 @@ const IndexPage = () => (
         </div>
 
         <Portrait />
-      </Grid>
+      </Hero>
     </section>
 
     <section className={styles.segment}>
@@ -148,7 +148,7 @@ const IndexPage = () => (
         </div>
       </PlainGrid>
     </section>
-  </>
+  </main>
 );
 
 export default IndexPage;

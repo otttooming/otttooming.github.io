@@ -1,7 +1,7 @@
 import { style } from '@vanilla-extract/css';
 import { theme } from '../utils/theme.css';
 
-export const grid = style({
+export const hero = style({
   display: 'grid',
   gap: theme.space.l,
   gridTemplateColumns: 'repeat(auto-fit, minmax(260px, 1fr))',
@@ -11,16 +11,11 @@ export const grid = style({
   paddingBottom: '2rem',
   paddingLeft: 'clamp(1rem, 1rem + 4vw, 3rem)',
   paddingRight: 'clamp(1rem, 1rem + 4vw, 3rem)',
-  marginBottom: '32px',
   backgroundColor: 'light-dark(#edf2f7, #2c3442)',
   '@media': {
     '(min-width: 960px)': {
       gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))',
       borderRadius: theme.borderRadius.l,
-      marginBottom: '64px',
-    },
-    '(min-width: 1024px)': {
-      marginBottom: '128px',
     },
   },
 });
@@ -31,7 +26,6 @@ export const altGrid = style({
   gridTemplateColumns: 'repeat(auto-fit, minmax(64px, auto))',
   alignItems: 'center',
   maxWidth: '1280px',
-  margin: '0 auto',
   padding: theme.space.xl,
 });
 
@@ -59,11 +53,10 @@ export const segment = style([
 export const mainSegment = style([
   segmentCommon,
   {
-    minHeight: 'calc(100vh - 72px)',
-    paddingBottom: '72px',
+    minHeight: 'calc(100vh - 96px)',
     alignItems: 'center',
+    margin: 'auto',
     maxWidth: '960px',
-    margin: '0 auto',
   },
 ]);
 
