@@ -43,7 +43,7 @@ const Card = ({ title, slug, featured, source, projects }: CardProps) => {
 
   const Logo = LOGOS[slug];
   return (
-    <li
+    <article
       className={styles.card}
       style={{ '--card-background': background } as React.CSSProperties}
     >
@@ -70,7 +70,7 @@ const Card = ({ title, slug, featured, source, projects }: CardProps) => {
           source={source}
         />
       </div>
-    </li>
+    </article>
   );
 };
 
