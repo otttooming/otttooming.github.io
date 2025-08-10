@@ -34,7 +34,7 @@ export default async function AboutPage({
     source,
     title,
     tags,
-    featured: { illustration, height, alt },
+    featured: { illustration, height, width, alt },
   } = await readPost<Frontmatter>`public/content/about/${slug}`;
 
   return (
@@ -43,7 +43,8 @@ export default async function AboutPage({
         <CoverImage
           alt={alt}
           src={`/content/about/${slug}/${illustration}`}
-          maxHeight={height}
+          height={height}
+          width={width}
           background="#fff"
           fit="contain"
         />
