@@ -2,49 +2,40 @@ import Image from 'next/image';
 import * as styles from './CoverImage.css';
 
 type Props = {
-  maxHeight: string;
   fit: 'contain' | 'cover' | null;
   src: string;
   sizes?: string;
   alt: string;
   background?: string;
-  boxShadow?: string;
+  height: number;
+  width: number;
 };
 
 const CoverImage = ({
-  maxHeight: passedMaxHeight,
-  fit: passedFit,
   src,
-  sizes,
   alt,
   background = '#EDF2F7',
+  height,
+  width,
+  sizes,
+  fit = 'cover',
 }: Props) => {
-  const objectFit = passedFit ?? 'cover';
-  const maxHeight = objectFit === 'cover' ? undefined : passedMaxHeight;
-  const width = objectFit === 'cover' ? '100%' : undefined;
-
   return (
     <div
       className={styles.wrapper}
       style={{
-        maxHeight: passedMaxHeight,
         background,
       }}
     >
-      <div className={styles.imageContainer({ fit: objectFit })}>
-        <Image
-          className={styles.image}
-          alt={alt}
-          src={src}
-          fill={true}
-          sizes={sizes}
-          style={{
-            width,
-            objectFit,
-            maxHeight,
-          }}
-        />
-      </div>
+      <Image
+        height={height}
+        width={width}
+        className={styles.image[fit]}
+        alt={alt}
+        src={src}
+        priority={true}
+        sizes={sizes}
+      />
     </div>
   );
 };
