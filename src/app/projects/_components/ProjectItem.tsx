@@ -1,4 +1,4 @@
-import CoverImage from '../../../components/CoverImage/CoverImage';
+import { PropsWithChildren } from 'react';
 import { Link } from '../../../components/Link/Link';
 import Logo from '../../../components/Logo/Logo';
 import { ProjectHeader } from './ProjectHeader';
@@ -9,9 +9,6 @@ interface ProjectItemProps {
   slug: string;
   company?: string;
   kind?: string;
-  image: string;
-  background?: string;
-  fit?: 'contain' | 'cover';
 }
 
 export const ProjectItem = async ({
@@ -19,23 +16,12 @@ export const ProjectItem = async ({
   slug,
   company,
   kind,
-  image,
-  background,
-  fit,
-}: ProjectItemProps) => {
+  children,
+}: PropsWithChildren<ProjectItemProps>) => {
   return (
     <article className={styles.projectItem}>
       <div className={styles.projectLink}>
-        <Link href={`projects/${slug}`}>
-          <CoverImage
-            src={`/content/projects/${slug}/${image}`}
-            maxHeight="360px"
-            sizes="(max-width: 480px) 100vw, 33vw"
-            background={background}
-            fit={fit}
-            alt={title}
-          />
-        </Link>
+        <Link href={`projects/${slug}`}>{children}</Link>
       </div>
 
       <div className={styles.projectContent}>

@@ -3,15 +3,18 @@ import { readDirNames } from '../../utils/fs';
 import { Metadata } from 'next';
 import { readPost } from '../../services/readPost';
 import Layout from '../../components/Layout/Layout';
+import CoverImage from '../../components/CoverImage/CoverImage';
 
 type Frontmatter = {
   title: string;
   date: string;
   slug: string;
   featured: {
-    image: string;
+    src: string;
     background?: string;
     fit?: 'contain' | 'cover';
+    height: number;
+    width: number;
   };
   link: string;
   company: string;
@@ -69,10 +72,16 @@ export default async function Projects() {
             title={title}
             kind={kind}
             company={company}
-            image={featured.image}
-            background={featured.background}
-            fit={featured.fit}
-          />
+          >
+            <CoverImage
+              src={`/content/projects/${slug}/${featured.src}`}
+              height={featured.height}
+              width={featured.width}
+              background={featured.background}
+              alt={title}
+              fit={featured.fit}
+            />
+          </ProjectItem>
         ))}
       </Layout.ListSection>
     </main>
