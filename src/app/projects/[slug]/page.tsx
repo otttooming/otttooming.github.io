@@ -17,7 +17,9 @@ type Frontmatter = {
   date: string;
   slug: string;
   featured: {
-    image: string;
+    src: string;
+    height: number;
+    width: number;
     background?: string;
     fit?: 'contain' | 'cover';
   };
@@ -51,7 +53,7 @@ export default async function ProjectPostPage({ params }: Props) {
     company,
     kind,
     tech,
-    featured: { image, fit, background },
+    featured: { src, height, width, background, fit },
   } = await readPost<Frontmatter>`public/content/projects/${slug}`;
 
   return (
@@ -59,8 +61,9 @@ export default async function ProjectPostPage({ params }: Props) {
       <Layout.Hero>
         <CoverImage
           alt={title}
-          src={`/content/projects/${slug}/${image}`}
-          maxHeight="70vh"
+          src={`/content/projects/${slug}/${src}`}
+          height={height}
+          width={width}
           background={background}
           fit={fit}
         />
