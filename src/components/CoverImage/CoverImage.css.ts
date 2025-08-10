@@ -8,15 +8,12 @@ export const wrapper = style({
   overflow: 'hidden',
   boxShadow: '5px 25px 40px rgba(0, 0, 0, 0.2)',
   position: 'relative',
-  width: '100%',
-  maxHeight: '70vh',
-  aspectRatio: '3 /2',
 });
 
 const imageCommon = style({
   maxWidth: '100%',
   maxHeight: '100%',
-  objectFit: 'contain',
+  height: 'auto',
 });
 
 export const image = styleVariants({

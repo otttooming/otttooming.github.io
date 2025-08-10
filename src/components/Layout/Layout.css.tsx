@@ -42,8 +42,10 @@ globalStyle(`:where(${detailSection}) > *`, {
 });
 
 export const hero = style({
-  display: 'block',
+  display: 'flex',
+  justifyContent: 'center',
   maxWidth: '1024px',
+  maxHeight: '70vh',
   margin: 'auto',
   padding: '0 16px',
   position: 'relative',
