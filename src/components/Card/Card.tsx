@@ -19,17 +19,17 @@ export interface CardProps {
 }
 
 const Item = ({ slug, featured, title }: CardProps['projects'][number]) => {
-  const { image, background, fit } = featured;
+  const { src, height, width, background, fit } = featured;
 
   return (
     <div className={styles.projectItem}>
       <CoverImage
         alt={title}
-        src={`/content/projects/${slug}/${image}`}
-        maxHeight="260px"
-        sizes="(max-width: 320px) 100vw, 33vw"
+        src={`/content/projects/${slug}/${src}`}
         background={background}
-        boxShadow="none"
+        height={height}
+        width={width}
+        sizes="(max-width: 320px) 100vw, 33vw"
         fit={fit}
       />
     </div>
