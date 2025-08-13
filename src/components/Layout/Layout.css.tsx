@@ -8,7 +8,7 @@ export const detailHeader = style({
   maxWidth: '960px',
   paddingLeft: theme.space.m,
   paddingRight: theme.space.m,
-  marginTop: theme.space.xxl,
+  marginTop: theme.space.xxxl,
 });
 
 export const listHeader = style({
@@ -22,7 +22,7 @@ export const listHeader = style({
 
 export const listSection = style({
   display: 'grid',
-  gap: theme.space.xxl,
+  gap: theme.space.xxxl,
   margin: 'auto',
   maxWidth: '1080px',
   paddingLeft: theme.space.m,
@@ -47,6 +47,7 @@ export const hero = style({
   maxWidth: '1024px',
   maxHeight: '70vh',
   margin: 'auto',
+  marginTop: theme.space.xxxl,
   padding: '0 16px',
   position: 'relative',
 });

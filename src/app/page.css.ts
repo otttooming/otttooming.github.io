@@ -12,6 +12,7 @@ export const hero = style({
   paddingLeft: 'clamp(1rem, 1rem + 4vw, 3rem)',
   paddingRight: 'clamp(1rem, 1rem + 4vw, 3rem)',
   backgroundColor: 'light-dark(#edf2f7, #2c3442)',
+  marginBottom: theme.space.xxxl,
   '@media': {
     '(min-width: 960px)': {
       gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))',
@@ -54,7 +55,6 @@ export const mainSegment = style([
   segmentCommon,
   {
     minHeight: 'calc(100vh - 96px)',
-    alignItems: 'center',
     margin: 'auto',
     maxWidth: '960px',
   },
