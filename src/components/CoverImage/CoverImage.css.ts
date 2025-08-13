@@ -1,13 +1,24 @@
 import { style, styleVariants } from '@vanilla-extract/css';
 import { theme } from '../../utils/theme.css';
 
-export const wrapper = style({
+const wrapperCommon = style({
   display: 'flex',
   justifyContent: 'center',
   borderRadius: theme.borderRadius.m,
   overflow: 'hidden',
   boxShadow: '5px 25px 40px rgba(0, 0, 0, 0.2)',
   position: 'relative',
+});
+
+export const wrapper = styleVariants({
+  full: [wrapperCommon],
+  contain: [
+    wrapperCommon,
+    {
+      padding: theme.space.l,
+      maxHeight: 480,
+    },
+  ],
 });
 
 const imageCommon = style({

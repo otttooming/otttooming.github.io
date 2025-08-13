@@ -9,6 +9,7 @@ type Props = {
   background?: string;
   height: number;
   width: number;
+  wrapper?: 'contain' | 'full';
 };
 
 const CoverImage = ({
@@ -19,10 +20,11 @@ const CoverImage = ({
   width,
   sizes,
   fit = 'cover',
+  wrapper = 'full',
 }: Props) => {
   return (
     <div
-      className={styles.wrapper}
+      className={styles.wrapper[wrapper]}
       style={{
         background,
       }}
