@@ -1,11 +1,9 @@
 import { MDXRemote } from 'next-mdx-remote-client/rsc';
-import { ExternalLink } from 'react-feather';
 import CoverImage from '../../../components/CoverImage/CoverImage';
 import Logo from '../../../components/Logo/Logo';
 import MDXComponents from '../../../components/MDXComponents/MDXComponents';
 import TagList from '../../../components/TagList/TagList';
 import { techTags } from '../../../constants/tech';
-import * as styles from './page.css';
 import Image from 'next/image';
 import { Metadata } from 'next';
 import { ProjectHeader } from '../_components/ProjectHeader';
@@ -49,7 +47,6 @@ export default async function ProjectPostPage({ params }: Props) {
   const {
     source,
     title,
-    link,
     company,
     kind,
     tech,
@@ -67,16 +64,6 @@ export default async function ProjectPostPage({ params }: Props) {
           background={background}
           fit={fit}
         />
-
-        <a
-          className={styles.projectLink}
-          href={link}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <p>Link to project</p>
-          <ExternalLink className={styles.externalLinkIcon} />
-        </a>
       </Layout.Hero>
 
       <Layout.DetailHeader>
