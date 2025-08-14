@@ -11,11 +11,17 @@ const wrapperCommon = style({
 
 export const wrapper = styleVariants({
   full: [wrapperCommon],
-  contain: [
+  fullRestricted: [
     wrapperCommon,
     {
       padding: theme.space.l,
       maxHeight: 480,
+    },
+  ],
+  list: [
+    wrapperCommon,
+    {
+      maxHeight: 360,
     },
   ],
 });

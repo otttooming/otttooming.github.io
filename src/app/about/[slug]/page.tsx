@@ -47,7 +47,7 @@ export default async function AboutPage({
           width={width}
           background="#fff"
           fit="contain"
-          wrapper="contain"
+          wrapper="fullRestricted"
         />
       </Layout.Hero>
 

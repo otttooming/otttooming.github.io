@@ -80,6 +80,7 @@ export default async function Projects() {
               background={featured.background}
               alt={title}
               fit={featured.fit}
+              wrapper="list"
             />
           </ProjectItem>
         ))}

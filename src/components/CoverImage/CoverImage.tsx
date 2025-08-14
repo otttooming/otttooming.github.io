@@ -9,7 +9,7 @@ type Props = {
   background?: string;
   height: number;
   width: number;
-  wrapper?: 'contain' | 'full';
+  wrapper?: 'full' | 'fullRestricted' | 'list';
 };
 
 const CoverImage = ({
