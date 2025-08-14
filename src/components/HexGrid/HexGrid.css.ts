@@ -60,6 +60,5 @@ export const item = style({
 
 export const icon = style({
   width: '50%',
-  height: '100%',
   color: '#fff',
 });

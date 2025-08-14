@@ -3,7 +3,6 @@ import { recipe } from '@vanilla-extract/recipes';
 export const icon = recipe({
   base: {
     height: '16px',
-    maxWidth: '100%',
   },
   variants: {
     size: {

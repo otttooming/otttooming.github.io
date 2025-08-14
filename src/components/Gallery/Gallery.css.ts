@@ -96,8 +96,5 @@ export const itemContainer = style({
 globalStyle(`${itemContainer} > *`, {
   borderRadius: theme.borderRadius.m,
   position: 'relative',
-  objectFit: 'cover',
-  width: '100%',
-  height: '100%',
   flex: 1,
 });

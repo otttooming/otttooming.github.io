@@ -19,5 +19,4 @@ export const companyLink = style({
 
 export const card = style({
   width: '200px',
-  maxHeight: '100%',
 });

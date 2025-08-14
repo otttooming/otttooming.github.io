@@ -7,7 +7,6 @@ const wrapperCommon = style({
   borderRadius: theme.borderRadius.m,
   overflow: 'hidden',
   boxShadow: '5px 25px 40px rgba(0, 0, 0, 0.2)',
-  position: 'relative',
 });
 
 export const wrapper = styleVariants({
@@ -21,21 +20,12 @@ export const wrapper = styleVariants({
   ],
 });
 
-const imageCommon = style({
-  maxWidth: '100%',
-  maxHeight: '100%',
-  height: 'auto',
-});
-
 export const image = styleVariants({
-  cover: [
-    imageCommon,
-    {
-      objectFit: 'cover',
-    },
-  ],
+  /**
+   * Styles are already provided by the CSS reset
+   */
+  cover: [],
   contain: [
-    imageCommon,
     {
       objectFit: 'contain',
     },

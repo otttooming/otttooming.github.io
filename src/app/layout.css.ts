@@ -62,3 +62,10 @@ globalStyle('a:focus, button:focus', {
   outline: 'none',
   boxShadow: '0 0 0 3px rgba(66, 153, 225, 0.6)',
 });
+
+globalStyle('img, svg', {
+  display: 'block',
+  objectFit: 'cover',
+  maxWidth: '100%',
+  height: 'auto',
+});
