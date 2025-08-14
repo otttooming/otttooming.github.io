@@ -32,11 +32,11 @@ const CoverImage = ({
       <Image
         height={height}
         width={width}
-        className={styles.image[fit]}
         alt={alt}
         src={src}
         priority={true}
         sizes={sizes}
+        style={{ objectFit: fit }}
       />
     </div>
   );

@@ -19,15 +19,3 @@ export const wrapper = styleVariants({
     },
   ],
 });
-
-export const image = styleVariants({
-  /**
-   * Styles are already provided by the CSS reset
-   */
-  cover: [],
-  contain: [
-    {
-      objectFit: 'contain',
-    },
-  ],
-});
