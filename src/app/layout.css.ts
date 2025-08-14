@@ -11,6 +11,9 @@ globalStyle('ol, ul', {
 
 globalStyle('*', {
   boxSizing: 'border-box',
+  margin: 0,
+  padding: 0,
+  font: 'inherit',
 });
 
 globalStyle('html', {
@@ -49,8 +52,6 @@ globalStyle('h3', {
 globalStyle('h1, h2, h3, h4, h5, p', {
   fontWeight: theme.fontWeight.normal,
   lineHeight: theme.lineHeight.s,
-  marginTop: 0,
-  marginBottom: 0,
 });
 
 globalStyle('p, figure, li', {
