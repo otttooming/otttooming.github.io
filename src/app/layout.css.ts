@@ -30,6 +30,10 @@ globalStyle('body', {
   fontSize: theme.fontSize.m,
 });
 
+globalStyle('h1, h2, h3, h4, h5, h6', {
+  textWrap: 'balance',
+});
+
 globalStyle('h1', {
   fontSize: theme.fontSize.xxxl,
 });
