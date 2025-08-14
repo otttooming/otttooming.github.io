@@ -53,6 +53,13 @@ globalStyle('h1, h2, h3, h4, h5, p', {
   marginBottom: 0,
 });
 
+globalStyle('p, figure, li', {
+  /**
+   * The number of paragraph orphans should be kept to a minimum
+   */
+  textWrap: 'pretty',
+});
+
 globalStyle('strong', {
   fontWeight: theme.fontWeight.bold,
 });
