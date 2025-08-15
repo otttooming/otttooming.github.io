@@ -4,9 +4,8 @@ import { theme } from '../utils/theme.css';
 export const hero = style({
   display: 'grid',
   gap: theme.space.l,
-  gridTemplateColumns: 'repeat(auto-fit, minmax(260px, 1fr))',
+  gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))',
   alignItems: 'center',
-  width: '100%',
   paddingTop: '2rem',
   paddingBottom: '2rem',
   paddingLeft: 'clamp(1rem, 1rem + 4vw, 3rem)',
@@ -14,12 +13,6 @@ export const hero = style({
   backgroundColor: 'light-dark(#edf2f7, #2c3442)',
   marginBottom: theme.space.xxxl,
   borderRadius: theme.borderRadius.l,
-
-  '@media': {
-    '(min-width: 960px)': {
-      gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))',
-    },
-  },
 });
 
 export const altGrid = style({
@@ -39,13 +32,6 @@ export const segment = style({
   justifyContent: 'center',
   minHeight: 'min(100vh, 768px)',
 });
-
-export const mainSegment = style([
-  segment,
-  {
-    minHeight: 'calc(100vh - 96px)',
-  },
-]);
 
 export const smallText = style({
   marginBottom: '8px',
