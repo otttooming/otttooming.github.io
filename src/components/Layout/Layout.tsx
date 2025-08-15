@@ -17,9 +17,12 @@ const Hero = ({ children }: PropsWithChildren) => (
   <section className={styles.hero}>{children}</section>
 );
 
-const Breakout = ({ children }: PropsWithChildren) => (
-  <section className={styles.breakout}>{children}</section>
-);
+const Breakout = ({
+  children,
+  layout = 'detail',
+}: PropsWithChildren<{
+  layout?: 'detail' | 'grid';
+}>) => <section className={styles.breakout[layout]}>{children}</section>;
 
 export default {
   DetailHeader,
