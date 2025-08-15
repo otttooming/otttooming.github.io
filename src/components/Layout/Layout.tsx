@@ -11,10 +11,14 @@ const Hero = ({ children }: PropsWithChildren) => (
 
 const Breakout = ({
   children,
+  as: ComponentTag = 'section',
   layout = 'detail',
 }: PropsWithChildren<{
+  as?: React.ElementType;
   layout?: 'detail' | 'grid';
-}>) => <section className={styles.breakout[layout]}>{children}</section>;
+}>) => (
+  <ComponentTag className={styles.breakout[layout]}>{children}</ComponentTag>
+);
 
 export default {
   DetailHeader,
