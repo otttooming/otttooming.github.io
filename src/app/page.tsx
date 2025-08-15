@@ -6,6 +6,7 @@ import * as styles from './page.css';
 import Image from 'next/image';
 import portrait from '../images/portrait-ott.jpg';
 import { Metadata } from 'next';
+import Layout from '../components/Layout/Layout';
 
 const Portrait = () => {
   return (
@@ -63,7 +64,7 @@ export const metadata: Metadata = {
 };
 
 const IndexPage = () => (
-  <main>
+  <Layout.Breakout as="main" layout="grid">
     <section className={styles.mainSegment}>
       <Hero>
         <div>
@@ -118,7 +119,7 @@ const IndexPage = () => (
       <Gallery />
     </section>
 
-    <section className={styles.segment}>
+    <section className={styles.segment} data-layout-breakout>
       <AltGrid>
         <HexGrid />
 
@@ -148,7 +149,7 @@ const IndexPage = () => (
         </div>
       </PlainGrid>
     </section>
-  </main>
+  </Layout.Breakout>
 );
 
 export default IndexPage;
