@@ -9,7 +9,6 @@ export const wrapper = style({
   backgroundColor: '#fff',
   borderRadius: theme.borderRadius.m,
   padding: '64px',
-  maxWidth: '1280px',
 });
 
 export const content = style({

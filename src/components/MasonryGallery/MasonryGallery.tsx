@@ -4,7 +4,7 @@ import * as styles from './MasonryGallery.css';
 
 const MasonryGallery = ({ children }: PropsWithChildren) => {
   return (
-    <div className={styles.wrapper}>
+    <div className={styles.wrapper} data-layout-breakout>
       {Children.map(children, (child) => (
         <ImageZoom>
           <div className={styles.item}>{child}</div>

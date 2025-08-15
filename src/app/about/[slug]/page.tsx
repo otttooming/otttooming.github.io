@@ -57,13 +57,13 @@ export default async function AboutPage({
         <TagList tags={tags} mapping={socialTags} />
       </Layout.DetailHeader>
 
-      <Layout.DetailSection>
+      <Layout.Breakout>
         <MDXRemote
           options={{ parseFrontmatter: true }}
           components={MDXComponents}
           source={source}
         />
-      </Layout.DetailSection>
+      </Layout.Breakout>
     </main>
   );
 }

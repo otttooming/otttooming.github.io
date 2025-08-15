@@ -30,17 +30,6 @@ export const listSection = style({
   marginTop: theme.space.xxl,
 });
 
-export const detailSection = style({
-  marginTop: theme.space.xxl,
-});
-
-globalStyle(`:where(${detailSection}) > *`, {
-  maxWidth: '960px',
-  margin: 'auto',
-  paddingLeft: theme.space.m,
-  paddingRight: theme.space.m,
-});
-
 export const hero = style({
   display: 'flex',
   justifyContent: 'center',

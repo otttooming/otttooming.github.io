@@ -5,10 +5,6 @@ const DetailHeader = ({ children }: PropsWithChildren) => (
   <header className={styles.detailHeader}>{children}</header>
 );
 
-const DetailSection = ({ children }: PropsWithChildren) => (
-  <section className={styles.detailSection}>{children}</section>
-);
-
 const ListHeader = ({ children }: PropsWithChildren) => (
   <header className={styles.listHeader}>{children}</header>
 );
@@ -27,7 +23,6 @@ const Breakout = ({ children }: PropsWithChildren) => (
 
 export default {
   DetailHeader,
-  DetailSection,
   ListHeader,
   ListSection,
   Hero,
