@@ -19,7 +19,7 @@ const CompanyLogo = ({ href, logo: Logo, maxWidth }: CompanyLogoProps) => {
         target="_blank"
         rel="noopener noreferrer"
       >
-        <Logo className={styles.card} style={{ maxWidth }} />
+        <Logo className={styles.logo} style={{ maxWidth }} />
       </a>
     </li>
   );
