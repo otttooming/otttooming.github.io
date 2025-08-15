@@ -9,10 +9,6 @@ const ListHeader = ({ children }: PropsWithChildren) => (
   <header className={styles.listHeader}>{children}</header>
 );
 
-const ListSection = ({ children }: PropsWithChildren) => (
-  <section className={styles.listSection}>{children}</section>
-);
-
 const Hero = ({ children }: PropsWithChildren) => (
   <section className={styles.hero}>{children}</section>
 );
@@ -27,7 +23,6 @@ const Breakout = ({
 export default {
   DetailHeader,
   ListHeader,
-  ListSection,
   Hero,
   Breakout,
 };

@@ -61,7 +61,7 @@ export default async function Technologies() {
         </p>
       </Layout.DetailHeader>
 
-      <Layout.ListSection>
+      <Layout.Breakout layout="grid">
         {technologies.map(({ source, title, slug, featured }) => {
           return (
             <Card
@@ -74,7 +74,7 @@ export default async function Technologies() {
             />
           );
         })}
-      </Layout.ListSection>
+      </Layout.Breakout>
     </main>
   );
 }

@@ -64,7 +64,7 @@ export default async function Projects() {
         </div>
       </Layout.DetailHeader>
 
-      <Layout.ListSection>
+      <Layout.Breakout layout="grid">
         {projects.map(({ slug, title, kind, company, featured }) => (
           <ProjectItem
             key={slug}
@@ -84,7 +84,7 @@ export default async function Projects() {
             />
           </ProjectItem>
         ))}
-      </Layout.ListSection>
+      </Layout.Breakout>
     </main>
   );
 }
