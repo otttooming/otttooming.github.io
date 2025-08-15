@@ -16,15 +16,6 @@ export const detailHeader = style({
   marginTop: theme.space.xxxl,
 });
 
-export const listHeader = style({
-  display: 'grid',
-  gap: theme.space.m,
-  paddingLeft: theme.space.m,
-  paddingRight: theme.space.m,
-  maxWidth: '960px',
-  marginTop: theme.space.xxxl,
-});
-
 export const hero = style({
   display: 'flex',
   justifyContent: 'center',
