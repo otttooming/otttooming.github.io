@@ -29,18 +29,6 @@ const AltGrid = ({ children }: React.PropsWithChildren) => (
   <div className={styles.altGrid}>{children}</div>
 );
 
-const PlainGrid = ({ children }: React.PropsWithChildren) => (
-  <div className={styles.plainGrid}>{children}</div>
-);
-
-const SmallType = ({ children }: React.PropsWithChildren) => {
-  return <p className={styles.smallText}>{children}</p>;
-};
-
-const Text = ({ children }: React.PropsWithChildren) => (
-  <p className={styles.text}>{children}</p>
-);
-
 const OutLink = ({
   children,
   ...props
@@ -109,12 +97,12 @@ const IndexPage = () => (
     </section>
 
     <section className={styles.segment}>
-      <PlainGrid>
-        <SmallType>Passions</SmallType>
+      <header>
         <h2>
+          <em>Passions</em>
           <strong>Animal welfare</strong> and my cats and dogs specifically
         </h2>
-      </PlainGrid>
+      </header>
 
       <Gallery />
     </section>
@@ -123,31 +111,29 @@ const IndexPage = () => (
       <AltGrid>
         <HexGrid />
 
-        <div>
-          <SmallType>Experience</SmallType>
+        <header>
           <h2>
+            <em>Experience</em>
             <strong>Tech stack</strong> that I currently use
           </h2>
 
-          <Text>
+          <p>
             Passionate about TypeScript, React, NodeJS, GraphQL and statically
             typed languages in general.
-          </Text>
-        </div>
+          </p>
+        </header>
       </AltGrid>
     </section>
 
     <section className={styles.segment}>
-      <PlainGrid>
-        <div style={{ textAlign: 'center' }}>
-          <SmallType>Industry</SmallType>
-          <h2>
-            Some <strong>amazing companies </strong> I&apos;ve worked with
-          </h2>
+      <header>
+        <h2>
+          <em>Industry</em>
+          Some <strong>amazing companies </strong> I&apos;ve worked with
+        </h2>
+      </header>
 
-          <Coop />
-        </div>
-      </PlainGrid>
+      <Coop />
     </section>
   </Layout.Breakout>
 );

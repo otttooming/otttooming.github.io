@@ -23,7 +23,7 @@ export const altGrid = style({
 });
 
 export const plainGrid = style({
-  margin: `${theme.space.xl} auto`,
+  marginBlock: theme.space.xl,
 });
 
 export const segment = style({
@@ -31,17 +31,6 @@ export const segment = style({
   flexDirection: 'column',
   justifyContent: 'center',
   minHeight: 'min(100vh, 768px)',
-});
-
-export const smallText = style({
-  marginBottom: '8px',
-  textTransform: 'uppercase',
-  fontSize: '14px',
-  color: 'light-dark(#243343, #fff)',
-});
-
-export const text = style({
-  marginTop: '8px',
 });
 
 export const outLink = style({

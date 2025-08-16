@@ -37,6 +37,14 @@ globalStyle('h1, h2, h3, h4, h5, h6', {
   textWrap: 'balance',
 });
 
+globalStyle(':where(h1, h2, h3, h4, h5, h6) em', {
+  display: 'block',
+  marginBottom: theme.space.s,
+  textTransform: 'uppercase',
+  fontSize: '14px',
+  color: 'light-dark(#243343, #fff)',
+});
+
 globalStyle('h1', {
   fontSize: theme.fontSize.xxxl,
 });
@@ -59,6 +67,10 @@ globalStyle('p, figure, li', {
    * The number of paragraph orphans should be kept to a minimum
    */
   textWrap: 'pretty',
+});
+
+globalStyle('section * + p', {
+  marginTop: theme.space.m,
 });
 
 globalStyle('strong', {
