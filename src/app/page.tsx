@@ -3,23 +3,9 @@ import Coop from '../components/Coop/Coop';
 import Gallery from '../components/Gallery/Gallery';
 import HexGrid from '../components/HexGrid/HexGrid';
 import * as styles from './page.css';
-import Image from 'next/image';
-import portrait from '../images/portrait-ott.jpg';
 import { Metadata } from 'next';
 import Layout from '../components/Layout/Layout';
-
-const Portrait = () => {
-  return (
-    <Image
-      width={466}
-      height={466}
-      src={portrait}
-      className={styles.portrait}
-      alt="Ott Tooming"
-      priority={true}
-    />
-  );
-};
+import { Portrait } from '../components/Portrait/Portrait';
 
 const Hero = ({ children }: React.PropsWithChildren) => {
   return <div className={styles.hero}>{children}</div>;
