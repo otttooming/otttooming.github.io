@@ -74,7 +74,7 @@ export default async function ProjectPostPage({ params }: Props) {
         <TagList tags={tech} mapping={techTags} />
       </Layout.DetailHeader>
 
-      <Layout.Breakout>
+      <Layout.Breakout as="article">
         <MDXRemote
           options={{ parseFrontmatter: true }}
           components={{

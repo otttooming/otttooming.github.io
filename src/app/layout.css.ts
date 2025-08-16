@@ -73,6 +73,10 @@ globalStyle('section * + p', {
   marginTop: theme.space.m,
 });
 
+globalStyle('article * + p', {
+  marginTop: theme.space.l,
+});
+
 globalStyle('strong', {
   fontWeight: theme.fontWeight.bold,
 });

@@ -32,7 +32,3 @@ export const list = style({
 export const listItem = style({
   marginTop: '8px',
 });
-
-export const text = style({
-  marginTop: '24px',
-});
