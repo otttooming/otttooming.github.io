@@ -77,6 +77,14 @@ globalStyle('article * + p', {
   marginTop: theme.space.l,
 });
 
+globalStyle('li', {
+  display: 'block',
+});
+
+globalStyle('li + li', {
+  marginTop: '4px',
+});
+
 globalStyle('strong', {
   fontWeight: theme.fontWeight.bold,
 });
