@@ -19,14 +19,16 @@ const OutLink = ({
   children,
   ...props
 }: React.ComponentPropsWithoutRef<'a'>) => (
-  <a
-    className={styles.outLink}
-    target="_blank"
-    rel="noopener noreferrer"
-    {...props}
-  >
-    {children}
-  </a>
+  <li>
+    <a
+      className={styles.outLink}
+      target="_blank"
+      rel="noopener noreferrer"
+      {...props}
+    >
+      {children}
+    </a>
+  </li>
 );
 
 const SocialIcon = ({ children }: React.PropsWithChildren) => (
@@ -42,40 +44,37 @@ const IndexPage = () => (
     <section className={styles.segment}>
       <Hero>
         <div>
-          <h1>
-            👋 Hi, I am <strong>Ott</strong>
-          </h1>
+          <header>
+            <h1>
+              👋 Hi, I am <strong>Ott</strong>
+            </h1>
+            <h3>
+              Front-end developer/<strong>student</strong>
+            </h3>
+          </header>
 
-          <h3>
-            Front-end developer/<strong>student</strong>
-          </h3>
-
-          <div style={{ marginTop: '24px' }}>
+          <ul>
             <OutLink href="https://github.com/otttooming">
               <SocialIcon>
                 <GitHub size="20" />
               </SocialIcon>
               <strong>github.com</strong>/otttooming
             </OutLink>
-          </div>
 
-          <div style={{ marginTop: '4px' }}>
             <OutLink href="https://www.linkedin.com/in/otttooming/">
               <SocialIcon>
                 <Linkedin size="16" />
               </SocialIcon>
               <strong>linkedin.com</strong>/in/otttooming
             </OutLink>
-          </div>
 
-          <div style={{ marginTop: '4px' }}>
             <OutLink href="https://twitter.com/otttooming">
               <SocialIcon>
                 <Twitter size="16" />
               </SocialIcon>
               <strong>twitter.com</strong>/otttooming
             </OutLink>
-          </div>
+          </ul>
         </div>
 
         <Portrait />
