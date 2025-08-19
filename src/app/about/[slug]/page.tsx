@@ -39,25 +39,25 @@ export default async function AboutPage({
 
   return (
     <main>
-      <Layout.Hero>
-        <CoverImage
-          alt={alt}
-          src={`/content/about/${slug}/${illustration}`}
-          height={height}
-          width={width}
-          background="#fff"
-          fit="contain"
-          wrapper="fullRestricted"
-        />
-      </Layout.Hero>
+      <Layout.Breakout as="article">
+        <Layout.Hero>
+          <CoverImage
+            alt={alt}
+            src={`/content/about/${slug}/${illustration}`}
+            height={height}
+            width={width}
+            background="#fff"
+            fit="contain"
+            wrapper="fullRestricted"
+          />
+        </Layout.Hero>
 
-      <Layout.DetailHeader>
-        <h1>{title}</h1>
+        <Layout.DetailHeader>
+          <h1>{title}</h1>
 
-        <TagList tags={tags} mapping={socialTags} />
-      </Layout.DetailHeader>
+          <TagList tags={tags} mapping={socialTags} />
+        </Layout.DetailHeader>
 
-      <Layout.Breakout>
         <MDXRemote
           options={{ parseFrontmatter: true }}
           components={MDXComponents}

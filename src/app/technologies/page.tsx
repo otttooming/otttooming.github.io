@@ -49,7 +49,7 @@ export default async function Technologies() {
   ]);
 
   return (
-    <main>
+    <Layout.Breakout as="main">
       <Layout.DetailHeader>
         <h1>
           <strong>Tech stack</strong> that I currently use
@@ -61,20 +61,18 @@ export default async function Technologies() {
         </p>
       </Layout.DetailHeader>
 
-      <Layout.Breakout layout="grid">
-        {technologies.map(({ source, title, slug, featured }) => {
-          return (
-            <Card
-              key={slug}
-              title={title}
-              slug={slug}
-              source={source}
-              featured={featured}
-              projects={projects}
-            />
-          );
-        })}
-      </Layout.Breakout>
-    </main>
+      {technologies.map(({ source, title, slug, featured }) => {
+        return (
+          <Card
+            key={slug}
+            title={title}
+            slug={slug}
+            source={source}
+            featured={featured}
+            projects={projects}
+          />
+        );
+      })}
+    </Layout.Breakout>
   );
 }

@@ -48,7 +48,7 @@ export default async function Projects() {
   const projects = await getProjects();
 
   return (
-    <main>
+    <Layout.Breakout as="main">
       <Layout.DetailHeader>
         <h1>
           <strong>Some projects</strong> I have been involved in
@@ -64,27 +64,25 @@ export default async function Projects() {
         </div>
       </Layout.DetailHeader>
 
-      <Layout.Breakout layout="grid">
-        {projects.map(({ slug, title, kind, company, featured }) => (
-          <ProjectItem
-            key={slug}
-            slug={slug}
-            title={title}
-            kind={kind}
-            company={company}
-          >
-            <CoverImage
-              src={`/content/projects/${slug}/${featured.src}`}
-              height={featured.height}
-              width={featured.width}
-              background={featured.background}
-              alt={title}
-              fit={featured.fit}
-              wrapper="list"
-            />
-          </ProjectItem>
-        ))}
-      </Layout.Breakout>
-    </main>
+      {projects.map(({ slug, title, kind, company, featured }) => (
+        <ProjectItem
+          key={slug}
+          slug={slug}
+          title={title}
+          kind={kind}
+          company={company}
+        >
+          <CoverImage
+            src={`/content/projects/${slug}/${featured.src}`}
+            height={featured.height}
+            width={featured.width}
+            background={featured.background}
+            alt={title}
+            fit={featured.fit}
+            wrapper="list"
+          />
+        </ProjectItem>
+      ))}
+    </Layout.Breakout>
   );
 }

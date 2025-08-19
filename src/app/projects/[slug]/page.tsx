@@ -55,26 +55,26 @@ export default async function ProjectPostPage({ params }: Props) {
 
   return (
     <main>
-      <Layout.Hero>
-        <CoverImage
-          alt={title}
-          src={`/content/projects/${slug}/${src}`}
-          height={height}
-          width={width}
-          background={background}
-          fit={fit}
-        />
-      </Layout.Hero>
-
-      <Layout.DetailHeader>
-        <Logo name={company} />
-
-        <ProjectHeader as="h1" title={title} kind={kind} />
-
-        <TagList tags={tech} mapping={techTags} />
-      </Layout.DetailHeader>
-
       <Layout.Breakout as="article">
+        <Layout.Hero data-layout-breakout>
+          <CoverImage
+            alt={title}
+            src={`/content/projects/${slug}/${src}`}
+            height={height}
+            width={width}
+            background={background}
+            fit={fit}
+          />
+        </Layout.Hero>
+
+        <Layout.DetailHeader>
+          <Logo name={company} />
+
+          <ProjectHeader as="h1" title={title} kind={kind} />
+
+          <TagList tags={tech} mapping={techTags} />
+        </Layout.DetailHeader>
+
         <MDXRemote
           options={{ parseFrontmatter: true }}
           components={{
