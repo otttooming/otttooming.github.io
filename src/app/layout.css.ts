@@ -39,9 +39,9 @@ globalStyle('h1, h2, h3, h4, h5, h6', {
 
 globalStyle(':where(h1, h2, h3, h4, h5, h6) em', {
   display: 'block',
-  marginBottom: theme.space.s,
   textTransform: 'uppercase',
-  fontSize: '14px',
+  fontSize: theme.fontSize.xs,
+  lineHeight: theme.lineHeight.xs,
   color: 'light-dark(#243343, #fff)',
 });
 
