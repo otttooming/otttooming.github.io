@@ -5,9 +5,6 @@ export const wrapper = style({
   display: 'grid',
   gridTemplateColumns: 'repeat(auto-fill, minmax(min(300px, 100%), 1fr))',
   gap: theme.space.s,
-  marginTop: theme.space.xl,
-  marginBottom: theme.space.xl,
-  maxWidth: '1280px',
 });
 
 export const item = style({
