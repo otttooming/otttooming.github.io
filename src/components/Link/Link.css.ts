@@ -15,7 +15,7 @@ const button = style({
   height: theme.lineHeight.l,
   borderRadius: theme.borderRadius.s,
   fontWeight: theme.fontWeight.semiBold,
-  fontSize: theme.fontSize.s,
+  fontSize: theme.fontSize.xs,
   paddingLeft: theme.space.s,
   paddingRight: theme.space.s,
   background: 'rgba(255, 255, 255, 0.08)',
