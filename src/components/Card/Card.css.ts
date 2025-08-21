@@ -5,8 +5,6 @@ export const card = style({
   display: 'grid',
   gridTemplateColumns: '0 1fr 0',
   gridTemplateRows: 'auto 8em 1fr auto',
-  marginBottom: '80px',
-  listStyleType: 'none',
   position: 'relative',
   '::before': {
     content: '""',
