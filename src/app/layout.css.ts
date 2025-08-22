@@ -59,7 +59,7 @@ globalStyle('h3', {
 
 globalStyle('h1, h2, h3, h4, h5, p', {
   fontWeight: theme.fontWeight.normal,
-  lineHeight: theme.lineHeight.s,
+  lineHeight: theme.lineHeight.m,
 });
 
 globalStyle('p, figure, li', {
