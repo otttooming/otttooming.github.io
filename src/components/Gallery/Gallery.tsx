@@ -19,15 +19,15 @@ const images = [
 
 const Gallery = () => {
   return (
-    <div className={styles.wrapper}>
+    <ul className={styles.wrapper}>
       {images.map(([alt, src]) => {
         return (
-          <div key={alt} className={styles.item}>
+          <li key={alt} className={styles.item}>
             <Image src={src} alt={alt} />
-          </div>
+          </li>
         );
       })}
-    </div>
+    </ul>
   );
 };
 
