@@ -3,11 +3,7 @@ import { theme } from '../../utils/theme.css';
 
 export const wrapper = style({
   display: 'grid',
-  alignItems: 'stretch',
-  gap: '16px',
-  width: '100%',
-  maxWidth: '960px',
-  margin: '0 auto',
+  gap: theme.space.m,
   gridTemplateRows: 'repeat(14, minmax(24px, 1fr))',
   gridTemplateColumns: 'repeat(9, minmax(16px, 1fr))',
   '@media': {
