@@ -20,6 +20,8 @@ export const wrapper = style({
 
 export const item = style({
   position: 'relative',
+  overflow: 'hidden',
+  borderRadius: theme.borderRadius.m,
   selectors: {
     '&:first-of-type': {
       display: 'none',
@@ -80,21 +82,9 @@ export const item = style({
   },
 });
 
-export const itemContainer = style({
+globalStyle(`${item} > *`, {
+  borderRadius: theme.borderRadius.m,
   position: 'absolute',
-  left: 0,
-  right: 0,
-  bottom: 0,
-  top: 0,
-  overflow: 'hidden',
-  display: 'flex',
-  alignItems: 'center',
-  justifyContent: 'center',
-  borderRadius: theme.borderRadius.m,
-});
-
-globalStyle(`${itemContainer} > *`, {
-  borderRadius: theme.borderRadius.m,
-  position: 'relative',
-  flex: 1,
+  inset: '50% 0',
+  translate: '0 -50%',
 });

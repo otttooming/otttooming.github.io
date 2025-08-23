@@ -23,9 +23,7 @@ const Gallery = () => {
       {images.map(([alt, src]) => {
         return (
           <div key={alt} className={styles.item}>
-            <div className={styles.itemContainer}>
-              <Image src={src} alt={alt} />
-            </div>
+            <Image src={src} alt={alt} />
           </div>
         );
       })}
