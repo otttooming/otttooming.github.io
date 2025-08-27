@@ -81,7 +81,7 @@ globalStyle('li', {
   display: 'block',
 });
 
-globalStyle('li + li', {
+globalStyle(':where(ul:not([class])) > :where(li) + :where(li)', {
   marginTop: '4px',
 });
 
