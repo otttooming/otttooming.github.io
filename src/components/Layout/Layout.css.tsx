@@ -72,7 +72,6 @@ const breakoutCommon = style({
     [content-end]
     minmax(0, var(--breakout-size)) [breakout-end]
     minmax(var(--padding-inline), 1fr) [full-width-end]`,
-  marginTop: theme.space.xxl,
 });
 
 export const breakout = styleVariants({
