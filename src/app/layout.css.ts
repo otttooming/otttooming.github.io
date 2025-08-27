@@ -57,7 +57,16 @@ globalStyle('h3', {
   fontSize: theme.fontSize.xl,
 });
 
-globalStyle('h1, h2, h3, h4, h5, p', {
+globalStyle('h1, h2, h3, h4, h5', {
+  fontWeight: theme.fontWeight.bold,
+  lineHeight: theme.lineHeight.m,
+});
+
+globalStyle(':where(h1, h2, h3, h4, h5):has(strong)', {
+  fontWeight: theme.fontWeight.normal,
+});
+
+globalStyle('p', {
   fontWeight: theme.fontWeight.normal,
   lineHeight: theme.lineHeight.m,
 });
