@@ -5,18 +5,18 @@ article {
   }
 
   /* Targets any element that is immediately followed by a heading (h1-h5) */
-  *:has(+ :where(h1, h2, h3, h4, h5)) {
+  > *:has(+ :where(h1, h2, h3, h4, h5)) {
     margin-block-start: 1em;
   }
 
   /* Adds extra spacing before headings when they're not the first element */
-  * + :where(h1, h2, h3, h4, h5) {
+  > * + :where(h1, h2, h3, h4, h5) {
     margin-block-start: 2em;
   }
 
   /* Targets any element that is immediately followed by a header that is the first of its type
      This creates spacing before sections that start with a header */
-  *:has(+ :where(header:first-child)) {
+  > *:has(+ :where(header:first-child)) {
     margin-block-start: 2em;
   }
 
