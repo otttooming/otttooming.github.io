@@ -24,4 +24,9 @@ article {
   > :where(figure:first-child, header:first-child) {
     margin-block-start: 3em;
   }
+
+  /* Selects any direct child that immediately follows a header element (adjacent sibling) to add spacing after headers */
+  > header + * {
+    margin-block-start: 2em;
+  }
 }
