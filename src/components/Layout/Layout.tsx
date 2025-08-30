@@ -5,8 +5,10 @@ const DetailHeader = ({ children }: PropsWithChildren) => (
   <header className={styles.detailHeader}>{children}</header>
 );
 
-const Hero = ({ children }: PropsWithChildren) => (
-  <section className={styles.hero}>{children}</section>
+const Hero = ({ children, ...restProps }: PropsWithChildren) => (
+  <section {...restProps} className={styles.hero}>
+    {children}
+  </section>
 );
 
 const Breakout = ({
