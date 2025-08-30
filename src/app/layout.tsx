@@ -5,6 +5,7 @@ import { ColorModeProvider } from '../components/ui/color-mode';
 import { Montserrat } from 'next/font/google';
 import { Viewport } from 'next';
 import { PropsWithChildren } from 'react';
+import './global.css';
 
 export const viewport: Viewport = {
   width: 'device-width',
