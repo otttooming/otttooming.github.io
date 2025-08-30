@@ -6,9 +6,9 @@ const DetailHeader = ({ children }: PropsWithChildren) => (
 );
 
 const Hero = ({ children, ...restProps }: PropsWithChildren) => (
-  <section {...restProps} className={styles.hero}>
+  <figure {...restProps} className={styles.hero}>
     {children}
-  </section>
+  </figure>
 );
 
 const Breakout = ({
