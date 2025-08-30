@@ -40,7 +40,7 @@ export const metadata: Metadata = {
 };
 
 const IndexPage = () => (
-  <Layout.Breakout as="main" layout="grid">
+  <Layout.Breakout as="main">
     <section className={styles.segment}>
       <Hero>
         <div>

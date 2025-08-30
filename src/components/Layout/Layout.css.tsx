@@ -1,9 +1,4 @@
-import {
-  createGlobalVar,
-  globalStyle,
-  style,
-  styleVariants,
-} from '@vanilla-extract/css';
+import { createGlobalVar, globalStyle, style } from '@vanilla-extract/css';
 import { theme } from '../../utils/theme.css';
 
 export const detailHeader = style({
@@ -55,7 +50,7 @@ const breakOutSizeVar = createGlobalVar('breakout-size', {
   initialValue: '160px',
 });
 
-const breakoutCommon = style({
+export const breakout = style({
   vars: {
     [paddingInlineVar]: theme.space.m,
     [breakOutSizeVar]:
@@ -74,23 +69,10 @@ const breakoutCommon = style({
     minmax(var(--padding-inline), 1fr) [full-width-end]`,
 });
 
-export const breakout = styleVariants({
-  detail: [breakoutCommon],
-  grid: [
-    breakoutCommon,
-    {
-      rowGap: theme.space.xxxl,
-    },
-  ],
+globalStyle(`${breakout} > :not([data-layout-breakout], [data-layout-full])`, {
+  gridColumn: 'content',
 });
 
-globalStyle(
-  `${breakoutCommon} > :not([data-layout-breakout], [data-layout-full])`,
-  {
-    gridColumn: 'content',
-  },
-);
-
-globalStyle(`${breakoutCommon} > [data-layout-breakout]`, {
+globalStyle(`${breakout} > [data-layout-breakout]`, {
   gridColumn: 'breakout',
 });
