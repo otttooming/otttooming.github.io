@@ -1,9 +1,5 @@
 import { style } from '@vanilla-extract/css';
 
-export const heading2 = style({
-  marginTop: '32px',
-});
-
 export const heading3 = style({
   marginTop: '32px',
 });
