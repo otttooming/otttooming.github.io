@@ -27,11 +27,7 @@ export const HeadingH3 = ({
   children,
   ...restProps
 }: PropsWithChildren<HTMLAttributes<HTMLHeadingElement>>) => (
-  <h3
-    {...restProps}
-    id={getURISafeString(children)}
-    className={styles.heading3}
-  >
+  <h3 {...restProps} id={getURISafeString(children)}>
     {children}
   </h3>
 );

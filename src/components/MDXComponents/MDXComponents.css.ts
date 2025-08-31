@@ -1,9 +1,5 @@
 import { style } from '@vanilla-extract/css';
 
-export const heading3 = style({
-  marginTop: '32px',
-});
-
 export const link = style({
   display: 'inline-flex',
   alignItems: 'center',
