@@ -69,20 +69,6 @@ export const Link = ({
   );
 };
 
-export const List = ({
-  className,
-  ...props
-}: HTMLAttributes<HTMLUListElement>) => (
-  <ul className={styles.list} {...props} />
-);
-
-export const ListItem = ({
-  className,
-  ...props
-}: HTMLAttributes<HTMLLIElement>) => (
-  <li className={styles.listItem} {...props} />
-);
-
 function isImageTag(props: unknown) {
   return typeof props === 'object' && props !== null && 'src' in props;
 }
@@ -109,8 +95,6 @@ const MDXComponents = {
   Illustration,
   h2: HeadingH2,
   h3: HeadingH3,
-  ul: List,
-  li: ListItem,
   p: Text,
   a: Link,
 };
