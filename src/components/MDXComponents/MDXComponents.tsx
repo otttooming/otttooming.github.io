@@ -82,11 +82,7 @@ export const Text = ({
     return children;
   }
 
-  return (
-    <p className={styles.text} {...props}>
-      {children}
-    </p>
-  );
+  return <p {...props}>{children}</p>;
 };
 
 const MDXComponents = {
