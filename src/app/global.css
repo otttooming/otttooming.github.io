@@ -1,4 +1,5 @@
-article {
+/* Targets only standalone articles that don't have adjacent article siblings */
+:where(article:not(article + article):not(article:has(+ article))) {
   /* Adds vertical spacing between any two consecutive elements within the article */
   > :where(*) + :where(*) {
     margin-block-start: 0.75em;
