@@ -50,7 +50,7 @@ export default async function Technologies() {
 
   return (
     <Layout.Breakout as="main">
-      <Layout.DetailHeader>
+      <header>
         <h1>
           <strong>Tech stack</strong> that I currently use
         </h1>
@@ -59,7 +59,7 @@ export default async function Technologies() {
           Passionate about TypeScript, React, NodeJS, GraphQL and statically
           typed languages in general.
         </p>
-      </Layout.DetailHeader>
+      </header>
 
       {technologies.map(({ source, title, slug, featured }) => {
         return (

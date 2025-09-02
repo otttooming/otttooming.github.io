@@ -67,13 +67,13 @@ export default async function ProjectPostPage({ params }: Props) {
           />
         </Layout.Hero>
 
-        <Layout.DetailHeader>
+        <header>
           <Logo name={company} />
 
           <ProjectHeader as="h1" title={title} kind={kind} />
 
           <TagList tags={tech} mapping={techTags} />
-        </Layout.DetailHeader>
+        </header>
 
         <MDXRemote
           options={{ parseFrontmatter: true }}

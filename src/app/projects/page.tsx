@@ -49,20 +49,18 @@ export default async function Projects() {
 
   return (
     <Layout.Breakout as="main">
-      <Layout.DetailHeader>
+      <header>
         <h1>
           <strong>Some projects</strong> I have been involved in
         </h1>
 
-        <div>
-          <p>All of the projects have been a team collaboration and effort.</p>
+        <p>All of the projects have been a team collaboration and effort.</p>
 
-          <p>
-            I have been thoroughly fortunate to have been given the opportunity
-            to work with some amazing people.
-          </p>
-        </div>
-      </Layout.DetailHeader>
+        <p>
+          I have been thoroughly fortunate to have been given the opportunity to
+          work with some amazing people.
+        </p>
+      </header>
 
       {projects.map(({ slug, title, kind, company, featured }) => (
         <ProjectItem
