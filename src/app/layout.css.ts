@@ -79,7 +79,13 @@ globalStyle('p, figure, li', {
 });
 
 globalStyle(':where(ul:not([class])) > :where(li) + :where(li)', {
-  marginTop: '4px',
+  marginTop: theme.space.s,
+});
+
+globalStyle(':where(ul:not([class])) :where(li) ', {
+  display: 'list-item',
+  listStyle: 'square',
+  marginLeft: theme.space.m,
 });
 
 globalStyle('strong', {
