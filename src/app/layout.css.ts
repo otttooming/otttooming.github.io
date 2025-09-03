@@ -78,14 +78,6 @@ globalStyle('p, figure, li', {
   textWrap: 'pretty',
 });
 
-globalStyle('section * + p', {
-  marginTop: theme.space.m,
-});
-
-globalStyle('article * + p', {
-  marginTop: theme.space.l,
-});
-
 globalStyle('li', {
   display: 'block',
 });
