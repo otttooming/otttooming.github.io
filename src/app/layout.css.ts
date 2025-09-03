@@ -78,10 +78,6 @@ globalStyle('p, figure, li', {
   textWrap: 'pretty',
 });
 
-globalStyle('li', {
-  display: 'block',
-});
-
 globalStyle(':where(ul:not([class])) > :where(li) + :where(li)', {
   marginTop: '4px',
 });
