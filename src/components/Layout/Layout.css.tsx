@@ -76,3 +76,26 @@ globalStyle(`${breakout} > :not([data-layout-breakout], [data-layout-full])`, {
 globalStyle(`${breakout} > [data-layout-breakout]`, {
   gridColumn: 'breakout',
 });
+
+globalStyle(`${breakout} > :where([data-layout-breakout]:not(:first-child))`, {
+  marginBlockStart: theme.space.xl,
+});
+
+globalStyle(`${breakout} > :where([data-layout-breakout]:has(+ *))`, {
+  marginBlockStart: theme.space.xl,
+});
+
+globalStyle(`${breakout} > :where(header:first-child, figure:first-child)`, {
+  marginBlockStart: theme.space.xxxl,
+});
+
+globalStyle(`${breakout} > * + :where(header, figure)`, {
+  marginBlockStart: theme.space.xxl,
+});
+
+globalStyle(
+  `${breakout} > :where(article, section) + :where(article, section)`,
+  {
+    marginBlockStart: theme.space.xxl,
+  },
+);
