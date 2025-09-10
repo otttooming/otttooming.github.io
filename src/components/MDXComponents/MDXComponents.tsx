@@ -13,6 +13,7 @@ import {
   PropsWithChildren,
 } from 'react';
 import * as styles from './MDXComponents.css';
+import { Socials } from '../Socials/Socials';
 
 export const HeadingH2 = ({
   children,
@@ -89,6 +90,7 @@ const MDXComponents = {
   MasonryGallery,
   PieChart,
   Illustration,
+  Socials,
   h2: HeadingH2,
   h3: HeadingH3,
   p: Text,
