@@ -2,24 +2,13 @@ import { createGlobalVar, globalStyle, style } from '@vanilla-extract/css';
 import { theme } from '../../utils/theme.css';
 
 export const detailHeader = style({
-  display: 'grid',
-  gap: theme.space.m,
-  margin: 'auto',
-  maxWidth: '960px',
-  paddingLeft: theme.space.m,
-  paddingRight: theme.space.m,
-  marginTop: theme.space.xxxl,
+  display: 'block',
 });
 
 export const hero = style({
   display: 'flex',
   justifyContent: 'center',
-  maxWidth: '1024px',
   maxHeight: '70vh',
-  margin: 'auto',
-  marginTop: theme.space.xxxl,
-  padding: '0 16px',
-  position: 'relative',
 });
 
 createGlobalVar('content-max-width', {
