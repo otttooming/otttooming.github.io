@@ -28,12 +28,7 @@ export const ProjectItem = async ({
         <Logo name={company} />
 
         <Link href={`projects/${slug}`}>
-          <ProjectHeader
-            title={title}
-            kind={kind}
-            as="h2"
-            className={styles.projectTitle}
-          />
+          <ProjectHeader title={title} kind={kind} as="h2" />
         </Link>
       </div>
     </article>

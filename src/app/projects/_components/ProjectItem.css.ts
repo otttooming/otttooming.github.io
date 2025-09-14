@@ -48,8 +48,3 @@ export const projectContent = style({
     },
   },
 });
-
-export const projectTitle = style({
-  lineHeight: theme.lineHeight.xs,
-  marginBottom: theme.space.m,
-});
