@@ -44,13 +44,6 @@ const fontWeight = {
   bold: '700',
 } as const;
 
-const color = {
-  primary: '#3880ff',
-  warning: '#10dc60',
-  success: '#ffce00',
-  danger: '#f04141',
-} as const;
-
 const textColor = {
   header: 'hsl(214, 35%, 15%)',
   primary: 'hsla(214, 40%, 16%, 0.94)',
@@ -69,7 +62,6 @@ export const theme = createGlobalTheme(':root', {
   fontSize,
   fontFamily,
   fontWeight,
-  color,
   textColor,
   backgroundColor,
 });
