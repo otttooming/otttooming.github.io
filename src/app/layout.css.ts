@@ -41,7 +41,6 @@ globalStyle(':where(h1, h2, h3, h4, h5, h6) em', {
   display: 'block',
   textTransform: 'uppercase',
   fontSize: theme.fontSize.xs,
-  lineHeight: theme.lineHeight.xs,
   color: 'light-dark(#243343, #fff)',
 });
 
@@ -59,7 +58,7 @@ globalStyle('h3', {
 
 globalStyle('h1, h2, h3, h4, h5', {
   fontWeight: theme.fontWeight.bold,
-  lineHeight: theme.lineHeight.m,
+  lineHeight: theme.lineHeight.s,
 });
 
 globalStyle(':where(h1, h2, h3, h4, h5):has(strong)', {
@@ -68,7 +67,6 @@ globalStyle(':where(h1, h2, h3, h4, h5):has(strong)', {
 
 globalStyle('p', {
   fontWeight: theme.fontWeight.normal,
-  lineHeight: theme.lineHeight.m,
 });
 
 globalStyle('p, figure, li', {
